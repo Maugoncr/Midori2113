@@ -977,6 +977,171 @@ namespace MidoriValveTest
         //Maugoncr// Set clic de la presión VERDE
         private void btn_S_pressure_Click_1(object sender, EventArgs e)
         {
+            double presion = trackBar2.Value;
+
+
+            switch (lbl_P_unit_top.Text)
+            {
+                case "PSI":
+                    if (presion <= 146959 && presion > 130624)
+                    {
+                        s_inicial = 130624 / 10000;
+                        s_final = 146959 / 10000;
+                    }
+                    else if (presion <= 130624 && presion > 114296)
+                    {
+                        s_inicial = 114296 / 10000;
+                        s_final = 130624 / 10000;
+                    }
+                    else if (presion <= 114296 && presion > 97968)
+                    {
+                        s_inicial = 97968 / 10000;
+                        s_final = 114296 / 10000;
+                    }
+                    else if (presion <= 97968 && presion > 81640)
+                    {
+                        s_inicial = 81640 / 10000;
+                        s_final = 97968 / 10000;
+                    }
+                    else if (presion <= 81640 && presion > 65312)
+                    {
+                        s_inicial = 65312 / 10000;
+                        s_final = 81640 / 10000;
+                    }
+                    else if (presion <= 65312 && presion > 48984)
+                    {
+                        s_inicial = 48984 / 10000;
+                        s_final = 65312 / 10000;
+                    }
+                    else if (presion <= 48984 && presion > 32656)
+                    {
+                        s_inicial = 32656 / 10000;
+                        s_final = 48954 / 10000;
+                    }
+                    else if (presion <= 32656 && presion > 16328)
+                    {
+                        s_inicial = 16328 / 10000;
+                        s_final = 32656 / 10000;
+                    }
+                    else if (presion <= 16328 && presion > 0)
+                    {
+                        s_inicial = 0;
+                        s_final = 16328 / 10000;
+                    };
+
+
+                    break;
+                case "ATM":
+
+                   // btn_S_pressure.Text = "Set target pressure in " + (float)trackBar2.Value / 1000;
+
+                    //if (presion <= 146959 && presion >= 130624)
+                    //{
+                    //    s_inicial = 130624 / 1000;
+                    //    s_final = 146959 / 1000;
+                    //}
+                    //else if (presion <= 130624 && presion >= 114296)
+                    //{
+                    //    s_inicial = 114296 / 1000;
+                    //    s_final = 130624 / 1000;
+                    //}
+                    //else if (presion <= 114296 && presion >= 97968)
+                    //{
+                    //    s_inicial = 97968 / 1000;
+                    //    s_final = 114296 / 1000;
+                    //}
+                    //else if (presion <= 97968 && presion >= 81640)
+                    //{
+                    //    s_inicial = 81640 / 1000;
+                    //    s_final = 97968 / 1000;
+                    //}
+                    //else if (presion <= 81640 && presion >= 65312)
+                    //{
+                    //    s_inicial = 65312 / 1000;
+                    //    s_final = 81640 / 1000;
+                    //}
+                    //else if (presion <= 65312 && presion >= 48984)
+                    //{
+                    //    s_inicial = 48984 / 1000;
+                    //    s_final = 65312 / 1000;
+                    //}
+                    //else if (presion <= 48984 && presion >= 32656)
+                    //{
+                    //    s_inicial = 32656 / 1000;
+                    //    s_final = 48954 / 1000;
+                    //}
+                    //else if (presion <= 32656 && presion >= 16328)
+                    //{
+                    //    s_inicial = 16328 / 1000;
+                    //    s_final = 32656 / 1000;
+                    //}
+                    //else if (presion <= 16328 && presion >= 0)
+                    //{
+                    //    s_inicial = 0;
+                    //    s_final = 16328 / 1000;
+                    //};
+
+
+
+                    break;
+                case "mbar":
+                    btn_S_pressure.Text = "Set target pressure in " + (float)trackBar2.Value / 100;
+                    break;
+
+
+                case "Torr":
+                    btn_S_pressure.Text = "Set target pressure in " + (float)trackBar2.Value;
+
+                    if (presion <= 760 && presion > 675.52)
+                    {
+                        s_inicial = 675.52;
+                        s_final = 760;
+                    }
+                    else if (presion <= 675.52 && presion > 591.08)
+                    {
+                        s_inicial = 591.08;
+                        s_final = 675.52;
+                    }
+                    else if (presion <= 591.08 && presion > 506.64)
+                    {
+                        s_inicial = 506.64;
+                        s_final = 591.08;
+                    }
+                    else if (presion <= 506.64 && presion > 422.2)
+                    {
+                        s_inicial = 422.2;
+                        s_final = 506.64;
+                    }
+                    else if (presion <= 422.2 && presion > 337.76)
+                    {
+                        s_inicial = 422.2;
+                        s_final = 337.76;
+                    }
+                    else if (presion <= 337.76 && presion > 253.32)
+                    {
+                        s_inicial = 253.32;
+                        s_final = 337.76;
+                    }
+                    else if (presion <= 253.32 && presion > 168.88)
+                    {
+                        s_inicial = 168.88;
+                        s_final = 253.32;
+                    }
+                    else if (presion <= 168.88 && presion > 84.44)
+                    {
+                        s_inicial = 84.44;
+                        s_final = 168.88;
+                    }
+                    else if (presion <= 84.44 && presion >= 0)
+                    {
+                        s_inicial = 0;
+                        s_final = 84.44;
+                    };
+
+                    break;
+            }
+
+
             //pressure_get = trackBar2.Value;
             //lbl_pressure.Text = "Current Pressure:" + pressure_get + "°";
             //btn_S_pressure.Text = "Set Pressure";
