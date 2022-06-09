@@ -40,7 +40,6 @@ namespace MidoriValveTest
             this.label6 = new System.Windows.Forms.Label();
             this.lblPuerto = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnRestart = new System.Windows.Forms.Button();
             this.lbl_presure_chart = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -62,6 +61,7 @@ namespace MidoriValveTest
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnRestart = new System.Windows.Forms.Button();
             this.btn_encender = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btn_apagar = new System.Windows.Forms.Button();
@@ -249,16 +249,6 @@ namespace MidoriValveTest
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Real time chart";
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
-            // 
-            // btnRestart
-            // 
-            this.btnRestart.Location = new System.Drawing.Point(291, 57);
-            this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(83, 29);
-            this.btnRestart.TabIndex = 39;
-            this.btnRestart.Text = "Restart";
-            this.btnRestart.UseVisualStyleBackColor = true;
-            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // lbl_presure_chart
             // 
@@ -527,6 +517,16 @@ namespace MidoriValveTest
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
             this.chart1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Midori_PV_MouseClick);
+            // 
+            // btnRestart
+            // 
+            this.btnRestart.Location = new System.Drawing.Point(291, 57);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(83, 29);
+            this.btnRestart.TabIndex = 39;
+            this.btnRestart.Text = "Restart";
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // btn_encender
             // 

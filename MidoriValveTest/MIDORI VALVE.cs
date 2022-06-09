@@ -62,7 +62,18 @@ namespace MidoriValveTest
             }
             lbl_estado.ForeColor = Color.Red;                                   // Establece color rojo al lbl de estado de posicion de valvula. 
             ChartArea CA = chart1.ChartAreas[0];                                //
-            CA.CursorX.AutoScroll = true;                                       // Activamos autoescala en la grafica. 
+            CA.CursorX.AutoScroll = true;                                       // Activamos autoescala en la grafica.
+                                                                                // 
+            btn_90.Enabled = false;
+            btn_80.Enabled = false;
+            btn_70.Enabled = false;
+            btn_60.Enabled = false;
+            btn_50.Enabled = false;
+            btn_40.Enabled = false;
+            btn_30.Enabled = false;
+            btn_20.Enabled = false;
+            btn_10.Enabled = false;
+            btn_0.Enabled = false;
 
         }
 
@@ -140,6 +151,8 @@ namespace MidoriValveTest
                     btn_menu.Enabled = true;
                     trackBar2.Enabled = true;
                     trackBar1.Enabled = true;
+                    //apertura
+
                 }              
                 
             }
@@ -214,6 +227,22 @@ namespace MidoriValveTest
             lbl_estado.Text = "Open";
             btn_encender.Enabled = false;
             btn_apagar.Enabled = true;
+
+
+            btn_90.Enabled = true;
+            btn_80.Enabled = true;
+            btn_70.Enabled = true;
+            btn_60.Enabled = true;
+            btn_50.Enabled = true;
+            btn_40.Enabled = true;
+            btn_30.Enabled = true;
+            btn_20.Enabled = true;
+            btn_10.Enabled = true;
+            btn_0.Enabled = true;
+
+
+
+
         }
 
         private void btn_apagar_Click(object sender, EventArgs e)
@@ -242,6 +271,16 @@ namespace MidoriValveTest
 
             btn_encender.Enabled = true;
             btn_apagar.Enabled = false;
+            btn_90.Enabled = false;
+            btn_80.Enabled = false;
+            btn_70.Enabled = false;
+            btn_60.Enabled = false;
+            btn_50.Enabled = false;
+            btn_40.Enabled = false;
+            btn_30.Enabled = false;
+            btn_20.Enabled = false;
+            btn_10.Enabled = false;
+            btn_0.Enabled = false;
 
         }
 
@@ -705,6 +744,7 @@ namespace MidoriValveTest
             
         }
         
+        //Chart Analicer
         private void button7_Click(object sender, EventArgs e)
         {
 
