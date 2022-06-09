@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{65813914-2268-4D88-A309-B01AF96963A7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MidoriValveTest</RootNamespace>
+    <AssemblyName>MidoriValveTest</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Ralvarez\Desktop\MVT deploy\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MidoriValveTest.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>C9833C5F7AD2082C929CAEF4D9D3FACCE66BCBC9</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MidoriValveTest_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Chart Analyzer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chart Analyzer.Designer.cs">
+      <DependentUpon>Chart Analyzer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chart Analyzer File.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chart Analyzer File.Designer.cs">
+      <DependentUpon>Chart Analyzer File.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DecimalFormat.cs" />
+    <Compile Include="PID_Config.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PID_Config.Designer.cs">
+      <DependentUpon>PID_Config.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Unit_config.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Unit_config.Designer.cs">
+      <DependentUpon>Unit_config.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MIDORI VALVE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MIDORI VALVE.Designer.cs">
+      <DependentUpon>MIDORI VALVE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Terminal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Terminal.Designer.cs">
+      <DependentUpon>Terminal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestCicles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestCicles.Designer.cs">
+      <DependentUpon>TestCicles.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Chart Analyzer File.resx">
+      <DependentUpon>Chart Analyzer File.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart Analyzer.resx">
+      <DependentUpon>Chart Analyzer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PID_Config.resx">
+      <DependentUpon>PID_Config.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Unit_config.resx">
+      <DependentUpon>Unit_config.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIDORI VALVE.resx">
+      <DependentUpon>MIDORI VALVE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Terminal.resx">
+      <DependentUpon>Terminal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestCicles.resx">
+      <DependentUpon>TestCicles.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="MidoriValveTest_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MIDORI ESA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MIDORI ESA_blanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0 GRADOS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10 GRADOS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20 GRADOS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30 GRADOS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\40 GRADOS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50 GRADOS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\60 GRADOS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\70 GRADOS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\80 GRADOS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\90 GRADOS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close menu1.png" />
+    <None Include="Resources\menu.png" />
+    <None Include="Resources\close menu.png" />
+    <None Include="Resources\led_on.png" />
+    <None Include="Resources\led_off.png" />
+    <None Include="Resources\0 GRADOS1.png" />
+    <None Include="Resources\0 GRADOS2.png" />
+    <Content Include="Resources\0_2.png" />
+    <None Include="Resources\90_21.png" />
+    <None Include="Resources\0_21.png" />
+    <None Include="Resources\10 GRADOS1.png" />
+    <None Include="Resources\10 GRADOS2.png" />
+    <Content Include="Resources\10_2.png" />
+    <None Include="Resources\10_21.png" />
+    <None Include="Resources\20 GRADOS1.png" />
+    <None Include="Resources\20 GRADOS2.png" />
+    <Content Include="Resources\20_2.png" />
+    <None Include="Resources\20_21.png" />
+    <None Include="Resources\30 GRADOS1.png" />
+    <None Include="Resources\30 GRADOS2.png" />
+    <Content Include="Resources\30_2.png" />
+    <None Include="Resources\30_21.png" />
+    <None Include="Resources\40 GRADOS1.png" />
+    <None Include="Resources\40 GRADOS2.png" />
+    <Content Include="Resources\40_2.png" />
+    <None Include="Resources\40_21.png" />
+    <None Include="Resources\50 GRADOS1.png" />
+    <None Include="Resources\50 GRADOS2.png" />
+    <Content Include="Resources\50_2.png" />
+    <None Include="Resources\50_21.png" />
+    <None Include="Resources\60 GRADOS1.png" />
+    <None Include="Resources\60 GRADOS2.png" />
+    <None Include="Resources\568239.png" />
+    <Content Include="Resources\60_2.png" />
+    <None Include="Resources\60_21.png" />
+    <None Include="Resources\70 GRADOS1.png" />
+    <None Include="Resources\70 GRADOS2.png" />
+    <Content Include="Resources\70_2.png" />
+    <None Include="Resources\70_21.png" />
+    <None Include="Resources\80 GRADOS1.png" />
+    <None Include="Resources\80 GRADOS2.png" />
+    <Content Include="Resources\80_2.png" />
+    <None Include="Resources\80_21.png" />
+    <None Include="Resources\90 GRADOS1.png" />
+    <None Include="Resources\90 GRADOS2.png" />
+    <Content Include="Resources\90_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Visual.C++.14.0.x64">
+      <Visible>False</Visible>
+      <ProductName>Visual C++ "14" Runtime Libraries %28x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
