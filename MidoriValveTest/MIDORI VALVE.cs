@@ -968,6 +968,8 @@ namespace MidoriValveTest
             PID_Config nt = new PID_Config();
             
             nt.ShowDialog();
+
+
         }
 
         private void label39_Click(object sender, EventArgs e)
@@ -1262,6 +1264,7 @@ namespace MidoriValveTest
 
         }
 
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblhora.Text = DateTime.Now.ToString("hh:mm:ss");
@@ -1269,5 +1272,7 @@ namespace MidoriValveTest
            
 
         }
+
+
     }
 }

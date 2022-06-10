@@ -29,168 +29,152 @@ namespace MidoriValveTest
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Enable_ramp = new System.Windows.Forms.CheckBox();
+            this.RamEnable1 = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.Type1 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.StartV1 = new System.Windows.Forms.ComboBox();
+            this.Slope1 = new System.Windows.Forms.NumericUpDown();
+            this.Time1 = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Mode1 = new System.Windows.Forms.ComboBox();
+            this.Cb_ControlSelector = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.GroupC1 = new System.Windows.Forms.GroupBox();
+            this.CbAlgo1 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.GroupC2 = new System.Windows.Forms.GroupBox();
+            this.CbAlgo2 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.GroupR2 = new System.Windows.Forms.GroupBox();
+            this.RamEnable2 = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.Type2 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
+            this.StartV2 = new System.Windows.Forms.ComboBox();
+            this.Slope2 = new System.Windows.Forms.NumericUpDown();
+            this.Time2 = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.Mode2 = new System.Windows.Forms.ComboBox();
+            this.GroupS2 = new System.Windows.Forms.GroupBox();
+            this.NumD2 = new System.Windows.Forms.NumericUpDown();
             this.label19 = new System.Windows.Forms.Label();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
+            this.NumI2 = new System.Windows.Forms.NumericUpDown();
+            this.NumP2 = new System.Windows.Forms.NumericUpDown();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.comboBox11 = new System.Windows.Forms.ComboBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.comboBox12 = new System.Windows.Forms.ComboBox();
+            this.CbDirect2 = new System.Windows.Forms.ComboBox();
+            this.GroupC3 = new System.Windows.Forms.GroupBox();
+            this.CbAlgo3 = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.GroupR3 = new System.Windows.Forms.GroupBox();
+            this.RamEnable3 = new System.Windows.Forms.CheckBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.comboBox13 = new System.Windows.Forms.ComboBox();
+            this.Type3 = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.comboBox14 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
+            this.StartV3 = new System.Windows.Forms.ComboBox();
+            this.Slope3 = new System.Windows.Forms.NumericUpDown();
+            this.Time3 = new System.Windows.Forms.NumericUpDown();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.comboBox15 = new System.Windows.Forms.ComboBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown13 = new System.Windows.Forms.NumericUpDown();
+            this.Mode3 = new System.Windows.Forms.ComboBox();
+            this.GroupS3 = new System.Windows.Forms.GroupBox();
+            this.NumD3 = new System.Windows.Forms.NumericUpDown();
             this.label29 = new System.Windows.Forms.Label();
-            this.numericUpDown14 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown15 = new System.Windows.Forms.NumericUpDown();
+            this.NumI3 = new System.Windows.Forms.NumericUpDown();
+            this.NumP3 = new System.Windows.Forms.NumericUpDown();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.comboBox16 = new System.Windows.Forms.ComboBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.CbDirect3 = new System.Windows.Forms.ComboBox();
+            this.GroupR4 = new System.Windows.Forms.GroupBox();
+            this.RamEnable4 = new System.Windows.Forms.CheckBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.comboBox18 = new System.Windows.Forms.ComboBox();
+            this.Type4 = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
-            this.comboBox19 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown16 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown17 = new System.Windows.Forms.NumericUpDown();
+            this.StartV4 = new System.Windows.Forms.ComboBox();
+            this.Slope4 = new System.Windows.Forms.NumericUpDown();
+            this.Time4 = new System.Windows.Forms.NumericUpDown();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
-            this.comboBox20 = new System.Windows.Forms.ComboBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown18 = new System.Windows.Forms.NumericUpDown();
+            this.Mode4 = new System.Windows.Forms.ComboBox();
+            this.GroupS4 = new System.Windows.Forms.GroupBox();
+            this.NumD4 = new System.Windows.Forms.NumericUpDown();
             this.label39 = new System.Windows.Forms.Label();
-            this.numericUpDown19 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown20 = new System.Windows.Forms.NumericUpDown();
+            this.NumI4 = new System.Windows.Forms.NumericUpDown();
+            this.NumP4 = new System.Windows.Forms.NumericUpDown();
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.comboBox21 = new System.Windows.Forms.ComboBox();
+            this.CbDirect4 = new System.Windows.Forms.ComboBox();
             this.label33 = new System.Windows.Forms.Label();
-            this.comboBox17 = new System.Windows.Forms.ComboBox();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
-            this.groupBox9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).BeginInit();
-            this.groupBox11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).BeginInit();
-            this.groupBox12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown20)).BeginInit();
-            this.groupBox10.SuspendLayout();
+            this.CbAlgo4 = new System.Windows.Forms.ComboBox();
+            this.GroupC4 = new System.Windows.Forms.GroupBox();
+            this.CbDirec1 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.NumP1 = new System.Windows.Forms.NumericUpDown();
+            this.NumI1 = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.NumD1 = new System.Windows.Forms.NumericUpDown();
+            this.GroupR1 = new System.Windows.Forms.GroupBox();
+            this.GroupS1 = new System.Windows.Forms.GroupBox();
+            this.btnBackGround1 = new System.Windows.Forms.Button();
+            this.BtnBackGround2 = new System.Windows.Forms.Button();
+            this.BtnBackGround3 = new System.Windows.Forms.Button();
+            this.BtnBackGround4 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.Slope1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Time1)).BeginInit();
+            this.GroupC1.SuspendLayout();
+            this.GroupC2.SuspendLayout();
+            this.GroupR2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Slope2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Time2)).BeginInit();
+            this.GroupS2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumD2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumI2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumP2)).BeginInit();
+            this.GroupC3.SuspendLayout();
+            this.GroupR3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Slope3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Time3)).BeginInit();
+            this.GroupS3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumD3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumI3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumP3)).BeginInit();
+            this.GroupR4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Slope4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Time4)).BeginInit();
+            this.GroupS4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumD4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumI4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumP4)).BeginInit();
+            this.GroupC4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumP1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumI1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumD1)).BeginInit();
+            this.GroupR1.SuspendLayout();
+            this.GroupS1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox2
+            // RamEnable1
             // 
-            this.groupBox2.Controls.Add(this.Enable_ramp);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.comboBox5);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.comboBox4);
-            this.groupBox2.Controls.Add(this.numericUpDown3);
-            this.groupBox2.Controls.Add(this.numericUpDown4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.comboBox3);
-            this.groupBox2.Location = new System.Drawing.Point(11, 325);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(315, 232);
-            this.groupBox2.TabIndex = 13;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Ramp";
-            // 
-            // Enable_ramp
-            // 
-            this.Enable_ramp.AutoSize = true;
-            this.Enable_ramp.Location = new System.Drawing.Point(27, 32);
-            this.Enable_ramp.Name = "Enable_ramp";
-            this.Enable_ramp.Size = new System.Drawing.Size(59, 17);
-            this.Enable_ramp.TabIndex = 13;
-            this.Enable_ramp.Text = "Enable";
-            this.Enable_ramp.UseVisualStyleBackColor = true;
+            this.RamEnable1.AutoSize = true;
+            this.RamEnable1.Location = new System.Drawing.Point(27, 32);
+            this.RamEnable1.Name = "RamEnable1";
+            this.RamEnable1.Size = new System.Drawing.Size(59, 17);
+            this.RamEnable1.TabIndex = 13;
+            this.RamEnable1.Text = "Enable";
+            this.RamEnable1.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -201,68 +185,65 @@ namespace MidoriValveTest
             this.label10.TabIndex = 10;
             this.label10.Text = "Type";
             // 
-            // comboBox5
+            // Type1
             // 
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
+            this.Type1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Type1.FormattingEnabled = true;
+            this.Type1.Items.AddRange(new object[] {
             "Exponentrial",
             "Linear",
             "Logarithmic"});
-            this.comboBox5.Location = new System.Drawing.Point(154, 200);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(149, 21);
-            this.comboBox5.TabIndex = 11;
+            this.Type1.Location = new System.Drawing.Point(154, 200);
+            this.Type1.Name = "Type1";
+            this.Type1.Size = new System.Drawing.Size(149, 21);
+            this.Type1.TabIndex = 11;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(24, 168);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 13);
+            this.label9.Size = new System.Drawing.Size(58, 13);
             this.label9.TabIndex = 8;
-            this.label9.Text = "Star value";
+            this.label9.Text = "Start value";
             // 
-            // comboBox4
+            // StartV1
             // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.StartV1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.StartV1.FormattingEnabled = true;
+            this.StartV1.Items.AddRange(new object[] {
             "Actual value",
             "Previus Ramp Value"});
-            this.comboBox4.Location = new System.Drawing.Point(154, 165);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(149, 21);
-            this.comboBox4.TabIndex = 9;
+            this.StartV1.Location = new System.Drawing.Point(154, 165);
+            this.StartV1.Name = "StartV1";
+            this.StartV1.Size = new System.Drawing.Size(149, 21);
+            this.StartV1.TabIndex = 9;
             // 
-            // numericUpDown3
+            // Slope1
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(154, 97);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown3.TabIndex = 7;
-            this.numericUpDown3.Value = new decimal(new int[] {
+            this.Slope1.Location = new System.Drawing.Point(154, 97);
+            this.Slope1.Name = "Slope1";
+            this.Slope1.Size = new System.Drawing.Size(149, 20);
+            this.Slope1.TabIndex = 7;
+            this.Slope1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Slope1.Value = new decimal(new int[] {
             100,
             0,
             0,
             0});
             // 
-            // numericUpDown4
+            // Time1
             // 
-            this.numericUpDown4.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            65536});
-            this.numericUpDown4.Location = new System.Drawing.Point(154, 62);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown4.TabIndex = 4;
-            this.numericUpDown4.Value = new decimal(new int[] {
+            this.Time1.Location = new System.Drawing.Point(154, 62);
+            this.Time1.Name = "Time1";
+            this.Time1.Size = new System.Drawing.Size(149, 20);
+            this.Time1.TabIndex = 4;
+            this.Time1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Time1.Value = new decimal(new int[] {
             1,
             0,
             0,
-            65536});
+            0});
             // 
             // label3
             // 
@@ -291,159 +272,88 @@ namespace MidoriValveTest
             this.label8.TabIndex = 4;
             this.label8.Text = "Mode";
             // 
-            // comboBox3
+            // Mode1
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.Mode1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Mode1.FormattingEnabled = true;
+            this.Mode1.Items.AddRange(new object[] {
             "Ramp Slope",
             "Ramp Time"});
-            this.comboBox3.Location = new System.Drawing.Point(154, 133);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(149, 21);
-            this.comboBox3.TabIndex = 4;
+            this.Mode1.Location = new System.Drawing.Point(154, 133);
+            this.Mode1.Name = "Mode1";
+            this.Mode1.Size = new System.Drawing.Size(149, 21);
+            this.Mode1.TabIndex = 4;
             // 
-            // groupBox1
+            // Cb_ControlSelector
             // 
-            this.groupBox1.Controls.Add(this.numericUpDown5);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.numericUpDown2);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Location = new System.Drawing.Point(11, 149);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(315, 160);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Controller Settings";
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.DecimalPlaces = 2;
-            this.numericUpDown2.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numericUpDown2.Location = new System.Drawing.Point(154, 65);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown2.TabIndex = 7;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numericUpDown1.Location = new System.Drawing.Point(154, 30);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown1.TabIndex = 4;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "P-Gain";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 67);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "I- Gain";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 127);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Control Direction";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Downstream",
-            "Upstream"});
-            this.comboBox2.Location = new System.Drawing.Point(154, 127);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(149, 21);
-            this.comboBox2.TabIndex = 4;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.Cb_ControlSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cb_ControlSelector.FormattingEnabled = true;
+            this.Cb_ControlSelector.Items.AddRange(new object[] {
             "Controller 1",
             "Controller 2",
             "Controller 3",
             "Controller 4"});
-            this.comboBox1.Location = new System.Drawing.Point(165, 36);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(149, 21);
-            this.comboBox1.TabIndex = 11;
+            this.Cb_ControlSelector.Location = new System.Drawing.Point(133, 39);
+            this.Cb_ControlSelector.Name = "Cb_ControlSelector";
+            this.Cb_ControlSelector.Size = new System.Drawing.Size(149, 21);
+            this.Cb_ControlSelector.TabIndex = 11;
+            this.Cb_ControlSelector.SelectedIndexChanged += new System.EventHandler(this.Cb_ControlSelector_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 39);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 13);
+            this.label2.Size = new System.Drawing.Size(112, 13);
             this.label2.TabIndex = 10;
             this.label2.Text = "Controller Selector";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkCyan;
             this.label1.Location = new System.Drawing.Point(12, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.Size = new System.Drawing.Size(115, 18);
             this.label1.TabIndex = 9;
             this.label1.Text = "PID Controller";
             // 
-            // groupBox3
+            // GroupC1
             // 
-            this.groupBox3.Controls.Add(this.comboBox6);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.ForeColor = System.Drawing.Color.DarkCyan;
-            this.groupBox3.Location = new System.Drawing.Point(5, 84);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(327, 479);
-            this.groupBox3.TabIndex = 14;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Controller 1";
+            this.GroupC1.BackColor = System.Drawing.SystemColors.Control;
+            this.GroupC1.Controls.Add(this.CbAlgo1);
+            this.GroupC1.Controls.Add(this.label11);
+            this.GroupC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupC1.ForeColor = System.Drawing.Color.Black;
+            this.GroupC1.Location = new System.Drawing.Point(15, 84);
+            this.GroupC1.Name = "GroupC1";
+            this.GroupC1.Size = new System.Drawing.Size(327, 479);
+            this.GroupC1.TabIndex = 14;
+            this.GroupC1.TabStop = false;
+            this.GroupC1.Text = "Controller 1";
+            
+            // 
+            // CbAlgo1
+            // 
+            this.CbAlgo1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbAlgo1.FormattingEnabled = true;
+            this.CbAlgo1.Items.AddRange(new object[] {
+            "PI",
+            "PID",
+            "Soft Pump",
+            "P"});
+            this.CbAlgo1.Location = new System.Drawing.Point(160, 27);
+            this.CbAlgo1.Name = "CbAlgo1";
+            this.CbAlgo1.Size = new System.Drawing.Size(149, 21);
+            this.CbAlgo1.TabIndex = 1;
+            this.CbAlgo1.SelectedIndexChanged += new System.EventHandler(this.CbAlgo1_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.InfoText;
             this.label11.Location = new System.Drawing.Point(17, 30);
             this.label11.Name = "label11";
@@ -452,78 +362,40 @@ namespace MidoriValveTest
             this.label11.Text = "Control Algorithm";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
-            // comboBox6
+            // GroupC2
             // 
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
-            "P",
+            this.GroupC2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.GroupC2.Controls.Add(this.CbAlgo2);
+            this.GroupC2.Controls.Add(this.label13);
+            this.GroupC2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GroupC2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupC2.ForeColor = System.Drawing.Color.Black;
+            this.GroupC2.Location = new System.Drawing.Point(384, 84);
+            this.GroupC2.Name = "GroupC2";
+            this.GroupC2.Size = new System.Drawing.Size(327, 479);
+            this.GroupC2.TabIndex = 17;
+            this.GroupC2.TabStop = false;
+            this.GroupC2.Text = "Controller 2";
+            // 
+            // CbAlgo2
+            // 
+            this.CbAlgo2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbAlgo2.FormattingEnabled = true;
+            this.CbAlgo2.Items.AddRange(new object[] {
             "PI",
             "PID",
-            "Soft Pump"});
-            this.comboBox6.Location = new System.Drawing.Point(160, 27);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(149, 21);
-            this.comboBox6.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(24, 99);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 13);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "D-Gain";
-            // 
-            // numericUpDown5
-            // 
-            this.numericUpDown5.DecimalPlaces = 2;
-            this.numericUpDown5.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numericUpDown5.Location = new System.Drawing.Point(154, 97);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown5.TabIndex = 9;
-            this.numericUpDown5.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox4.Controls.Add(this.comboBox7);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox4.ForeColor = System.Drawing.Color.DarkCyan;
-            this.groupBox4.Location = new System.Drawing.Point(344, 84);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(327, 479);
-            this.groupBox4.TabIndex = 17;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Controller 2";
-            // 
-            // comboBox7
-            // 
-            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Items.AddRange(new object[] {
-            "P",
-            "PI",
-            "PID",
-            "Soft Pump"});
-            this.comboBox7.Location = new System.Drawing.Point(160, 27);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(149, 21);
-            this.comboBox7.TabIndex = 1;
+            "Soft Pump",
+            "P"});
+            this.CbAlgo2.Location = new System.Drawing.Point(160, 27);
+            this.CbAlgo2.Name = "CbAlgo2";
+            this.CbAlgo2.Size = new System.Drawing.Size(149, 21);
+            this.CbAlgo2.TabIndex = 1;
+            this.CbAlgo2.SelectedIndexChanged += new System.EventHandler(this.CbAlgo2_SelectedIndexChanged);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label13.Location = new System.Drawing.Point(17, 30);
             this.label13.Name = "label13";
@@ -531,36 +403,36 @@ namespace MidoriValveTest
             this.label13.TabIndex = 0;
             this.label13.Text = "Control Algorithm";
             // 
-            // groupBox5
+            // GroupR2
             // 
-            this.groupBox5.Controls.Add(this.checkBox1);
-            this.groupBox5.Controls.Add(this.label14);
-            this.groupBox5.Controls.Add(this.comboBox8);
-            this.groupBox5.Controls.Add(this.label15);
-            this.groupBox5.Controls.Add(this.comboBox9);
-            this.groupBox5.Controls.Add(this.numericUpDown6);
-            this.groupBox5.Controls.Add(this.numericUpDown7);
-            this.groupBox5.Controls.Add(this.label16);
-            this.groupBox5.Controls.Add(this.label17);
-            this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Controls.Add(this.comboBox10);
-            this.groupBox5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox5.Location = new System.Drawing.Point(350, 325);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(315, 232);
-            this.groupBox5.TabIndex = 16;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Ramp";
+            this.GroupR2.Controls.Add(this.RamEnable2);
+            this.GroupR2.Controls.Add(this.label14);
+            this.GroupR2.Controls.Add(this.Type2);
+            this.GroupR2.Controls.Add(this.label15);
+            this.GroupR2.Controls.Add(this.StartV2);
+            this.GroupR2.Controls.Add(this.Slope2);
+            this.GroupR2.Controls.Add(this.Time2);
+            this.GroupR2.Controls.Add(this.label16);
+            this.GroupR2.Controls.Add(this.label17);
+            this.GroupR2.Controls.Add(this.label18);
+            this.GroupR2.Controls.Add(this.Mode2);
+            this.GroupR2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.GroupR2.Location = new System.Drawing.Point(390, 325);
+            this.GroupR2.Name = "GroupR2";
+            this.GroupR2.Size = new System.Drawing.Size(315, 232);
+            this.GroupR2.TabIndex = 16;
+            this.GroupR2.TabStop = false;
+            this.GroupR2.Text = "Ramp";
             // 
-            // checkBox1
+            // RamEnable2
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(27, 32);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(59, 17);
-            this.checkBox1.TabIndex = 13;
-            this.checkBox1.Text = "Enable";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.RamEnable2.AutoSize = true;
+            this.RamEnable2.Location = new System.Drawing.Point(27, 32);
+            this.RamEnable2.Name = "RamEnable2";
+            this.RamEnable2.Size = new System.Drawing.Size(59, 17);
+            this.RamEnable2.TabIndex = 13;
+            this.RamEnable2.Text = "Enable";
+            this.RamEnable2.UseVisualStyleBackColor = true;
             // 
             // label14
             // 
@@ -571,68 +443,65 @@ namespace MidoriValveTest
             this.label14.TabIndex = 10;
             this.label14.Text = "Type";
             // 
-            // comboBox8
+            // Type2
             // 
-            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Items.AddRange(new object[] {
+            this.Type2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Type2.FormattingEnabled = true;
+            this.Type2.Items.AddRange(new object[] {
             "Exponentrial",
             "Linear",
             "Logarithmic"});
-            this.comboBox8.Location = new System.Drawing.Point(154, 200);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(149, 21);
-            this.comboBox8.TabIndex = 11;
+            this.Type2.Location = new System.Drawing.Point(154, 200);
+            this.Type2.Name = "Type2";
+            this.Type2.Size = new System.Drawing.Size(149, 21);
+            this.Type2.TabIndex = 11;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(24, 168);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 13);
+            this.label15.Size = new System.Drawing.Size(58, 13);
             this.label15.TabIndex = 8;
-            this.label15.Text = "Star value";
+            this.label15.Text = "Start value";
             // 
-            // comboBox9
+            // StartV2
             // 
-            this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Items.AddRange(new object[] {
+            this.StartV2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.StartV2.FormattingEnabled = true;
+            this.StartV2.Items.AddRange(new object[] {
             "Actual value",
             "Previus Ramp Value"});
-            this.comboBox9.Location = new System.Drawing.Point(154, 165);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(149, 21);
-            this.comboBox9.TabIndex = 9;
+            this.StartV2.Location = new System.Drawing.Point(154, 165);
+            this.StartV2.Name = "StartV2";
+            this.StartV2.Size = new System.Drawing.Size(149, 21);
+            this.StartV2.TabIndex = 9;
             // 
-            // numericUpDown6
+            // Slope2
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(154, 97);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown6.TabIndex = 7;
-            this.numericUpDown6.Value = new decimal(new int[] {
-            100,
+            this.Slope2.Location = new System.Drawing.Point(154, 97);
+            this.Slope2.Name = "Slope2";
+            this.Slope2.Size = new System.Drawing.Size(149, 20);
+            this.Slope2.TabIndex = 7;
+            this.Slope2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Slope2.Value = new decimal(new int[] {
+            1,
             0,
             0,
             0});
             // 
-            // numericUpDown7
+            // Time2
             // 
-            this.numericUpDown7.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            65536});
-            this.numericUpDown7.Location = new System.Drawing.Point(154, 62);
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown7.TabIndex = 4;
-            this.numericUpDown7.Value = new decimal(new int[] {
+            this.Time2.Location = new System.Drawing.Point(154, 62);
+            this.Time2.Name = "Time2";
+            this.Time2.Size = new System.Drawing.Size(149, 20);
+            this.Time2.TabIndex = 4;
+            this.Time2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Time2.Value = new decimal(new int[] {
             1,
             0,
             0,
-            65536});
+            0});
             // 
             // label16
             // 
@@ -661,48 +530,49 @@ namespace MidoriValveTest
             this.label18.TabIndex = 4;
             this.label18.Text = "Mode";
             // 
-            // comboBox10
+            // Mode2
             // 
-            this.comboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Items.AddRange(new object[] {
+            this.Mode2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Mode2.FormattingEnabled = true;
+            this.Mode2.Items.AddRange(new object[] {
             "Ramp Slope",
             "Ramp Time"});
-            this.comboBox10.Location = new System.Drawing.Point(154, 133);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(149, 21);
-            this.comboBox10.TabIndex = 4;
+            this.Mode2.Location = new System.Drawing.Point(154, 133);
+            this.Mode2.Name = "Mode2";
+            this.Mode2.Size = new System.Drawing.Size(149, 21);
+            this.Mode2.TabIndex = 4;
             // 
-            // groupBox6
+            // GroupS2
             // 
-            this.groupBox6.Controls.Add(this.numericUpDown8);
-            this.groupBox6.Controls.Add(this.label19);
-            this.groupBox6.Controls.Add(this.numericUpDown9);
-            this.groupBox6.Controls.Add(this.numericUpDown10);
-            this.groupBox6.Controls.Add(this.label20);
-            this.groupBox6.Controls.Add(this.label21);
-            this.groupBox6.Controls.Add(this.label22);
-            this.groupBox6.Controls.Add(this.comboBox11);
-            this.groupBox6.Location = new System.Drawing.Point(350, 149);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(315, 160);
-            this.groupBox6.TabIndex = 15;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Controller Settings";
+            this.GroupS2.Controls.Add(this.NumD2);
+            this.GroupS2.Controls.Add(this.label19);
+            this.GroupS2.Controls.Add(this.NumI2);
+            this.GroupS2.Controls.Add(this.NumP2);
+            this.GroupS2.Controls.Add(this.label20);
+            this.GroupS2.Controls.Add(this.label21);
+            this.GroupS2.Controls.Add(this.label22);
+            this.GroupS2.Controls.Add(this.CbDirect2);
+            this.GroupS2.Location = new System.Drawing.Point(390, 149);
+            this.GroupS2.Name = "GroupS2";
+            this.GroupS2.Size = new System.Drawing.Size(315, 160);
+            this.GroupS2.TabIndex = 15;
+            this.GroupS2.TabStop = false;
+            this.GroupS2.Text = "Controller Settings";
             // 
-            // numericUpDown8
+            // NumD2
             // 
-            this.numericUpDown8.DecimalPlaces = 2;
-            this.numericUpDown8.Increment = new decimal(new int[] {
+            this.NumD2.DecimalPlaces = 2;
+            this.NumD2.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDown8.Location = new System.Drawing.Point(154, 97);
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown8.TabIndex = 9;
-            this.numericUpDown8.Value = new decimal(new int[] {
+            this.NumD2.Location = new System.Drawing.Point(154, 97);
+            this.NumD2.Name = "NumD2";
+            this.NumD2.Size = new System.Drawing.Size(149, 20);
+            this.NumD2.TabIndex = 9;
+            this.NumD2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NumD2.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -717,37 +587,39 @@ namespace MidoriValveTest
             this.label19.TabIndex = 8;
             this.label19.Text = "D-Gain";
             // 
-            // numericUpDown9
+            // NumI2
             // 
-            this.numericUpDown9.DecimalPlaces = 2;
-            this.numericUpDown9.Increment = new decimal(new int[] {
+            this.NumI2.DecimalPlaces = 2;
+            this.NumI2.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDown9.Location = new System.Drawing.Point(154, 65);
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown9.TabIndex = 7;
-            this.numericUpDown9.Value = new decimal(new int[] {
+            this.NumI2.Location = new System.Drawing.Point(154, 65);
+            this.NumI2.Name = "NumI2";
+            this.NumI2.Size = new System.Drawing.Size(149, 20);
+            this.NumI2.TabIndex = 7;
+            this.NumI2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NumI2.Value = new decimal(new int[] {
             1,
             0,
             0,
             65536});
             // 
-            // numericUpDown10
+            // NumP2
             // 
-            this.numericUpDown10.DecimalPlaces = 2;
-            this.numericUpDown10.Increment = new decimal(new int[] {
+            this.NumP2.DecimalPlaces = 2;
+            this.NumP2.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDown10.Location = new System.Drawing.Point(154, 30);
-            this.numericUpDown10.Name = "numericUpDown10";
-            this.numericUpDown10.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown10.TabIndex = 4;
-            this.numericUpDown10.Value = new decimal(new int[] {
+            this.NumP2.Location = new System.Drawing.Point(154, 30);
+            this.NumP2.Name = "NumP2";
+            this.NumP2.Size = new System.Drawing.Size(149, 20);
+            this.NumP2.TabIndex = 4;
+            this.NumP2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NumP2.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -780,47 +652,50 @@ namespace MidoriValveTest
             this.label22.TabIndex = 4;
             this.label22.Text = "Control Direction";
             // 
-            // comboBox11
+            // CbDirect2
             // 
-            this.comboBox11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Items.AddRange(new object[] {
+            this.CbDirect2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbDirect2.FormattingEnabled = true;
+            this.CbDirect2.Items.AddRange(new object[] {
             "Downstream",
             "Upstream"});
-            this.comboBox11.Location = new System.Drawing.Point(154, 127);
-            this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(149, 21);
-            this.comboBox11.TabIndex = 4;
+            this.CbDirect2.Location = new System.Drawing.Point(154, 127);
+            this.CbDirect2.Name = "CbDirect2";
+            this.CbDirect2.Size = new System.Drawing.Size(149, 21);
+            this.CbDirect2.TabIndex = 4;
             // 
-            // groupBox7
+            // GroupC3
             // 
-            this.groupBox7.Controls.Add(this.comboBox12);
-            this.groupBox7.Controls.Add(this.label23);
-            this.groupBox7.ForeColor = System.Drawing.Color.DarkCyan;
-            this.groupBox7.Location = new System.Drawing.Point(683, 84);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(344, 479);
-            this.groupBox7.TabIndex = 20;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Controller 3";
+            this.GroupC3.Controls.Add(this.CbAlgo3);
+            this.GroupC3.Controls.Add(this.label23);
+            this.GroupC3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupC3.ForeColor = System.Drawing.Color.Black;
+            this.GroupC3.Location = new System.Drawing.Point(755, 84);
+            this.GroupC3.Name = "GroupC3";
+            this.GroupC3.Size = new System.Drawing.Size(344, 479);
+            this.GroupC3.TabIndex = 20;
+            this.GroupC3.TabStop = false;
+            this.GroupC3.Text = "Controller 3";
             // 
-            // comboBox12
+            // CbAlgo3
             // 
-            this.comboBox12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox12.FormattingEnabled = true;
-            this.comboBox12.Items.AddRange(new object[] {
-            "P",
+            this.CbAlgo3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbAlgo3.FormattingEnabled = true;
+            this.CbAlgo3.Items.AddRange(new object[] {
             "PI",
             "PID",
-            "Soft Pump"});
-            this.comboBox12.Location = new System.Drawing.Point(160, 27);
-            this.comboBox12.Name = "comboBox12";
-            this.comboBox12.Size = new System.Drawing.Size(149, 21);
-            this.comboBox12.TabIndex = 1;
+            "Soft Pump",
+            "P"});
+            this.CbAlgo3.Location = new System.Drawing.Point(160, 27);
+            this.CbAlgo3.Name = "CbAlgo3";
+            this.CbAlgo3.Size = new System.Drawing.Size(149, 21);
+            this.CbAlgo3.TabIndex = 1;
+            this.CbAlgo3.SelectedIndexChanged += new System.EventHandler(this.CbAlgo3_SelectedIndexChanged);
             // 
             // label23
             // 
             this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label23.Location = new System.Drawing.Point(17, 30);
             this.label23.Name = "label23";
@@ -828,35 +703,35 @@ namespace MidoriValveTest
             this.label23.TabIndex = 0;
             this.label23.Text = "Control Algorithm";
             // 
-            // groupBox8
+            // GroupR3
             // 
-            this.groupBox8.Controls.Add(this.checkBox2);
-            this.groupBox8.Controls.Add(this.label24);
-            this.groupBox8.Controls.Add(this.comboBox13);
-            this.groupBox8.Controls.Add(this.label25);
-            this.groupBox8.Controls.Add(this.comboBox14);
-            this.groupBox8.Controls.Add(this.numericUpDown11);
-            this.groupBox8.Controls.Add(this.numericUpDown12);
-            this.groupBox8.Controls.Add(this.label26);
-            this.groupBox8.Controls.Add(this.label27);
-            this.groupBox8.Controls.Add(this.label28);
-            this.groupBox8.Controls.Add(this.comboBox15);
-            this.groupBox8.Location = new System.Drawing.Point(689, 325);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(327, 232);
-            this.groupBox8.TabIndex = 19;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Ramp";
+            this.GroupR3.Controls.Add(this.RamEnable3);
+            this.GroupR3.Controls.Add(this.label24);
+            this.GroupR3.Controls.Add(this.Type3);
+            this.GroupR3.Controls.Add(this.label25);
+            this.GroupR3.Controls.Add(this.StartV3);
+            this.GroupR3.Controls.Add(this.Slope3);
+            this.GroupR3.Controls.Add(this.Time3);
+            this.GroupR3.Controls.Add(this.label26);
+            this.GroupR3.Controls.Add(this.label27);
+            this.GroupR3.Controls.Add(this.label28);
+            this.GroupR3.Controls.Add(this.Mode3);
+            this.GroupR3.Location = new System.Drawing.Point(761, 325);
+            this.GroupR3.Name = "GroupR3";
+            this.GroupR3.Size = new System.Drawing.Size(327, 232);
+            this.GroupR3.TabIndex = 19;
+            this.GroupR3.TabStop = false;
+            this.GroupR3.Text = "Ramp";
             // 
-            // checkBox2
+            // RamEnable3
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(27, 32);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(59, 17);
-            this.checkBox2.TabIndex = 13;
-            this.checkBox2.Text = "Enable";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.RamEnable3.AutoSize = true;
+            this.RamEnable3.Location = new System.Drawing.Point(27, 32);
+            this.RamEnable3.Name = "RamEnable3";
+            this.RamEnable3.Size = new System.Drawing.Size(59, 17);
+            this.RamEnable3.TabIndex = 13;
+            this.RamEnable3.Text = "Enable";
+            this.RamEnable3.UseVisualStyleBackColor = true;
             // 
             // label24
             // 
@@ -867,68 +742,65 @@ namespace MidoriValveTest
             this.label24.TabIndex = 10;
             this.label24.Text = "Type";
             // 
-            // comboBox13
+            // Type3
             // 
-            this.comboBox13.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Items.AddRange(new object[] {
+            this.Type3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Type3.FormattingEnabled = true;
+            this.Type3.Items.AddRange(new object[] {
             "Exponentrial",
             "Linear",
             "Logarithmic"});
-            this.comboBox13.Location = new System.Drawing.Point(154, 200);
-            this.comboBox13.Name = "comboBox13";
-            this.comboBox13.Size = new System.Drawing.Size(149, 21);
-            this.comboBox13.TabIndex = 11;
+            this.Type3.Location = new System.Drawing.Point(154, 200);
+            this.Type3.Name = "Type3";
+            this.Type3.Size = new System.Drawing.Size(149, 21);
+            this.Type3.TabIndex = 11;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(24, 168);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(55, 13);
+            this.label25.Size = new System.Drawing.Size(58, 13);
             this.label25.TabIndex = 8;
-            this.label25.Text = "Star value";
+            this.label25.Text = "Start value";
             // 
-            // comboBox14
+            // StartV3
             // 
-            this.comboBox14.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox14.FormattingEnabled = true;
-            this.comboBox14.Items.AddRange(new object[] {
+            this.StartV3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.StartV3.FormattingEnabled = true;
+            this.StartV3.Items.AddRange(new object[] {
             "Actual value",
             "Previus Ramp Value"});
-            this.comboBox14.Location = new System.Drawing.Point(154, 165);
-            this.comboBox14.Name = "comboBox14";
-            this.comboBox14.Size = new System.Drawing.Size(149, 21);
-            this.comboBox14.TabIndex = 9;
+            this.StartV3.Location = new System.Drawing.Point(154, 165);
+            this.StartV3.Name = "StartV3";
+            this.StartV3.Size = new System.Drawing.Size(149, 21);
+            this.StartV3.TabIndex = 9;
             // 
-            // numericUpDown11
+            // Slope3
             // 
-            this.numericUpDown11.Location = new System.Drawing.Point(154, 97);
-            this.numericUpDown11.Name = "numericUpDown11";
-            this.numericUpDown11.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown11.TabIndex = 7;
-            this.numericUpDown11.Value = new decimal(new int[] {
+            this.Slope3.Location = new System.Drawing.Point(154, 97);
+            this.Slope3.Name = "Slope3";
+            this.Slope3.Size = new System.Drawing.Size(149, 20);
+            this.Slope3.TabIndex = 7;
+            this.Slope3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Slope3.Value = new decimal(new int[] {
             100,
             0,
             0,
             0});
             // 
-            // numericUpDown12
+            // Time3
             // 
-            this.numericUpDown12.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            65536});
-            this.numericUpDown12.Location = new System.Drawing.Point(154, 62);
-            this.numericUpDown12.Name = "numericUpDown12";
-            this.numericUpDown12.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown12.TabIndex = 4;
-            this.numericUpDown12.Value = new decimal(new int[] {
+            this.Time3.Location = new System.Drawing.Point(154, 62);
+            this.Time3.Name = "Time3";
+            this.Time3.Size = new System.Drawing.Size(149, 20);
+            this.Time3.TabIndex = 4;
+            this.Time3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Time3.Value = new decimal(new int[] {
             1,
             0,
             0,
-            65536});
+            0});
             // 
             // label26
             // 
@@ -957,48 +829,49 @@ namespace MidoriValveTest
             this.label28.TabIndex = 4;
             this.label28.Text = "Mode";
             // 
-            // comboBox15
+            // Mode3
             // 
-            this.comboBox15.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox15.FormattingEnabled = true;
-            this.comboBox15.Items.AddRange(new object[] {
+            this.Mode3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Mode3.FormattingEnabled = true;
+            this.Mode3.Items.AddRange(new object[] {
             "Ramp Slope",
             "Ramp Time"});
-            this.comboBox15.Location = new System.Drawing.Point(154, 133);
-            this.comboBox15.Name = "comboBox15";
-            this.comboBox15.Size = new System.Drawing.Size(149, 21);
-            this.comboBox15.TabIndex = 4;
+            this.Mode3.Location = new System.Drawing.Point(154, 133);
+            this.Mode3.Name = "Mode3";
+            this.Mode3.Size = new System.Drawing.Size(149, 21);
+            this.Mode3.TabIndex = 4;
             // 
-            // groupBox9
+            // GroupS3
             // 
-            this.groupBox9.Controls.Add(this.numericUpDown13);
-            this.groupBox9.Controls.Add(this.label29);
-            this.groupBox9.Controls.Add(this.numericUpDown14);
-            this.groupBox9.Controls.Add(this.numericUpDown15);
-            this.groupBox9.Controls.Add(this.label30);
-            this.groupBox9.Controls.Add(this.label31);
-            this.groupBox9.Controls.Add(this.label32);
-            this.groupBox9.Controls.Add(this.comboBox16);
-            this.groupBox9.Location = new System.Drawing.Point(689, 149);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(327, 160);
-            this.groupBox9.TabIndex = 18;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Controller Settings";
+            this.GroupS3.Controls.Add(this.NumD3);
+            this.GroupS3.Controls.Add(this.label29);
+            this.GroupS3.Controls.Add(this.NumI3);
+            this.GroupS3.Controls.Add(this.NumP3);
+            this.GroupS3.Controls.Add(this.label30);
+            this.GroupS3.Controls.Add(this.label31);
+            this.GroupS3.Controls.Add(this.label32);
+            this.GroupS3.Controls.Add(this.CbDirect3);
+            this.GroupS3.Location = new System.Drawing.Point(761, 149);
+            this.GroupS3.Name = "GroupS3";
+            this.GroupS3.Size = new System.Drawing.Size(327, 160);
+            this.GroupS3.TabIndex = 18;
+            this.GroupS3.TabStop = false;
+            this.GroupS3.Text = "Controller Settings";
             // 
-            // numericUpDown13
+            // NumD3
             // 
-            this.numericUpDown13.DecimalPlaces = 2;
-            this.numericUpDown13.Increment = new decimal(new int[] {
+            this.NumD3.DecimalPlaces = 2;
+            this.NumD3.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDown13.Location = new System.Drawing.Point(154, 97);
-            this.numericUpDown13.Name = "numericUpDown13";
-            this.numericUpDown13.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown13.TabIndex = 9;
-            this.numericUpDown13.Value = new decimal(new int[] {
+            this.NumD3.Location = new System.Drawing.Point(154, 97);
+            this.NumD3.Name = "NumD3";
+            this.NumD3.Size = new System.Drawing.Size(149, 20);
+            this.NumD3.TabIndex = 9;
+            this.NumD3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NumD3.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -1013,37 +886,39 @@ namespace MidoriValveTest
             this.label29.TabIndex = 8;
             this.label29.Text = "D-Gain";
             // 
-            // numericUpDown14
+            // NumI3
             // 
-            this.numericUpDown14.DecimalPlaces = 2;
-            this.numericUpDown14.Increment = new decimal(new int[] {
+            this.NumI3.DecimalPlaces = 2;
+            this.NumI3.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDown14.Location = new System.Drawing.Point(154, 65);
-            this.numericUpDown14.Name = "numericUpDown14";
-            this.numericUpDown14.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown14.TabIndex = 7;
-            this.numericUpDown14.Value = new decimal(new int[] {
+            this.NumI3.Location = new System.Drawing.Point(154, 65);
+            this.NumI3.Name = "NumI3";
+            this.NumI3.Size = new System.Drawing.Size(149, 20);
+            this.NumI3.TabIndex = 7;
+            this.NumI3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NumI3.Value = new decimal(new int[] {
             1,
             0,
             0,
             65536});
             // 
-            // numericUpDown15
+            // NumP3
             // 
-            this.numericUpDown15.DecimalPlaces = 2;
-            this.numericUpDown15.Increment = new decimal(new int[] {
+            this.NumP3.DecimalPlaces = 2;
+            this.NumP3.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDown15.Location = new System.Drawing.Point(154, 30);
-            this.numericUpDown15.Name = "numericUpDown15";
-            this.numericUpDown15.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown15.TabIndex = 4;
-            this.numericUpDown15.Value = new decimal(new int[] {
+            this.NumP3.Location = new System.Drawing.Point(154, 30);
+            this.NumP3.Name = "NumP3";
+            this.NumP3.Size = new System.Drawing.Size(149, 20);
+            this.NumP3.TabIndex = 4;
+            this.NumP3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NumP3.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -1076,47 +951,47 @@ namespace MidoriValveTest
             this.label32.TabIndex = 4;
             this.label32.Text = "Control Direction";
             // 
-            // comboBox16
+            // CbDirect3
             // 
-            this.comboBox16.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox16.FormattingEnabled = true;
-            this.comboBox16.Items.AddRange(new object[] {
+            this.CbDirect3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbDirect3.FormattingEnabled = true;
+            this.CbDirect3.Items.AddRange(new object[] {
             "Downstream",
             "Upstream"});
-            this.comboBox16.Location = new System.Drawing.Point(154, 127);
-            this.comboBox16.Name = "comboBox16";
-            this.comboBox16.Size = new System.Drawing.Size(149, 21);
-            this.comboBox16.TabIndex = 4;
+            this.CbDirect3.Location = new System.Drawing.Point(154, 127);
+            this.CbDirect3.Name = "CbDirect3";
+            this.CbDirect3.Size = new System.Drawing.Size(149, 21);
+            this.CbDirect3.TabIndex = 4;
             // 
-            // groupBox11
+            // GroupR4
             // 
-            this.groupBox11.Controls.Add(this.checkBox3);
-            this.groupBox11.Controls.Add(this.label34);
-            this.groupBox11.Controls.Add(this.comboBox18);
-            this.groupBox11.Controls.Add(this.label35);
-            this.groupBox11.Controls.Add(this.comboBox19);
-            this.groupBox11.Controls.Add(this.numericUpDown16);
-            this.groupBox11.Controls.Add(this.numericUpDown17);
-            this.groupBox11.Controls.Add(this.label36);
-            this.groupBox11.Controls.Add(this.label37);
-            this.groupBox11.Controls.Add(this.label38);
-            this.groupBox11.Controls.Add(this.comboBox20);
-            this.groupBox11.Location = new System.Drawing.Point(1052, 325);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(315, 232);
-            this.groupBox11.TabIndex = 22;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Ramp";
+            this.GroupR4.Controls.Add(this.RamEnable4);
+            this.GroupR4.Controls.Add(this.label34);
+            this.GroupR4.Controls.Add(this.Type4);
+            this.GroupR4.Controls.Add(this.label35);
+            this.GroupR4.Controls.Add(this.StartV4);
+            this.GroupR4.Controls.Add(this.Slope4);
+            this.GroupR4.Controls.Add(this.Time4);
+            this.GroupR4.Controls.Add(this.label36);
+            this.GroupR4.Controls.Add(this.label37);
+            this.GroupR4.Controls.Add(this.label38);
+            this.GroupR4.Controls.Add(this.Mode4);
+            this.GroupR4.Location = new System.Drawing.Point(1149, 325);
+            this.GroupR4.Name = "GroupR4";
+            this.GroupR4.Size = new System.Drawing.Size(315, 232);
+            this.GroupR4.TabIndex = 22;
+            this.GroupR4.TabStop = false;
+            this.GroupR4.Text = "Ramp";
             // 
-            // checkBox3
+            // RamEnable4
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(27, 32);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(59, 17);
-            this.checkBox3.TabIndex = 13;
-            this.checkBox3.Text = "Enable";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.RamEnable4.AutoSize = true;
+            this.RamEnable4.Location = new System.Drawing.Point(27, 32);
+            this.RamEnable4.Name = "RamEnable4";
+            this.RamEnable4.Size = new System.Drawing.Size(59, 17);
+            this.RamEnable4.TabIndex = 13;
+            this.RamEnable4.Text = "Enable";
+            this.RamEnable4.UseVisualStyleBackColor = true;
             // 
             // label34
             // 
@@ -1127,68 +1002,65 @@ namespace MidoriValveTest
             this.label34.TabIndex = 10;
             this.label34.Text = "Type";
             // 
-            // comboBox18
+            // Type4
             // 
-            this.comboBox18.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox18.FormattingEnabled = true;
-            this.comboBox18.Items.AddRange(new object[] {
+            this.Type4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Type4.FormattingEnabled = true;
+            this.Type4.Items.AddRange(new object[] {
             "Exponentrial",
             "Linear",
             "Logarithmic"});
-            this.comboBox18.Location = new System.Drawing.Point(154, 200);
-            this.comboBox18.Name = "comboBox18";
-            this.comboBox18.Size = new System.Drawing.Size(149, 21);
-            this.comboBox18.TabIndex = 11;
+            this.Type4.Location = new System.Drawing.Point(154, 200);
+            this.Type4.Name = "Type4";
+            this.Type4.Size = new System.Drawing.Size(149, 21);
+            this.Type4.TabIndex = 11;
             // 
             // label35
             // 
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(24, 168);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(55, 13);
+            this.label35.Size = new System.Drawing.Size(58, 13);
             this.label35.TabIndex = 8;
-            this.label35.Text = "Star value";
+            this.label35.Text = "Start value";
             // 
-            // comboBox19
+            // StartV4
             // 
-            this.comboBox19.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox19.FormattingEnabled = true;
-            this.comboBox19.Items.AddRange(new object[] {
+            this.StartV4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.StartV4.FormattingEnabled = true;
+            this.StartV4.Items.AddRange(new object[] {
             "Actual value",
             "Previus Ramp Value"});
-            this.comboBox19.Location = new System.Drawing.Point(154, 165);
-            this.comboBox19.Name = "comboBox19";
-            this.comboBox19.Size = new System.Drawing.Size(149, 21);
-            this.comboBox19.TabIndex = 9;
+            this.StartV4.Location = new System.Drawing.Point(154, 165);
+            this.StartV4.Name = "StartV4";
+            this.StartV4.Size = new System.Drawing.Size(149, 21);
+            this.StartV4.TabIndex = 9;
             // 
-            // numericUpDown16
+            // Slope4
             // 
-            this.numericUpDown16.Location = new System.Drawing.Point(154, 97);
-            this.numericUpDown16.Name = "numericUpDown16";
-            this.numericUpDown16.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown16.TabIndex = 7;
-            this.numericUpDown16.Value = new decimal(new int[] {
+            this.Slope4.Location = new System.Drawing.Point(154, 97);
+            this.Slope4.Name = "Slope4";
+            this.Slope4.Size = new System.Drawing.Size(149, 20);
+            this.Slope4.TabIndex = 7;
+            this.Slope4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Slope4.Value = new decimal(new int[] {
             100,
             0,
             0,
             0});
             // 
-            // numericUpDown17
+            // Time4
             // 
-            this.numericUpDown17.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            65536});
-            this.numericUpDown17.Location = new System.Drawing.Point(154, 62);
-            this.numericUpDown17.Name = "numericUpDown17";
-            this.numericUpDown17.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown17.TabIndex = 4;
-            this.numericUpDown17.Value = new decimal(new int[] {
+            this.Time4.Location = new System.Drawing.Point(154, 62);
+            this.Time4.Name = "Time4";
+            this.Time4.Size = new System.Drawing.Size(149, 20);
+            this.Time4.TabIndex = 4;
+            this.Time4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Time4.Value = new decimal(new int[] {
             1,
             0,
             0,
-            65536});
+            0});
             // 
             // label36
             // 
@@ -1217,48 +1089,49 @@ namespace MidoriValveTest
             this.label38.TabIndex = 4;
             this.label38.Text = "Mode";
             // 
-            // comboBox20
+            // Mode4
             // 
-            this.comboBox20.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox20.FormattingEnabled = true;
-            this.comboBox20.Items.AddRange(new object[] {
+            this.Mode4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Mode4.FormattingEnabled = true;
+            this.Mode4.Items.AddRange(new object[] {
             "Ramp Slope",
             "Ramp Time"});
-            this.comboBox20.Location = new System.Drawing.Point(154, 133);
-            this.comboBox20.Name = "comboBox20";
-            this.comboBox20.Size = new System.Drawing.Size(149, 21);
-            this.comboBox20.TabIndex = 4;
+            this.Mode4.Location = new System.Drawing.Point(154, 133);
+            this.Mode4.Name = "Mode4";
+            this.Mode4.Size = new System.Drawing.Size(149, 21);
+            this.Mode4.TabIndex = 4;
             // 
-            // groupBox12
+            // GroupS4
             // 
-            this.groupBox12.Controls.Add(this.numericUpDown18);
-            this.groupBox12.Controls.Add(this.label39);
-            this.groupBox12.Controls.Add(this.numericUpDown19);
-            this.groupBox12.Controls.Add(this.numericUpDown20);
-            this.groupBox12.Controls.Add(this.label40);
-            this.groupBox12.Controls.Add(this.label41);
-            this.groupBox12.Controls.Add(this.label42);
-            this.groupBox12.Controls.Add(this.comboBox21);
-            this.groupBox12.Location = new System.Drawing.Point(1052, 149);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(315, 170);
-            this.groupBox12.TabIndex = 21;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Controller Settings";
+            this.GroupS4.Controls.Add(this.NumD4);
+            this.GroupS4.Controls.Add(this.label39);
+            this.GroupS4.Controls.Add(this.NumI4);
+            this.GroupS4.Controls.Add(this.NumP4);
+            this.GroupS4.Controls.Add(this.label40);
+            this.GroupS4.Controls.Add(this.label41);
+            this.GroupS4.Controls.Add(this.label42);
+            this.GroupS4.Controls.Add(this.CbDirect4);
+            this.GroupS4.Location = new System.Drawing.Point(1149, 149);
+            this.GroupS4.Name = "GroupS4";
+            this.GroupS4.Size = new System.Drawing.Size(315, 170);
+            this.GroupS4.TabIndex = 21;
+            this.GroupS4.TabStop = false;
+            this.GroupS4.Text = "Controller Settings";
             // 
-            // numericUpDown18
+            // NumD4
             // 
-            this.numericUpDown18.DecimalPlaces = 2;
-            this.numericUpDown18.Increment = new decimal(new int[] {
+            this.NumD4.DecimalPlaces = 2;
+            this.NumD4.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDown18.Location = new System.Drawing.Point(154, 97);
-            this.numericUpDown18.Name = "numericUpDown18";
-            this.numericUpDown18.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown18.TabIndex = 9;
-            this.numericUpDown18.Value = new decimal(new int[] {
+            this.NumD4.Location = new System.Drawing.Point(154, 97);
+            this.NumD4.Name = "NumD4";
+            this.NumD4.Size = new System.Drawing.Size(149, 20);
+            this.NumD4.TabIndex = 9;
+            this.NumD4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NumD4.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -1273,37 +1146,39 @@ namespace MidoriValveTest
             this.label39.TabIndex = 8;
             this.label39.Text = "D-Gain";
             // 
-            // numericUpDown19
+            // NumI4
             // 
-            this.numericUpDown19.DecimalPlaces = 2;
-            this.numericUpDown19.Increment = new decimal(new int[] {
+            this.NumI4.DecimalPlaces = 2;
+            this.NumI4.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDown19.Location = new System.Drawing.Point(154, 65);
-            this.numericUpDown19.Name = "numericUpDown19";
-            this.numericUpDown19.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown19.TabIndex = 7;
-            this.numericUpDown19.Value = new decimal(new int[] {
+            this.NumI4.Location = new System.Drawing.Point(154, 65);
+            this.NumI4.Name = "NumI4";
+            this.NumI4.Size = new System.Drawing.Size(149, 20);
+            this.NumI4.TabIndex = 7;
+            this.NumI4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NumI4.Value = new decimal(new int[] {
             1,
             0,
             0,
             65536});
             // 
-            // numericUpDown20
+            // NumP4
             // 
-            this.numericUpDown20.DecimalPlaces = 2;
-            this.numericUpDown20.Increment = new decimal(new int[] {
+            this.NumP4.DecimalPlaces = 2;
+            this.NumP4.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDown20.Location = new System.Drawing.Point(154, 30);
-            this.numericUpDown20.Name = "numericUpDown20";
-            this.numericUpDown20.Size = new System.Drawing.Size(149, 20);
-            this.numericUpDown20.TabIndex = 4;
-            this.numericUpDown20.Value = new decimal(new int[] {
+            this.NumP4.Location = new System.Drawing.Point(154, 30);
+            this.NumP4.Name = "NumP4";
+            this.NumP4.Size = new System.Drawing.Size(149, 20);
+            this.NumP4.TabIndex = 4;
+            this.NumP4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NumP4.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -1336,21 +1211,22 @@ namespace MidoriValveTest
             this.label42.TabIndex = 4;
             this.label42.Text = "Control Direction";
             // 
-            // comboBox21
+            // CbDirect4
             // 
-            this.comboBox21.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox21.FormattingEnabled = true;
-            this.comboBox21.Items.AddRange(new object[] {
+            this.CbDirect4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbDirect4.FormattingEnabled = true;
+            this.CbDirect4.Items.AddRange(new object[] {
             "Downstream",
             "Upstream"});
-            this.comboBox21.Location = new System.Drawing.Point(154, 127);
-            this.comboBox21.Name = "comboBox21";
-            this.comboBox21.Size = new System.Drawing.Size(149, 21);
-            this.comboBox21.TabIndex = 4;
+            this.CbDirect4.Location = new System.Drawing.Point(154, 127);
+            this.CbDirect4.Name = "CbDirect4";
+            this.CbDirect4.Size = new System.Drawing.Size(149, 21);
+            this.CbDirect4.TabIndex = 4;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label33.Location = new System.Drawing.Point(17, 30);
             this.label33.Name = "label33";
@@ -1358,203 +1234,407 @@ namespace MidoriValveTest
             this.label33.TabIndex = 0;
             this.label33.Text = "Control Algorithm";
             // 
-            // comboBox17
+            // CbAlgo4
             // 
-            this.comboBox17.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox17.FormattingEnabled = true;
-            this.comboBox17.Items.AddRange(new object[] {
-            "P",
+            this.CbAlgo4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbAlgo4.FormattingEnabled = true;
+            this.CbAlgo4.Items.AddRange(new object[] {
             "PI",
             "PID",
-            "Soft Pump"});
-            this.comboBox17.Location = new System.Drawing.Point(160, 27);
-            this.comboBox17.Name = "comboBox17";
-            this.comboBox17.Size = new System.Drawing.Size(149, 21);
-            this.comboBox17.TabIndex = 1;
+            "Soft Pump",
+            "P"});
+            this.CbAlgo4.Location = new System.Drawing.Point(160, 27);
+            this.CbAlgo4.Name = "CbAlgo4";
+            this.CbAlgo4.Size = new System.Drawing.Size(149, 21);
+            this.CbAlgo4.TabIndex = 1;
+            this.CbAlgo4.SelectedIndexChanged += new System.EventHandler(this.CbAlgo4_SelectedIndexChanged);
             // 
-            // groupBox10
+            // GroupC4
             // 
-            this.groupBox10.Controls.Add(this.comboBox17);
-            this.groupBox10.Controls.Add(this.label33);
-            this.groupBox10.ForeColor = System.Drawing.Color.DarkCyan;
-            this.groupBox10.Location = new System.Drawing.Point(1041, 84);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(335, 479);
-            this.groupBox10.TabIndex = 23;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Controller 4";
+            this.GroupC4.Controls.Add(this.CbAlgo4);
+            this.GroupC4.Controls.Add(this.label33);
+            this.GroupC4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupC4.ForeColor = System.Drawing.Color.Black;
+            this.GroupC4.Location = new System.Drawing.Point(1138, 84);
+            this.GroupC4.Name = "GroupC4";
+            this.GroupC4.Size = new System.Drawing.Size(335, 479);
+            this.GroupC4.TabIndex = 23;
+            this.GroupC4.TabStop = false;
+            this.GroupC4.Text = "Controller 4";
+            // 
+            // CbDirec1
+            // 
+            this.CbDirec1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbDirec1.FormattingEnabled = true;
+            this.CbDirec1.Items.AddRange(new object[] {
+            "Downstream",
+            "Upstream"});
+            this.CbDirec1.Location = new System.Drawing.Point(154, 127);
+            this.CbDirec1.Name = "CbDirec1";
+            this.CbDirec1.Size = new System.Drawing.Size(149, 21);
+            this.CbDirec1.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Control Direction";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(24, 67);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "I- Gain";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "P-Gain";
+            // 
+            // NumP1
+            // 
+            this.NumP1.DecimalPlaces = 2;
+            this.NumP1.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.NumP1.Location = new System.Drawing.Point(154, 30);
+            this.NumP1.Name = "NumP1";
+            this.NumP1.Size = new System.Drawing.Size(149, 20);
+            this.NumP1.TabIndex = 4;
+            this.NumP1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NumP1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            // 
+            // NumI1
+            // 
+            this.NumI1.DecimalPlaces = 2;
+            this.NumI1.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.NumI1.Location = new System.Drawing.Point(154, 65);
+            this.NumI1.Name = "NumI1";
+            this.NumI1.Size = new System.Drawing.Size(149, 20);
+            this.NumI1.TabIndex = 7;
+            this.NumI1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NumI1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.NumI1.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(24, 99);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 13);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "D-Gain";
+            // 
+            // NumD1
+            // 
+            this.NumD1.DecimalPlaces = 2;
+            this.NumD1.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.NumD1.Location = new System.Drawing.Point(154, 97);
+            this.NumD1.Name = "NumD1";
+            this.NumD1.Size = new System.Drawing.Size(149, 20);
+            this.NumD1.TabIndex = 9;
+            this.NumD1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NumD1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            // 
+            // GroupR1
+            // 
+            this.GroupR1.Controls.Add(this.RamEnable1);
+            this.GroupR1.Controls.Add(this.label10);
+            this.GroupR1.Controls.Add(this.Type1);
+            this.GroupR1.Controls.Add(this.label9);
+            this.GroupR1.Controls.Add(this.StartV1);
+            this.GroupR1.Controls.Add(this.Slope1);
+            this.GroupR1.Controls.Add(this.Time1);
+            this.GroupR1.Controls.Add(this.label3);
+            this.GroupR1.Controls.Add(this.label7);
+            this.GroupR1.Controls.Add(this.label8);
+            this.GroupR1.Controls.Add(this.Mode1);
+            this.GroupR1.Location = new System.Drawing.Point(21, 325);
+            this.GroupR1.Name = "GroupR1";
+            this.GroupR1.Size = new System.Drawing.Size(315, 232);
+            this.GroupR1.TabIndex = 13;
+            this.GroupR1.TabStop = false;
+            this.GroupR1.Text = "Ramp";
+            // 
+            // GroupS1
+            // 
+            this.GroupS1.Controls.Add(this.NumD1);
+            this.GroupS1.Controls.Add(this.label12);
+            this.GroupS1.Controls.Add(this.NumI1);
+            this.GroupS1.Controls.Add(this.NumP1);
+            this.GroupS1.Controls.Add(this.label6);
+            this.GroupS1.Controls.Add(this.label5);
+            this.GroupS1.Controls.Add(this.label4);
+            this.GroupS1.Controls.Add(this.CbDirec1);
+            this.GroupS1.Location = new System.Drawing.Point(21, 149);
+            this.GroupS1.Name = "GroupS1";
+            this.GroupS1.Size = new System.Drawing.Size(315, 160);
+            this.GroupS1.TabIndex = 12;
+            this.GroupS1.TabStop = false;
+            this.GroupS1.Text = "Controller Settings";
+            // 
+            // btnBackGround1
+            // 
+            this.btnBackGround1.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnBackGround1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBackGround1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackGround1.Location = new System.Drawing.Point(6, 75);
+            this.btnBackGround1.Name = "btnBackGround1";
+            this.btnBackGround1.Size = new System.Drawing.Size(343, 498);
+            this.btnBackGround1.TabIndex = 24;
+            this.btnBackGround1.Text = "button1";
+            this.btnBackGround1.UseVisualStyleBackColor = false;
+            // 
+            // BtnBackGround2
+            // 
+            this.BtnBackGround2.BackColor = System.Drawing.Color.DarkCyan;
+            this.BtnBackGround2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.BtnBackGround2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBackGround2.Location = new System.Drawing.Point(377, 75);
+            this.BtnBackGround2.Name = "BtnBackGround2";
+            this.BtnBackGround2.Size = new System.Drawing.Size(342, 498);
+            this.BtnBackGround2.TabIndex = 25;
+            this.BtnBackGround2.Text = "button1";
+            this.BtnBackGround2.UseVisualStyleBackColor = false;
+            // 
+            // BtnBackGround3
+            // 
+            this.BtnBackGround3.BackColor = System.Drawing.Color.DarkCyan;
+            this.BtnBackGround3.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.BtnBackGround3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBackGround3.Location = new System.Drawing.Point(746, 75);
+            this.BtnBackGround3.Name = "BtnBackGround3";
+            this.BtnBackGround3.Size = new System.Drawing.Size(361, 498);
+            this.BtnBackGround3.TabIndex = 26;
+            this.BtnBackGround3.Text = "button1";
+            this.BtnBackGround3.UseVisualStyleBackColor = false;
+            // 
+            // BtnBackGround4
+            // 
+            this.BtnBackGround4.BackColor = System.Drawing.Color.DarkCyan;
+            this.BtnBackGround4.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.BtnBackGround4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBackGround4.Location = new System.Drawing.Point(1131, 75);
+            this.BtnBackGround4.Name = "BtnBackGround4";
+            this.BtnBackGround4.Size = new System.Drawing.Size(350, 498);
+            this.BtnBackGround4.TabIndex = 27;
+            this.BtnBackGround4.Text = "button1";
+            this.BtnBackGround4.UseVisualStyleBackColor = false;
             // 
             // PID_Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1393, 567);
-            this.Controls.Add(this.groupBox11);
-            this.Controls.Add(this.groupBox12);
-            this.Controls.Add(this.groupBox8);
-            this.Controls.Add(this.groupBox9);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.comboBox1);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1507, 598);
+            this.Controls.Add(this.GroupR4);
+            this.Controls.Add(this.GroupS4);
+            this.Controls.Add(this.GroupR3);
+            this.Controls.Add(this.GroupS3);
+            this.Controls.Add(this.GroupR2);
+            this.Controls.Add(this.GroupS2);
+            this.Controls.Add(this.GroupC2);
+            this.Controls.Add(this.GroupR1);
+            this.Controls.Add(this.GroupS1);
+            this.Controls.Add(this.GroupC1);
+            this.Controls.Add(this.Cb_ControlSelector);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.groupBox10);
+            this.Controls.Add(this.GroupC3);
+            this.Controls.Add(this.GroupC4);
+            this.Controls.Add(this.btnBackGround1);
+            this.Controls.Add(this.BtnBackGround2);
+            this.Controls.Add(this.BtnBackGround3);
+            this.Controls.Add(this.BtnBackGround4);
+            this.MaximizeBox = false;
             this.Name = "PID_Config";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PID_Config";
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).EndInit();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).EndInit();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown20)).EndInit();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
+            this.Load += new System.EventHandler(this.PID_Config_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Slope1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Time1)).EndInit();
+            this.GroupC1.ResumeLayout(false);
+            this.GroupC1.PerformLayout();
+            this.GroupC2.ResumeLayout(false);
+            this.GroupC2.PerformLayout();
+            this.GroupR2.ResumeLayout(false);
+            this.GroupR2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Slope2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Time2)).EndInit();
+            this.GroupS2.ResumeLayout(false);
+            this.GroupS2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumD2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumI2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumP2)).EndInit();
+            this.GroupC3.ResumeLayout(false);
+            this.GroupC3.PerformLayout();
+            this.GroupR3.ResumeLayout(false);
+            this.GroupR3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Slope3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Time3)).EndInit();
+            this.GroupS3.ResumeLayout(false);
+            this.GroupS3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumD3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumI3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumP3)).EndInit();
+            this.GroupR4.ResumeLayout(false);
+            this.GroupR4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Slope4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Time4)).EndInit();
+            this.GroupS4.ResumeLayout(false);
+            this.GroupS4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumD4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumI4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumP4)).EndInit();
+            this.GroupC4.ResumeLayout(false);
+            this.GroupC4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumP1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumI1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumD1)).EndInit();
+            this.GroupR1.ResumeLayout(false);
+            this.GroupR1.PerformLayout();
+            this.GroupS1.ResumeLayout(false);
+            this.GroupS1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox Type1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.ComboBox StartV1;
+        private System.Windows.Forms.NumericUpDown Slope1;
+        private System.Windows.Forms.NumericUpDown Time1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Mode1;
+        private System.Windows.Forms.ComboBox Cb_ControlSelector;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox Enable_ramp;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.CheckBox RamEnable1;
+        private System.Windows.Forms.GroupBox GroupC1;
+        private System.Windows.Forms.ComboBox CbAlgo1;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.GroupBox GroupC2;
+        private System.Windows.Forms.ComboBox CbAlgo2;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.GroupBox GroupR2;
+        private System.Windows.Forms.CheckBox RamEnable2;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox Type2;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBox9;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
+        private System.Windows.Forms.ComboBox StartV2;
+        private System.Windows.Forms.NumericUpDown Slope2;
+        private System.Windows.Forms.NumericUpDown Time2;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox comboBox10;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.NumericUpDown numericUpDown8;
+        private System.Windows.Forms.ComboBox Mode2;
+        private System.Windows.Forms.GroupBox GroupS2;
+        private System.Windows.Forms.NumericUpDown NumD2;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.NumericUpDown numericUpDown9;
-        private System.Windows.Forms.NumericUpDown numericUpDown10;
+        private System.Windows.Forms.NumericUpDown NumI2;
+        private System.Windows.Forms.NumericUpDown NumP2;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox comboBox11;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.ComboBox comboBox12;
+        private System.Windows.Forms.ComboBox CbDirect2;
+        private System.Windows.Forms.GroupBox GroupC3;
+        private System.Windows.Forms.ComboBox CbAlgo3;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.GroupBox GroupR3;
+        private System.Windows.Forms.CheckBox RamEnable3;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.ComboBox comboBox13;
+        private System.Windows.Forms.ComboBox Type3;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.ComboBox comboBox14;
-        private System.Windows.Forms.NumericUpDown numericUpDown11;
-        private System.Windows.Forms.NumericUpDown numericUpDown12;
+        private System.Windows.Forms.ComboBox StartV3;
+        private System.Windows.Forms.NumericUpDown Slope3;
+        private System.Windows.Forms.NumericUpDown Time3;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ComboBox comboBox15;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.NumericUpDown numericUpDown13;
+        private System.Windows.Forms.ComboBox Mode3;
+        private System.Windows.Forms.GroupBox GroupS3;
+        private System.Windows.Forms.NumericUpDown NumD3;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.NumericUpDown numericUpDown14;
-        private System.Windows.Forms.NumericUpDown numericUpDown15;
+        private System.Windows.Forms.NumericUpDown NumI3;
+        private System.Windows.Forms.NumericUpDown NumP3;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.ComboBox comboBox16;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.ComboBox CbDirect3;
+        private System.Windows.Forms.GroupBox GroupR4;
+        private System.Windows.Forms.CheckBox RamEnable4;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.ComboBox comboBox18;
+        private System.Windows.Forms.ComboBox Type4;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.ComboBox comboBox19;
-        private System.Windows.Forms.NumericUpDown numericUpDown16;
-        private System.Windows.Forms.NumericUpDown numericUpDown17;
+        private System.Windows.Forms.ComboBox StartV4;
+        private System.Windows.Forms.NumericUpDown Slope4;
+        private System.Windows.Forms.NumericUpDown Time4;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.ComboBox comboBox20;
-        private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.NumericUpDown numericUpDown18;
+        private System.Windows.Forms.ComboBox Mode4;
+        private System.Windows.Forms.GroupBox GroupS4;
+        private System.Windows.Forms.NumericUpDown NumD4;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.NumericUpDown numericUpDown19;
-        private System.Windows.Forms.NumericUpDown numericUpDown20;
+        private System.Windows.Forms.NumericUpDown NumI4;
+        private System.Windows.Forms.NumericUpDown NumP4;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.ComboBox comboBox21;
+        private System.Windows.Forms.ComboBox CbDirect4;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.ComboBox comboBox17;
-        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.ComboBox CbAlgo4;
+        private System.Windows.Forms.GroupBox GroupC4;
+        private System.Windows.Forms.ComboBox CbDirec1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown NumP1;
+        private System.Windows.Forms.NumericUpDown NumI1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown NumD1;
+        private System.Windows.Forms.GroupBox GroupR1;
+        private System.Windows.Forms.GroupBox GroupS1;
+        private System.Windows.Forms.Button btnBackGround1;
+        private System.Windows.Forms.Button BtnBackGround2;
+        private System.Windows.Forms.Button BtnBackGround3;
+        private System.Windows.Forms.Button BtnBackGround4;
     }
 }
