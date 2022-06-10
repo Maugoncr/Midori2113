@@ -54,6 +54,8 @@ namespace MidoriValveTest
             button3.Enabled = false;
             string[] ports = SerialPort.GetPortNames();                         // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
             comboBox1.Items.AddRange(ports);                                    // Volcamos el contenido de este arreglo dentro del COMBOBOX de seleccion de puerto
+
+            timer1.Enabled = true;
             
             if(ports.Length>0)                                                  // Determina existencia de puertos, y seleccionamos el primero de ellos.
             {
@@ -1257,6 +1259,14 @@ namespace MidoriValveTest
             //// lbl_estado.Text = "Open";
             //Arduino.Write(pressure_get.ToString());
 
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblhora.Text = DateTime.Now.ToString("hh:mm:ss");
+            lblfecha.Text = DateTime.Now.ToLongDateString();
+           
 
         }
     }
