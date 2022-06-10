@@ -41,5 +41,10 @@ namespace MidoriValveTest
             timer1.Interval = 2500;
             timer1.Start();
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

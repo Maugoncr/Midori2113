@@ -88,6 +88,7 @@ namespace MidoriValveTest
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(128, 20);
             this.textBox2.TabIndex = 25;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox1
             // 
@@ -103,7 +104,7 @@ namespace MidoriValveTest
             this.lbl_instruct.ForeColor = System.Drawing.Color.Black;
             this.lbl_instruct.Location = new System.Drawing.Point(46, 16);
             this.lbl_instruct.Name = "lbl_instruct";
-            this.lbl_instruct.Size = new System.Drawing.Size(250, 16);
+            this.lbl_instruct.Size = new System.Drawing.Size(249, 16);
             this.lbl_instruct.TabIndex = 23;
             this.lbl_instruct.Text = "Please enter the cycle amount for the test";
             // 
@@ -163,7 +164,7 @@ namespace MidoriValveTest
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(20, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 16);
+            this.label1.Size = new System.Drawing.Size(93, 16);
             this.label1.TabIndex = 23;
             this.label1.Text = "Cyle test count";
             // 

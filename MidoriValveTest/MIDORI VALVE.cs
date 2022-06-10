@@ -74,6 +74,8 @@ namespace MidoriValveTest
             btn_20.Enabled = false;
             btn_10.Enabled = false;
             btn_0.Enabled = false;
+            trackBar1.Enabled = false;
+            trackBar2.Enabled = false;
 
         }
 
@@ -90,12 +92,12 @@ namespace MidoriValveTest
                 button3.Enabled=false;
             }
         }
-        
+
 
 
         //Maugoncr// 
-        // Reinicia el programa al momento de cuando se arranca por primera vez
-        
+        // Reboot the whole system as when it started up
+
         private void btnRestart_Click(object sender, EventArgs e)
         {
             // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
@@ -114,22 +116,57 @@ namespace MidoriValveTest
             ChartArea CA = chart1.ChartAreas[0];
             CA.CursorX.AutoScroll = true;
 
-            //Reinicia el tiempo del chart
+            //Restart the chart timer
             tiempo = 0;
-            //Detiene la grafica
+            //Stop the Chart
             timer_Chart.Stop();
             comboBox1.Enabled = true;
 
-            //Maugoncr// Cerramos el puerto y damos 2 segundos al sistema
-            Arduino.Close();
-            Thread.Sleep(2000);
+            //Maugoncr//because if there is nothing connected and we use the Arduino object we would get an error because it would be null.
+            //Close the port and wait for 2s
+            if (Arduino != null)
+            {
+                Arduino.Close();
+                Thread.Sleep(2000);
+            }
 
-            //Maugoncr// Cambia el led de encendido a apagado y igual con las etiquetas y desactiva el boton de abrir GATE
+            if (lbl_estado.Text == "Open")
+            {
+
+                trackBar1.Enabled = false;
+                trackBar2.Enabled = false;
+                trackBar1.Value = 0;
+                precision_aperture = 0;
+                Current_aperture.Text = "Current Aperture:" + precision_aperture + "°";
+                picture_frontal.Image.Dispose();
+                picture_frontal.Image = MidoriValveTest.Properties.Resources._0_2;
+                picture_plane.Image.Dispose();
+                picture_plane.Image = MidoriValveTest.Properties.Resources._0_GRADOS2;
+                precision_aperture = 0;
+                lbl_estado.ForeColor = Color.Red;
+                lbl_estado.Text = "Close";
+                btn_apagar.Enabled = false;
+                btn_90.Enabled = false;
+                btn_80.Enabled = false;
+                btn_70.Enabled = false;
+                btn_60.Enabled = false;
+                btn_50.Enabled = false;
+                btn_40.Enabled = false;
+                btn_30.Enabled = false;
+                btn_20.Enabled = false;
+                btn_10.Enabled = false;
+                btn_0.Enabled = false;
+               
+            }
+            
+
+            //Maugoncr// Turn off the led and the same for labels, disable the button of Open Gate
             com_led.Image.Dispose();
             com_led.Image = MidoriValveTest.Properties.Resources.led_off;
             LblEstado.Text = "Disconnected *";
             lblPuerto.Text = "Disconnected *";
             btn_encender.Enabled = false;
+            lbl_pressure.Text = "Current Pressure: 0 ";
 
         }
 
@@ -149,9 +186,8 @@ namespace MidoriValveTest
                     comboBox1.Enabled = false;
                     button3.Enabled = false;
                     btn_menu.Enabled = true;
-                    trackBar2.Enabled = true;
-                    trackBar1.Enabled = true;
                     //apertura
+
 
                 }              
                 
@@ -206,7 +242,7 @@ namespace MidoriValveTest
         {
             Arduino.Write("O");
             Thread.Sleep(50);
-    
+
 
             //esperamos la señal de movimeinto de partura
             //while (respuesta != "A")
@@ -214,6 +250,9 @@ namespace MidoriValveTest
             //    respuesta = Arduino.ReadExisting(); //MessageBox.Show(respuesta);
             //    Thread.Sleep(100);
             //}
+            trackBar1.Enabled = true;
+            trackBar2.Enabled = true;
+
             trackBar1.Value = 90;
             precision_aperture = 90;
             Current_aperture.Text = "Current Aperture:" + precision_aperture + "°";
@@ -258,6 +297,9 @@ namespace MidoriValveTest
             //    respuesta = Arduino.ReadExisting(); //MessageBox.Show(respuesta);
             //    Thread.Sleep(50);
             //}
+            trackBar1.Enabled = false;
+            trackBar2.Enabled = false;
+
             trackBar1.Value = 0;
             precision_aperture = 0;
             Current_aperture.Text = "Current Aperture:" + precision_aperture + "°";
@@ -586,30 +628,44 @@ namespace MidoriValveTest
         //Maugoncr// Aqui es donde se algoritman las lineas de manera random 
         private void timer_Chart_Tick(object sender, EventArgs e)
         {
-            tiempo = tiempo+40;
+            tiempo = tiempo + 40;
             double t = tiempo / 1000;
             final = t;
             //MAUGONCR// En esta variable double se define la presion de manera ramdon con parametros maximos dentro de s_final y s_inicial
             // esta es la causa de los picos
-            double rd = _random.NextDouble() * (s_final - s_inicial) + s_inicial; 
+            double rd = _random.NextDouble() * (s_final - s_inicial) + s_inicial;
             n = DateTime.Now;
+
+            if (lbl_estado.Text == "Open")
+            {
+
+                chart1.Series["Aperture value"].Points.AddXY(t.ToString(), precision_aperture.ToString());
+                chart1.Series["Pressure"].Points.AddXY(t.ToString(), rd.ToString());
+
+                decimal rr = Convert.ToDecimal(rd);
+                pressure_get = decimal.Round(rr, 3);
+                lbl_pressure.Text = "Current Pressure: " + pressure_get;
+                chart1.ChartAreas[0].RecalculateAxesScale();
+            }
+            else {
+
+                chart1.Series["Aperture value"].Points.AddXY(t.ToString(), precision_aperture.ToString());
+                chart1.Series["Pressure"].Points.AddXY(t.ToString(), 8.ToString());
+                lbl_pressure.Text = "Current Pressure: " + 8;
+                chart1.ChartAreas[0].RecalculateAxesScale();
+
+            }
+
             
-            chart1.Series["Aperture value"].Points.AddXY(t.ToString(), precision_aperture.ToString());
-            chart1.Series["Pressure"].Points.AddXY(t .ToString(), rd.ToString());
-            
-            decimal rr = Convert.ToDecimal( rd);
-            pressure_get =  decimal.Round(rr, 3);
-            lbl_pressure.Text = "Current Pressure: " + pressure_get;
-            chart1.ChartAreas[0].RecalculateAxesScale();
+
+
+
 
             if (chart1.Series["Aperture value"].Points.Count == 349)
             {
             
                 chart1.Series["Aperture value"].Points.RemoveAt(0);
                 chart1.Series["Pressure"].Points.RemoveAt(0);      
-
-
-
             }
 
 
@@ -1031,66 +1087,117 @@ namespace MidoriValveTest
 
 
                     break;
+
                 case "ATM":
 
-                   // btn_S_pressure.Text = "Set target pressure in " + (float)trackBar2.Value / 1000;
+                    presion = presion / 1000;
 
-                    //if (presion <= 146959 && presion >= 130624)
-                    //{
-                    //    s_inicial = 130624 / 1000;
-                    //    s_final = 146959 / 1000;
-                    //}
-                    //else if (presion <= 130624 && presion >= 114296)
-                    //{
-                    //    s_inicial = 114296 / 1000;
-                    //    s_final = 130624 / 1000;
-                    //}
-                    //else if (presion <= 114296 && presion >= 97968)
-                    //{
-                    //    s_inicial = 97968 / 1000;
-                    //    s_final = 114296 / 1000;
-                    //}
-                    //else if (presion <= 97968 && presion >= 81640)
-                    //{
-                    //    s_inicial = 81640 / 1000;
-                    //    s_final = 97968 / 1000;
-                    //}
-                    //else if (presion <= 81640 && presion >= 65312)
-                    //{
-                    //    s_inicial = 65312 / 1000;
-                    //    s_final = 81640 / 1000;
-                    //}
-                    //else if (presion <= 65312 && presion >= 48984)
-                    //{
-                    //    s_inicial = 48984 / 1000;
-                    //    s_final = 65312 / 1000;
-                    //}
-                    //else if (presion <= 48984 && presion >= 32656)
-                    //{
-                    //    s_inicial = 32656 / 1000;
-                    //    s_final = 48954 / 1000;
-                    //}
-                    //else if (presion <= 32656 && presion >= 16328)
-                    //{
-                    //    s_inicial = 16328 / 1000;
-                    //    s_final = 32656 / 1000;
-                    //}
-                    //else if (presion <= 16328 && presion >= 0)
-                    //{
-                    //    s_inicial = 0;
-                    //    s_final = 16328 / 1000;
-                    //};
+                    if (presion <= 1 && presion > 0.88)
+                    {
+                        s_inicial = 0.88 ;
+                        s_final = 1 ;
+                    }
+                    else if (presion <= 0.88 && presion > 0.77)
+                    {
+                        s_inicial = 0.77 ;
+                        s_final = 0.88 ;
+                    }
+                    else if (presion <= 0.77 && presion > 0.66)
+                    {
+                        s_inicial = 0.66 ;
+                        s_final = 0.77 ;
+                    }
+                    else if (presion <= 0.66 && presion > 0.55)
+                    {
+                        s_inicial = 0.55 ;
+                        s_final = 0.66 ;
+                    }
+                    else if (presion <= 0.55 && presion > 0.44)
+                    {
+                        s_inicial = 0.44 ;
+                        s_final = 0.55 ;
+                    }
+                    else if (presion <= 0.44 && presion > 0.33)
+                    {
+                        s_inicial = 0.33 ;
+                        s_final = 0.44 ;
+                    }
+                    else if (presion <= 0.33 && presion > 0.22)
+                    {
+                        s_inicial = 0.22 / 1000;
+                        s_final = 0.33 / 1000;
+                    }
+                    else if (presion <= 0.22 && presion > 0.11)
+                    {
+                        s_inicial = 0.11 ;
+                        s_final = 0.22 ;
+                    }
+                    else if (presion <= 0.11 && presion > 0)
+                    {
+                        s_inicial = 0;
+                        s_final = 0.11 ;
+                    };
 
 
 
                     break;
                 case "mbar":
-                    btn_S_pressure.Text = "Set target pressure in " + (float)trackBar2.Value / 100;
+
+                    presion = presion / 100;
+
+                    if (presion <= 1013.25 && presion > 900.6664)
+                    {
+                        s_inicial = 900.6664;
+                        s_final = 1013.25;
+                    }
+                    else if (presion <= 900.6664 && presion > 788.0831)
+                    {
+                        s_inicial = 788.0831;
+                        s_final = 900.6664;
+                    }
+                    else if (presion <= 788.0831 && presion > 675.4998)
+                    {
+                        s_inicial = 675.4998;
+                        s_final = 788.0831;
+                    }
+                    else if (presion <= 675.4998 && presion > 562.9165)
+                    {
+                        s_inicial = 562.9165;
+                        s_final = 675.4998;
+                    }
+                    else if (presion <= 562.9165 && presion > 450.3332)
+                    {
+                        s_inicial = 450.3332;
+                        s_final = 562.9165;
+                    }
+                    else if (presion <= 450.3332 && presion > 337.7499)
+                    {
+                        s_inicial = 337.7499;
+                        s_final = 450.3332;
+                    }
+                    else if (presion <= 337.7499 && presion > 225.1666)
+                    {
+                        s_inicial = 225.1666;
+                        s_final = 337.7499;
+                    }
+                    else if (presion <= 225.1666 && presion > 112.5833)
+                    {
+                        s_inicial = 0.11;
+                        s_final = 0.22;
+                    }
+                    else if (presion <= 112.5833 && presion > 0)
+                    {
+                        s_inicial = 0;
+                        s_final = 0.11;
+                    };
+
+
+
                     break;
 
 
                 case "Torr":
-                    btn_S_pressure.Text = "Set target pressure in " + (float)trackBar2.Value;
+                   
 
                     if (presion <= 760 && presion > 675.52)
                     {
