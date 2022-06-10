@@ -21,10 +21,12 @@ namespace MidoriValveTest
 
         private void TestCicles_Load(object sender, EventArgs e)
         {
-            
-        }
+        
+    }
 
-        private void timer1_Tick(object sender, EventArgs e)
+
+
+private void timer1_Tick(object sender, EventArgs e)
         {
             counter++;
             txt_cycles.Text = counter.ToString();
@@ -47,4 +49,7 @@ namespace MidoriValveTest
 
         }
     }
+
+
+    
 }
