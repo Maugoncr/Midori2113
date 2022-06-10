@@ -1267,12 +1267,17 @@ namespace MidoriValveTest
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            string fecha = DateTime.Now.ToLongDateString();
             lblhora.Text = DateTime.Now.ToString("hh:mm:ss");
-            lblfecha.Text = DateTime.Now.ToLongDateString();
-           
+            lblfecha.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(fecha);
+                //fecha.ToUpper();
+
 
         }
 
+        private void lblfecha_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
