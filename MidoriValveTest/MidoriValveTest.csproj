@@ -106,11 +106,11 @@
     <Compile Include="Unit_config.Designer.cs">
       <DependentUpon>Unit_config.cs</DependentUpon>
     </Compile>
-    <Compile Include="MIDORI VALVE.cs">
+    <Compile Include="Midori_PV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MIDORI VALVE.Designer.cs">
-      <DependentUpon>MIDORI VALVE.cs</DependentUpon>
+    <Compile Include="Midori_PV.Designer.cs">
+      <DependentUpon>Midori_PV.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,8 +138,8 @@
     <EmbeddedResource Include="Unit_config.resx">
       <DependentUpon>Unit_config.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MIDORI VALVE.resx">
-      <DependentUpon>MIDORI VALVE.cs</DependentUpon>
+    <EmbeddedResource Include="Midori_PV.resx">
+      <DependentUpon>Midori_PV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -239,6 +239,12 @@
     <None Include="Resources\90 GRADOS.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\led_off_green.png" />
+    <Content Include="Resources\led_off_red.png" />
+    <Content Include="Resources\led_off_yellow.png" />
+    <Content Include="Resources\led_on_green.png" />
+    <Content Include="Resources\led_on_red.png" />
+    <Content Include="Resources\led_on_yellow.png" />
     <None Include="Resources\close menu1.png" />
     <None Include="Resources\menu.png" />
     <None Include="Resources\close menu.png" />

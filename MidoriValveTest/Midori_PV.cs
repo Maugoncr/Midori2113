@@ -333,6 +333,7 @@ namespace MidoriValveTest
             TestCicles TEST = new TestCicles();
             TEST.Arduino = Arduino;
             TEST.ShowDialog();
+
         }
 
         private void btn_0_Click(object sender, EventArgs e)
@@ -1270,12 +1271,23 @@ namespace MidoriValveTest
             string fecha = DateTime.Now.ToLongDateString();
             lblhora.Text = DateTime.Now.ToString("hh:mm:ss");
             lblfecha.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(fecha);
-                //fecha.ToUpper();
 
+            lb_CounterTest.Text = TestCicles.counter.ToString();
+            
 
         }
 
         private void lblfecha_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }
