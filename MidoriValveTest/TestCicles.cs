@@ -15,6 +15,7 @@ namespace MidoriValveTest
        public System.IO.Ports.SerialPort Arduino;
         public static int counter;
         public static int limit;
+        public static bool greenlight = false;
         public TestCicles()
         {
             InitializeComponent();
@@ -35,6 +36,9 @@ private void timer1_Tick(object sender, EventArgs e)
             {
                 counter++;
                 txt_cycles.Text = counter.ToString();
+
+                //TODO: verificar con los sensores si todo esta correcto, se mantenga en verde, amarillo, rojo
+
             }
         }
 
@@ -48,7 +52,7 @@ private void timer1_Tick(object sender, EventArgs e)
             limit = (int)NumOfCycles.Value;
             timer1.Interval = 2500;
             timer1.Start();
-
+            greenlight = true;
            
           
 

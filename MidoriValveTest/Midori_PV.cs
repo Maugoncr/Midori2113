@@ -55,7 +55,7 @@ namespace MidoriValveTest
          public Midori_PV() 
                 {
                     InitializeComponent();
-                    InitializeSetting();
+                    //InitializeSetting();
                 }
 
         public void InitializeSetting() {
@@ -350,7 +350,8 @@ namespace MidoriValveTest
         {
             TestCicles TEST = new TestCicles();
             TEST.Arduino = Arduino;
-            TEST.ShowDialog();
+            TEST.Show();
+           
 
         }
 
@@ -1291,6 +1292,14 @@ namespace MidoriValveTest
             lblfecha.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(fecha);
 
             lb_CounterTest.Text = TestCicles.counter.ToString();
+
+            if (TestCicles.greenlight == true)
+            {
+                green_off.Image.Dispose();
+                green_off.Image = MidoriValveTest.Properties.Resources.led_on_green;
+                DateStartedTest.Text = DateTime.UtcNow.ToString("HH:mm");
+
+            }
             
 
         }
@@ -1343,6 +1352,11 @@ namespace MidoriValveTest
             PID_Config nt = new PID_Config();
 
             nt.ShowDialog();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
