@@ -16,6 +16,7 @@ using System.IO.Ports;
 using System.Threading;
 using System.Management;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace MidoriValveTest
 {
@@ -40,12 +41,29 @@ namespace MidoriValveTest
         private List<string> pressures = new List<string>();
         private List<string> datetimes = new List<string>();
 
+        //var for menu
+
+        private const int widthSlide = 200;
+        private const int widthSlideIcon = 46;
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCepture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+
         // funcion de cosntruccion de clase (inicio automatico), inicializa los componentes visuales, (no es recomendado agregar mas funcionamiento a este)
          public Midori_PV() 
                 {
                     InitializeComponent();
-
+                    InitializeSetting();
                 }
+
+        public void InitializeSetting() {
+            this.FormBorderStyle = FormBorderStyle.None;
+            
+        }
+
+       
 
 
         // Funcion de carga de procedimientos iniciales (inicio automatico). 
@@ -1290,6 +1308,41 @@ namespace MidoriValveTest
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void IconClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void iconBar_Click(object sender, EventArgs e)
+        {
+            if (PanelSideNav.Width != widthSlideIcon)
+            {
+                PanelSideNav.Width = widthSlideIcon;
+            }
+            else {
+                PanelSideNav.Width = widthSlide;
+            }
+
+        }
+
+        private void iconTerminal_Click(object sender, EventArgs e)
+        {
+            Terminal nt = new Terminal();
+            nt.lblPuerto.Text = "Connected";
+            nt.mvt = this;
+            nt.Arduino = Arduino;
+            nt.ShowDialog();
+
+
+        }
+
+        private void iconPID_Click(object sender, EventArgs e)
+        {
+            PID_Config nt = new PID_Config();
+
+            nt.ShowDialog();
         }
     }
 }
