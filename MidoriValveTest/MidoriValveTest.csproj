@@ -107,6 +107,18 @@
     <Compile Include="PID_Config.Designer.cs">
       <DependentUpon>PID_Config.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pressure Sensor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pressure Sensor.Designer.cs">
+      <DependentUpon>Pressure Sensor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trace Log.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trace Log.Designer.cs">
+      <DependentUpon>Trace Log.cs</DependentUpon>
+    </Compile>
     <Compile Include="Unit_config.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +153,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PID_Config.resx">
       <DependentUpon>PID_Config.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pressure Sensor.resx">
+      <DependentUpon>Pressure Sensor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trace Log.resx">
+      <DependentUpon>Trace Log.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Unit_config.resx">
       <DependentUpon>Unit_config.cs</DependentUpon>
