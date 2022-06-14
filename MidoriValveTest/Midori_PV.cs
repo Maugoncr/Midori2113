@@ -179,7 +179,25 @@ namespace MidoriValveTest
                 btn_0.Enabled = false;
                
             }
-            
+
+            if (DateStartedTest.Text != "-/-/-")
+            {
+                TestCicles.greenlight = false;
+                TestCicles.counter = 0;
+                DateStartedTest.Text = "-/-/-";
+                DateEndedTest.Text = "-/-/-";
+                green_off.Image.Dispose();
+                green_off.Image = MidoriValveTest.Properties.Resources.led_off_green;
+                yellow_off.Image.Dispose();
+                yellow_off.Image = MidoriValveTest.Properties.Resources.led_off_yellow;
+                red_off.Image.Dispose();
+                red_off.Image = MidoriValveTest.Properties.Resources.led_off_red;
+                lb_CounterTest.Text = "0";
+
+
+
+            }
+
 
             //Maugoncr// Turn off the led and the same for labels, disable the button of Open Gate
             com_led.Image.Dispose();
@@ -1207,13 +1225,13 @@ namespace MidoriValveTest
                     }
                     else if (presion <= 225.1666 && presion > 112.5833)
                     {
-                        s_inicial = 0.11;
-                        s_final = 0.22;
+                        s_inicial = 112.5833;
+                        s_final = 225.1666;
                     }
                     else if (presion <= 112.5833 && presion > 0)
                     {
                         s_inicial = 0;
-                        s_final = 0.11;
+                        s_final = 112.5833;
                     };
 
 
@@ -1302,8 +1320,11 @@ namespace MidoriValveTest
                 {
                     DateStartedTest.Text = DateTime.UtcNow.ToString("MM/dd/yy H:mm:ss");
                 }
-                
-
+            }
+            else if (TestCicles.greenlight == false)
+            {
+                green_off.Image.Dispose();
+                green_off.Image = MidoriValveTest.Properties.Resources.led_off_green;
             }
             
 
@@ -1374,12 +1395,27 @@ namespace MidoriValveTest
 
         private void IconMaxin_Click(object sender, EventArgs e)
         {
+            if (WindowState==FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Maximized;
+            }
+            else if (WindowState==FormWindowState.Maximized)
+            {
+                WindowState = FormWindowState.Normal;
+            }
 
         }
 
         private void IconMinima_Click(object sender, EventArgs e)
         {
-
+            if (WindowState==FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Minimized;
+            }
+            else if (WindowState==FormWindowState.Maximized)
+            {
+                WindowState = FormWindowState.Minimized;
+            }
         }
     }
 }
