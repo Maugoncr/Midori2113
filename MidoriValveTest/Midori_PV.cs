@@ -72,7 +72,10 @@ namespace MidoriValveTest
         // Funcion de carga de procedimientos iniciales (inicio automatico). 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            iconTerminal.Enabled = false;
+            iconPID.Enabled = false;
+            IconSensor.Enabled = false;
+            IconTrace.Enabled = false;
             button3.Enabled = false;
             string[] ports = SerialPort.GetPortNames();                         // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
             comboBox1.Items.AddRange(ports);                                    // Volcamos el contenido de este arreglo dentro del COMBOBOX de seleccion de puerto
@@ -124,6 +127,12 @@ namespace MidoriValveTest
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
+            //Disable SideMenu since you connect again
+            iconTerminal.Enabled = false;
+            iconPID.Enabled = false;
+            IconSensor.Enabled = false;
+            IconTrace.Enabled = false;
+            button3.Enabled = false;
             // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
             //Boton 3 es el boton de Connect
             button3.Enabled = false;
@@ -196,7 +205,7 @@ namespace MidoriValveTest
                 red_off.Image.Dispose();
                 red_off.Image = MidoriValveTest.Properties.Resources.led_off_red;
                 lb_CounterTest.Text = "0";
-
+               
 
 
             }
@@ -209,6 +218,7 @@ namespace MidoriValveTest
             lblPuerto.Text = "Disconnected *";
             btn_encender.Enabled = false;
             lbl_pressure.Text = "Current Pressure: 0 ";
+            btn_valveTest.Enabled = false;
 
         }
 
@@ -228,6 +238,11 @@ namespace MidoriValveTest
                     comboBox1.Enabled = false;
                     button3.Enabled = false;
                     btn_menu.Enabled = true;
+                    iconTerminal.Enabled = true;
+                    iconPID.Enabled = true;
+                    IconSensor.Enabled = true;
+                    IconTrace.Enabled = true;
+                    button3.Enabled = true;
                     //apertura
 
 
@@ -282,7 +297,7 @@ namespace MidoriValveTest
         }
         private void btn_encender_Click(object sender, EventArgs e)
         {
-            Arduino.Write("O");
+            Arduino.Write("9");
             Thread.Sleep(50);
 
 
@@ -329,7 +344,7 @@ namespace MidoriValveTest
         private void btn_apagar_Click(object sender, EventArgs e)
         {
             
-                Arduino.Write("C");
+                Arduino.Write("0");
                 Thread.Sleep(50);
           
 
@@ -370,11 +385,18 @@ namespace MidoriValveTest
 
         private void btn_valveTest_Click(object sender, EventArgs e)
         {
-            TestCicles TEST = new TestCicles();
-            TEST.Arduino = Arduino;
-            TEST.Show();
-           
-
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is TestCicles);
+            if (frm == null)
+            {
+                TestCicles TEST = new TestCicles();
+                TEST.Arduino = Arduino;
+                TEST.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+                return;
+            }
         }
 
         private void btn_0_Click(object sender, EventArgs e)
@@ -1367,20 +1389,40 @@ namespace MidoriValveTest
 
         private void iconTerminal_Click(object sender, EventArgs e)
         {
-            Terminal nt = new Terminal();
-            nt.lblPuerto.Text = "Connected";
-            nt.mvt = this;
-            nt.Arduino = Arduino;
-            nt.ShowDialog();
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Terminal);
+
+            if (frm == null)
+            {
+                Terminal nt = new Terminal();
+                nt.lblPuerto.Text = "Connected";
+                nt.mvt = this;
+                nt.Arduino = Arduino;
+                nt.Show();
+            }
+            else {
+                frm.BringToFront();
+                return;
+            }
 
 
         }
 
         private void iconPID_Click(object sender, EventArgs e)
         {
-            PID_Config nt = new PID_Config();
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is PID_Config);
 
-            nt.ShowDialog();
+            if (frm == null)
+            {
+                PID_Config nt = new PID_Config();
+               
+                nt.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+                return;
+            }
+
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -1451,5 +1493,44 @@ namespace MidoriValveTest
         {
             oSW.Stop();
         }
+
+        private void IconTrace_Click(object sender, EventArgs e)
+        {
+
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Trace_Log);
+
+            if (frm == null)
+            {
+                Trace_Log nt = new Trace_Log();
+
+                nt.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+                return;
+            }
+
+        }
+
+        private void IconSensor_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Pressure_Sensor);
+
+            if (frm == null)
+            {
+                Pressure_Sensor nt = new Pressure_Sensor();
+
+                nt.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+                return;
+            }
+            
+        }
+
+
     }
 }
