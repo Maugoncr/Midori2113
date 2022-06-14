@@ -16,6 +16,8 @@ namespace MidoriValveTest
         public static int counter;
         public static int limit;
         public static bool greenlight = false;
+
+
         public TestCicles()
         {
             InitializeComponent();
@@ -42,9 +44,12 @@ private void timer1_Tick(object sender, EventArgs e)
             }
         }
 
+        // Cycles Reset
         private void button1_Click(object sender, EventArgs e)
         {
             counter = 0;
+            greenlight = false;
+
         }
 
         private void btnTestStart_Click(object sender, EventArgs e)

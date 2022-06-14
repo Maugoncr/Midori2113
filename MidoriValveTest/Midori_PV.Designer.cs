@@ -69,8 +69,14 @@ namespace MidoriValveTest
             this.lbl_estado = new System.Windows.Forms.Label();
             this.btn_valveTest = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DateEndedTest = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.DateStartedTest = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.red_off = new System.Windows.Forms.PictureBox();
             this.yellow_off = new System.Windows.Forms.PictureBox();
+            this.lb_CounterTest = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.green_off = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -149,22 +155,18 @@ namespace MidoriValveTest
             this.lblhora = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblfecha = new System.Windows.Forms.Label();
-            this.lb_CounterTest = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_menu = new System.Windows.Forms.PictureBox();
             this.PanelNav = new System.Windows.Forms.Panel();
-            this.PanelNavTitle = new System.Windows.Forms.Panel();
-            this.iconBar = new FontAwesome.Sharp.IconButton();
             this.IconClose = new FontAwesome.Sharp.IconButton();
+            this.iconBar = new FontAwesome.Sharp.IconButton();
+            this.PanelNavTitle = new System.Windows.Forms.Panel();
             this.PanelSideNav = new System.Windows.Forms.Panel();
-            this.iconTerminal = new FontAwesome.Sharp.IconButton();
             this.iconPID = new FontAwesome.Sharp.IconButton();
+            this.iconTerminal = new FontAwesome.Sharp.IconButton();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.DateStartedTest = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.DateEndedTest = new System.Windows.Forms.Label();
+            this.IconMaxin = new FontAwesome.Sharp.IconButton();
+            this.IconMinima = new FontAwesome.Sharp.IconButton();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -658,6 +660,47 @@ namespace MidoriValveTest
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Actions";
             // 
+            // DateEndedTest
+            // 
+            this.DateEndedTest.AutoSize = true;
+            this.DateEndedTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateEndedTest.Location = new System.Drawing.Point(314, 116);
+            this.DateEndedTest.Name = "DateEndedTest";
+            this.DateEndedTest.Size = new System.Drawing.Size(32, 16);
+            this.DateEndedTest.TabIndex = 47;
+            this.DateEndedTest.Text = "-/-/-";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(233, 116);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(70, 16);
+            this.label11.TabIndex = 46;
+            this.label11.Text = "Finished:";
+            // 
+            // DateStartedTest
+            // 
+            this.DateStartedTest.AutoSize = true;
+            this.DateStartedTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateStartedTest.Location = new System.Drawing.Point(298, 90);
+            this.DateStartedTest.Name = "DateStartedTest";
+            this.DateStartedTest.Size = new System.Drawing.Size(32, 16);
+            this.DateStartedTest.TabIndex = 45;
+            this.DateStartedTest.Text = "-/-/-";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(234, 90);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 16);
+            this.label9.TabIndex = 44;
+            this.label9.Text = "Started:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
             // red_off
             // 
             this.red_off.Image = global::MidoriValveTest.Properties.Resources.led_off_red;
@@ -677,6 +720,27 @@ namespace MidoriValveTest
             this.yellow_off.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.yellow_off.TabIndex = 42;
             this.yellow_off.TabStop = false;
+            // 
+            // lb_CounterTest
+            // 
+            this.lb_CounterTest.AutoSize = true;
+            this.lb_CounterTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_CounterTest.Location = new System.Drawing.Point(340, 65);
+            this.lb_CounterTest.Name = "lb_CounterTest";
+            this.lb_CounterTest.Size = new System.Drawing.Size(15, 16);
+            this.lb_CounterTest.TabIndex = 34;
+            this.lb_CounterTest.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(233, 65);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 16);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "Count Cycles:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // green_off
             // 
@@ -1551,27 +1615,6 @@ namespace MidoriValveTest
             this.lblfecha.Text = "Fecha";
             this.lblfecha.Click += new System.EventHandler(this.lblfecha_Click);
             // 
-            // lb_CounterTest
-            // 
-            this.lb_CounterTest.AutoSize = true;
-            this.lb_CounterTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_CounterTest.Location = new System.Drawing.Point(340, 65);
-            this.lb_CounterTest.Name = "lb_CounterTest";
-            this.lb_CounterTest.Size = new System.Drawing.Size(15, 16);
-            this.lb_CounterTest.TabIndex = 34;
-            this.lb_CounterTest.Text = "0";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(233, 65);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 16);
-            this.label5.TabIndex = 35;
-            this.label5.Text = "Count Cycles:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Teal;
@@ -1601,6 +1644,8 @@ namespace MidoriValveTest
             // PanelNav
             // 
             this.PanelNav.BackColor = System.Drawing.Color.Teal;
+            this.PanelNav.Controls.Add(this.IconMinima);
+            this.PanelNav.Controls.Add(this.IconMaxin);
             this.PanelNav.Controls.Add(this.btn_menu);
             this.PanelNav.Controls.Add(this.IconClose);
             this.PanelNav.Controls.Add(this.iconBar);
@@ -1611,31 +1656,7 @@ namespace MidoriValveTest
             this.PanelNav.Name = "PanelNav";
             this.PanelNav.Size = new System.Drawing.Size(1904, 45);
             this.PanelNav.TabIndex = 36;
-            // 
-            // PanelNavTitle
-            // 
-            this.PanelNavTitle.Controls.Add(this.pictureBox1);
-            this.PanelNavTitle.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PanelNavTitle.Location = new System.Drawing.Point(0, 0);
-            this.PanelNavTitle.Name = "PanelNavTitle";
-            this.PanelNavTitle.Size = new System.Drawing.Size(200, 45);
-            this.PanelNavTitle.TabIndex = 37;
-            // 
-            // iconBar
-            // 
-            this.iconBar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconBar.FlatAppearance.BorderSize = 0;
-            this.iconBar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconBar.IconChar = FontAwesome.Sharp.IconChar.Bars;
-            this.iconBar.IconColor = System.Drawing.Color.White;
-            this.iconBar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconBar.IconSize = 30;
-            this.iconBar.Location = new System.Drawing.Point(200, 0);
-            this.iconBar.Name = "iconBar";
-            this.iconBar.Size = new System.Drawing.Size(35, 45);
-            this.iconBar.TabIndex = 38;
-            this.iconBar.UseVisualStyleBackColor = true;
-            this.iconBar.Click += new System.EventHandler(this.iconBar_Click);
+            this.PanelNav.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelNav_MouseDown);
             // 
             // IconClose
             // 
@@ -1653,6 +1674,31 @@ namespace MidoriValveTest
             this.IconClose.UseVisualStyleBackColor = true;
             this.IconClose.Click += new System.EventHandler(this.IconClose_Click);
             // 
+            // iconBar
+            // 
+            this.iconBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.iconBar.FlatAppearance.BorderSize = 0;
+            this.iconBar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconBar.IconChar = FontAwesome.Sharp.IconChar.Bars;
+            this.iconBar.IconColor = System.Drawing.Color.White;
+            this.iconBar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconBar.IconSize = 30;
+            this.iconBar.Location = new System.Drawing.Point(200, 0);
+            this.iconBar.Name = "iconBar";
+            this.iconBar.Size = new System.Drawing.Size(35, 45);
+            this.iconBar.TabIndex = 38;
+            this.iconBar.UseVisualStyleBackColor = true;
+            this.iconBar.Click += new System.EventHandler(this.iconBar_Click);
+            // 
+            // PanelNavTitle
+            // 
+            this.PanelNavTitle.Controls.Add(this.pictureBox1);
+            this.PanelNavTitle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PanelNavTitle.Location = new System.Drawing.Point(0, 0);
+            this.PanelNavTitle.Name = "PanelNavTitle";
+            this.PanelNavTitle.Size = new System.Drawing.Size(200, 45);
+            this.PanelNavTitle.TabIndex = 37;
+            // 
             // PanelSideNav
             // 
             this.PanelSideNav.BackColor = System.Drawing.Color.Teal;
@@ -1664,28 +1710,6 @@ namespace MidoriValveTest
             this.PanelSideNav.Name = "PanelSideNav";
             this.PanelSideNav.Size = new System.Drawing.Size(46, 986);
             this.PanelSideNav.TabIndex = 37;
-            // 
-            // iconTerminal
-            // 
-            this.iconTerminal.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconTerminal.FlatAppearance.BorderSize = 0;
-            this.iconTerminal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconTerminal.ForeColor = System.Drawing.Color.White;
-            this.iconTerminal.IconChar = FontAwesome.Sharp.IconChar.LaptopCode;
-            this.iconTerminal.IconColor = System.Drawing.Color.White;
-            this.iconTerminal.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconTerminal.IconSize = 30;
-            this.iconTerminal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconTerminal.Location = new System.Drawing.Point(0, 23);
-            this.iconTerminal.Name = "iconTerminal";
-            this.iconTerminal.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.iconTerminal.Size = new System.Drawing.Size(46, 36);
-            this.iconTerminal.TabIndex = 0;
-            this.iconTerminal.Text = "      Terminal";
-            this.iconTerminal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconTerminal.UseVisualStyleBackColor = true;
-            this.iconTerminal.Click += new System.EventHandler(this.iconTerminal_Click);
             // 
             // iconPID
             // 
@@ -1709,6 +1733,28 @@ namespace MidoriValveTest
             this.iconPID.UseVisualStyleBackColor = true;
             this.iconPID.Click += new System.EventHandler(this.iconPID_Click);
             // 
+            // iconTerminal
+            // 
+            this.iconTerminal.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconTerminal.FlatAppearance.BorderSize = 0;
+            this.iconTerminal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconTerminal.ForeColor = System.Drawing.Color.White;
+            this.iconTerminal.IconChar = FontAwesome.Sharp.IconChar.LaptopCode;
+            this.iconTerminal.IconColor = System.Drawing.Color.White;
+            this.iconTerminal.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconTerminal.IconSize = 30;
+            this.iconTerminal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconTerminal.Location = new System.Drawing.Point(0, 23);
+            this.iconTerminal.Name = "iconTerminal";
+            this.iconTerminal.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.iconTerminal.Size = new System.Drawing.Size(46, 36);
+            this.iconTerminal.TabIndex = 0;
+            this.iconTerminal.Text = "      Terminal";
+            this.iconTerminal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconTerminal.UseVisualStyleBackColor = true;
+            this.iconTerminal.Click += new System.EventHandler(this.iconTerminal_Click);
+            // 
             // panel9
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1717,46 +1763,37 @@ namespace MidoriValveTest
             this.panel9.Size = new System.Drawing.Size(46, 23);
             this.panel9.TabIndex = 0;
             // 
-            // label9
+            // IconMaxin
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(234, 90);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 16);
-            this.label9.TabIndex = 44;
-            this.label9.Text = "Started:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+            this.IconMaxin.Dock = System.Windows.Forms.DockStyle.Right;
+            this.IconMaxin.FlatAppearance.BorderSize = 0;
+            this.IconMaxin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IconMaxin.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            this.IconMaxin.IconColor = System.Drawing.Color.White;
+            this.IconMaxin.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IconMaxin.IconSize = 30;
+            this.IconMaxin.Location = new System.Drawing.Point(1834, 0);
+            this.IconMaxin.Name = "IconMaxin";
+            this.IconMaxin.Size = new System.Drawing.Size(35, 45);
+            this.IconMaxin.TabIndex = 40;
+            this.IconMaxin.UseVisualStyleBackColor = true;
+            this.IconMaxin.Click += new System.EventHandler(this.IconMaxin_Click);
             // 
-            // DateStartedTest
+            // IconMinima
             // 
-            this.DateStartedTest.AutoSize = true;
-            this.DateStartedTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateStartedTest.Location = new System.Drawing.Point(298, 90);
-            this.DateStartedTest.Name = "DateStartedTest";
-            this.DateStartedTest.Size = new System.Drawing.Size(32, 16);
-            this.DateStartedTest.TabIndex = 45;
-            this.DateStartedTest.Text = "-/-/-";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(233, 116);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 16);
-            this.label11.TabIndex = 46;
-            this.label11.Text = "Finished:";
-            // 
-            // DateEndedTest
-            // 
-            this.DateEndedTest.AutoSize = true;
-            this.DateEndedTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateEndedTest.Location = new System.Drawing.Point(314, 116);
-            this.DateEndedTest.Name = "DateEndedTest";
-            this.DateEndedTest.Size = new System.Drawing.Size(32, 16);
-            this.DateEndedTest.TabIndex = 47;
-            this.DateEndedTest.Text = "-/-/-";
+            this.IconMinima.Dock = System.Windows.Forms.DockStyle.Right;
+            this.IconMinima.FlatAppearance.BorderSize = 0;
+            this.IconMinima.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IconMinima.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.IconMinima.IconColor = System.Drawing.Color.White;
+            this.IconMinima.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IconMinima.IconSize = 30;
+            this.IconMinima.Location = new System.Drawing.Point(1799, 0);
+            this.IconMinima.Name = "IconMinima";
+            this.IconMinima.Size = new System.Drawing.Size(35, 45);
+            this.IconMinima.TabIndex = 41;
+            this.IconMinima.UseVisualStyleBackColor = true;
+            this.IconMinima.Click += new System.EventHandler(this.IconMinima_Click);
             // 
             // Midori_PV
             // 
@@ -1777,10 +1814,9 @@ namespace MidoriValveTest
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.PanelNav);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Midori_PV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MIDORI VALVE TEST";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Midori_PV_MouseClick);
             this.groupBox4.ResumeLayout(false);
@@ -1960,6 +1996,8 @@ namespace MidoriValveTest
         private System.Windows.Forms.Label DateEndedTest;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label DateStartedTest;
+        private FontAwesome.Sharp.IconButton IconMinima;
+        private FontAwesome.Sharp.IconButton IconMaxin;
     }
 }
 

@@ -46,7 +46,7 @@ namespace MidoriValveTest
         private const int widthSlide = 200;
         private const int widthSlideIcon = 46;
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCepture();
+        private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
@@ -55,12 +55,12 @@ namespace MidoriValveTest
          public Midori_PV() 
                 {
                     InitializeComponent();
-                    //InitializeSetting();
+                    InitializeSetting();
                 }
 
         public void InitializeSetting() {
             this.FormBorderStyle = FormBorderStyle.None;
-            
+           
         }
 
        
@@ -69,6 +69,7 @@ namespace MidoriValveTest
         // Funcion de carga de procedimientos iniciales (inicio automatico). 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             button3.Enabled = false;
             string[] ports = SerialPort.GetPortNames();                         // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
             comboBox1.Items.AddRange(ports);                                    // Volcamos el contenido de este arreglo dentro del COMBOBOX de seleccion de puerto
@@ -199,7 +200,7 @@ namespace MidoriValveTest
                 {
                     timer_Chart.Start();
                     com_led.Image.Dispose();
-                    com_led.Image = MidoriValveTest.Properties.Resources.led_on;
+                    com_led.Image = MidoriValveTest.Properties.Resources.led_on_green;
                     btn_encender.Enabled = true;
                     btn_P_conf.Enabled = true;
                     btn_valveTest.Enabled = true;
@@ -1297,7 +1298,11 @@ namespace MidoriValveTest
             {
                 green_off.Image.Dispose();
                 green_off.Image = MidoriValveTest.Properties.Resources.led_on_green;
-                DateStartedTest.Text = DateTime.UtcNow.ToString("HH:mm");
+                if (DateStartedTest.Text == "-/-/-")
+                {
+                    DateStartedTest.Text = DateTime.UtcNow.ToString("MM/dd/yy H:mm:ss");
+                }
+                
 
             }
             
@@ -1355,6 +1360,24 @@ namespace MidoriValveTest
         }
 
         private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Maugoncr//
+        //Evento que nos permitira mover el form
+        private void PanelNav_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void IconMaxin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void IconMinima_Click(object sender, EventArgs e)
         {
 
         }
