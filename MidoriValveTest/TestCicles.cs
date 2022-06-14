@@ -49,6 +49,10 @@ private void timer1_Tick(object sender, EventArgs e)
         {
             counter = 0;
             greenlight = false;
+            timer1.Stop();
+            limit = 0;
+            NumOfCycles.Value = 0;
+            txt_cycles.Text = "0";
 
         }
 
@@ -62,8 +66,7 @@ private void timer1_Tick(object sender, EventArgs e)
           
 
             
-            //com_led.Image.Dispose();
-            //com_led.Image = MidoriValveTest.Properties.Resources.led_on;
+            
 
         }
 
