@@ -17,6 +17,7 @@ using System.Threading;
 using System.Management;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace MidoriValveTest
 {
@@ -24,6 +25,8 @@ namespace MidoriValveTest
     
     public partial class Midori_PV : Form
     {
+        Stopwatch oSW = new Stopwatch();
+
         //------------------- VARIABLES DE TRABAJO GENERAL DE CODIGO-------------
         System.IO.Ports.SerialPort Arduino;         // Objeto de tipo "serial" port que permite lectoescritura con el puesto seteado. 
         bool record=false;                          // variable que permite determinar si la lectura actual del puerto serial se esta grabando para un archivo.
@@ -1416,6 +1419,37 @@ namespace MidoriValveTest
             {
                 WindowState = FormWindowState.Minimized;
             }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            oSW.Start();
+            timer2.Enabled = true; 
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            TimeSpan ts = new TimeSpan(0, 0, 0, 0, (int)oSW.ElapsedMilliseconds);
+            txthoras.Text = ts.Hours.ToString().Length < 2 ? "0" + ts.Hours.ToString() : ts.Hours.ToString();
+            txtminutos.Text = ts.Minutes.ToString().Length < 2 ? "0" + ts.Minutes.ToString() : ts.Minutes.ToString();
+            txtsegundos.Text = ts.Seconds.ToString().Length<2 ? "0" + ts.Seconds.ToString() : ts.Seconds.ToString();
+            txtmilisegundos.Text = ts.Milliseconds.ToString();
+            
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            oSW.Reset();
+            txthoras.Text = "00";
+            txtminutos.Text = "00";
+            txtsegundos.Text = "00";
+            txtmilisegundos.Text = "000";
+            timer2.Enabled = false;
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            oSW.Stop();
         }
     }
 }
