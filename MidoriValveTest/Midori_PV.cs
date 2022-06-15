@@ -76,6 +76,7 @@ namespace MidoriValveTest
             iconPID.Enabled = false;
             IconSensor.Enabled = false;
             IconTrace.Enabled = false;
+            IconReport.Enabled = false;
             button3.Enabled = false;
             string[] ports = SerialPort.GetPortNames();                         // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
             comboBox1.Items.AddRange(ports);                                    // Volcamos el contenido de este arreglo dentro del COMBOBOX de seleccion de puerto
@@ -132,6 +133,7 @@ namespace MidoriValveTest
             iconPID.Enabled = false;
             IconSensor.Enabled = false;
             IconTrace.Enabled = false;
+            IconReport.Enabled = false;
             button3.Enabled = false;
             // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
             //Boton 3 es el boton de Connect
@@ -242,6 +244,7 @@ namespace MidoriValveTest
                     iconPID.Enabled = true;
                     IconSensor.Enabled = true;
                     IconTrace.Enabled = true;
+                    IconReport.Enabled = true;
                     button3.Enabled = true;
                     //apertura
 
@@ -1343,7 +1346,7 @@ namespace MidoriValveTest
                 green_off.Image = MidoriValveTest.Properties.Resources.led_on_green;
                 if (DateStartedTest.Text == "-/-/-")
                 {
-                    DateStartedTest.Text = DateTime.UtcNow.ToString("MM/dd/yy           hh:mm:ss");
+                    DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy      hh:mm:ss");
                 }
             }
             else if (TestCicles.greenlight == false)
@@ -1533,6 +1536,19 @@ namespace MidoriValveTest
 
         private void IconReport_Click(object sender, EventArgs e)
         {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Report);
+
+            if (frm == null)
+            {
+                Report nt = new Report();
+                nt.Show();
+
+            }
+            else
+            {
+                frm.BringToFront();
+                return;
+            }
 
         }
 

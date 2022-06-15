@@ -163,6 +163,9 @@
     <EmbeddedResource Include="Pressure Sensor.resx">
       <DependentUpon>Pressure Sensor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Trace Log.resx">
       <DependentUpon>Trace Log.cs</DependentUpon>
     </EmbeddedResource>
