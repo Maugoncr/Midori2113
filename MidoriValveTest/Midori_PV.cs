@@ -1343,7 +1343,7 @@ namespace MidoriValveTest
                 green_off.Image = MidoriValveTest.Properties.Resources.led_on_green;
                 if (DateStartedTest.Text == "-/-/-")
                 {
-                    DateStartedTest.Text = DateTime.UtcNow.ToString("MM/dd/yy H:mm:ss");
+                    DateStartedTest.Text = DateTime.UtcNow.ToString("MM/dd/yy           hh:mm:ss");
                 }
             }
             else if (TestCicles.greenlight == false)
@@ -1531,6 +1531,9 @@ namespace MidoriValveTest
             
         }
 
+        private void button13_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
