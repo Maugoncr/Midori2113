@@ -1531,7 +1531,12 @@ namespace MidoriValveTest
             
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        private void IconReport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
         {
 
         }

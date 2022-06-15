@@ -93,6 +93,7 @@ namespace MidoriValveTest
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnStop = new System.Windows.Forms.Button();
             this.com_led = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -181,7 +182,7 @@ namespace MidoriValveTest
             this.iconTerminal = new FontAwesome.Sharp.IconButton();
             this.panel9 = new System.Windows.Forms.Panel();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.button13 = new System.Windows.Forms.Button();
+            this.IconReport = new FontAwesome.Sharp.IconButton();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -948,7 +949,7 @@ namespace MidoriValveTest
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.button13);
+            this.groupBox3.Controls.Add(this.btnStop);
             this.groupBox3.Controls.Add(this.btnRestart);
             this.groupBox3.Controls.Add(this.lblPuerto);
             this.groupBox3.Controls.Add(this.comboBox1);
@@ -965,6 +966,17 @@ namespace MidoriValveTest
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "COM select";
+            // 
+            // btnStop
+            // 
+            this.btnStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStop.Location = new System.Drawing.Point(316, 86);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(83, 29);
+            this.btnStop.TabIndex = 40;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // com_led
             // 
@@ -1896,6 +1908,7 @@ namespace MidoriValveTest
             // PanelSideNav
             // 
             this.PanelSideNav.BackColor = System.Drawing.Color.Teal;
+            this.PanelSideNav.Controls.Add(this.IconReport);
             this.PanelSideNav.Controls.Add(this.IconSensor);
             this.PanelSideNav.Controls.Add(this.IconTrace);
             this.PanelSideNav.Controls.Add(this.iconPID);
@@ -1904,7 +1917,7 @@ namespace MidoriValveTest
             this.PanelSideNav.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelSideNav.Location = new System.Drawing.Point(0, 45);
             this.PanelSideNav.Name = "PanelSideNav";
-            this.PanelSideNav.Size = new System.Drawing.Size(46, 992);
+            this.PanelSideNav.Size = new System.Drawing.Size(199, 992);
             this.PanelSideNav.TabIndex = 37;
             // 
             // IconSensor
@@ -1922,7 +1935,7 @@ namespace MidoriValveTest
             this.IconSensor.Location = new System.Drawing.Point(0, 131);
             this.IconSensor.Name = "IconSensor";
             this.IconSensor.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.IconSensor.Size = new System.Drawing.Size(46, 36);
+            this.IconSensor.Size = new System.Drawing.Size(199, 36);
             this.IconSensor.TabIndex = 3;
             this.IconSensor.Text = "      Pressure Sensor";
             this.IconSensor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1944,7 +1957,7 @@ namespace MidoriValveTest
             this.IconTrace.Location = new System.Drawing.Point(0, 95);
             this.IconTrace.Name = "IconTrace";
             this.IconTrace.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.IconTrace.Size = new System.Drawing.Size(46, 36);
+            this.IconTrace.Size = new System.Drawing.Size(199, 36);
             this.IconTrace.TabIndex = 2;
             this.IconTrace.Text = "      Trace Log";
             this.IconTrace.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1958,7 +1971,7 @@ namespace MidoriValveTest
             this.iconPID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconPID.ForeColor = System.Drawing.Color.White;
-            this.iconPID.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.iconPID.IconChar = FontAwesome.Sharp.IconChar.Cog;
             this.iconPID.IconColor = System.Drawing.Color.White;
             this.iconPID.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPID.IconSize = 25;
@@ -1966,7 +1979,7 @@ namespace MidoriValveTest
             this.iconPID.Location = new System.Drawing.Point(0, 59);
             this.iconPID.Name = "iconPID";
             this.iconPID.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.iconPID.Size = new System.Drawing.Size(46, 36);
+            this.iconPID.Size = new System.Drawing.Size(199, 36);
             this.iconPID.TabIndex = 1;
             this.iconPID.Text = "      PID Config";
             this.iconPID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1988,7 +2001,7 @@ namespace MidoriValveTest
             this.iconTerminal.Location = new System.Drawing.Point(0, 23);
             this.iconTerminal.Name = "iconTerminal";
             this.iconTerminal.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.iconTerminal.Size = new System.Drawing.Size(46, 36);
+            this.iconTerminal.Size = new System.Drawing.Size(199, 36);
             this.iconTerminal.TabIndex = 0;
             this.iconTerminal.Text = "      Terminal";
             this.iconTerminal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2000,23 +2013,34 @@ namespace MidoriValveTest
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(46, 23);
+            this.panel9.Size = new System.Drawing.Size(199, 23);
             this.panel9.TabIndex = 0;
             // 
             // timer2
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // button13
+            // IconReport
             // 
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(316, 86);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(83, 29);
-            this.button13.TabIndex = 40;
-            this.button13.Text = "Stop";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.IconReport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.IconReport.FlatAppearance.BorderSize = 0;
+            this.IconReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IconReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IconReport.ForeColor = System.Drawing.Color.White;
+            this.IconReport.IconChar = FontAwesome.Sharp.IconChar.Book;
+            this.IconReport.IconColor = System.Drawing.Color.White;
+            this.IconReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IconReport.IconSize = 25;
+            this.IconReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.IconReport.Location = new System.Drawing.Point(0, 167);
+            this.IconReport.Name = "IconReport";
+            this.IconReport.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.IconReport.Size = new System.Drawing.Size(199, 36);
+            this.IconReport.TabIndex = 4;
+            this.IconReport.Text = "      Report";
+            this.IconReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.IconReport.UseVisualStyleBackColor = true;
+            this.IconReport.Click += new System.EventHandler(this.IconReport_Click);
             // 
             // Midori_PV
             // 
@@ -2237,7 +2261,8 @@ namespace MidoriValveTest
         private System.Windows.Forms.TextBox txtsegundos;
         private FontAwesome.Sharp.IconButton IconSensor;
         private FontAwesome.Sharp.IconButton IconTrace;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button btnStop;
+        private FontAwesome.Sharp.IconButton IconReport;
     }
 }
 
