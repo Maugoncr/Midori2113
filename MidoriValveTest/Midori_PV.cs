@@ -1554,6 +1554,99 @@ namespace MidoriValveTest
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+            //Disable SideMenu since you connect again
+            iconTerminal.Enabled = false;
+            iconPID.Enabled = false;
+            IconSensor.Enabled = false;
+            IconTrace.Enabled = false;
+            IconReport.Enabled = false;
+            button3.Enabled = false;
+            // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
+            //Boton 3 es el boton de Connect
+            button3.Enabled = false;
+            string[] ports = SerialPort.GetPortNames();
+            //Maugoncr//Validar que no metamos el mismo Puerto COM repetido
+            //string[] portsNoRep = ports.Distinct().ToArray();
+            //Limpia el combobox y añade el array de los nombres de los puertos
+            comboBox1.Items.Clear();
+            comboBox1.Items.AddRange(ports);
+
+            chart1.Series["Aperture value"].Points.Clear();
+            chart1.Series["Pressure"].Points.Clear();
+
+            ChartArea CA = chart1.ChartAreas[0];
+            CA.CursorX.AutoScroll = true;
+
+            //Restart the chart timer
+            tiempo = 0;
+            //Stop the Chart
+            timer_Chart.Stop();
+            comboBox1.Enabled = true;
+
+            //Maugoncr//because if there is nothing connected and we use the Arduino object we would get an error because it would be null.
+            //Close the port and wait for 2s
+            if (Arduino != null)
+            {
+                Arduino.Close();
+                Thread.Sleep(2000);
+            }
+
+            if (lbl_estado.Text == "Open")
+            {
+
+                trackBar1.Enabled = false;
+                trackBar2.Enabled = false;
+                trackBar1.Value = 0;
+                precision_aperture = 0;
+                Current_aperture.Text = "Current Aperture:" + precision_aperture + "°";
+                picture_frontal.Image.Dispose();
+                picture_frontal.Image = MidoriValveTest.Properties.Resources._0_2;
+                picture_plane.Image.Dispose();
+                picture_plane.Image = MidoriValveTest.Properties.Resources._0_GRADOS2;
+                precision_aperture = 0;
+                lbl_estado.ForeColor = Color.Red;
+                lbl_estado.Text = "Close";
+                btn_apagar.Enabled = false;
+                btn_90.Enabled = false;
+                btn_80.Enabled = false;
+                btn_70.Enabled = false;
+                btn_60.Enabled = false;
+                btn_50.Enabled = false;
+                btn_40.Enabled = false;
+                btn_30.Enabled = false;
+                btn_20.Enabled = false;
+                btn_10.Enabled = false;
+                btn_0.Enabled = false;
+
+            }
+
+            if (DateStartedTest.Text != "-/-/-")
+            {
+                TestCicles.greenlight = false;
+                TestCicles.counter = 0;
+                DateStartedTest.Text = "-/-/-";
+                DateEndedTest.Text = "-/-/-";
+                green_off.Image.Dispose();
+                green_off.Image = MidoriValveTest.Properties.Resources.led_off_green;
+                yellow_off.Image.Dispose();
+                yellow_off.Image = MidoriValveTest.Properties.Resources.led_off_yellow;
+                red_off.Image.Dispose();
+                red_off.Image = MidoriValveTest.Properties.Resources.led_off_red;
+                lb_CounterTest.Text = "0";
+
+
+
+            }
+
+
+            //Maugoncr// Turn off the led and the same for labels, disable the button of Open Gate
+            com_led.Image.Dispose();
+            com_led.Image = MidoriValveTest.Properties.Resources.led_on_red;
+            LblEstado.Text = "Disconnected *";
+            lblPuerto.Text = "Disconnected *";
+            btn_encender.Enabled = false;
+            lbl_pressure.Text = "Current Pressure: 0 ";
+            btn_valveTest.Enabled = false;
 
         }
     }
