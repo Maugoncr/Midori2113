@@ -300,7 +300,7 @@ namespace MidoriValveTest
         }
         private void btn_encender_Click(object sender, EventArgs e)
         {
-            Arduino.Write("9");
+            Arduino.Write("90");
             Thread.Sleep(50);
 
 
