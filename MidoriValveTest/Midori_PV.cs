@@ -156,6 +156,9 @@ namespace MidoriValveTest
             //Stop the Chart
             timer_Chart.Stop();
             comboBox1.Enabled = true;
+            // hEEEEY
+            btn_set.Enabled = false;
+            btn_set.Text = "Set Apperture";
 
             //Maugoncr//because if there is nothing connected and we use the Arduino object we would get an error because it would be null.
             //Close the port and wait for 2s
@@ -239,6 +242,8 @@ namespace MidoriValveTest
                     btn_valveTest.Enabled = true;
                     comboBox1.Enabled = false;
                     button3.Enabled = false;
+
+                    // Menu settings
                     btn_menu.Enabled = true;
                     iconTerminal.Enabled = true;
                     iconPID.Enabled = true;
@@ -247,6 +252,17 @@ namespace MidoriValveTest
                     IconReport.Enabled = true;
                     button3.Enabled = true;
                     //apertura
+                    trackBar1.Enabled = true;
+                    btn_90.Enabled = true;
+                    btn_80.Enabled = true;
+                    btn_70.Enabled = true;
+                    btn_60.Enabled = true;
+                    btn_50.Enabled = true;
+                    btn_40.Enabled = true;
+                    btn_30.Enabled = true;
+                    btn_20.Enabled = true;
+                    btn_10.Enabled = true;
+                    btn_0.Enabled = true;
 
 
                 }              
@@ -300,8 +316,8 @@ namespace MidoriValveTest
         }
         private void btn_encender_Click(object sender, EventArgs e)
         {
-            Arduino.Write("90");
-            Thread.Sleep(50);
+            //Arduino.Write("90");
+            //Thread.Sleep(50);
 
 
             //esperamos la señal de movimeinto de partura
@@ -310,18 +326,23 @@ namespace MidoriValveTest
             //    respuesta = Arduino.ReadExisting(); //MessageBox.Show(respuesta);
             //    Thread.Sleep(100);
             //}
+
             trackBar1.Enabled = true;
             trackBar2.Enabled = true;
 
-            trackBar1.Value = 90;
-            precision_aperture = 90;
+            //Maugoncr// Enviamos los grados que deseamos se abra la valvula desde el open gate.
+            precision_aperture = trackBar1.Value;
+            Arduino.Write(precision_aperture.ToString());
+            Thread.Sleep(50);
+
             Current_aperture.Text = "Current Aperture:" + precision_aperture + "°";
-          
+
             picture_frontal.Image.Dispose();
             picture_frontal.Image = MidoriValveTest.Properties.Resources._90_2;
             picture_plane.Image.Dispose();
             picture_plane.Image = MidoriValveTest.Properties.Resources._90_GRADOS2;
-            precision_aperture = 90;
+            //precision_aperture = 90;
+
             lbl_estado.ForeColor = Color.Green;
             lbl_estado.Text = "Open";
             btn_encender.Enabled = false;
@@ -338,7 +359,7 @@ namespace MidoriValveTest
             btn_20.Enabled = true;
             btn_10.Enabled = true;
             btn_0.Enabled = true;
-
+            btn_set.Enabled = true;
 
 
 
@@ -357,7 +378,7 @@ namespace MidoriValveTest
             //    respuesta = Arduino.ReadExisting(); //MessageBox.Show(respuesta);
             //    Thread.Sleep(50);
             //}
-            trackBar1.Enabled = false;
+            //trackBar1.Enabled = false;
             trackBar2.Enabled = false;
 
             trackBar1.Value = 0;
@@ -373,16 +394,17 @@ namespace MidoriValveTest
 
             btn_encender.Enabled = true;
             btn_apagar.Enabled = false;
-            btn_90.Enabled = false;
-            btn_80.Enabled = false;
-            btn_70.Enabled = false;
-            btn_60.Enabled = false;
-            btn_50.Enabled = false;
-            btn_40.Enabled = false;
-            btn_30.Enabled = false;
-            btn_20.Enabled = false;
-            btn_10.Enabled = false;
-            btn_0.Enabled = false;
+            //btn_90.Enabled = false;
+            //btn_80.Enabled = false;
+            //btn_70.Enabled = false;
+            //btn_60.Enabled = false;
+            //btn_50.Enabled = false;
+            //btn_40.Enabled = false;
+            //btn_30.Enabled = false;
+            //btn_20.Enabled = false;
+            //btn_10.Enabled = false;
+            //btn_0.Enabled = false;
+            btn_set.Enabled=false;
 
         }
 
@@ -413,9 +435,13 @@ namespace MidoriValveTest
            // precision_aperture = 0;
             Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
             btn_set.Text = "Set Aperture";
-            btn_set.Enabled = true;
-            lbl_estado.ForeColor = Color.Red;
-            lbl_estado.Text = "Close";
+            //btn_set.Enabled = true;
+            //lbl_estado.ForeColor = Color.Red;
+            //lbl_estado.Text = "Close";
+            if (lbl_estado.Text == "Open")
+            {
+                btn_set.Enabled = true;
+            }
 
         }
 
@@ -430,9 +456,13 @@ namespace MidoriValveTest
            // precision_aperture = 10;
             Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 10";
-            btn_set.Enabled = true;
-            lbl_estado.ForeColor = Color.Green;
-            lbl_estado.Text = "Open";
+            //btn_set.Enabled = true;
+            //lbl_estado.ForeColor = Color.Green;
+            //lbl_estado.Text = "Open";
+            if (lbl_estado.Text == "Open")
+            {
+                btn_set.Enabled = true;
+            }
         }
 
         private void btn_20_Click(object sender, EventArgs e)
@@ -446,9 +476,14 @@ namespace MidoriValveTest
            // precision_aperture = 20;
             Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 20";
-            btn_set.Enabled = true;
-            lbl_estado.ForeColor = Color.Green;
-            lbl_estado.Text = "Open";
+            //btn_set.Enabled = true;
+            //lbl_estado.ForeColor = Color.Green;
+            //lbl_estado.Text = "Open";
+             
+            if (lbl_estado.Text == "Open")
+            {
+                btn_set.Enabled = true;
+            }
         }
 
         private void btn_30_Click(object sender, EventArgs e)
@@ -462,9 +497,13 @@ namespace MidoriValveTest
             //precision_aperture = 30;
             Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 30";
-            btn_set.Enabled = true;
-            lbl_estado.ForeColor = Color.Green;
-            lbl_estado.Text = "Open";
+            //btn_set.Enabled = true;
+            //lbl_estado.ForeColor = Color.Green;
+            //lbl_estado.Text = "Open";
+            if (lbl_estado.Text == "Open")
+            {
+                btn_set.Enabled = true;
+            }
         }
 
         private void btn_40_Click(object sender, EventArgs e)
@@ -478,9 +517,13 @@ namespace MidoriValveTest
             //precision_aperture = 40;
             Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 40";
-            btn_set.Enabled = true;
-            lbl_estado.ForeColor = Color.Green;
-            lbl_estado.Text = "Open";
+            //btn_set.Enabled = true;
+            //lbl_estado.ForeColor = Color.Green;
+            //lbl_estado.Text = "Open";
+            if (lbl_estado.Text == "Open")
+            {
+                btn_set.Enabled = true;
+            }
         }
 
         private void btn_50_Click(object sender, EventArgs e)
@@ -494,9 +537,14 @@ namespace MidoriValveTest
             //precision_aperture = 50;
             Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 50";
-            btn_set.Enabled = true;
-            lbl_estado.ForeColor = Color.Green;
-            lbl_estado.Text = "Open";
+            //btn_set.Enabled = true;
+            //lbl_estado.ForeColor = Color.Green;
+            //lbl_estado.Text = "Open";
+            if (lbl_estado.Text == "Open")
+            {
+                btn_set.Enabled = true;
+            }
+
         }
 
         private void btn_60_Click(object sender, EventArgs e)
@@ -510,9 +558,14 @@ namespace MidoriValveTest
             //precision_aperture = 60;
             Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 60";
-            btn_set.Enabled = true;
-            lbl_estado.ForeColor = Color.Green;
-            lbl_estado.Text = "Open";
+            //btn_set.Enabled = true;
+            //lbl_estado.ForeColor = Color.Green;
+            //lbl_estado.Text = "Open";
+
+            if (lbl_estado.Text == "Open")
+            {
+                btn_set.Enabled = true;
+            }
         }
 
         private void btn_70_Click(object sender, EventArgs e)
@@ -526,9 +579,14 @@ namespace MidoriValveTest
             //precision_aperture = 70;
             Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 70";
-            btn_set.Enabled = true;
-            lbl_estado.ForeColor = Color.Green;
-            lbl_estado.Text = "Open";
+            //btn_set.Enabled = true;
+            //lbl_estado.ForeColor = Color.Green;
+            //lbl_estado.Text = "Open";
+
+            if (lbl_estado.Text == "Open")
+            {
+                btn_set.Enabled = true;
+            }
         }
 
         private void btn_80_Click(object sender, EventArgs e)
@@ -542,9 +600,14 @@ namespace MidoriValveTest
             //precision_aperture = 80;
             Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 80";
-            btn_set.Enabled = true;
-            lbl_estado.ForeColor = Color.Green;
-            lbl_estado.Text = "Open";
+            //btn_set.Enabled = true;
+            //lbl_estado.ForeColor = Color.Green;
+            //lbl_estado.Text = "Open";
+            if (lbl_estado.Text == "Open")
+            {
+                btn_set.Enabled = true;
+            }
+
         }
 
         private void btn_90_Click(object sender, EventArgs e)
@@ -558,9 +621,16 @@ namespace MidoriValveTest
             //precision_aperture = 90;
             Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 90";
-            btn_set.Enabled = true;
-            lbl_estado.ForeColor = Color.Green;
-            lbl_estado.Text = "Open";
+
+            //lbl_estado.ForeColor = Color.Green;
+            //lbl_estado.Text = "Open";
+            //btn_set.Enabled = true;
+
+            if (lbl_estado.Text == "Open")
+            {
+                btn_set.Enabled = true;
+            }
+
         }
 
         private void label20_Click(object sender, EventArgs e)
@@ -674,10 +744,11 @@ namespace MidoriValveTest
                     }
                     break;
 
+
             }
 
 
-            btn_set.Enabled = true;
+            //btn_set.Enabled = true;
             btn_set.Text = "Set Aperture in " + trackBar1.Value+"°";
             //precision_aperture = trackBar1.Value;
 
