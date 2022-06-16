@@ -128,6 +128,7 @@ namespace MidoriValveTest
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
+            Arduino.Write("0");
             //Disable SideMenu since you connect again
             iconTerminal.Enabled = false;
             iconPID.Enabled = false;
@@ -1625,6 +1626,7 @@ namespace MidoriValveTest
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+            Arduino.Write("0");
             //Disable SideMenu since you connect again
             iconTerminal.Enabled = false;
             iconPID.Enabled = false;
