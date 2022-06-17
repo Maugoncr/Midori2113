@@ -100,6 +100,12 @@
     <Compile Include="Chart Analyzer File.Designer.cs">
       <DependentUpon>Chart Analyzer File.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChooseDWG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseDWG.Designer.cs">
+      <DependentUpon>ChooseDWG.cs</DependentUpon>
+    </Compile>
     <Compile Include="DecimalFormat.cs" />
     <Compile Include="PID_Config.cs">
       <SubType>Form</SubType>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Chart Analyzer.resx">
       <DependentUpon>Chart Analyzer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseDWG.resx">
+      <DependentUpon>ChooseDWG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PID_Config.resx">
       <DependentUpon>PID_Config.cs</DependentUpon>
@@ -273,6 +282,8 @@
     <None Include="Resources\90 GRADOS.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\image %281%29.png" />
+    <None Include="Resources\image.png" />
     <Content Include="Resources\led_off_green.png" />
     <Content Include="Resources\led_off_red.png" />
     <Content Include="Resources\led_off_yellow.png" />

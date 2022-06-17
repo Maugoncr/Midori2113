@@ -1723,5 +1723,21 @@ namespace MidoriValveTest
 
         }
 
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is ChooseDWG);
+
+            if (frm == null)
+            {
+                ChooseDWG nt = new ChooseDWG();
+                nt.Show();
+
+            }
+            else
+            {
+                frm.BringToFront();
+                return;
+            }
+        }
     }
 }
