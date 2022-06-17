@@ -573,16 +573,6 @@ namespace MidoriValveTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap A40 {
-            get {
-                object obj = ResourceManager.GetObject("A40", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap close_menu {
             get {
                 object obj = ResourceManager.GetObject("close menu", resourceCulture);
@@ -596,26 +586,6 @@ namespace MidoriValveTest.Properties {
         internal static System.Drawing.Bitmap close_menu1 {
             get {
                 object obj = ResourceManager.GetObject("close menu1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap image {
-            get {
-                object obj = ResourceManager.GetObject("image", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap image__1_ {
-            get {
-                object obj = ResourceManager.GetObject("image (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -736,26 +706,6 @@ namespace MidoriValveTest.Properties {
         internal static System.Drawing.Bitmap MIDORI_ESA_blanco {
             get {
                 object obj = ResourceManager.GetObject("MIDORI ESA_blanco", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap MIDORI_OFICIAL2 {
-            get {
-                object obj = ResourceManager.GetObject("MIDORI OFICIAL2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap MIDORI_OFICIAL21 {
-            get {
-                object obj = ResourceManager.GetObject("MIDORI OFICIAL21", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

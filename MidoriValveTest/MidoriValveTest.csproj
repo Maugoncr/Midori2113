@@ -113,22 +113,11 @@
     <Compile Include="Pressure Sensor.Designer.cs">
       <DependentUpon>Pressure Sensor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Report.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Report.Designer.cs">
       <DependentUpon>Report.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SelectedV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SelectedV.Designer.cs">
-      <DependentUpon>SelectedV.cs</DependentUpon>
     </Compile>
     <Compile Include="Trace Log.cs">
       <SubType>Form</SubType>
@@ -177,9 +166,6 @@
     <EmbeddedResource Include="Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SelectedV.resx">
-      <DependentUpon>SelectedV.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Trace Log.resx">
       <DependentUpon>Trace Log.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,9 +177,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <EmbeddedResource Include="Terminal.resx">
       <DependentUpon>Terminal.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,19 +273,12 @@
     <None Include="Resources\90 GRADOS.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\image.png" />
-    <None Include="Resources\image %281%29.png" />
-    <None Include="Resources\A401.jpg" />
-    <Content Include="Resources\E401.jpg" />
-    <Content Include="Resources\E402.jpg" />
     <Content Include="Resources\led_off_green.png" />
     <Content Include="Resources\led_off_red.png" />
     <Content Include="Resources\led_off_yellow.png" />
     <Content Include="Resources\led_on_green.png" />
     <Content Include="Resources\led_on_red.png" />
     <Content Include="Resources\led_on_yellow.png" />
-    <None Include="Resources\MIDORI OFICIAL21.png" />
-    <None Include="Resources\MIDORI OFICIAL2.png" />
     <None Include="Resources\close menu1.png" />
     <None Include="Resources\menu.png" />
     <None Include="Resources\close menu.png" />
