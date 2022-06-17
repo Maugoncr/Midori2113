@@ -176,7 +176,7 @@ namespace MidoriValveTest
                 trackBar2.Enabled = false;
                 trackBar1.Value = 0;
                 precision_aperture = 0;
-                Current_aperture.Text = "Current Aperture:" + precision_aperture + "°";
+                Current_aperture.Text =  precision_aperture + "°";
                 picture_frontal.Image.Dispose();
                 picture_frontal.Image = MidoriValveTest.Properties.Resources._0_2;
                 picture_plane.Image.Dispose();
@@ -223,7 +223,7 @@ namespace MidoriValveTest
             LblEstado.Text = "Disconnected *";
             lblPuerto.Text = "Disconnected *";
             btn_encender.Enabled = false;
-            lbl_pressure.Text = "Current Pressure: 0 ";
+            lbl_pressure.Text = "0";
             btn_valveTest.Enabled = false;
 
         }
@@ -336,7 +336,7 @@ namespace MidoriValveTest
             Arduino.Write(precision_aperture.ToString());
             Thread.Sleep(50);
 
-            Current_aperture.Text = "Current Aperture:" + precision_aperture + "°";
+            Current_aperture.Text =  precision_aperture + "°";
 
             picture_frontal.Image.Dispose();
             picture_frontal.Image = MidoriValveTest.Properties.Resources._90_2;
@@ -384,7 +384,7 @@ namespace MidoriValveTest
 
             trackBar1.Value = 0;
             precision_aperture = 0;
-            Current_aperture.Text = "Current Aperture:" + precision_aperture + "°";
+            Current_aperture.Text =  precision_aperture + "°";
             picture_frontal.Image.Dispose();
             picture_frontal.Image = MidoriValveTest.Properties.Resources._0_2;
             picture_plane.Image.Dispose();
@@ -434,7 +434,7 @@ namespace MidoriValveTest
             base_value = 0;
             trackBar1.Value = 0;
            // precision_aperture = 0;
-            Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
+            Current_aperture.Text =  trackBar1.Value+"°";
             btn_set.Text = "Set Aperture";
             //btn_set.Enabled = true;
             //lbl_estado.ForeColor = Color.Red;
@@ -455,7 +455,7 @@ namespace MidoriValveTest
             base_value = 10;
             trackBar1.Value = 10;
            // precision_aperture = 10;
-            Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
+            Current_aperture.Text =  trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 10";
             //btn_set.Enabled = true;
             //lbl_estado.ForeColor = Color.Green;
@@ -475,7 +475,7 @@ namespace MidoriValveTest
             base_value = 20;
             trackBar1.Value = 20;
            // precision_aperture = 20;
-            Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
+            Current_aperture.Text =   trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 20";
             //btn_set.Enabled = true;
             //lbl_estado.ForeColor = Color.Green;
@@ -496,7 +496,7 @@ namespace MidoriValveTest
             base_value = 30;
             trackBar1.Value = 30;
             //precision_aperture = 30;
-            Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
+            Current_aperture.Text =  + trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 30";
             //btn_set.Enabled = true;
             //lbl_estado.ForeColor = Color.Green;
@@ -516,7 +516,7 @@ namespace MidoriValveTest
             base_value = 40;
             trackBar1.Value = 40;
             //precision_aperture = 40;
-            Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
+            Current_aperture.Text =  trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 40";
             //btn_set.Enabled = true;
             //lbl_estado.ForeColor = Color.Green;
@@ -536,7 +536,7 @@ namespace MidoriValveTest
             base_value = 50;
             trackBar1.Value = 50;
             //precision_aperture = 50;
-            Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
+            Current_aperture.Text =  trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 50";
             //btn_set.Enabled = true;
             //lbl_estado.ForeColor = Color.Green;
@@ -557,7 +557,7 @@ namespace MidoriValveTest
             base_value = 60;
             trackBar1.Value = 60;
             //precision_aperture = 60;
-            Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
+            Current_aperture.Text =  trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 60";
             //btn_set.Enabled = true;
             //lbl_estado.ForeColor = Color.Green;
@@ -578,7 +578,7 @@ namespace MidoriValveTest
             base_value = 70;
             trackBar1.Value = 70;
             //precision_aperture = 70;
-            Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
+            Current_aperture.Text =  trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 70";
             //btn_set.Enabled = true;
             //lbl_estado.ForeColor = Color.Green;
@@ -599,7 +599,7 @@ namespace MidoriValveTest
             base_value = 80;
             trackBar1.Value = 80;
             //precision_aperture = 80;
-            Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
+            Current_aperture.Text =  trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 80";
             //btn_set.Enabled = true;
             //lbl_estado.ForeColor = Color.Green;
@@ -620,7 +620,7 @@ namespace MidoriValveTest
             base_value = 90;
             trackBar1.Value = 90;
             //precision_aperture = 90;
-            Current_aperture.Text = "Current Aperture:" + trackBar1.Value+"°";
+            Current_aperture.Text =  trackBar1.Value+"°";
             btn_set.Text = "Set Aperture in 90";
 
             //lbl_estado.ForeColor = Color.Green;
@@ -785,14 +785,14 @@ namespace MidoriValveTest
 
                 decimal rr = Convert.ToDecimal(rd);
                 pressure_get = decimal.Round(rr, 3);
-                lbl_pressure.Text = "Current Pressure: " + pressure_get;
+                lbl_pressure.Text =  pressure_get.ToString();
                 chart1.ChartAreas[0].RecalculateAxesScale();
             }
             else {
 
                 chart1.Series["Aperture value"].Points.AddXY(t.ToString(), precision_aperture.ToString());
                 chart1.Series["Pressure"].Points.AddXY(t.ToString(), 8.ToString());
-                lbl_pressure.Text = "Current Pressure: " + 8;
+                lbl_pressure.Text =  "8";
                 chart1.ChartAreas[0].RecalculateAxesScale();
 
             }
@@ -1163,7 +1163,7 @@ namespace MidoriValveTest
             // 
 
             precision_aperture = trackBar1.Value;
-            Current_aperture.Text = "Current Aperture:" + precision_aperture + "°";
+            Current_aperture.Text = precision_aperture + "°";
             btn_set.Text = "Set Aperture";
             btn_set.Enabled = false;
             lbl_estado.ForeColor = Color.Green;
@@ -1406,8 +1406,9 @@ namespace MidoriValveTest
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            string fecha = DateTime.Now.ToLongDateString();
-            lblhora.Text = DateTime.Now.ToString("hh:mm:ss");
+            string fecha = DateTime.Now.ToString("dddd, MM/dd/yyyy");
+            lblhora.Text = DateTime.Now.ToString("hh:mm tt");
+
             lblfecha.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(fecha);
 
             lb_CounterTest.Text = TestCicles.counter.ToString();
@@ -1671,7 +1672,7 @@ namespace MidoriValveTest
                 trackBar2.Enabled = false;
                 trackBar1.Value = 0;
                 precision_aperture = 0;
-                Current_aperture.Text = "Current Aperture:" + precision_aperture + "°";
+                Current_aperture.Text = precision_aperture + "°";
                 picture_frontal.Image.Dispose();
                 picture_frontal.Image = MidoriValveTest.Properties.Resources._0_2;
                 picture_plane.Image.Dispose();
@@ -1718,9 +1719,31 @@ namespace MidoriValveTest
             LblEstado.Text = "Disconnected *";
             lblPuerto.Text = "Disconnected *";
             btn_encender.Enabled = false;
-            lbl_pressure.Text = "Current Pressure: 0 ";
+            lbl_pressure.Text = " 0 ";
             btn_valveTest.Enabled = false;
 
         }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is SelectedV);
+
+            if (frm == null)
+            {
+                SelectedV nt = new SelectedV();
+                nt.ShowDialog();
+
+            }
+            else
+            {
+                frm.BringToFront();
+                return;
+            }
+
+
+        }
+
+
+
     }
 }
