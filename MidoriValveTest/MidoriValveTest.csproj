@@ -279,6 +279,7 @@
     <Content Include="Resources\led_on_green.png" />
     <Content Include="Resources\led_on_red.png" />
     <Content Include="Resources\led_on_yellow.png" />
+    <None Include="Resources\MIDORI OFICIAL2.png" />
     <None Include="Resources\close menu1.png" />
     <None Include="Resources\menu.png" />
     <None Include="Resources\close menu.png" />
