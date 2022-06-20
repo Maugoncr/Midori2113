@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.PanelMain = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.rtxtTexBoxForEdit = new System.Windows.Forms.RichTextBox();
             this.rtxtContenido = new System.Windows.Forms.RichTextBox();
             this.IconClear = new FontAwesome.Sharp.IconButton();
@@ -42,6 +44,8 @@
             // PanelMain
             // 
             this.PanelMain.BackColor = System.Drawing.Color.DarkCyan;
+            this.PanelMain.Controls.Add(this.label2);
+            this.PanelMain.Controls.Add(this.label1);
             this.PanelMain.Controls.Add(this.rtxtTexBoxForEdit);
             this.PanelMain.Controls.Add(this.rtxtContenido);
             this.PanelMain.Controls.Add(this.IconClear);
@@ -50,8 +54,30 @@
             this.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMain.Location = new System.Drawing.Point(0, 0);
             this.PanelMain.Name = "PanelMain";
-            this.PanelMain.Size = new System.Drawing.Size(778, 439);
+            this.PanelMain.Size = new System.Drawing.Size(778, 474);
             this.PanelMain.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(29, 233);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 16);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Text after Load";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(29, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 16);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Text for Save";
             // 
             // rtxtTexBoxForEdit
             // 
@@ -59,7 +85,7 @@
             this.rtxtTexBoxForEdit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtxtTexBoxForEdit.Cursor = System.Windows.Forms.Cursors.Default;
             this.rtxtTexBoxForEdit.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtxtTexBoxForEdit.Location = new System.Drawing.Point(32, 224);
+            this.rtxtTexBoxForEdit.Location = new System.Drawing.Point(32, 252);
             this.rtxtTexBoxForEdit.Name = "rtxtTexBoxForEdit";
             this.rtxtTexBoxForEdit.Size = new System.Drawing.Size(558, 197);
             this.rtxtTexBoxForEdit.TabIndex = 6;
@@ -71,7 +97,7 @@
             this.rtxtContenido.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtxtContenido.Cursor = System.Windows.Forms.Cursors.Default;
             this.rtxtContenido.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtxtContenido.Location = new System.Drawing.Point(32, 21);
+            this.rtxtContenido.Location = new System.Drawing.Point(32, 33);
             this.rtxtContenido.Name = "rtxtContenido";
             this.rtxtContenido.Size = new System.Drawing.Size(558, 197);
             this.rtxtContenido.TabIndex = 4;
@@ -139,13 +165,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 439);
+            this.ClientSize = new System.Drawing.Size(778, 474);
             this.Controls.Add(this.PanelMain);
             this.Name = "Report";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Report";
             this.Load += new System.EventHandler(this.Report_Load);
             this.PanelMain.ResumeLayout(false);
+            this.PanelMain.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -160,5 +187,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.RichTextBox rtxtTexBoxForEdit;
         private FontAwesome.Sharp.IconButton IconSave;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
