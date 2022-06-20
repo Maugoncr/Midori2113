@@ -293,6 +293,9 @@
   <ItemGroup>
     <None Include="Resources\image %281%29.png" />
     <None Include="Resources\image.png" />
+    <None Include="Resources\A40.jpg" />
+    <None Include="Resources\E401.jpg" />
+    <None Include="Resources\E402.jpg" />
     <Content Include="Resources\led_off_green.png" />
     <Content Include="Resources\led_off_red.png" />
     <Content Include="Resources\led_off_yellow.png" />

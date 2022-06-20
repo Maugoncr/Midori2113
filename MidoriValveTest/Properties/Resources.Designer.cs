@@ -573,6 +573,16 @@ namespace MidoriValveTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap A40 {
+            get {
+                object obj = ResourceManager.GetObject("A40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close_menu {
             get {
                 object obj = ResourceManager.GetObject("close menu", resourceCulture);
@@ -586,6 +596,26 @@ namespace MidoriValveTest.Properties {
         internal static System.Drawing.Bitmap close_menu1 {
             get {
                 object obj = ResourceManager.GetObject("close menu1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap E401 {
+            get {
+                object obj = ResourceManager.GetObject("E401", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap E402 {
+            get {
+                object obj = ResourceManager.GetObject("E402", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

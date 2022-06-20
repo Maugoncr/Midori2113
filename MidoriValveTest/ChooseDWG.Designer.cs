@@ -120,6 +120,7 @@
             this.BtnKF40.TabIndex = 3;
             this.BtnKF40.Text = "KF Flange 40";
             this.BtnKF40.UseVisualStyleBackColor = true;
+            this.BtnKF40.Click += new System.EventHandler(this.BtnKF40_Click);
             // 
             // BtnKF50
             // 
@@ -146,6 +147,8 @@
             this.Controls.Add(this.BtnKF16);
             this.Controls.Add(this.nav);
             this.Name = "ChooseDWG";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.ChooseDWG_Load);
             this.nav.ResumeLayout(false);
             this.nav.PerformLayout();
             this.ResumeLayout(false);

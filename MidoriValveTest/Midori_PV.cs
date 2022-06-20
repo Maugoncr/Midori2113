@@ -1730,7 +1730,7 @@ namespace MidoriValveTest
             if (frm == null)
             {
                 ChooseDWG nt = new ChooseDWG();
-                nt.Show();
+                nt.ShowDialog();
 
             }
             else
