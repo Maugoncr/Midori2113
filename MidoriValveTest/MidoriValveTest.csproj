@@ -107,6 +107,12 @@
       <DependentUpon>ChooseDWG.cs</DependentUpon>
     </Compile>
     <Compile Include="DecimalFormat.cs" />
+    <Compile Include="Drawings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawings.Designer.cs">
+      <DependentUpon>Drawings.cs</DependentUpon>
+    </Compile>
     <Compile Include="PID_Config.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChooseDWG.resx">
       <DependentUpon>ChooseDWG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawings.resx">
+      <DependentUpon>Drawings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PID_Config.resx">
       <DependentUpon>PID_Config.cs</DependentUpon>
