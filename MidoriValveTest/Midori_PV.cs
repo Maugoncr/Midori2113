@@ -419,6 +419,7 @@ namespace MidoriValveTest
             if (frm == null)
             {
                 TestCicles TEST = new TestCicles();
+                TEST.menssager = this;
                 TEST.Arduino = Arduino;
                 TEST.Show();
             }
@@ -1414,24 +1415,6 @@ namespace MidoriValveTest
             lblhora.Text = DateTime.Now.ToString("hh:mm:ss tt");
             lblfecha.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(fecha);
 
-            lb_CounterTest.Text = TestCicles.counter.ToString();
-
-            if (TestCicles.greenlight == true)
-            {
-                green_off.Image.Dispose();
-                green_off.Image = MidoriValveTest.Properties.Resources.led_on_green;
-                if (DateStartedTest.Text == "-/-/-")
-                {
-                    DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy      hh:mm:ss");
-                }
-            }
-            else if (TestCicles.greenlight == false)
-            {
-                green_off.Image.Dispose();
-                green_off.Image = MidoriValveTest.Properties.Resources.led_off_green;
-            }
-            
-
         }
 
         private void lblfecha_Click(object sender, EventArgs e)
@@ -1544,9 +1527,14 @@ namespace MidoriValveTest
 
         private void button10_Click(object sender, EventArgs e)
         {
-            oSW.Start();
-            timer2.Enabled = true; 
+            StartCrono();
+            
         }
+        public void StartCrono() { 
+            oSW.Start();
+            timer2.Enabled = true;
+        }
+
 
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -1555,11 +1543,67 @@ namespace MidoriValveTest
             txtminutos.Text = ts.Minutes.ToString().Length < 2 ? "0" + ts.Minutes.ToString() : ts.Minutes.ToString();
             txtsegundos.Text = ts.Seconds.ToString().Length<2 ? "0" + ts.Seconds.ToString() : ts.Seconds.ToString();
             txtmilisegundos.Text = ts.Milliseconds.ToString();
-            
+
+            lb_CounterTest.Text = TestCicles.counter.ToString();
+
+            if (TestCicles.greenlight == true)
+            {
+                green_off.Image.Dispose();
+                green_off.Image = MidoriValveTest.Properties.Resources.led_on_green;
+                if (DateStartedTest.Text == "-/-/-")
+                {
+                    DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy      hh:mm:ss");
+                }
+            }
+            else if (TestCicles.greenlight == false)
+            {
+                green_off.Image.Dispose();
+                green_off.Image = MidoriValveTest.Properties.Resources.led_off_green;
+            }
+
+            if (TestCicles.yellowlight == true)
+            {
+                yellow_off.Image.Dispose();
+                yellow_off.Image = MidoriValveTest.Properties.Resources.led_on_yellow;
+                green_off.Image.Dispose();
+                green_off.Image = MidoriValveTest.Properties.Resources.led_off_green;
+                
+
+            }
+            else if (TestCicles.yellowlight == false)
+            {
+                yellow_off.Image.Dispose();
+                yellow_off.Image = MidoriValveTest.Properties.Resources.led_off_yellow;
+
+            }
+
+        }
+
+        public void Clear() {
+            DateEndedTest.Text = "-/-/-";
+            DateStartedTest.Text = "-/-/-";
+            green_off.Image.Dispose();
+            green_off.Image = MidoriValveTest.Properties.Resources.led_off_green;
+            yellow_off.Image.Dispose();
+            yellow_off.Image = MidoriValveTest.Properties.Resources.led_off_yellow;
+            ResetCrono();
+            lb_CounterTest.Text = "0";
+
+        }
+        public void TestFinished() {
+            StopCrono();
+            DateEndedTest.Text = DateTime.Now.ToString("MM / dd / yy      hh: mm:ss");
+
+           
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
+            ResetCrono();
+        }
+
+        public void ResetCrono() {
+
             oSW.Reset();
             txthoras.Text = "00";
             txtminutos.Text = "00";
@@ -1570,7 +1614,13 @@ namespace MidoriValveTest
 
         private void button12_Click(object sender, EventArgs e)
         {
+            StopCrono();
+        }
+
+        public void StopCrono() {
             oSW.Stop();
+            DateEndedTest.Text = DateTime.Now.ToString("MM / dd / yy      hh: mm:ss");
+            label11.Text = "Stopped";
         }
 
         private void IconTrace_Click(object sender, EventArgs e)
