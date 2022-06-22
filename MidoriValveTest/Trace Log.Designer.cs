@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Trace_Log));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CbAlgo4 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -128,6 +129,8 @@
             this.ClientSize = new System.Drawing.Size(788, 473);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Trace_Log";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

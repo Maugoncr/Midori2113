@@ -1,4 +1,4 @@
-﻿
+
 namespace MidoriValveTest
 {
     partial class TestCicles
@@ -30,6 +30,7 @@ namespace MidoriValveTest
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestCicles));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.NumOfCycles = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,7 +44,9 @@ namespace MidoriValveTest
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Stop = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+
             this.btnForClear = new System.Windows.Forms.Button();
+
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumOfCycles)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -81,7 +84,9 @@ namespace MidoriValveTest
             this.NumOfCycles.Name = "NumOfCycles";
             this.NumOfCycles.Size = new System.Drawing.Size(120, 20);
             this.NumOfCycles.TabIndex = 28;
+
             this.NumOfCycles.ValueChanged += new System.EventHandler(this.NumOfCycles_ValueChanged);
+
             // 
             // label3
             // 
@@ -213,6 +218,7 @@ namespace MidoriValveTest
             this.timer1.Interval = 2500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+
             // btnForClear
             // 
             this.btnForClear.BackColor = System.Drawing.Color.DimGray;
@@ -227,6 +233,7 @@ namespace MidoriValveTest
             this.btnForClear.UseVisualStyleBackColor = false;
             this.btnForClear.Click += new System.EventHandler(this.btnForClear_Click);
             // 
+
             // TestCicles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,6 +244,7 @@ namespace MidoriValveTest
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "TestCicles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -29,6 +29,7 @@ namespace MidoriValveTest
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(unit_form));
             this.label9 = new System.Windows.Forms.Label();
             this.unit_scale = new System.Windows.Forms.ComboBox();
             this.Save = new System.Windows.Forms.Button();
@@ -101,7 +102,10 @@ namespace MidoriValveTest
             this.Controls.Add(this.Save);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.unit_scale);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "unit_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unit configuration. ";

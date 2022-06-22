@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseDWG));
             this.BtnKF16 = new System.Windows.Forms.Button();
             this.nav = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -146,6 +147,7 @@
             this.Controls.Add(this.BtnKF25);
             this.Controls.Add(this.BtnKF16);
             this.Controls.Add(this.nav);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChooseDWG";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.ChooseDWG_Load);
