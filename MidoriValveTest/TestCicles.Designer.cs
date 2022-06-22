@@ -31,6 +31,7 @@ namespace MidoriValveTest
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.NumOfCycles = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -42,10 +43,10 @@ namespace MidoriValveTest
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Stop = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.NumOfCycles = new System.Windows.Forms.NumericUpDown();
+            this.btnForClear = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumOfCycles)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -66,6 +67,21 @@ namespace MidoriValveTest
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "COM Select";
+            // 
+            // NumOfCycles
+            // 
+            this.NumOfCycles.Cursor = System.Windows.Forms.Cursors.Default;
+            this.NumOfCycles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumOfCycles.Location = new System.Drawing.Point(60, 56);
+            this.NumOfCycles.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.NumOfCycles.Name = "NumOfCycles";
+            this.NumOfCycles.Size = new System.Drawing.Size(120, 20);
+            this.NumOfCycles.TabIndex = 28;
+            this.NumOfCycles.ValueChanged += new System.EventHandler(this.NumOfCycles_ValueChanged);
             // 
             // label3
             // 
@@ -131,6 +147,7 @@ namespace MidoriValveTest
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.btnForClear);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txt_cycles);
             this.groupBox1.Controls.Add(this.label1);
@@ -150,9 +167,9 @@ namespace MidoriValveTest
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(194, 63);
+            this.button1.Location = new System.Drawing.Point(150, 63);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 42);
+            this.button1.Size = new System.Drawing.Size(108, 42);
             this.button1.TabIndex = 25;
             this.button1.Text = "Cycles count resets";
             this.button1.UseVisualStyleBackColor = false;
@@ -183,31 +200,32 @@ namespace MidoriValveTest
             this.btn_Stop.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_Stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Stop.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Stop.Location = new System.Drawing.Point(23, 63);
+            this.btn_Stop.Location = new System.Drawing.Point(6, 63);
             this.btn_Stop.Name = "btn_Stop";
             this.btn_Stop.Size = new System.Drawing.Size(121, 42);
             this.btn_Stop.TabIndex = 18;
             this.btn_Stop.Text = "Stop the test";
             this.btn_Stop.UseVisualStyleBackColor = false;
+            this.btn_Stop.Click += new System.EventHandler(this.btn_Stop_Click);
             // 
             // timer1
             // 
             this.timer1.Interval = 2500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // NumOfCycles
+            // btnForClear
             // 
-            this.NumOfCycles.Cursor = System.Windows.Forms.Cursors.Default;
-            this.NumOfCycles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumOfCycles.Location = new System.Drawing.Point(60, 56);
-            this.NumOfCycles.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.NumOfCycles.Name = "NumOfCycles";
-            this.NumOfCycles.Size = new System.Drawing.Size(120, 20);
-            this.NumOfCycles.TabIndex = 28;
+            this.btnForClear.BackColor = System.Drawing.Color.DimGray;
+            this.btnForClear.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnForClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnForClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnForClear.Location = new System.Drawing.Point(279, 63);
+            this.btnForClear.Name = "btnForClear";
+            this.btnForClear.Size = new System.Drawing.Size(118, 42);
+            this.btnForClear.TabIndex = 26;
+            this.btnForClear.Text = "Clear All";
+            this.btnForClear.UseVisualStyleBackColor = false;
+            this.btnForClear.Click += new System.EventHandler(this.btnForClear_Click);
             // 
             // TestCicles
             // 
@@ -226,9 +244,9 @@ namespace MidoriValveTest
             this.Load += new System.EventHandler(this.TestCicles_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumOfCycles)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumOfCycles)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -248,5 +266,6 @@ namespace MidoriValveTest
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.NumericUpDown NumOfCycles;
+        private System.Windows.Forms.Button btnForClear;
     }
 }
