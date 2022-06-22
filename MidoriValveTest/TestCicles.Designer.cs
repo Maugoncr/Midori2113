@@ -39,14 +39,12 @@ namespace MidoriValveTest
             this.lbl_instruct = new System.Windows.Forms.Label();
             this.btnTestStart = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnForClear = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_cycles = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Stop = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-
-            this.btnForClear = new System.Windows.Forms.Button();
-
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumOfCycles)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -66,7 +64,7 @@ namespace MidoriValveTest
             this.groupBox3.ForeColor = System.Drawing.Color.DarkCyan;
             this.groupBox3.Location = new System.Drawing.Point(26, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(403, 113);
+            this.groupBox3.Size = new System.Drawing.Size(403, 123);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "COM Select";
@@ -75,7 +73,7 @@ namespace MidoriValveTest
             // 
             this.NumOfCycles.Cursor = System.Windows.Forms.Cursors.Default;
             this.NumOfCycles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumOfCycles.Location = new System.Drawing.Point(60, 56);
+            this.NumOfCycles.Location = new System.Drawing.Point(23, 56);
             this.NumOfCycles.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -84,16 +82,14 @@ namespace MidoriValveTest
             this.NumOfCycles.Name = "NumOfCycles";
             this.NumOfCycles.Size = new System.Drawing.Size(120, 20);
             this.NumOfCycles.TabIndex = 28;
-
             this.NumOfCycles.ValueChanged += new System.EventHandler(this.NumOfCycles_ValueChanged);
-
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(191, 40);
+            this.label3.Location = new System.Drawing.Point(276, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 13);
             this.label3.TabIndex = 27;
@@ -105,19 +101,19 @@ namespace MidoriValveTest
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(57, 40);
+            this.label2.Location = new System.Drawing.Point(50, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 26;
-            this.label2.Text = "Cycles";
+            this.label2.Text = "Num Cycles";
             this.label2.UseWaitCursor = true;
             // 
             // textBox2
             // 
             this.textBox2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox2.Location = new System.Drawing.Point(194, 56);
+            this.textBox2.Location = new System.Drawing.Point(254, 56);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(128, 20);
+            this.textBox2.Size = new System.Drawing.Size(120, 20);
             this.textBox2.TabIndex = 25;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -127,7 +123,7 @@ namespace MidoriValveTest
             this.lbl_instruct.Cursor = System.Windows.Forms.Cursors.Default;
             this.lbl_instruct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_instruct.ForeColor = System.Drawing.Color.Black;
-            this.lbl_instruct.Location = new System.Drawing.Point(46, 16);
+            this.lbl_instruct.Location = new System.Drawing.Point(71, 16);
             this.lbl_instruct.Name = "lbl_instruct";
             this.lbl_instruct.Size = new System.Drawing.Size(249, 16);
             this.lbl_instruct.TabIndex = 23;
@@ -141,9 +137,9 @@ namespace MidoriValveTest
             this.btnTestStart.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnTestStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestStart.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnTestStart.Location = new System.Drawing.Point(194, 87);
+            this.btnTestStart.Location = new System.Drawing.Point(150, 82);
             this.btnTestStart.Name = "btnTestStart";
-            this.btnTestStart.Size = new System.Drawing.Size(102, 20);
+            this.btnTestStart.Size = new System.Drawing.Size(102, 35);
             this.btnTestStart.TabIndex = 18;
             this.btnTestStart.Text = "Test Start";
             this.btnTestStart.UseVisualStyleBackColor = false;
@@ -165,6 +161,20 @@ namespace MidoriValveTest
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Test in curse data";
+            // 
+            // btnForClear
+            // 
+            this.btnForClear.BackColor = System.Drawing.Color.DimGray;
+            this.btnForClear.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnForClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnForClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnForClear.Location = new System.Drawing.Point(279, 63);
+            this.btnForClear.Name = "btnForClear";
+            this.btnForClear.Size = new System.Drawing.Size(118, 42);
+            this.btnForClear.TabIndex = 26;
+            this.btnForClear.Text = "Clear All";
+            this.btnForClear.UseVisualStyleBackColor = false;
+            this.btnForClear.Click += new System.EventHandler(this.btnForClear_Click);
             // 
             // button1
             // 
@@ -218,22 +228,6 @@ namespace MidoriValveTest
             this.timer1.Interval = 2500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-
-            // btnForClear
-            // 
-            this.btnForClear.BackColor = System.Drawing.Color.DimGray;
-            this.btnForClear.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnForClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnForClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnForClear.Location = new System.Drawing.Point(279, 63);
-            this.btnForClear.Name = "btnForClear";
-            this.btnForClear.Size = new System.Drawing.Size(118, 42);
-            this.btnForClear.TabIndex = 26;
-            this.btnForClear.Text = "Clear All";
-            this.btnForClear.UseVisualStyleBackColor = false;
-            this.btnForClear.Click += new System.EventHandler(this.btnForClear_Click);
-            // 
-
             // TestCicles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

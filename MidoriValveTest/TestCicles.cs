@@ -31,7 +31,7 @@ namespace MidoriValveTest
         private void TestCicles_Load(object sender, EventArgs e)
         {
              btnTestStart.Enabled = false;
-
+             button1.Enabled = false;
         }
 
 
@@ -62,14 +62,10 @@ private void timer1_Tick(object sender, EventArgs e)
         // Cycles Reset
         private void button1_Click(object sender, EventArgs e)
         {
-            counter = 0;
-            greenlight = false;
-            timer1.Stop();
-            limit = 0;
-            NumOfCycles.Value = 0;
+            counter = 0;            
             txt_cycles.Text = "0";
-            menssager.ResetCrono();
-            btnTestStart.Enabled = false;
+            menssager.resetCycles();
+            button1.Enabled=false;
 
         }
 
@@ -96,6 +92,7 @@ private void timer1_Tick(object sender, EventArgs e)
             timer1.Stop();
             yellowlight = true;
             menssager.StopCrono();
+            button1.Enabled = true;
 
         }
 

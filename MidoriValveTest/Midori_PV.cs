@@ -1588,13 +1588,19 @@ namespace MidoriValveTest
             yellow_off.Image = MidoriValveTest.Properties.Resources.led_off_yellow;
             ResetCrono();
             lb_CounterTest.Text = "0";
+            label11.Text = "Finished:";
+        }
+
+        public void resetCycles() {
+            lb_CounterTest.Text = "0";
 
         }
+
         public void TestFinished() {
             StopCrono();
             DateEndedTest.Text = DateTime.Now.ToString("MM / dd / yy      hh: mm:ss");
+            label11.Text = "Finished:";
 
-           
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -1620,7 +1626,7 @@ namespace MidoriValveTest
         public void StopCrono() {
             oSW.Stop();
             DateEndedTest.Text = DateTime.Now.ToString("MM / dd / yy      hh: mm:ss");
-            label11.Text = "Stopped";
+            label11.Text = "Stopped:";
         }
 
         private void IconTrace_Click(object sender, EventArgs e)
