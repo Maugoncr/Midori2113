@@ -30,7 +30,9 @@ namespace MidoriValveTest
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestCicles));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.NumOfCycles = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -42,10 +44,9 @@ namespace MidoriValveTest
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Stop = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.NumOfCycles = new System.Windows.Forms.NumericUpDown();
             this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumOfCycles)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -66,6 +67,20 @@ namespace MidoriValveTest
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "COM Select";
+            // 
+            // NumOfCycles
+            // 
+            this.NumOfCycles.Cursor = System.Windows.Forms.Cursors.Default;
+            this.NumOfCycles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumOfCycles.Location = new System.Drawing.Point(60, 56);
+            this.NumOfCycles.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.NumOfCycles.Name = "NumOfCycles";
+            this.NumOfCycles.Size = new System.Drawing.Size(120, 20);
+            this.NumOfCycles.TabIndex = 28;
             // 
             // label3
             // 
@@ -195,20 +210,6 @@ namespace MidoriValveTest
             this.timer1.Interval = 2500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // NumOfCycles
-            // 
-            this.NumOfCycles.Cursor = System.Windows.Forms.Cursors.Default;
-            this.NumOfCycles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumOfCycles.Location = new System.Drawing.Point(60, 56);
-            this.NumOfCycles.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.NumOfCycles.Name = "NumOfCycles";
-            this.NumOfCycles.Size = new System.Drawing.Size(120, 20);
-            this.NumOfCycles.TabIndex = 28;
-            // 
             // TestCicles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,6 +220,7 @@ namespace MidoriValveTest
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "TestCicles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -226,9 +228,9 @@ namespace MidoriValveTest
             this.Load += new System.EventHandler(this.TestCicles_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumOfCycles)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumOfCycles)).EndInit();
             this.ResumeLayout(false);
 
         }

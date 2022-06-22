@@ -77,6 +77,7 @@ namespace MidoriValveTest
             IconSensor.Enabled = false;
             IconTrace.Enabled = false;
             IconReport.Enabled = false;
+            IconInfo.Enabled = false;
             button3.Enabled = false;
             string[] ports = SerialPort.GetPortNames();                         // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
             comboBox1.Items.AddRange(ports);                                    // Volcamos el contenido de este arreglo dentro del COMBOBOX de seleccion de puerto
@@ -135,6 +136,7 @@ namespace MidoriValveTest
             IconSensor.Enabled = false;
             IconTrace.Enabled = false;
             IconReport.Enabled = false;
+            IconInfo.Enabled = false;
             button3.Enabled = false;
             // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
             //Boton 3 es el boton de Connect
@@ -252,6 +254,7 @@ namespace MidoriValveTest
                     IconSensor.Enabled = true;
                     IconTrace.Enabled = true;
                     IconReport.Enabled = true;
+                    IconInfo.Enabled = true;                    
                     button3.Enabled = true;
                     //apertura
                     trackBar1.Enabled = true;
@@ -1634,6 +1637,7 @@ namespace MidoriValveTest
             IconSensor.Enabled = false;
             IconTrace.Enabled = false;
             IconReport.Enabled = false;
+            IconInfo.Enabled = false;
             button3.Enabled = false;
             // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
             //Boton 3 es el boton de Connect
@@ -1733,6 +1737,23 @@ namespace MidoriValveTest
             {
                 ChooseDWG nt = new ChooseDWG();
                 nt.ShowDialog();
+
+            }
+            else
+            {
+                frm.BringToFront();
+                return;
+            }
+        }
+
+        private void IconInfo_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Information);
+
+            if (frm == null)
+            {
+                Information nt = new Information();
+                nt.Show();
 
             }
             else

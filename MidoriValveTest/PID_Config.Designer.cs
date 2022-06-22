@@ -29,6 +29,7 @@ namespace MidoriValveTest
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PID_Config));
             this.RamEnable1 = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.Type1 = new System.Windows.Forms.ComboBox();
@@ -333,7 +334,6 @@ namespace MidoriValveTest
             this.GroupC1.TabIndex = 14;
             this.GroupC1.TabStop = false;
             this.GroupC1.Text = "Controller 1";
-            
             // 
             // CbAlgo1
             // 
@@ -1478,6 +1478,8 @@ namespace MidoriValveTest
             this.Controls.Add(this.BtnBackGround2);
             this.Controls.Add(this.BtnBackGround3);
             this.Controls.Add(this.BtnBackGround4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "PID_Config";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
