@@ -78,7 +78,8 @@ namespace MidoriValveTest
             IconTrace.Enabled = false;
             IconReport.Enabled = false;
             IconInfo.Enabled = false;
-            button3.Enabled = false;
+            DisableBtn(button3);
+          //  button3.Enabled = false;
             string[] ports = SerialPort.GetPortNames();                         // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
             comboBox1.Items.AddRange(ports);                                    // Volcamos el contenido de este arreglo dentro del COMBOBOX de seleccion de puerto
 
@@ -93,32 +94,55 @@ namespace MidoriValveTest
             ChartArea CA = chart1.ChartAreas[0];                                //
             CA.CursorX.AutoScroll = true;                                       // Activamos autoescala en la grafica.
                                                                                 // 
-            btn_90.Enabled = false;
-            btn_80.Enabled = false;
-            btn_70.Enabled = false;
-            btn_60.Enabled = false;
-            btn_50.Enabled = false;
-            btn_40.Enabled = false;
-            btn_30.Enabled = false;
-            btn_20.Enabled = false;
-            btn_10.Enabled = false;
-            btn_0.Enabled = false;
+            DisableBtn(btn_90);
+            DisableBtn(btn_80);
+            DisableBtn(btn_70);
+            DisableBtn(btn_60);
+            DisableBtn(btn_50);
+            DisableBtn(btn_40);
+            DisableBtn(btn_30);
+            DisableBtn(btn_20);
+            DisableBtn(btn_10);
+            DisableBtn(btn_0);
             trackBar1.Enabled = false;
             trackBar2.Enabled = false;
 
         }
 
+        // Metodo para cambiar para remplazar el enable disable button y usar uno general
+
+        private void DisableBtn(Button btn) { 
+            
+            btn.BackgroundImage.Dispose();
+            btn.BackgroundImage = MidoriValveTest.Properties.Resources.btnDisa2;
+            btn.Enabled = false;
+            btn.ForeColor = Color.White;
+
+        }
+
+        private void EnableBtn(Button btn)
+        {
+
+            btn.BackgroundImage.Dispose();
+            btn.BackgroundImage = MidoriValveTest.Properties.Resources.btnNor;
+            btn.Enabled = true;
+
+        }
+
+
         //Maugoncr// Nos permite comprobar que en caso de que al iniciar la carga del form no habia ningun com para reconocer, en caso de reconocerse luego de esta
         // ser capaces de activar el boton Connect
+
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedIndex >= 0)
             {
-                button3.Enabled = true;
+                EnableBtn(button3);
             }
             else 
-            { 
-                button3.Enabled=false;
+            {
+                DisableBtn(button3);
             }
         }
 
@@ -137,10 +161,10 @@ namespace MidoriValveTest
             IconTrace.Enabled = false;
             IconReport.Enabled = false;
             IconInfo.Enabled = false;
-            button3.Enabled = false;
+            DisableBtn(button3);
             // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
             //Boton 3 es el boton de Connect
-            button3.Enabled = false;
+           // button3.Enabled = false;
             string[] ports = SerialPort.GetPortNames();
             //Maugoncr//Validar que no metamos el mismo Puerto COM repetido
             //string[] portsNoRep = ports.Distinct().ToArray();
@@ -160,7 +184,8 @@ namespace MidoriValveTest
             timer_Chart.Stop();
             comboBox1.Enabled = true;
             // hEEEEY
-            btn_set.Enabled = false;
+            DisableBtn(btn_set);
+            //btn_set.Enabled = false;
             btn_set.Text = "Set Apperture";
 
             //Maugoncr//because if there is nothing connected and we use the Arduino object we would get an error because it would be null.
@@ -187,17 +212,18 @@ namespace MidoriValveTest
                 precision_aperture = 0;
                 lbl_estado.ForeColor = Color.Red;
                 lbl_estado.Text = "Close";
-                btn_apagar.Enabled = false;
-                btn_90.Enabled = false;
-                btn_80.Enabled = false;
-                btn_70.Enabled = false;
-                btn_60.Enabled = false;
-                btn_50.Enabled = false;
-                btn_40.Enabled = false;
-                btn_30.Enabled = false;
-                btn_20.Enabled = false;
-                btn_10.Enabled = false;
-                btn_0.Enabled = false;
+                DisableBtn(btn_apagar);
+                DisableBtn(btn_90);
+                DisableBtn(btn_80);
+                DisableBtn(btn_70);
+                DisableBtn(btn_60);
+                DisableBtn(btn_50);
+                DisableBtn(btn_40);
+                DisableBtn(btn_30);
+                DisableBtn(btn_20);
+                DisableBtn(btn_10);
+                DisableBtn(btn_0);
+                
                
             }
 
@@ -225,9 +251,11 @@ namespace MidoriValveTest
             com_led.Image = MidoriValveTest.Properties.Resources.led_off;
             LblEstado.Text = "Disconnected *";
             lblPuerto.Text = "Disconnected *";
-            btn_encender.Enabled = false;
+           // btn_encender.Enabled = false;
+            DisableBtn(btn_encender);
             lbl_pressure.Text = " 0 ";
-            btn_valveTest.Enabled = false;
+            //btn_valveTest.Enabled = false;
+            DisableBtn(btn_valveTest);
 
         }
 
@@ -241,11 +269,14 @@ namespace MidoriValveTest
                     timer_Chart.Start();
                     com_led.Image.Dispose();
                     com_led.Image = MidoriValveTest.Properties.Resources.led_on_green;
-                    btn_encender.Enabled = true;
+                    //btn_encender.Enabled = true;
+                    EnableBtn(btn_encender);
                     btn_P_conf.Enabled = true;
-                    btn_valveTest.Enabled = true;
+                    EnableBtn(btn_valveTest);
+                    //btn_valveTest.Enabled = true;
                     comboBox1.Enabled = false;
-                    button3.Enabled = false;
+                    //button3.Enabled = false;
+                    DisableBtn(button3);
 
                     // Menu settings
                     btn_menu.Enabled = true;
@@ -255,19 +286,21 @@ namespace MidoriValveTest
                     IconTrace.Enabled = true;
                     IconReport.Enabled = true;
                     IconInfo.Enabled = true;                    
-                    button3.Enabled = true;
+                    //button3.Enabled = true;
+                    EnableBtn(button3);
                     //apertura
                     trackBar1.Enabled = true;
-                    btn_90.Enabled = true;
-                    btn_80.Enabled = true;
-                    btn_70.Enabled = true;
-                    btn_60.Enabled = true;
-                    btn_50.Enabled = true;
-                    btn_40.Enabled = true;
-                    btn_30.Enabled = true;
-                    btn_20.Enabled = true;
-                    btn_10.Enabled = true;
-                    btn_0.Enabled = true;
+                    EnableBtn(btn_90);
+                    EnableBtn(btn_80);
+                    EnableBtn(btn_70);
+                    EnableBtn(btn_60);
+                    EnableBtn(btn_50);
+                    EnableBtn(btn_40);
+                    EnableBtn(btn_30);
+                    EnableBtn(btn_20);
+                    EnableBtn(btn_10);
+                    EnableBtn(btn_0);
+                    
 
 
                 }              
@@ -350,22 +383,25 @@ namespace MidoriValveTest
 
             lbl_estado.ForeColor = Color.Green;
             lbl_estado.Text = "Open";
-            btn_encender.Enabled = false;
-            btn_apagar.Enabled = true;
+            //btn_encender.Enabled = false;
+            DisableBtn(btn_encender);
 
+           // btn_apagar.Enabled = true;
+            EnableBtn(btn_apagar);
 
-            btn_90.Enabled = true;
-            btn_80.Enabled = true;
-            btn_70.Enabled = true;
-            btn_60.Enabled = true;
-            btn_50.Enabled = true;
-            btn_40.Enabled = true;
-            btn_30.Enabled = true;
-            btn_20.Enabled = true;
-            btn_10.Enabled = true;
-            btn_0.Enabled = true;
-            btn_set.Enabled = true;
+            EnableBtn(btn_90);
+            EnableBtn(btn_80);
+            EnableBtn(btn_70);
+            EnableBtn(btn_60);
+            EnableBtn(btn_50);
+            EnableBtn(btn_40);
+            EnableBtn(btn_30);
+            EnableBtn(btn_20);
+            EnableBtn(btn_10);
+            EnableBtn(btn_0);
 
+            //btn_set.Enabled = true;
+            EnableBtn(btn_set);
 
 
         }

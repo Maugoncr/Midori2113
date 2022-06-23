@@ -308,6 +308,10 @@
     <None Include="Resources\A40.jpg" />
     <None Include="Resources\E401.jpg" />
     <None Include="Resources\E402.jpg" />
+    <None Include="Resources\btnNor.png" />
+    <None Include="Resources\btnPress.png" />
+    <None Include="Resources\btnDisa.png" />
+    <None Include="Resources\btnDisa2.png" />
     <Content Include="Resources\led_off_green.png" />
     <Content Include="Resources\led_off_red.png" />
     <Content Include="Resources\led_off_yellow.png" />
