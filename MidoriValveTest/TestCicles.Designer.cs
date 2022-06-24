@@ -64,7 +64,7 @@ namespace MidoriValveTest
             this.groupBox3.ForeColor = System.Drawing.Color.DarkCyan;
             this.groupBox3.Location = new System.Drawing.Point(26, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(403, 123);
+            this.groupBox3.Size = new System.Drawing.Size(427, 145);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "COM Select";
@@ -73,7 +73,7 @@ namespace MidoriValveTest
             // 
             this.NumOfCycles.Cursor = System.Windows.Forms.Cursors.Default;
             this.NumOfCycles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumOfCycles.Location = new System.Drawing.Point(23, 56);
+            this.NumOfCycles.Location = new System.Drawing.Point(23, 69);
             this.NumOfCycles.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -87,11 +87,11 @@ namespace MidoriValveTest
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(276, 40);
+            this.label3.Location = new System.Drawing.Point(288, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.Size = new System.Drawing.Size(96, 16);
             this.label3.TabIndex = 27;
             this.label3.Text = "Test Apperture";
             this.label3.UseWaitCursor = true;
@@ -99,11 +99,11 @@ namespace MidoriValveTest
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(50, 40);
+            this.label2.Location = new System.Drawing.Point(48, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(79, 16);
             this.label2.TabIndex = 26;
             this.label2.Text = "Num Cycles";
             this.label2.UseWaitCursor = true;
@@ -111,9 +111,9 @@ namespace MidoriValveTest
             // textBox2
             // 
             this.textBox2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox2.Location = new System.Drawing.Point(254, 56);
+            this.textBox2.Location = new System.Drawing.Point(268, 69);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 20);
+            this.textBox2.Size = new System.Drawing.Size(129, 20);
             this.textBox2.TabIndex = 25;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -123,7 +123,7 @@ namespace MidoriValveTest
             this.lbl_instruct.Cursor = System.Windows.Forms.Cursors.Default;
             this.lbl_instruct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_instruct.ForeColor = System.Drawing.Color.Black;
-            this.lbl_instruct.Location = new System.Drawing.Point(71, 16);
+            this.lbl_instruct.Location = new System.Drawing.Point(91, 16);
             this.lbl_instruct.Name = "lbl_instruct";
             this.lbl_instruct.Size = new System.Drawing.Size(249, 16);
             this.lbl_instruct.TabIndex = 23;
@@ -132,14 +132,17 @@ namespace MidoriValveTest
             // btnTestStart
             // 
             this.btnTestStart.BackColor = System.Drawing.Color.Transparent;
-            this.btnTestStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnTestStart.BackgroundImage = global::MidoriValveTest.Properties.Resources.btnDisa;
+            this.btnTestStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnTestStart.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnTestStart.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnTestStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTestStart.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnTestStart.Location = new System.Drawing.Point(150, 82);
+            this.btnTestStart.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnTestStart.FlatAppearance.BorderSize = 0;
+            this.btnTestStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTestStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTestStart.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnTestStart.Location = new System.Drawing.Point(137, 95);
             this.btnTestStart.Name = "btnTestStart";
-            this.btnTestStart.Size = new System.Drawing.Size(102, 35);
+            this.btnTestStart.Size = new System.Drawing.Size(136, 44);
             this.btnTestStart.TabIndex = 18;
             this.btnTestStart.Text = "Test Start";
             this.btnTestStart.UseVisualStyleBackColor = false;
@@ -155,20 +158,23 @@ namespace MidoriValveTest
             this.groupBox1.Controls.Add(this.btn_Stop);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.groupBox1.Location = new System.Drawing.Point(26, 150);
+            this.groupBox1.Location = new System.Drawing.Point(26, 163);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(403, 131);
+            this.groupBox1.Size = new System.Drawing.Size(427, 134);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Test in curse data";
             // 
             // btnForClear
             // 
-            this.btnForClear.BackColor = System.Drawing.Color.DimGray;
-            this.btnForClear.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnForClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnForClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnForClear.Location = new System.Drawing.Point(279, 63);
+            this.btnForClear.BackColor = System.Drawing.Color.Transparent;
+            this.btnForClear.BackgroundImage = global::MidoriValveTest.Properties.Resources.btnDisa;
+            this.btnForClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnForClear.FlatAppearance.BorderSize = 0;
+            this.btnForClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnForClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnForClear.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnForClear.Location = new System.Drawing.Point(303, 63);
             this.btnForClear.Name = "btnForClear";
             this.btnForClear.Size = new System.Drawing.Size(118, 42);
             this.btnForClear.TabIndex = 26;
@@ -178,13 +184,16 @@ namespace MidoriValveTest
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.DimGray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(150, 63);
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = global::MidoriValveTest.Properties.Resources.btnDisa;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(146, 63);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 42);
+            this.button1.Size = new System.Drawing.Size(138, 42);
             this.button1.TabIndex = 25;
             this.button1.Text = "Cycles count resets";
             this.button1.UseVisualStyleBackColor = false;
@@ -193,7 +202,7 @@ namespace MidoriValveTest
             // txt_cycles
             // 
             this.txt_cycles.Enabled = false;
-            this.txt_cycles.Location = new System.Drawing.Point(120, 25);
+            this.txt_cycles.Location = new System.Drawing.Point(168, 25);
             this.txt_cycles.Name = "txt_cycles";
             this.txt_cycles.Size = new System.Drawing.Size(200, 20);
             this.txt_cycles.TabIndex = 24;
@@ -203,7 +212,7 @@ namespace MidoriValveTest
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(20, 29);
+            this.label1.Location = new System.Drawing.Point(69, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 16);
             this.label1.TabIndex = 23;
@@ -211,10 +220,13 @@ namespace MidoriValveTest
             // 
             // btn_Stop
             // 
-            this.btn_Stop.BackColor = System.Drawing.Color.DimGray;
-            this.btn_Stop.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_Stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Stop.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Stop.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Stop.BackgroundImage = global::MidoriValveTest.Properties.Resources.btnDisa;
+            this.btn_Stop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Stop.FlatAppearance.BorderSize = 0;
+            this.btn_Stop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Stop.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btn_Stop.Location = new System.Drawing.Point(6, 63);
             this.btn_Stop.Name = "btn_Stop";
             this.btn_Stop.Size = new System.Drawing.Size(121, 42);
@@ -234,7 +246,7 @@ namespace MidoriValveTest
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(456, 293);
+            this.ClientSize = new System.Drawing.Size(477, 309);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

@@ -126,7 +126,7 @@ namespace MidoriValveTest
             this.lblPuerto.AutoSize = true;
             this.lblPuerto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPuerto.ForeColor = System.Drawing.Color.Red;
-            this.lblPuerto.Location = new System.Drawing.Point(76, 42);
+            this.lblPuerto.Location = new System.Drawing.Point(135, 22);
             this.lblPuerto.Name = "lblPuerto";
             this.lblPuerto.Size = new System.Drawing.Size(131, 20);
             this.lblPuerto.TabIndex = 31;
@@ -137,7 +137,7 @@ namespace MidoriValveTest
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label6.Location = new System.Drawing.Point(30, 42);
+            this.label6.Location = new System.Drawing.Point(70, 22);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 20);
             this.label6.TabIndex = 30;

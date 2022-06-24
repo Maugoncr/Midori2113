@@ -264,12 +264,18 @@ namespace MidoriValveTest
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(1321, 626);
+            this.btn_save.BackColor = System.Drawing.Color.Transparent;
+            this.btn_save.BackgroundImage = global::MidoriValveTest.Properties.Resources.btnNor;
+            this.btn_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_save.Location = new System.Drawing.Point(1294, 621);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(107, 33);
+            this.btn_save.Size = new System.Drawing.Size(142, 45);
             this.btn_save.TabIndex = 54;
             this.btn_save.Text = "Save chart data ";
-            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.UseVisualStyleBackColor = false;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // Chart_Analyzer

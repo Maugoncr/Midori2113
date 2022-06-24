@@ -106,16 +106,23 @@
             // 
             // IconClear
             // 
-            this.IconClear.BackColor = System.Drawing.Color.LightGray;
+            this.IconClear.BackColor = System.Drawing.Color.Transparent;
+            this.IconClear.BackgroundImage = global::MidoriValveTest.Properties.Resources.btnDisa;
+            this.IconClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.IconClear.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            this.IconClear.FlatAppearance.BorderSize = 0;
+            this.IconClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.IconClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.IconClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IconClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IconClear.IconChar = FontAwesome.Sharp.IconChar.Eraser;
             this.IconClear.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.IconClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IconClear.IconSize = 30;
             this.IconClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.IconClear.Location = new System.Drawing.Point(629, 276);
+            this.IconClear.Location = new System.Drawing.Point(609, 316);
             this.IconClear.Name = "IconClear";
-            this.IconClear.Size = new System.Drawing.Size(116, 38);
+            this.IconClear.Size = new System.Drawing.Size(136, 52);
             this.IconClear.TabIndex = 3;
             this.IconClear.Text = "       Clear";
             this.IconClear.UseVisualStyleBackColor = false;
@@ -123,17 +130,23 @@
             // 
             // IconLoad
             // 
-            this.IconLoad.BackColor = System.Drawing.Color.LightGray;
-            this.IconLoad.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.IconLoad.BackColor = System.Drawing.Color.Transparent;
+            this.IconLoad.BackgroundImage = global::MidoriValveTest.Properties.Resources.btnDisa;
+            this.IconLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.IconLoad.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.IconLoad.FlatAppearance.BorderSize = 0;
+            this.IconLoad.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.IconLoad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.IconLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IconLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IconLoad.IconChar = FontAwesome.Sharp.IconChar.Download;
             this.IconLoad.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.IconLoad.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IconLoad.IconSize = 30;
             this.IconLoad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.IconLoad.Location = new System.Drawing.Point(629, 180);
+            this.IconLoad.Location = new System.Drawing.Point(609, 213);
             this.IconLoad.Name = "IconLoad";
-            this.IconLoad.Size = new System.Drawing.Size(116, 38);
+            this.IconLoad.Size = new System.Drawing.Size(136, 55);
             this.IconLoad.TabIndex = 2;
             this.IconLoad.Text = "       Load";
             this.IconLoad.UseVisualStyleBackColor = false;
@@ -141,8 +154,14 @@
             // 
             // IconSave
             // 
-            this.IconSave.BackColor = System.Drawing.Color.LightGray;
-            this.IconSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.IconSave.BackColor = System.Drawing.Color.Transparent;
+            this.IconSave.BackgroundImage = global::MidoriValveTest.Properties.Resources.btnDisa;
+            this.IconSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.IconSave.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            this.IconSave.FlatAppearance.BorderSize = 0;
+            this.IconSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.IconSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.IconSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IconSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IconSave.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.IconSave.IconChar = FontAwesome.Sharp.IconChar.Save;
@@ -150,9 +169,9 @@
             this.IconSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IconSave.IconSize = 30;
             this.IconSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.IconSave.Location = new System.Drawing.Point(629, 83);
+            this.IconSave.Location = new System.Drawing.Point(609, 104);
             this.IconSave.Name = "IconSave";
-            this.IconSave.Size = new System.Drawing.Size(116, 38);
+            this.IconSave.Size = new System.Drawing.Size(136, 57);
             this.IconSave.TabIndex = 1;
             this.IconSave.Text = "       Save";
             this.IconSave.UseVisualStyleBackColor = false;
@@ -185,12 +204,12 @@
         private System.Windows.Forms.Panel PanelMain;
         private FontAwesome.Sharp.IconButton IconLoad;
         private System.Windows.Forms.RichTextBox rtxtContenido;
-        private FontAwesome.Sharp.IconButton IconClear;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.RichTextBox rtxtTexBoxForEdit;
         private FontAwesome.Sharp.IconButton IconSave;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        protected FontAwesome.Sharp.IconButton IconClear;
     }
 }
