@@ -88,7 +88,8 @@ namespace MidoriValveTest
             comboBox1.Items.AddRange(ports);                                    // Volcamos el contenido de este arreglo dentro del COMBOBOX de seleccion de puerto
 
             timer1.Enabled = true;
-            
+            TimerForData.Enabled = true;
+
             if(ports.Length>0)                                                  // Determina existencia de puertos, y seleccionamos el primero de ellos.
             {
                 comboBox1.SelectedIndex = 0;
@@ -1502,7 +1503,6 @@ namespace MidoriValveTest
             string fecha = DateTime.Now.ToString("dddd, MM/dd/yyyy");
             lblhora.Text = DateTime.Now.ToString("hh:mm:ss tt");
             lblfecha.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(fecha);
-
         }
 
         private void lblfecha_Click(object sender, EventArgs e)
@@ -2194,5 +2194,31 @@ namespace MidoriValveTest
         {
             LeftBtn(button5);
         }
+
+        private void TimerForData_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Arduino != null)
+                {
+                    if (Arduino.IsOpen != false)
+                    {
+                        string Temperatura = Arduino.ReadExisting();
+
+                        Temperatura = Temperatura.Replace("$", string.Empty);
+
+                        lb_Temperature.Text = Temperatura + "° C";
+                        // es muy posible que ponga también los $
+                        //TimerForData.Interval = 5000; actualmente cada 5 s
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+           
+        }
+
     }
 }
