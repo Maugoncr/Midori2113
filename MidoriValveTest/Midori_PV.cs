@@ -111,7 +111,6 @@ namespace MidoriValveTest
             DisableBtn(btn_0);
             trackBar1.Enabled = false;
             trackBar2.Enabled = false;
-            DisableBtn(btnInfo);
             DisableBtn(button7);
             DisableBtn(button6);
             DisableBtn(button5);
@@ -1923,9 +1922,277 @@ namespace MidoriValveTest
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
+        private void EnterBtn(Button btn) {
+            if (btn.Enabled == true)
+            {
+                btn.BackgroundImage.Dispose();
+                btn.BackgroundImage = MidoriValveTest.Properties.Resources.btnPress;
 
+            }
+
+        }
+
+        private void LeftBtn(Button btn) {
+            if (btn.Enabled == true)
+            {
+                btn.BackgroundImage.Dispose();
+                btn.BackgroundImage = MidoriValveTest.Properties.Resources.btnNor;
+            }
+            else
+            {
+                btn.BackgroundImage.Dispose();
+                btn.BackgroundImage = MidoriValveTest.Properties.Resources.btnDisa2;
+            }
+        }
+
+        private void button3_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(button3);
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(button3);
+        }
+
+        private void btnRestart_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btnRestart);
+        }
+
+        private void btnRestart_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btnRestart);
+        }
+
+        private void btnStop_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btnStop);
+        }
+
+        private void btnStop_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btnStop);
+        }
+
+        private void btn_encender_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_encender);
+        }
+
+        private void btn_encender_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_encender);
+        }
+
+        private void btn_apagar_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_apagar);
+        }
+
+        private void btn_apagar_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_apagar);
+        }
+
+        private void btn_valveTest_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_valveTest);
+        }
+
+        private void btn_valveTest_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_valveTest);
+        }
+
+        private void btnInfo_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btnInfo);
+        }
+
+        private void btnInfo_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btnInfo);
+        }
+
+        private void btn_set_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_set);
+        }
+
+        private void btn_set_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_set);
+        }
+
+        private void btn_S_pressure_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_S_pressure);
+        }
+
+        private void btn_S_pressure_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_S_pressure);
+        }
+
+        private void btn_90_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_90);
+        }
+
+        private void btn_90_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_90);
+        }
+
+        private void btn_80_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_80);
+        }
+
+        private void btn_80_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_80);
+        }
+
+        private void btn_70_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_70);
+        }
+
+        private void btn_70_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_70);
+        }
+
+        private void btn_60_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_60);
+        }
+
+        private void btn_60_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_60);
+        }
+
+        private void btn_50_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_50);
+        }
+
+        private void btn_50_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_50);
+        }
+
+        private void btn_40_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_40);
+        }
+
+        private void btn_40_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_40);
+        }
+
+        private void btn_30_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_30);
+        }
+
+        private void btn_30_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_30);
+        }
+
+        private void btn_20_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_20);
+        }
+
+        private void btn_20_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_20);
+        }
+
+        private void btn_10_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_10);
+        }
+
+        private void btn_10_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_10);
+        }
+
+        private void btn_0_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btn_0);
+        }
+
+        private void btn_0_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btn_0);
+        }
+
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(button1);
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(button1);
+        }
+
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(button2);
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(button2);
+        }
+
+        private void button4_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(button4);
+        }
+
+        private void button4_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(button4);
+        }
+
+        private void button7_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(button7);
+        }
+
+        private void button7_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(button7);
+        }
+
+        private void button6_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(button6);
+        }
+
+        private void button6_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(button6);
+        }
+
+        private void button5_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(button5);
+        }
+
+        private void button5_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(button5);
         }
     }
 }

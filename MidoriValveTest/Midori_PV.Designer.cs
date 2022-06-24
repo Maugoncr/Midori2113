@@ -31,10 +31,10 @@ namespace MidoriValveTest
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Midori_PV));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblEstado = new System.Windows.Forms.Label();
@@ -421,6 +421,8 @@ namespace MidoriValveTest
             this.button5.Text = "Analyze";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.MouseEnter += new System.EventHandler(this.button5_MouseEnter);
+            this.button5.MouseLeave += new System.EventHandler(this.button5_MouseLeave);
             // 
             // groupBox5
             // 
@@ -456,6 +458,8 @@ namespace MidoriValveTest
             this.button7.Text = "Chart Archive Analyzer";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.MouseEnter += new System.EventHandler(this.button7_MouseEnter);
+            this.button7.MouseLeave += new System.EventHandler(this.button7_MouseLeave);
             // 
             // lbl_record
             // 
@@ -494,6 +498,8 @@ namespace MidoriValveTest
             this.button6.TabIndex = 25;
             this.button6.Text = "OEM";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.MouseEnter += new System.EventHandler(this.button6_MouseEnter);
+            this.button6.MouseLeave += new System.EventHandler(this.button6_MouseLeave);
             // 
             // button1
             // 
@@ -510,6 +516,8 @@ namespace MidoriValveTest
             this.button1.Text = "Start Record";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
+            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 
             // button2
             // 
@@ -527,6 +535,8 @@ namespace MidoriValveTest
             this.button2.Text = "Stop";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseEnter += new System.EventHandler(this.button2_MouseEnter);
+            this.button2.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
             // 
             // button4
             // 
@@ -542,7 +552,8 @@ namespace MidoriValveTest
             this.button4.TabIndex = 24;
             this.button4.Text = "Clear";
             this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.MouseEnter += new System.EventHandler(this.button4_MouseEnter);
+            this.button4.MouseLeave += new System.EventHandler(this.button4_MouseLeave);
             // 
             // chart1
             // 
@@ -551,47 +562,47 @@ namespace MidoriValveTest
             this.chart1.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart1.BorderSkin.BackColor = System.Drawing.Color.Black;
             this.chart1.BorderSkin.BorderColor = System.Drawing.Color.Empty;
-            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea2.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea2.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea2.AxisY.Minimum = 0D;
-            chartArea2.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisY.ScaleView.MinSize = 1D;
-            chartArea2.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea2.AxisY2.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
-            chartArea2.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.BackSecondaryColor = System.Drawing.Color.White;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.BackColor = System.Drawing.Color.Gainsboro;
-            legend2.Name = "Legend1";
-            legend2.TitleAlignment = System.Drawing.StringAlignment.Near;
-            this.chart1.Legends.Add(legend2);
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.ScaleView.MinSize = 1D;
+            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisY2.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
+            chartArea1.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.BackSecondaryColor = System.Drawing.Color.White;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Gainsboro;
+            legend1.Name = "Legend1";
+            legend1.TitleAlignment = System.Drawing.StringAlignment.Near;
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(6, 28);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series3.Color = System.Drawing.Color.Green;
-            series3.Legend = "Legend1";
-            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series3.Name = "Pressure";
-            series3.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series3.YValuesPerPoint = 4;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series4.Color = System.Drawing.SystemColors.MenuHighlight;
-            series4.Legend = "Legend1";
-            series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series4.Name = "Aperture value";
-            series4.ShadowColor = System.Drawing.Color.Silver;
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series1.Color = System.Drawing.Color.Green;
+            series1.Legend = "Legend1";
+            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series1.Name = "Pressure";
+            series1.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series1.YValuesPerPoint = 4;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series2.Color = System.Drawing.SystemColors.MenuHighlight;
+            series2.Legend = "Legend1";
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series2.Name = "Aperture value";
+            series2.ShadowColor = System.Drawing.Color.Silver;
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1266, 705);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -911,6 +922,8 @@ namespace MidoriValveTest
             this.btn_valveTest.Text = "Valve test";
             this.btn_valveTest.UseVisualStyleBackColor = false;
             this.btn_valveTest.Click += new System.EventHandler(this.btn_valveTest_Click);
+            this.btn_valveTest.MouseEnter += new System.EventHandler(this.btn_valveTest_MouseEnter);
+            this.btn_valveTest.MouseLeave += new System.EventHandler(this.btn_valveTest_MouseLeave);
             // 
             // btn_apagar
             // 
@@ -929,6 +942,8 @@ namespace MidoriValveTest
             this.btn_apagar.Text = "Close Gate";
             this.btn_apagar.UseVisualStyleBackColor = false;
             this.btn_apagar.Click += new System.EventHandler(this.btn_apagar_Click);
+            this.btn_apagar.MouseEnter += new System.EventHandler(this.btn_apagar_MouseEnter);
+            this.btn_apagar.MouseLeave += new System.EventHandler(this.btn_apagar_MouseLeave);
             // 
             // btn_encender
             // 
@@ -947,6 +962,8 @@ namespace MidoriValveTest
             this.btn_encender.Text = "Open Gate";
             this.btn_encender.UseVisualStyleBackColor = false;
             this.btn_encender.Click += new System.EventHandler(this.btn_encender_Click);
+            this.btn_encender.MouseEnter += new System.EventHandler(this.btn_encender_MouseEnter);
+            this.btn_encender.MouseLeave += new System.EventHandler(this.btn_encender_MouseLeave);
             // 
             // comboBox1
             // 
@@ -995,6 +1012,8 @@ namespace MidoriValveTest
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            this.btnStop.MouseEnter += new System.EventHandler(this.btnStop_MouseEnter);
+            this.btnStop.MouseLeave += new System.EventHandler(this.btnStop_MouseLeave);
             // 
             // btnRestart
             // 
@@ -1011,6 +1030,8 @@ namespace MidoriValveTest
             this.btnRestart.Text = "Restart";
             this.btnRestart.UseVisualStyleBackColor = true;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            this.btnRestart.MouseEnter += new System.EventHandler(this.btnRestart_MouseEnter);
+            this.btnRestart.MouseLeave += new System.EventHandler(this.btnRestart_MouseLeave);
             // 
             // com_led
             // 
@@ -1039,6 +1060,8 @@ namespace MidoriValveTest
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.MouseEnter += new System.EventHandler(this.button3_MouseEnter);
+            this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
             // 
             // groupBox2
             // 
@@ -1151,6 +1174,8 @@ namespace MidoriValveTest
             this.btn_S_pressure.Text = "Set Target Pressure";
             this.btn_S_pressure.UseVisualStyleBackColor = false;
             this.btn_S_pressure.Click += new System.EventHandler(this.btn_S_pressure_Click_1);
+            this.btn_S_pressure.MouseEnter += new System.EventHandler(this.btn_S_pressure_MouseEnter);
+            this.btn_S_pressure.MouseLeave += new System.EventHandler(this.btn_S_pressure_MouseLeave);
             // 
             // lbl_T_1
             // 
@@ -1330,6 +1355,8 @@ namespace MidoriValveTest
             this.btn_90.Text = "90°";
             this.btn_90.UseVisualStyleBackColor = false;
             this.btn_90.Click += new System.EventHandler(this.btn_90_Click);
+            this.btn_90.MouseEnter += new System.EventHandler(this.btn_90_MouseEnter);
+            this.btn_90.MouseLeave += new System.EventHandler(this.btn_90_MouseLeave);
             // 
             // lbl_P_75
             // 
@@ -1356,6 +1383,8 @@ namespace MidoriValveTest
             this.btn_20.Text = "20°";
             this.btn_20.UseVisualStyleBackColor = false;
             this.btn_20.Click += new System.EventHandler(this.btn_20_Click);
+            this.btn_20.MouseEnter += new System.EventHandler(this.btn_20_MouseEnter);
+            this.btn_20.MouseLeave += new System.EventHandler(this.btn_20_MouseLeave);
             // 
             // lbl_P_25
             // 
@@ -1382,6 +1411,8 @@ namespace MidoriValveTest
             this.btn_40.Text = "40°";
             this.btn_40.UseVisualStyleBackColor = false;
             this.btn_40.Click += new System.EventHandler(this.btn_40_Click);
+            this.btn_40.MouseEnter += new System.EventHandler(this.btn_40_MouseEnter);
+            this.btn_40.MouseLeave += new System.EventHandler(this.btn_40_MouseLeave);
             // 
             // lbl_P_85
             // 
@@ -1408,6 +1439,8 @@ namespace MidoriValveTest
             this.btn_50.Text = "50°";
             this.btn_50.UseVisualStyleBackColor = false;
             this.btn_50.Click += new System.EventHandler(this.btn_50_Click);
+            this.btn_50.MouseEnter += new System.EventHandler(this.btn_50_MouseEnter);
+            this.btn_50.MouseLeave += new System.EventHandler(this.btn_50_MouseLeave);
             // 
             // lbl_P_15
             // 
@@ -1434,6 +1467,8 @@ namespace MidoriValveTest
             this.btn_30.Text = "30°";
             this.btn_30.UseVisualStyleBackColor = false;
             this.btn_30.Click += new System.EventHandler(this.btn_30_Click);
+            this.btn_30.MouseEnter += new System.EventHandler(this.btn_30_MouseEnter);
+            this.btn_30.MouseLeave += new System.EventHandler(this.btn_30_MouseLeave);
             // 
             // lbl_P_65
             // 
@@ -1460,6 +1495,8 @@ namespace MidoriValveTest
             this.btn_10.Text = "10°";
             this.btn_10.UseVisualStyleBackColor = false;
             this.btn_10.Click += new System.EventHandler(this.btn_10_Click);
+            this.btn_10.MouseEnter += new System.EventHandler(this.btn_10_MouseEnter);
+            this.btn_10.MouseLeave += new System.EventHandler(this.btn_10_MouseLeave);
             // 
             // lbl_P_35
             // 
@@ -1486,6 +1523,8 @@ namespace MidoriValveTest
             this.btn_60.Text = "60°";
             this.btn_60.UseVisualStyleBackColor = false;
             this.btn_60.Click += new System.EventHandler(this.btn_60_Click);
+            this.btn_60.MouseEnter += new System.EventHandler(this.btn_60_MouseEnter);
+            this.btn_60.MouseLeave += new System.EventHandler(this.btn_60_MouseLeave);
             // 
             // lbl_P_45
             // 
@@ -1512,6 +1551,8 @@ namespace MidoriValveTest
             this.btn_70.Text = "70°";
             this.btn_70.UseVisualStyleBackColor = false;
             this.btn_70.Click += new System.EventHandler(this.btn_70_Click);
+            this.btn_70.MouseEnter += new System.EventHandler(this.btn_70_MouseEnter);
+            this.btn_70.MouseLeave += new System.EventHandler(this.btn_70_MouseLeave);
             // 
             // lbl_P_55
             // 
@@ -1538,6 +1579,8 @@ namespace MidoriValveTest
             this.btn_80.Text = "80°";
             this.btn_80.UseVisualStyleBackColor = false;
             this.btn_80.Click += new System.EventHandler(this.btn_80_Click);
+            this.btn_80.MouseEnter += new System.EventHandler(this.btn_80_MouseEnter);
+            this.btn_80.MouseLeave += new System.EventHandler(this.btn_80_MouseLeave);
             // 
             // lbl_P_0
             // 
@@ -1563,6 +1606,8 @@ namespace MidoriValveTest
             this.btn_0.Text = "0°";
             this.btn_0.UseVisualStyleBackColor = false;
             this.btn_0.Click += new System.EventHandler(this.btn_0_Click);
+            this.btn_0.MouseEnter += new System.EventHandler(this.btn_0_MouseEnter);
+            this.btn_0.MouseLeave += new System.EventHandler(this.btn_0_MouseLeave);
             // 
             // btn_set
             // 
@@ -1581,6 +1626,8 @@ namespace MidoriValveTest
             this.btn_set.Text = "Set Apperture";
             this.btn_set.UseVisualStyleBackColor = false;
             this.btn_set.Click += new System.EventHandler(this.btn_set_Click);
+            this.btn_set.MouseEnter += new System.EventHandler(this.btn_set_MouseEnter);
+            this.btn_set.MouseLeave += new System.EventHandler(this.btn_set_MouseLeave);
             // 
             // trackBar1
             // 
@@ -2200,6 +2247,8 @@ namespace MidoriValveTest
             this.btnInfo.Text = "DWG Info";
             this.btnInfo.UseVisualStyleBackColor = false;
             this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            this.btnInfo.MouseEnter += new System.EventHandler(this.btnInfo_MouseEnter);
+            this.btnInfo.MouseLeave += new System.EventHandler(this.btnInfo_MouseLeave);
             // 
             // Midori_PV
             // 
