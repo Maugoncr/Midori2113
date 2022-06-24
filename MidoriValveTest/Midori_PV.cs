@@ -79,7 +79,11 @@ namespace MidoriValveTest
             IconReport.Enabled = false;
             IconInfo.Enabled = false;
             DisableBtn(button3);
-          //  button3.Enabled = false;
+            DisableBtn(btn_valveTest);
+            DisableBtn(btn_set);
+            DisableBtn(btn_S_pressure);
+            DisableBtn(btn_encender);
+            DisableBtn(btn_apagar);
             string[] ports = SerialPort.GetPortNames();                         // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
             comboBox1.Items.AddRange(ports);                                    // Volcamos el contenido de este arreglo dentro del COMBOBOX de seleccion de puerto
 
@@ -88,7 +92,8 @@ namespace MidoriValveTest
             if(ports.Length>0)                                                  // Determina existencia de puertos, y seleccionamos el primero de ellos.
             {
                 comboBox1.SelectedIndex = 0;
-                button3.Enabled = true;
+                EnableBtn(button3);
+                //button3.Enabled = true;
             }
             lbl_estado.ForeColor = Color.Red;                                   // Establece color rojo al lbl de estado de posicion de valvula. 
             ChartArea CA = chart1.ChartAreas[0];                                //
@@ -198,7 +203,7 @@ namespace MidoriValveTest
             //Close the port and wait for 2s
             if (Arduino != null)
             {
-                Arduino.Write("0");
+                //Arduino.Write("0");
                 Arduino.Close();
                 Thread.Sleep(2000);
             }
@@ -251,7 +256,16 @@ namespace MidoriValveTest
 
             }
 
-
+            DisableBtn(btn_90);
+            DisableBtn(btn_80);
+            DisableBtn(btn_70);
+            DisableBtn(btn_60);
+            DisableBtn(btn_50);
+            DisableBtn(btn_40);
+            DisableBtn(btn_30);
+            DisableBtn(btn_20);
+            DisableBtn(btn_10);
+            DisableBtn(btn_0);
             //Maugoncr// Turn off the led and the same for labels, disable the button of Open Gate
             com_led.Image.Dispose();
             com_led.Image = MidoriValveTest.Properties.Resources.led_off;
@@ -449,7 +463,7 @@ namespace MidoriValveTest
             EnableBtn(btn_encender);
             
             //btn_apagar.Enabled = false;
-            
+            DisableBtn(btn_apagar);   
 
             //btn_90.Enabled = false;
             //btn_80.Enabled = false;
@@ -1800,7 +1814,7 @@ namespace MidoriValveTest
             //Close the port and wait for 2s
             if (Arduino != null)
             {
-                Arduino.Write("0");
+                //Arduino.Write("0");
                 Arduino.Close();
                 Thread.Sleep(2000);
             }
@@ -1820,17 +1834,6 @@ namespace MidoriValveTest
                 precision_aperture = 0;
                 lbl_estado.ForeColor = Color.Red;
                 lbl_estado.Text = "Close";
-                //btn_apagar.Enabled = false;
-                //btn_90.Enabled = false;
-                //btn_80.Enabled = false;
-                //btn_70.Enabled = false;
-                //btn_60.Enabled = false;
-                //btn_50.Enabled = false;
-                //btn_40.Enabled = false;
-                //btn_30.Enabled = false;
-                //btn_20.Enabled = false;
-                //btn_10.Enabled = false;
-                //btn_0.Enabled = false;
 
                 DisableBtn(btn_apagar);
                 DisableBtn(btn_90);
@@ -1860,11 +1863,18 @@ namespace MidoriValveTest
                 red_off.Image.Dispose();
                 red_off.Image = MidoriValveTest.Properties.Resources.led_off_red;
                 lb_CounterTest.Text = "0";
-
-
-
             }
 
+            DisableBtn(btn_90);
+            DisableBtn(btn_80);
+            DisableBtn(btn_70);
+            DisableBtn(btn_60);
+            DisableBtn(btn_50);
+            DisableBtn(btn_40);
+            DisableBtn(btn_30);
+            DisableBtn(btn_20);
+            DisableBtn(btn_10);
+            DisableBtn(btn_0);
 
             //Maugoncr// Turn off the led and the same for labels, disable the button of Open Gate
             com_led.Image.Dispose();
