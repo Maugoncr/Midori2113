@@ -2203,11 +2203,15 @@ namespace MidoriValveTest
                 {
                     if (Arduino.IsOpen != false)
                     {
-                        string Temperatura = Arduino.ReadExisting();
+                        string Temperatura = null;
+                        char[] delimitador = { '$' };
+                        Temperatura = Arduino.ReadExisting();
+                        Temperatura = Temperatura.Replace("\r", string.Empty);
+                        Temperatura = Temperatura.Replace("\n", string.Empty);
 
-                        Temperatura = Temperatura.Replace("$", string.Empty);
+                        string[] temps = Temperatura.Split(delimitador);
 
-                        lb_Temperature.Text = Temperatura + "° C";
+                        lb_Temperature.Text = temps[0] + " ° C";
                         // es muy posible que ponga también los $
                         //TimerForData.Interval = 5000; actualmente cada 5 s
                     }
