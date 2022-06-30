@@ -77,7 +77,6 @@ namespace MidoriValveTest
             IconSensor.Enabled = false;
             IconTrace.Enabled = false;
             IconReport.Enabled = false;
-            IconInfo.Enabled = false;
             DisableBtn(button3);
             DisableBtn(btn_valveTest);
             DisableBtn(btn_set);
@@ -171,7 +170,6 @@ namespace MidoriValveTest
             IconSensor.Enabled = false;
             IconTrace.Enabled = false;
             IconReport.Enabled = false;
-            IconInfo.Enabled = false;
             DisableBtn(button3);
             // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
             // Boton 3 es el boton de Connect
@@ -304,10 +302,9 @@ namespace MidoriValveTest
                     iconPID.Enabled = true;
                     IconSensor.Enabled = true;
                     IconTrace.Enabled = true;
-                    IconReport.Enabled = true;
-                    IconInfo.Enabled = true;                    
+                    IconReport.Enabled = true;               
                     //button3.Enabled = true;
-                    EnableBtn(button3);
+                    //EnableBtn(button3);
                     //apertura
                     trackBar1.Enabled = true;
                     EnableBtn(btn_90);
@@ -1783,7 +1780,6 @@ namespace MidoriValveTest
             IconSensor.Enabled = false;
             IconTrace.Enabled = false;
             IconReport.Enabled = false;
-            IconInfo.Enabled = false;
             //button3.Enabled = false;
             DisableBtn(button3);
             // En este arreglo se almacena todos los puertos seriales "COM" registados por la computadora.
@@ -1920,6 +1916,7 @@ namespace MidoriValveTest
                 frm.BringToFront();
                 return;
             }
+
         }
 
         private void EnterBtn(Button btn) {
@@ -2223,6 +2220,21 @@ namespace MidoriValveTest
             }
            
         }
+        private void iconCamera_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Forms.Camara);
 
+            if (frm == null)
+            {
+                Forms.Camara nt = new Forms.Camara();
+                nt.Show();
+
+            }
+            else
+            {
+                frm.BringToFront();
+                return;
+            }
+        }
     }
 }

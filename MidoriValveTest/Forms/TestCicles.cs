@@ -40,6 +40,8 @@ private void timer1_Tick(object sender, EventArgs e)
         {
             if (counter < limit)
             {
+                Arduino.Write("90");
+                Arduino.Write("0");
                 counter++;
                 txt_cycles.Text = counter.ToString();
 

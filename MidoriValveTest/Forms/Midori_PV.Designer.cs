@@ -177,6 +177,7 @@ namespace MidoriValveTest
             this.PanelNavTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelSideNav = new System.Windows.Forms.Panel();
+            this.iconCamera = new FontAwesome.Sharp.IconButton();
             this.IconInfo = new FontAwesome.Sharp.IconButton();
             this.IconReport = new FontAwesome.Sharp.IconButton();
             this.IconSensor = new FontAwesome.Sharp.IconButton();
@@ -2045,6 +2046,7 @@ namespace MidoriValveTest
             // PanelSideNav
             // 
             this.PanelSideNav.BackColor = System.Drawing.Color.Teal;
+            this.PanelSideNav.Controls.Add(this.iconCamera);
             this.PanelSideNav.Controls.Add(this.IconInfo);
             this.PanelSideNav.Controls.Add(this.IconReport);
             this.PanelSideNav.Controls.Add(this.IconSensor);
@@ -2058,9 +2060,31 @@ namespace MidoriValveTest
             this.PanelSideNav.Size = new System.Drawing.Size(46, 992);
             this.PanelSideNav.TabIndex = 37;
             // 
+            // iconCamera
+            // 
+            this.iconCamera.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.iconCamera.FlatAppearance.BorderSize = 0;
+            this.iconCamera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconCamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconCamera.ForeColor = System.Drawing.Color.White;
+            this.iconCamera.IconChar = FontAwesome.Sharp.IconChar.Camera;
+            this.iconCamera.IconColor = System.Drawing.Color.White;
+            this.iconCamera.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconCamera.IconSize = 25;
+            this.iconCamera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconCamera.Location = new System.Drawing.Point(0, 920);
+            this.iconCamera.Name = "iconCamera";
+            this.iconCamera.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.iconCamera.Size = new System.Drawing.Size(46, 36);
+            this.iconCamera.TabIndex = 6;
+            this.iconCamera.Text = "      Camera";
+            this.iconCamera.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconCamera.UseVisualStyleBackColor = true;
+            this.iconCamera.Click += new System.EventHandler(this.iconCamera_Click);
+            // 
             // IconInfo
             // 
-            this.IconInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.IconInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.IconInfo.FlatAppearance.BorderSize = 0;
             this.IconInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IconInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2070,7 +2094,7 @@ namespace MidoriValveTest
             this.IconInfo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IconInfo.IconSize = 25;
             this.IconInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.IconInfo.Location = new System.Drawing.Point(0, 203);
+            this.IconInfo.Location = new System.Drawing.Point(0, 956);
             this.IconInfo.Name = "IconInfo";
             this.IconInfo.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.IconInfo.Size = new System.Drawing.Size(46, 36);
@@ -2489,6 +2513,7 @@ namespace MidoriValveTest
         private System.Windows.Forms.Button btnInfo;
         private FontAwesome.Sharp.IconButton IconInfo;
         private System.Windows.Forms.Timer TimerForData;
+        private FontAwesome.Sharp.IconButton iconCamera;
     }
 }
 

@@ -139,7 +139,7 @@ namespace MidoriValveTest
             this.btnTestStart.FlatAppearance.BorderSize = 0;
             this.btnTestStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTestStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTestStart.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnTestStart.ForeColor = System.Drawing.Color.Black;
             this.btnTestStart.Location = new System.Drawing.Point(137, 95);
             this.btnTestStart.Name = "btnTestStart";
             this.btnTestStart.Size = new System.Drawing.Size(136, 44);
@@ -173,7 +173,7 @@ namespace MidoriValveTest
             this.btnForClear.FlatAppearance.BorderSize = 0;
             this.btnForClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnForClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnForClear.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnForClear.ForeColor = System.Drawing.Color.Black;
             this.btnForClear.Location = new System.Drawing.Point(303, 63);
             this.btnForClear.Name = "btnForClear";
             this.btnForClear.Size = new System.Drawing.Size(118, 42);
@@ -226,7 +226,7 @@ namespace MidoriValveTest
             this.btn_Stop.FlatAppearance.BorderSize = 0;
             this.btn_Stop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Stop.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btn_Stop.ForeColor = System.Drawing.Color.Black;
             this.btn_Stop.Location = new System.Drawing.Point(6, 63);
             this.btn_Stop.Name = "btn_Stop";
             this.btn_Stop.Size = new System.Drawing.Size(121, 42);
