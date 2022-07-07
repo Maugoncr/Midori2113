@@ -87,7 +87,7 @@ namespace MidoriValveTest
             comboBox1.Items.AddRange(ports);                                    // Volcamos el contenido de este arreglo dentro del COMBOBOX de seleccion de puerto
 
             timer1.Enabled = true;
-            TimerForData.Enabled = true;
+            //TimerForData.Enabled = true;
 
             if(ports.Length>0)                                                  // Determina existencia de puertos, y seleccionamos el primero de ellos.
             {
@@ -345,6 +345,7 @@ namespace MidoriValveTest
                 Arduino.BaudRate = 9600;  //se estima para test existen distintas datos 115 200  POSIBLE INCOMPATIBILIDAD POR ESTE DATO
                 Arduino.DtrEnable = true;
                 Arduino.RtsEnable = true;
+                Arduino.ReadTimeout = 500;
                 Arduino.Parity = System.IO.Ports.Parity.None;
                 Arduino.DataBits = 8;
                 Arduino.StopBits = System.IO.Ports.StopBits.One;
@@ -859,28 +860,35 @@ namespace MidoriValveTest
 
             if (lbl_estado.Text == "Open")
             {
-
-                chart1.Series["Aperture value"].Points.AddXY(t.ToString(), precision_aperture.ToString());
-                chart1.Series["Pressure"].Points.AddXY(t.ToString(), rd.ToString());
-
-                decimal rr = Convert.ToDecimal(rd);
-                pressure_get = decimal.Round(rr, 3);
-                lbl_pressure.Text = pressure_get.ToString();
-                chart1.ChartAreas[0].RecalculateAxesScale();
+                if (Arduino != null && Arduino.IsOpen)
+                {
+                    string hola = Arduino.ReadLine();
+                    hola = hola.Replace("$", "");
+                    hola = hola.Replace("s", "");
+                    chart1.Series["Aperture value"].Points.AddXY(t.ToString(), precision_aperture.ToString());
+                    chart1.Series["Pressure"].Points.AddXY(t.ToString(), hola.ToString());
+                    lbl_pressure.Text = hola.ToString();
+                    chart1.ChartAreas[0].RecalculateAxesScale();
+                }
+                else
+                {
+                    chart1.Series["Aperture value"].Points.AddXY(t.ToString(), precision_aperture.ToString());
+                    chart1.Series["Pressure"].Points.AddXY(t.ToString(), rd.ToString());
+                    decimal rr = Convert.ToDecimal(rd);
+                    pressure_get = decimal.Round(rr, 3);
+                    lbl_pressure.Text = pressure_get.ToString();
+                    chart1.ChartAreas[0].RecalculateAxesScale();
+                }
             }
-            else {
+            else
+            {
 
                 chart1.Series["Aperture value"].Points.AddXY(t.ToString(), precision_aperture.ToString());
                 chart1.Series["Pressure"].Points.AddXY(t.ToString(), 8.ToString());
-                lbl_pressure.Text =   "8";
+                lbl_pressure.Text = "8";
                 chart1.ChartAreas[0].RecalculateAxesScale();
 
             }
-
-            
-
-
-
 
             if (chart1.Series["Aperture value"].Points.Count == 349)
             {
