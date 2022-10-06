@@ -134,11 +134,23 @@
     <Compile Include="Forms\Drawings.Designer.cs">
       <DependentUpon>Drawings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMessageBox.Designer.cs">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Information.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Information.Designer.cs">
       <DependentUpon>Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PIDAnalize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PIDAnalize.Designer.cs">
+      <DependentUpon>PIDAnalize.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PID_Config.cs">
       <SubType>Form</SubType>
@@ -176,6 +188,8 @@
     <Compile Include="Forms\Midori_PV.Designer.cs">
       <DependentUpon>Midori_PV.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageBoxMaugoncr.cs" />
+    <Compile Include="ObjetosGlobales.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\Terminal.cs">
@@ -207,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Drawings.resx">
       <DependentUpon>Drawings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMessageBox.resx">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Information.aa.resx">
       <DependentUpon>Information.cs</DependentUpon>
@@ -329,6 +346,27 @@
     <None Include="Resources\90 GRADOS.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Verti90B.png" />
+    <None Include="Resources\Verti90.png" />
+    <None Include="Resources\Verti80B.png" />
+    <None Include="Resources\Verti80.png" />
+    <None Include="Resources\Verti70B.png" />
+    <None Include="Resources\Verti70.png" />
+    <None Include="Resources\Verti60B.png" />
+    <None Include="Resources\Verti60.png" />
+    <None Include="Resources\Verti50B.png" />
+    <None Include="Resources\Verti50.png" />
+    <None Include="Resources\Verti40B.png" />
+    <None Include="Resources\Verti40.png" />
+    <None Include="Resources\Verti30B.png" />
+    <None Include="Resources\Verti30.png" />
+    <None Include="Resources\Verti20B.png" />
+    <None Include="Resources\Verti20.png" />
+    <None Include="Resources\Verti10B.png" />
+    <None Include="Resources\Verti10.png" />
+    <None Include="Resources\Verti0B.png" />
+    <None Include="Resources\Verti0.png" />
+    <None Include="Resources\question.png" />
     <None Include="Resources\signal5.png" />
     <None Include="Resources\signal4.png" />
     <None Include="Resources\signal3.png" />
@@ -343,6 +381,23 @@
     <None Include="Resources\btnPress.png" />
     <None Include="Resources\btnDisa.png" />
     <None Include="Resources\btnDisa2.png" />
+    <None Include="Resources\btnNblue.png" />
+    <None Include="Resources\btnNBlue2.png" />
+    <None Include="Resources\btnPressBlue.png" />
+    <None Include="Resources\chat.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\exclamation.png" />
+    <None Include="Resources\Front0.png" />
+    <None Include="Resources\Front10.png" />
+    <None Include="Resources\Front20.png" />
+    <None Include="Resources\Front30.png" />
+    <None Include="Resources\Front40.png" />
+    <None Include="Resources\Front50.png" />
+    <None Include="Resources\Front60.png" />
+    <None Include="Resources\Front70.png" />
+    <None Include="Resources\Front80.png" />
+    <None Include="Resources\Front90.png" />
+    <None Include="Resources\information.png" />
     <Content Include="Resources\led_off_green.png" />
     <Content Include="Resources\led_off_red.png" />
     <Content Include="Resources\led_off_yellow.png" />

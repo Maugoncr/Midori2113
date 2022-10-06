@@ -42,7 +42,7 @@ namespace MidoriValveTest
                    // MessageBox.Show(i.ToString() + "   " + times[i] + "    " + apertures[i] + "   " + pressures[i]);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -78,7 +78,7 @@ namespace MidoriValveTest
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 toolTip1.SetToolTip(chart1, "Time: -" + "\nPosition: -" + "\nPressure: -");
 
