@@ -170,7 +170,7 @@ namespace MidoriValveTest
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblfecha = new System.Windows.Forms.Label();
             this.PanelNav = new System.Windows.Forms.Panel();
-            this.lbl_Test = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.IconMinima = new FontAwesome.Sharp.IconButton();
             this.IconMaxin = new FontAwesome.Sharp.IconButton();
             this.btn_menu = new System.Windows.Forms.PictureBox();
@@ -1785,7 +1785,7 @@ namespace MidoriValveTest
             // 
             this.groupBox6.Controls.Add(this.Current_aperture);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(684, 104);
+            this.groupBox6.Location = new System.Drawing.Point(715, 105);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(94, 99);
             this.groupBox6.TabIndex = 25;
@@ -1962,7 +1962,6 @@ namespace MidoriValveTest
             // PanelNav
             // 
             this.PanelNav.BackColor = System.Drawing.Color.Teal;
-            this.PanelNav.Controls.Add(this.lbl_Test);
             this.PanelNav.Controls.Add(this.IconMinima);
             this.PanelNav.Controls.Add(this.IconMaxin);
             this.PanelNav.Controls.Add(this.btn_menu);
@@ -1977,15 +1976,14 @@ namespace MidoriValveTest
             this.PanelNav.TabIndex = 36;
             this.PanelNav.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelNav_MouseDown);
             // 
-            // lbl_Test
+            // label18
             // 
-            this.lbl_Test.AutoSize = true;
-            this.lbl_Test.Location = new System.Drawing.Point(312, 8);
-            this.lbl_Test.Name = "lbl_Test";
-            this.lbl_Test.Size = new System.Drawing.Size(139, 29);
-            this.lbl_Test.TabIndex = 68;
-            this.lbl_Test.Text = "Testing dbz";
-            this.lbl_Test.Visible = false;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(609, 124);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(92, 29);
+            this.label18.TabIndex = 71;
+            this.label18.Text = "label18";
             // 
             // IconMinima
             // 
@@ -2311,7 +2309,7 @@ namespace MidoriValveTest
             this.lbSendPID.Size = new System.Drawing.Size(223, 29);
             this.lbSendPID.TabIndex = 69;
             this.lbSendPID.Text = "Test Pressure send";
-            this.lbSendPID.Click += new System.EventHandler(this.lbSendPID_Click);
+         //   this.lbSendPID.Click += new System.EventHandler(this.lbSendPID_Click);
             // 
             // lbPIDSent
             // 
@@ -2321,7 +2319,7 @@ namespace MidoriValveTest
             this.lbPIDSent.Size = new System.Drawing.Size(165, 29);
             this.lbPIDSent.TabIndex = 70;
             this.lbPIDSent.Text = "Test PID send";
-            this.lbPIDSent.Click += new System.EventHandler(this.lbPIDSent_Click);
+           // this.lbPIDSent.Click += new System.EventHandler(this.lbPIDSent_Click);
             // 
             // serialPort1
             // 
@@ -2354,6 +2352,7 @@ namespace MidoriValveTest
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1900, 1037);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.lbPIDSent);
             this.Controls.Add(this.lbSendPID);
             this.Controls.Add(this.btnInfo);
@@ -2580,13 +2579,13 @@ namespace MidoriValveTest
         private System.Windows.Forms.Timer TimerForData;
         private FontAwesome.Sharp.IconButton iconCamera;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label lbl_Test;
         private System.Windows.Forms.Label lbSendPID;
         private FontAwesome.Sharp.IconButton btnAutoCalibrate;
         private FontAwesome.Sharp.IconButton btnPIDAnalisis;
         private System.Windows.Forms.Label lbPIDSent;
         private System.Windows.Forms.Button btnStartPID;
         private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Label label18;
     }
 }
 

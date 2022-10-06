@@ -30,11 +30,11 @@ namespace MidoriValveTest
         Stopwatch oSW = new Stopwatch();
 
         //------------------- VARIABLES DE TRABAJO GENERAL DE CODIGO-------------
-        System.IO.Ports.SerialPort Arduino;         // Objeto de tipo "serial" port que permite lectoescritura con el puesto seteado. 
+        //System.IO.Ports.SerialPort Arduino;         // Objeto de tipo "serial" port que permite lectoescritura con el puesto seteado. 
         bool record=false;                          // variable que permite determinar si la lectura actual del puerto serial se esta grabando para un archivo.
         public int precision_aperture= 0;           // variable volatil temporal para almacenar la apertura de la valvula
         int base_value = 0;                         // Almacena valores de 10 en 10 hasta 90, incluyendo 0. Esta variable impide el movimiento del trackbar de posicion, fuera del rango inmediato superior de esta base. 
-        double tiempo=0;                            // Contador que determina el tiempo de recorrido desde el inicio de la toma de datos
+       // double tiempo=0;                            // Contador que determina el tiempo de recorrido desde el inicio de la toma de datos
         bool connect = false;                       // Refleja la conexion con el puerto serial. 
         
         DateTime star_record = new DateTime();
@@ -61,7 +61,8 @@ namespace MidoriValveTest
                 {
                     InitializeComponent();
                     InitializeSetting();
-                }
+                    Control.CheckForIllegalCrossThreadCalls = false;
+        }
 
         public void InitializeSetting() {
             this.FormBorderStyle = FormBorderStyle.None;
@@ -74,6 +75,7 @@ namespace MidoriValveTest
         // Funcion de carga de procedimientos iniciales (inicio automatico). 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             iconTerminal.Enabled = false;
             iconPID.Enabled = false;
             IconSensor.Enabled = false;
@@ -214,9 +216,9 @@ namespace MidoriValveTest
             TimerForData.Stop();
             comboBox1.Enabled = true;
 
-            tiempo = 0;
+            //tiempo = 0;
             //Stop the Chart
-            timer_Chart.Stop();
+           // timer_Chart.Stop();
             comboBox1.Enabled = true;
             // hEEEEY
             //DisableBtn(btn_set);
@@ -361,35 +363,27 @@ namespace MidoriValveTest
         {
             try
             {
-                Arduino = new System.IO.Ports.SerialPort();
-                if (Arduino.IsOpen)
-                { Arduino.Close();
-                    return false;
-                }
-
-
-                Arduino = new System.IO.Ports.SerialPort();
-                if (Arduino.IsOpen)
-                {
-                    Arduino.Close();
-                    return false;
-                }
-                Arduino.PortName = COMM;
-                Arduino.BaudRate = 9600;  //se estima para test existen distintas datos 115 200  POSIBLE INCOMPATIBILIDAD POR ESTE DATO
-                Arduino.DtrEnable = false;
-                Arduino.RtsEnable = false;
-                Arduino.ReceivedBytesThreshold = 1;
-                Arduino.ParityReplace = 63;
-                Arduino.DiscardNull = true;
-                Arduino.ReadTimeout = -1;
-                Arduino.ReadBufferSize = 4096;
-                Arduino.WriteBufferSize = 2048;
-                Arduino.WriteTimeout = -1;
-                Arduino.Parity = System.IO.Ports.Parity.None;
-                Arduino.DataBits = 8;
-                Arduino.StopBits = System.IO.Ports.StopBits.One;
-                Arduino.Open();
-                Thread.Sleep(4000);
+                //Arduino = new System.IO.Ports.SerialPort();
+                //if (Arduino.IsOpen)
+                //{ Arduino.Close();
+                //    return false;
+                //}
+                //Arduino.PortName = COMM;
+                //Arduino.BaudRate = 9600;  //se estima para test existen distintas datos 115 200  POSIBLE INCOMPATIBILIDAD POR ESTE DATO
+                //Arduino.DtrEnable = false;
+                //Arduino.RtsEnable = false;
+                //Arduino.ReceivedBytesThreshold = 1;
+                //Arduino.ParityReplace = 63;
+                //Arduino.DiscardNull = true; 
+                //Arduino.ReadTimeout = -1;
+                //Arduino.ReadBufferSize = 4096;
+                //Arduino.WriteBufferSize = 2048;
+                //Arduino.WriteTimeout = -1;
+                //Arduino.Parity = System.IO.Ports.Parity.None;
+                //Arduino.DataBits = 8;
+                //Arduino.StopBits = System.IO.Ports.StopBits.One;
+                //Arduino.Open();
+                // Thread.Sleep(4000);
 
                 if (serialPort1.IsOpen)
                 {
@@ -420,17 +414,12 @@ namespace MidoriValveTest
 
 
                 return true;
-
-
             }
             catch (Exception)
             {
-
                 LblEstado.Text = "Disconnected *";
                 lblPuerto.Text = "Disconnected *";
                 return false;
-
-
             }
         }
         private void btn_encender_Click(object sender, EventArgs e)
@@ -554,7 +543,7 @@ namespace MidoriValveTest
             {
                 TestCicles TEST = new TestCicles();
                 TEST.menssager = this;
-                TEST.Arduino = Arduino;
+               // TEST.Arduino = Arduino;
                 TEST.Show();
             }
             else
@@ -942,12 +931,12 @@ namespace MidoriValveTest
                 {
                     Temp += test.Substring(i, 1);
                 }
-                if (test.Substring(i, 1).Equals("A"))
+                if (test.Substring(i, 1).Equals("S")) // Camviar a la A para SALVADOR
                 {
                     firtIn = true;
                 }
             }
-            Temp.Replace("A", "");
+            Temp.Replace("S", ""); // Camviar a la A para SALVADOR
             Pressure.Replace("$", "");
 
             if (opcion == 1)
@@ -1278,7 +1267,7 @@ namespace MidoriValveTest
                             }
                             for (int y = initial_line; y < lines.Length - 1;y++)
                             {
-                                line_in_depure = lines[y].Split('|');
+                                line_in_depure = lines[y].Split(',');
                                 times_1.Add( line_in_depure[0]);
                                 apertures_1.Add(line_in_depure[1]);
                                 pressures_1.Add(line_in_depure[2]);
@@ -1352,7 +1341,7 @@ namespace MidoriValveTest
             LateralNav.Size = new Size(0, 1019);
             nt.lblPuerto.Text = "Connected";
             nt.mvt = this;
-            nt.Arduino = Arduino;
+          //  nt.Arduino = Arduino;
                 nt.ShowDialog();
             
         }
@@ -1729,7 +1718,7 @@ namespace MidoriValveTest
                 Terminal nt = new Terminal();
                 nt.lblPuerto.Text = "Connected";
                 nt.mvt = this;
-                nt.Arduino = Arduino;
+              //  nt.Arduino = Arduino;
                 nt.Show();
             }
             else {
@@ -2546,13 +2535,12 @@ namespace MidoriValveTest
             {
                 if (serialPort1.ReadLine().Contains("$"))
                 {
-                    lbl_Test.Text = serialPort1.ReadLine();
+                    label18.Invoke(new Action(() => label18.Text = serialPort1.ReadLine().ToString()));
                     capturadatos = serialPort1.ReadLine();
                     presionChart = ObtenerData(capturadatos, 2);
                     temperaturaLabel = ObtenerData(capturadatos, 1);
-
+                   
                     // Only for test
-
                 }
             }
             catch (Exception)
@@ -2566,7 +2554,6 @@ namespace MidoriValveTest
 
         double rt = 0;
         double temp = 0;
-        
 
         private void TimerForData_Tick(object sender, EventArgs e)
         {

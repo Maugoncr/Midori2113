@@ -231,6 +231,9 @@
     <EmbeddedResource Include="Forms\Information.resx">
       <DependentUpon>Information.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PIDAnalize.resx">
+      <DependentUpon>PIDAnalize.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PID_Config.resx">
       <DependentUpon>PID_Config.cs</DependentUpon>
     </EmbeddedResource>
