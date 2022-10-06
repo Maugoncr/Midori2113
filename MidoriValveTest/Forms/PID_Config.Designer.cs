@@ -219,17 +219,16 @@ namespace MidoriValveTest
             "Controller 2",
             "Controller 3",
             "Controller 4"});
-            this.Cb_ControlSelector.Location = new System.Drawing.Point(187, 419);
+            this.Cb_ControlSelector.Location = new System.Drawing.Point(129, 45);
             this.Cb_ControlSelector.Name = "Cb_ControlSelector";
             this.Cb_ControlSelector.Size = new System.Drawing.Size(149, 21);
             this.Cb_ControlSelector.TabIndex = 11;
-           
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(69, 419);
+            this.label2.Location = new System.Drawing.Point(11, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 13);
             this.label2.TabIndex = 10;
@@ -240,7 +239,7 @@ namespace MidoriValveTest
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label1.Location = new System.Drawing.Point(66, 391);
+            this.label1.Location = new System.Drawing.Point(8, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 18);
             this.label1.TabIndex = 9;
@@ -273,7 +272,6 @@ namespace MidoriValveTest
             this.CbAlgo1.Name = "CbAlgo1";
             this.CbAlgo1.Size = new System.Drawing.Size(149, 21);
             this.CbAlgo1.TabIndex = 1;
-          
             // 
             // label11
             // 
@@ -285,7 +283,6 @@ namespace MidoriValveTest
             this.label11.Size = new System.Drawing.Size(86, 13);
             this.label11.TabIndex = 0;
             this.label11.Text = "Control Algorithm";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // CbDirec1
             // 
@@ -363,7 +360,6 @@ namespace MidoriValveTest
             0,
             0,
             65536});
-            this.NumI1.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
             // label12
             // 
@@ -395,6 +391,9 @@ namespace MidoriValveTest
             // 
             // GroupR1
             // 
+            this.GroupR1.Controls.Add(this.Cb_ControlSelector);
+            this.GroupR1.Controls.Add(this.label2);
+            this.GroupR1.Controls.Add(this.label1);
             this.GroupR1.Controls.Add(this.RamEnable1);
             this.GroupR1.Controls.Add(this.label10);
             this.GroupR1.Controls.Add(this.Type1);
@@ -447,7 +446,7 @@ namespace MidoriValveTest
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(28, 54);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(178, 29);
@@ -492,6 +491,7 @@ namespace MidoriValveTest
             this.txtD.Name = "txtD";
             this.txtD.Size = new System.Drawing.Size(182, 24);
             this.txtD.TabIndex = 12;
+            this.txtD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtD_KeyPress);
             // 
             // txtI
             // 
@@ -499,6 +499,7 @@ namespace MidoriValveTest
             this.txtI.Name = "txtI";
             this.txtI.Size = new System.Drawing.Size(182, 24);
             this.txtI.TabIndex = 11;
+            this.txtI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtI_KeyPress);
             // 
             // txtP
             // 
@@ -506,6 +507,7 @@ namespace MidoriValveTest
             this.txtP.Name = "txtP";
             this.txtP.Size = new System.Drawing.Size(182, 24);
             this.txtP.TabIndex = 10;
+            this.txtP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtP_KeyPress);
             // 
             // label14
             // 
@@ -545,6 +547,7 @@ namespace MidoriValveTest
             this.checkPID.TabIndex = 13;
             this.checkPID.Text = "Enable";
             this.checkPID.UseVisualStyleBackColor = true;
+            this.checkPID.CheckedChanged += new System.EventHandler(this.checkPID_CheckedChanged);
             // 
             // comboBox1
             // 
@@ -579,6 +582,7 @@ namespace MidoriValveTest
             this.btnSentPID.TabIndex = 38;
             this.btnSentPID.Text = "       Send PID";
             this.btnSentPID.UseVisualStyleBackColor = false;
+            this.btnSentPID.Click += new System.EventHandler(this.btnSentPID_Click);
             // 
             // panel1
             // 
@@ -589,7 +593,7 @@ namespace MidoriValveTest
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(872, 41);
+            this.panel1.Size = new System.Drawing.Size(511, 41);
             this.panel1.TabIndex = 39;
             // 
             // IconClose
@@ -601,7 +605,7 @@ namespace MidoriValveTest
             this.IconClose.IconColor = System.Drawing.Color.White;
             this.IconClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IconClose.IconSize = 30;
-            this.IconClose.Location = new System.Drawing.Point(837, 0);
+            this.IconClose.Location = new System.Drawing.Point(476, 0);
             this.IconClose.Name = "IconClose";
             this.IconClose.Size = new System.Drawing.Size(35, 41);
             this.IconClose.TabIndex = 40;
@@ -636,25 +640,25 @@ namespace MidoriValveTest
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 41);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(10, 551);
+            this.panel3.Size = new System.Drawing.Size(10, 375);
             this.panel3.TabIndex = 40;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.DimGray;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(10, 582);
+            this.panel4.Location = new System.Drawing.Point(10, 406);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(862, 10);
+            this.panel4.Size = new System.Drawing.Size(501, 10);
             this.panel4.TabIndex = 41;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DimGray;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(862, 41);
+            this.panel2.Location = new System.Drawing.Point(501, 41);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 541);
+            this.panel2.Size = new System.Drawing.Size(10, 365);
             this.panel2.TabIndex = 42;
             // 
             // PID_Config
@@ -662,7 +666,7 @@ namespace MidoriValveTest
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(872, 592);
+            this.ClientSize = new System.Drawing.Size(511, 416);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -674,9 +678,6 @@ namespace MidoriValveTest
             this.Controls.Add(this.GroupR1);
             this.Controls.Add(this.GroupS1);
             this.Controls.Add(this.GroupC1);
-            this.Controls.Add(this.Cb_ControlSelector);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBackGround1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
