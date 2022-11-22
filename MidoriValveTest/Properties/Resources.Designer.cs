@@ -633,6 +633,26 @@ namespace MidoriValveTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnOff {
+            get {
+                object obj = ResourceManager.GetObject("btnOff", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnOn {
+            get {
+                object obj = ResourceManager.GetObject("btnOn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnPress {
             get {
                 object obj = ResourceManager.GetObject("btnPress", resourceCulture);

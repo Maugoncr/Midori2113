@@ -412,6 +412,8 @@
     <None Include="Resources\error1.png" />
     <None Include="Resources\icons8_cancel_25px.png" />
     <None Include="Resources\info.png" />
+    <None Include="Resources\btnOff.png" />
+    <None Include="Resources\btnOn.png" />
     <Content Include="Resources\led_off_green.png" />
     <Content Include="Resources\led_off_red.png" />
     <Content Include="Resources\led_off_yellow.png" />

@@ -31,10 +31,10 @@ namespace MidoriValveTest
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Midori_PV));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblEstado = new System.Windows.Forms.Label();
@@ -194,11 +194,11 @@ namespace MidoriValveTest
             this.lbSendPID = new System.Windows.Forms.Label();
             this.lbPIDSent = new System.Windows.Forms.Label();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.btnInfo = new System.Windows.Forms.Button();
             this.lbSetPointPressure = new System.Windows.Forms.Label();
             this.labelSetPoint = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.btnInfo = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -319,7 +319,7 @@ namespace MidoriValveTest
             // 
             // btnOffMANValve
             // 
-            this.btnOffMANValve.BackColor = System.Drawing.Color.Gray;
+            this.btnOffMANValve.BackColor = System.Drawing.Color.Transparent;
             this.btnOffMANValve.BackgroundImage = global::MidoriValveTest.Properties.Resources.btnDisa2;
             this.btnOffMANValve.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnOffMANValve.Enabled = false;
@@ -337,11 +337,13 @@ namespace MidoriValveTest
             this.btnOffMANValve.TabIndex = 78;
             this.btnOffMANValve.Text = "    OFF";
             this.btnOffMANValve.UseVisualStyleBackColor = false;
-            this.btnOffMANValve.Visible = false;
+            this.btnOffMANValve.Click += new System.EventHandler(this.btnOffMANValve_Click);
+            this.btnOffMANValve.MouseEnter += new System.EventHandler(this.btnOffMANValve_MouseEnter);
+            this.btnOffMANValve.MouseLeave += new System.EventHandler(this.btnOffMANValve_MouseLeave);
             // 
             // btnOnMANValve
             // 
-            this.btnOnMANValve.BackColor = System.Drawing.Color.Gray;
+            this.btnOnMANValve.BackColor = System.Drawing.SystemColors.Control;
             this.btnOnMANValve.BackgroundImage = global::MidoriValveTest.Properties.Resources.btnDisa2;
             this.btnOnMANValve.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnOnMANValve.Enabled = false;
@@ -359,11 +361,13 @@ namespace MidoriValveTest
             this.btnOnMANValve.TabIndex = 77;
             this.btnOnMANValve.Text = "    ON";
             this.btnOnMANValve.UseVisualStyleBackColor = false;
-            this.btnOnMANValve.Visible = false;
+            this.btnOnMANValve.Click += new System.EventHandler(this.btnOnMANValve_Click);
+            this.btnOnMANValve.MouseEnter += new System.EventHandler(this.btnOnMANValve_MouseEnter);
+            this.btnOnMANValve.MouseLeave += new System.EventHandler(this.btnOnMANValve_MouseLeave);
             // 
             // lbStatusMANValve
             // 
-            this.lbStatusMANValve.BackColor = System.Drawing.Color.Gray;
+            this.lbStatusMANValve.BackColor = System.Drawing.Color.Transparent;
             this.lbStatusMANValve.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStatusMANValve.ForeColor = System.Drawing.Color.Black;
             this.lbStatusMANValve.Location = new System.Drawing.Point(1109, 407);
@@ -372,19 +376,17 @@ namespace MidoriValveTest
             this.lbStatusMANValve.TabIndex = 76;
             this.lbStatusMANValve.Text = "STATUS: OFF";
             this.lbStatusMANValve.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbStatusMANValve.Visible = false;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.Gray;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(1128, 385);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(117, 22);
             this.label20.TabIndex = 75;
             this.label20.Text = "MAN Valve";
-            this.label20.Visible = false;
             // 
             // btnAutoCalibrate
             // 
@@ -619,47 +621,47 @@ namespace MidoriValveTest
             this.chart1.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart1.BorderSkin.BackColor = System.Drawing.Color.Black;
             this.chart1.BorderSkin.BorderColor = System.Drawing.Color.Empty;
-            chartArea3.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea3.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
-            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea3.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea3.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea3.AxisY.Minimum = 0D;
-            chartArea3.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.White;
-            chartArea3.AxisY.ScaleView.MinSize = 1D;
-            chartArea3.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea3.AxisY2.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea3.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
-            chartArea3.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
-            chartArea3.BackColor = System.Drawing.Color.Transparent;
-            chartArea3.BackSecondaryColor = System.Drawing.Color.White;
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.BackColor = System.Drawing.Color.Gainsboro;
-            legend3.Name = "Legend1";
-            legend3.TitleAlignment = System.Drawing.StringAlignment.Near;
-            this.chart1.Legends.Add(legend3);
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.ScaleView.MinSize = 1D;
+            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisY2.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
+            chartArea1.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.BackSecondaryColor = System.Drawing.Color.White;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Gainsboro;
+            legend1.Name = "Legend1";
+            legend1.TitleAlignment = System.Drawing.StringAlignment.Near;
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(6, 28);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series5.Color = System.Drawing.Color.Green;
-            series5.Legend = "Legend1";
-            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series5.Name = "Pressure";
-            series5.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series5.YValuesPerPoint = 4;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series6.Color = System.Drawing.SystemColors.MenuHighlight;
-            series6.Legend = "Legend1";
-            series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series6.Name = "Aperture value";
-            series6.ShadowColor = System.Drawing.Color.Silver;
-            this.chart1.Series.Add(series5);
-            this.chart1.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series1.Color = System.Drawing.Color.Green;
+            series1.Legend = "Legend1";
+            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series1.Name = "Pressure";
+            series1.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series1.YValuesPerPoint = 4;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series2.Color = System.Drawing.SystemColors.MenuHighlight;
+            series2.Legend = "Legend1";
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series2.Name = "Aperture value";
+            series2.ShadowColor = System.Drawing.Color.Silver;
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1266, 769);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -1163,13 +1165,16 @@ namespace MidoriValveTest
             // 
             // txtSetPresion
             // 
+            this.txtSetPresion.BackColor = System.Drawing.Color.White;
             this.txtSetPresion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSetPresion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSetPresion.Location = new System.Drawing.Point(10, 371);
+            this.txtSetPresion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSetPresion.Location = new System.Drawing.Point(10, 389);
             this.txtSetPresion.Name = "txtSetPresion";
-            this.txtSetPresion.Size = new System.Drawing.Size(152, 19);
+            this.txtSetPresion.Size = new System.Drawing.Size(152, 24);
             this.txtSetPresion.TabIndex = 70;
             this.txtSetPresion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSetPresion.TextChanged += new System.EventHandler(this.txtSetPresion_TextChanged);
+            this.txtSetPresion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSetPresion_KeyPress);
             // 
             // btnStartPID
             // 
@@ -1181,7 +1186,7 @@ namespace MidoriValveTest
             this.btnStartPID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStartPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartPID.ForeColor = System.Drawing.Color.White;
-            this.btnStartPID.Location = new System.Drawing.Point(50, 442);
+            this.btnStartPID.Location = new System.Drawing.Point(175, 401);
             this.btnStartPID.Name = "btnStartPID";
             this.btnStartPID.Size = new System.Drawing.Size(71, 42);
             this.btnStartPID.TabIndex = 69;
@@ -1249,7 +1254,7 @@ namespace MidoriValveTest
             this.btnSetPresion.FlatAppearance.BorderSize = 0;
             this.btnSetPresion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetPresion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSetPresion.Location = new System.Drawing.Point(15, 396);
+            this.btnSetPresion.Location = new System.Drawing.Point(15, 435);
             this.btnSetPresion.Name = "btnSetPresion";
             this.btnSetPresion.Size = new System.Drawing.Size(147, 43);
             this.btnSetPresion.TabIndex = 27;
@@ -2346,25 +2351,6 @@ namespace MidoriValveTest
             this.serialPort1.DiscardNull = true;
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
-            // btnInfo
-            // 
-            this.btnInfo.BackColor = System.Drawing.Color.Transparent;
-            this.btnInfo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnInfo.BackgroundImage")));
-            this.btnInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnInfo.FlatAppearance.BorderSize = 0;
-            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInfo.ForeColor = System.Drawing.Color.White;
-            this.btnInfo.Location = new System.Drawing.Point(1714, 175);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(151, 39);
-            this.btnInfo.TabIndex = 41;
-            this.btnInfo.Text = "DWG Info";
-            this.btnInfo.UseVisualStyleBackColor = false;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
-            this.btnInfo.MouseEnter += new System.EventHandler(this.btnInfo_MouseEnter);
-            this.btnInfo.MouseLeave += new System.EventHandler(this.btnInfo_MouseLeave);
-            // 
             // lbSetPointPressure
             // 
             this.lbSetPointPressure.BackColor = System.Drawing.Color.Transparent;
@@ -2409,6 +2395,25 @@ namespace MidoriValveTest
             this.label18.TabIndex = 82;
             this.label18.Text = "Test Read Data";
             this.label18.Visible = false;
+            // 
+            // btnInfo
+            // 
+            this.btnInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btnInfo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnInfo.BackgroundImage")));
+            this.btnInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInfo.FlatAppearance.BorderSize = 0;
+            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfo.ForeColor = System.Drawing.Color.White;
+            this.btnInfo.Location = new System.Drawing.Point(1714, 175);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Size = new System.Drawing.Size(151, 39);
+            this.btnInfo.TabIndex = 41;
+            this.btnInfo.Text = "DWG Info";
+            this.btnInfo.UseVisualStyleBackColor = false;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            this.btnInfo.MouseEnter += new System.EventHandler(this.btnInfo_MouseEnter);
+            this.btnInfo.MouseLeave += new System.EventHandler(this.btnInfo_MouseLeave);
             // 
             // Midori_PV
             // 

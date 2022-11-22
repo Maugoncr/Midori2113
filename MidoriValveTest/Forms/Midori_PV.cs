@@ -100,7 +100,13 @@ namespace MidoriValveTest
         private void Form1_Load(object sender, EventArgs e)
         {
             OffEverything();
-         
+            timer1.Enabled = true;
+            if (cbSelectionCOM.Items.Count > 0)     // exist ports com
+            {
+                cbSelectionCOM.SelectedIndex = 0;
+                EnableBtn(btnConnect);
+            }
+
         }
 
         private void OffEverything()
@@ -274,11 +280,8 @@ namespace MidoriValveTest
             {
                 if (reconocer_arduino(cbSelectionCOM.SelectedItem.ToString()))// Funcion para establecer conexion COM con la valvula. 
                 {
-                    // Inicia el chart a correr
                     timerForData.Start();
-                    //timer_Chart.Start();
-
-
+                    txtSetPresion.Enabled = true;
                     com_led.Image.Dispose();
                     com_led.Image = MidoriValveTest.Properties.Resources.led_on_green;
                     EnableBtn(btnOpenGate);
@@ -287,6 +290,8 @@ namespace MidoriValveTest
                     cbSelectionCOM.Enabled = false;
                     DisableBtn(btnConnect);
                     EnableBtn(btnStartPID);
+                    EnableBtn(btnOnMANValve);
+
 
                     // Menu settings
                     btnMenu.Enabled = true;
@@ -312,13 +317,9 @@ namespace MidoriValveTest
                     EnableBtn(btn_20);
                     EnableBtn(btn_10);
                     EnableBtn(btn_0);
-
                     EnableBtn(btnStartRecord);
                     EnableBtn(btnChartArchiveAnalyzer);
                     EnableBtn(btnAnalyze);
-
-
-
                 }
 
             }
@@ -1238,23 +1239,24 @@ namespace MidoriValveTest
 
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
-            //btn_S_pressure.Enabled = true;
+
             EnableBtn(btnSetPresion);
-            btnSetPresion.Text = "Set target pressure in " + (float)trackBar2A.Value/10000;
+            float nivel = trackBar2A.Value;
 
             switch (lbl_P_unit_top.Text)
             {
                 case "PSI":
-                    btnSetPresion.Text = "Set target pressure in " + (float)trackBar2A.Value / 10000;
+                    btnSetPresion.Text = "Set target pressure in " + nivel / 10000;
                     break;
                 case "ATM":
-                    btnSetPresion.Text = "Set target pressure in " + (float)trackBar2A.Value / 1000;
+                    btnSetPresion.Text = "Set target pressure in " + nivel / 1000;
                     break;
                 case "mbar":
-                    btnSetPresion.Text = "Set target pressure in " + (float)trackBar2A.Value / 100;
+                    btnSetPresion.Text = "Set target pressure in " + nivel/100;
                     break;
                 case "Torr":
-                    btnSetPresion.Text = "Set target pressure in " + (float)trackBar2A.Value ;
+                    btnSetPresion.Text = "Set target pressure in " + nivel;
+                    txtSetPresion.Text = trackBar2A.Value.ToString();
                     break;
             }
         }
@@ -2564,5 +2566,129 @@ namespace MidoriValveTest
         {
 
         }
+
+        private void btnOnMANValve_Click(object sender, EventArgs e)
+        {
+            if (btnOnMANValve.Enabled == true)
+            {
+                lbStatusMANValve.Text = "ON";
+                this.Alert("Successfully opened", Form_Alert.enmType.Success);
+                EnableBtn(btnOffMANValve);
+                btnOnMANValve.Enabled = false;
+            }
+        }
+
+        private void btnOffMANValve_Click(object sender, EventArgs e)
+        {
+            if (btnOffMANValve.Enabled == true)
+            {
+                lbStatusMANValve.Text = "OFF";
+                this.Alert("Successfully closed", Form_Alert.enmType.Success);
+                EnableBtn(btnOnMANValve);
+                btnOffMANValve.Enabled = false;
+            }
+        }
+
+        private void EncenderBTN(Button btn)
+        {
+            if (btn.Enabled == true)
+            {
+                if (btn.Name == "btnOnMANValve")
+                {
+                    btn.ForeColor = Color.White;
+                    btnOnMANValve.IconColor = Color.White;
+                    btn.BackgroundImage.Dispose();
+                    btn.BackgroundImage = Properties.Resources.btnOn;
+                }
+                else
+                {
+                    btn.ForeColor = Color.White;
+                    btnOffMANValve.IconColor = Color.White;
+                    btn.BackgroundImage.Dispose();
+                    btn.BackgroundImage = Properties.Resources.btnOff;
+                }
+            }
+        }
+
+        private void btnOnMANValve_MouseEnter(object sender, EventArgs e)
+        {
+            EncenderBTN(btnOnMANValve);
+        }
+
+        private void btnOnMANValve_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btnOnMANValve);
+        }
+
+        private void btnOffMANValve_MouseEnter(object sender, EventArgs e)
+        {
+            EncenderBTN(btnOffMANValve);
+        }
+
+        private void btnOffMANValve_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btnOffMANValve);
+        }
+
+        private void txtSetPresion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (lbl_P_unit_top.Text == "Torr")
+            {
+                if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+                {
+                    MessageBoxMaugoncr.Show("Only numbers are allowed", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+            else
+            {
+                if ((e.KeyChar >= 32 && e.KeyChar <= 45) || (e.KeyChar >= 58 && e.KeyChar <= 255) || e.KeyChar == 47)
+                {
+                    MessageBoxMaugoncr.Show("Only numbers are allowed", "Important", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+        }
+
+        private void txtSetPresion_TextChanged(object sender, EventArgs e)
+        {
+            switch (lbl_P_unit_top.Text)
+            {
+                case "PSI":
+                    //
+                    break;
+                case "ATM":
+                    //
+                    break;
+                case "mbar":
+                    //
+                    break;
+                case "Torr":
+                    if (!string.IsNullOrEmpty(txtSetPresion.Text.Trim()))
+                    {
+                        int txtTorrUnit = Convert.ToInt32(txtSetPresion.Text.Trim());
+                        if (txtTorrUnit <= 760)
+                        {
+                            trackBar2A.Value = txtTorrUnit;
+                            btnSetPresion.Text = "Set target pressure in " + txtTorrUnit;
+                            EnableBtn(btnSetPresion);
+                        }
+                        else
+                        {
+                            MessageBoxMaugoncr.Show("Invalide Number", "Important", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            txtSetPresion.Clear();
+                            trackBar2A.Value = 0;
+                            btnSetPresion.Text = "Set Target Pressure";
+                            DisableBtn(btnSetPresion);
+                        }
+                    }
+                    break;
+            }
+        }
+
+
+
     }
 }

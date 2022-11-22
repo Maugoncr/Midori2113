@@ -492,6 +492,7 @@ namespace MidoriValveTest
             this.txtD.Size = new System.Drawing.Size(182, 24);
             this.txtD.TabIndex = 12;
             this.txtD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtD_KeyPress);
+            this.txtD.Leave += new System.EventHandler(this.txtD_Leave);
             // 
             // txtI
             // 
@@ -500,6 +501,7 @@ namespace MidoriValveTest
             this.txtI.Size = new System.Drawing.Size(182, 24);
             this.txtI.TabIndex = 11;
             this.txtI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtI_KeyPress);
+            this.txtI.Leave += new System.EventHandler(this.txtI_Leave);
             // 
             // txtP
             // 
@@ -508,6 +510,7 @@ namespace MidoriValveTest
             this.txtP.Size = new System.Drawing.Size(182, 24);
             this.txtP.TabIndex = 10;
             this.txtP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtP_KeyPress);
+            this.txtP.Leave += new System.EventHandler(this.txtP_Leave);
             // 
             // label14
             // 
@@ -548,6 +551,7 @@ namespace MidoriValveTest
             this.checkPID.Text = "Enable";
             this.checkPID.UseVisualStyleBackColor = true;
             this.checkPID.CheckedChanged += new System.EventHandler(this.checkPID_CheckedChanged);
+            this.checkPID.Click += new System.EventHandler(this.checkPID_Click);
             // 
             // comboBox1
             // 
