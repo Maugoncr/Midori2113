@@ -184,6 +184,12 @@ namespace MidoriValveTest
             DisableBtn(btnAutoCalibrate);
             DisableBtn(btnOEM);
             DisableBtn(btnConnect);
+            DisableBtn(btnInfo);
+            DisableBtn(btn_valveTest);
+            //DisableBtn(btnPlay);
+            //DisableBtn(btn_Stop);
+            //DisableBtn(btn_Pause);
+
             iconPID.Enabled = false;
             txtSetPresion.Enabled = false;
 
@@ -306,6 +312,7 @@ namespace MidoriValveTest
 
                     btnAutoCalibrate.Enabled = true;
                     btnPIDAnalisis.Enabled = true;
+                    btnInfo.Enabled = true;
 
                     EnableBtn(btn_90);
                     EnableBtn(btn_80);
