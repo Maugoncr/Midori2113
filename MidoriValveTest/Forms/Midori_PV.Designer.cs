@@ -31,16 +31,24 @@ namespace MidoriValveTest
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Midori_PV));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblEstado = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblPuerto = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.IconIniciarCam4 = new FontAwesome.Sharp.IconButton();
+            this.IconIniciarCam3 = new FontAwesome.Sharp.IconButton();
+            this.IconIniciarCam2 = new FontAwesome.Sharp.IconButton();
+            this.IconIniciarCam = new FontAwesome.Sharp.IconButton();
+            this.cbCamaraSelect4 = new System.Windows.Forms.ComboBox();
+            this.cbCamaraSelect3 = new System.Windows.Forms.ComboBox();
+            this.cbCamaraSelect2 = new System.Windows.Forms.ComboBox();
+            this.cbCamaraSelect = new System.Windows.Forms.ComboBox();
             this.iconRefresh = new FontAwesome.Sharp.IconButton();
             this.picCamara1 = new System.Windows.Forms.PictureBox();
             this.picCamara2 = new System.Windows.Forms.PictureBox();
@@ -215,14 +223,6 @@ namespace MidoriValveTest
             this.TimerAnimation2 = new System.Windows.Forms.Timer(this.components);
             this.TimerAnimation3 = new System.Windows.Forms.Timer(this.components);
             this.TimerAnimation4 = new System.Windows.Forms.Timer(this.components);
-            this.cbCamaraSelect = new System.Windows.Forms.ComboBox();
-            this.cbCamaraSelect2 = new System.Windows.Forms.ComboBox();
-            this.cbCamaraSelect3 = new System.Windows.Forms.ComboBox();
-            this.cbCamaraSelect4 = new System.Windows.Forms.ComboBox();
-            this.IconIniciarCam = new FontAwesome.Sharp.IconButton();
-            this.IconIniciarCam2 = new FontAwesome.Sharp.IconButton();
-            this.IconIniciarCam3 = new FontAwesome.Sharp.IconButton();
-            this.IconIniciarCam4 = new FontAwesome.Sharp.IconButton();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCamara1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCamara2)).BeginInit();
@@ -267,9 +267,9 @@ namespace MidoriValveTest
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(775, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(424, 31);
+            this.label2.Size = new System.Drawing.Size(426, 31);
             this.label2.TabIndex = 13;
-            this.label2.Text = "MIDORI MANUFACTURING V2";
+            this.label2.Text = "MIDORI VII MANUFACTURING";
             // 
             // label3
             // 
@@ -363,6 +363,126 @@ namespace MidoriValveTest
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Real time chart";
+            // 
+            // IconIniciarCam4
+            // 
+            this.IconIniciarCam4.BackColor = System.Drawing.Color.Transparent;
+            this.IconIniciarCam4.FlatAppearance.BorderSize = 0;
+            this.IconIniciarCam4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IconIniciarCam4.ForeColor = System.Drawing.Color.White;
+            this.IconIniciarCam4.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
+            this.IconIniciarCam4.IconColor = System.Drawing.Color.Black;
+            this.IconIniciarCam4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IconIniciarCam4.IconSize = 20;
+            this.IconIniciarCam4.Location = new System.Drawing.Point(60, 145);
+            this.IconIniciarCam4.Name = "IconIniciarCam4";
+            this.IconIniciarCam4.Size = new System.Drawing.Size(28, 27);
+            this.IconIniciarCam4.TabIndex = 98;
+            this.IconIniciarCam4.UseVisualStyleBackColor = false;
+            this.IconIniciarCam4.Click += new System.EventHandler(this.IconIniciarCam4_Click);
+            // 
+            // IconIniciarCam3
+            // 
+            this.IconIniciarCam3.BackColor = System.Drawing.Color.Transparent;
+            this.IconIniciarCam3.FlatAppearance.BorderSize = 0;
+            this.IconIniciarCam3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IconIniciarCam3.ForeColor = System.Drawing.Color.White;
+            this.IconIniciarCam3.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
+            this.IconIniciarCam3.IconColor = System.Drawing.Color.Black;
+            this.IconIniciarCam3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IconIniciarCam3.IconSize = 20;
+            this.IconIniciarCam3.Location = new System.Drawing.Point(60, 112);
+            this.IconIniciarCam3.Name = "IconIniciarCam3";
+            this.IconIniciarCam3.Size = new System.Drawing.Size(28, 27);
+            this.IconIniciarCam3.TabIndex = 97;
+            this.IconIniciarCam3.UseVisualStyleBackColor = false;
+            this.IconIniciarCam3.Click += new System.EventHandler(this.IconIniciarCam3_Click);
+            // 
+            // IconIniciarCam2
+            // 
+            this.IconIniciarCam2.BackColor = System.Drawing.Color.Transparent;
+            this.IconIniciarCam2.FlatAppearance.BorderSize = 0;
+            this.IconIniciarCam2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IconIniciarCam2.ForeColor = System.Drawing.Color.White;
+            this.IconIniciarCam2.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
+            this.IconIniciarCam2.IconColor = System.Drawing.Color.Black;
+            this.IconIniciarCam2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IconIniciarCam2.IconSize = 20;
+            this.IconIniciarCam2.Location = new System.Drawing.Point(60, 82);
+            this.IconIniciarCam2.Name = "IconIniciarCam2";
+            this.IconIniciarCam2.Size = new System.Drawing.Size(28, 27);
+            this.IconIniciarCam2.TabIndex = 96;
+            this.IconIniciarCam2.UseVisualStyleBackColor = false;
+            this.IconIniciarCam2.Click += new System.EventHandler(this.IconIniciarCam2_Click);
+            // 
+            // IconIniciarCam
+            // 
+            this.IconIniciarCam.BackColor = System.Drawing.Color.Transparent;
+            this.IconIniciarCam.FlatAppearance.BorderSize = 0;
+            this.IconIniciarCam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IconIniciarCam.ForeColor = System.Drawing.Color.White;
+            this.IconIniciarCam.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
+            this.IconIniciarCam.IconColor = System.Drawing.Color.Black;
+            this.IconIniciarCam.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IconIniciarCam.IconSize = 20;
+            this.IconIniciarCam.Location = new System.Drawing.Point(60, 49);
+            this.IconIniciarCam.Name = "IconIniciarCam";
+            this.IconIniciarCam.Size = new System.Drawing.Size(28, 27);
+            this.IconIniciarCam.TabIndex = 95;
+            this.IconIniciarCam.UseVisualStyleBackColor = false;
+            this.IconIniciarCam.Click += new System.EventHandler(this.IconIniciarCam_Click);
+            // 
+            // cbCamaraSelect4
+            // 
+            this.cbCamaraSelect4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbCamaraSelect4.BackColor = System.Drawing.Color.White;
+            this.cbCamaraSelect4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCamaraSelect4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbCamaraSelect4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCamaraSelect4.FormattingEnabled = true;
+            this.cbCamaraSelect4.Location = new System.Drawing.Point(90, 145);
+            this.cbCamaraSelect4.Name = "cbCamaraSelect4";
+            this.cbCamaraSelect4.Size = new System.Drawing.Size(278, 26);
+            this.cbCamaraSelect4.TabIndex = 94;
+            // 
+            // cbCamaraSelect3
+            // 
+            this.cbCamaraSelect3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbCamaraSelect3.BackColor = System.Drawing.Color.White;
+            this.cbCamaraSelect3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCamaraSelect3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbCamaraSelect3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCamaraSelect3.FormattingEnabled = true;
+            this.cbCamaraSelect3.Location = new System.Drawing.Point(90, 113);
+            this.cbCamaraSelect3.Name = "cbCamaraSelect3";
+            this.cbCamaraSelect3.Size = new System.Drawing.Size(278, 26);
+            this.cbCamaraSelect3.TabIndex = 93;
+            // 
+            // cbCamaraSelect2
+            // 
+            this.cbCamaraSelect2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbCamaraSelect2.BackColor = System.Drawing.Color.White;
+            this.cbCamaraSelect2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCamaraSelect2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbCamaraSelect2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCamaraSelect2.FormattingEnabled = true;
+            this.cbCamaraSelect2.Location = new System.Drawing.Point(90, 81);
+            this.cbCamaraSelect2.Name = "cbCamaraSelect2";
+            this.cbCamaraSelect2.Size = new System.Drawing.Size(278, 26);
+            this.cbCamaraSelect2.TabIndex = 92;
+            // 
+            // cbCamaraSelect
+            // 
+            this.cbCamaraSelect.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbCamaraSelect.BackColor = System.Drawing.Color.White;
+            this.cbCamaraSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCamaraSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbCamaraSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCamaraSelect.FormattingEnabled = true;
+            this.cbCamaraSelect.Location = new System.Drawing.Point(90, 49);
+            this.cbCamaraSelect.Name = "cbCamaraSelect";
+            this.cbCamaraSelect.Size = new System.Drawing.Size(278, 26);
+            this.cbCamaraSelect.TabIndex = 91;
             // 
             // iconRefresh
             // 
@@ -729,47 +849,47 @@ namespace MidoriValveTest
             this.chart1.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart1.BorderSkin.BackColor = System.Drawing.Color.Black;
             this.chart1.BorderSkin.BorderColor = System.Drawing.Color.Empty;
-            chartArea10.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea10.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
-            chartArea10.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea10.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea10.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea10.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea10.AxisY.Minimum = 0D;
-            chartArea10.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.White;
-            chartArea10.AxisY.ScaleView.MinSize = 1D;
-            chartArea10.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea10.AxisY2.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea10.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
-            chartArea10.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
-            chartArea10.BackColor = System.Drawing.Color.Transparent;
-            chartArea10.BackSecondaryColor = System.Drawing.Color.White;
-            chartArea10.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea10);
-            legend10.BackColor = System.Drawing.Color.Gainsboro;
-            legend10.Name = "Legend1";
-            legend10.TitleAlignment = System.Drawing.StringAlignment.Near;
-            this.chart1.Legends.Add(legend10);
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.ScaleView.MinSize = 1D;
+            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisY2.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
+            chartArea1.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.BackSecondaryColor = System.Drawing.Color.White;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Gainsboro;
+            legend1.Name = "Legend1";
+            legend1.TitleAlignment = System.Drawing.StringAlignment.Near;
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(14, 184);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series19.ChartArea = "ChartArea1";
-            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series19.Color = System.Drawing.Color.Green;
-            series19.Legend = "Legend1";
-            series19.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series19.Name = "Pressure";
-            series19.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series19.YValuesPerPoint = 4;
-            series20.ChartArea = "ChartArea1";
-            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series20.Color = System.Drawing.SystemColors.MenuHighlight;
-            series20.Legend = "Legend1";
-            series20.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series20.Name = "Aperture value";
-            series20.ShadowColor = System.Drawing.Color.Silver;
-            this.chart1.Series.Add(series19);
-            this.chart1.Series.Add(series20);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series1.Color = System.Drawing.Color.Green;
+            series1.Legend = "Legend1";
+            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series1.Name = "Pressure";
+            series1.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series1.YValuesPerPoint = 4;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series2.Color = System.Drawing.SystemColors.MenuHighlight;
+            series2.Legend = "Legend1";
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series2.Name = "Aperture value";
+            series2.ShadowColor = System.Drawing.Color.Silver;
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1266, 627);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -802,34 +922,34 @@ namespace MidoriValveTest
             this.torrToolStripMenuItem1,
             this.torrToolStripMenuItem2});
             this.scaleManualToolStripMenuItem.Name = "scaleManualToolStripMenuItem";
-            this.scaleManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.scaleManualToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.scaleManualToolStripMenuItem.Text = "Scale Manual";
             // 
             // torrToolStripMenuItem
             // 
             this.torrToolStripMenuItem.Name = "torrToolStripMenuItem";
-            this.torrToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.torrToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.torrToolStripMenuItem.Text = "0 - 1000 Torr";
             this.torrToolStripMenuItem.Click += new System.EventHandler(this.torrToolStripMenuItem_Click);
             // 
             // torrToolStripMenuItem1
             // 
             this.torrToolStripMenuItem1.Name = "torrToolStripMenuItem1";
-            this.torrToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.torrToolStripMenuItem1.Size = new System.Drawing.Size(138, 22);
             this.torrToolStripMenuItem1.Text = "0 - 500 Torr";
             this.torrToolStripMenuItem1.Click += new System.EventHandler(this.torrToolStripMenuItem1_Click);
             // 
             // torrToolStripMenuItem2
             // 
             this.torrToolStripMenuItem2.Name = "torrToolStripMenuItem2";
-            this.torrToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.torrToolStripMenuItem2.Size = new System.Drawing.Size(138, 22);
             this.torrToolStripMenuItem2.Text = "0 - 100 Torr";
             this.torrToolStripMenuItem2.Click += new System.EventHandler(this.torrToolStripMenuItem2_Click);
             // 
             // scaleAutoToolStripMenuItem
             // 
             this.scaleAutoToolStripMenuItem.Name = "scaleAutoToolStripMenuItem";
-            this.scaleAutoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.scaleAutoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.scaleAutoToolStripMenuItem.Text = "Scale Auto";
             this.scaleAutoToolStripMenuItem.Click += new System.EventHandler(this.scaleAutoToolStripMenuItem_Click);
             // 
@@ -2604,126 +2724,6 @@ namespace MidoriValveTest
             // 
             this.TimerAnimation4.Interval = 1000;
             this.TimerAnimation4.Tick += new System.EventHandler(this.TimerAnimation4_Tick);
-            // 
-            // cbCamaraSelect
-            // 
-            this.cbCamaraSelect.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbCamaraSelect.BackColor = System.Drawing.Color.White;
-            this.cbCamaraSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCamaraSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbCamaraSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCamaraSelect.FormattingEnabled = true;
-            this.cbCamaraSelect.Location = new System.Drawing.Point(90, 49);
-            this.cbCamaraSelect.Name = "cbCamaraSelect";
-            this.cbCamaraSelect.Size = new System.Drawing.Size(278, 26);
-            this.cbCamaraSelect.TabIndex = 91;
-            // 
-            // cbCamaraSelect2
-            // 
-            this.cbCamaraSelect2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbCamaraSelect2.BackColor = System.Drawing.Color.White;
-            this.cbCamaraSelect2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCamaraSelect2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbCamaraSelect2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCamaraSelect2.FormattingEnabled = true;
-            this.cbCamaraSelect2.Location = new System.Drawing.Point(90, 81);
-            this.cbCamaraSelect2.Name = "cbCamaraSelect2";
-            this.cbCamaraSelect2.Size = new System.Drawing.Size(278, 26);
-            this.cbCamaraSelect2.TabIndex = 92;
-            // 
-            // cbCamaraSelect3
-            // 
-            this.cbCamaraSelect3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbCamaraSelect3.BackColor = System.Drawing.Color.White;
-            this.cbCamaraSelect3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCamaraSelect3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbCamaraSelect3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCamaraSelect3.FormattingEnabled = true;
-            this.cbCamaraSelect3.Location = new System.Drawing.Point(90, 113);
-            this.cbCamaraSelect3.Name = "cbCamaraSelect3";
-            this.cbCamaraSelect3.Size = new System.Drawing.Size(278, 26);
-            this.cbCamaraSelect3.TabIndex = 93;
-            // 
-            // cbCamaraSelect4
-            // 
-            this.cbCamaraSelect4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbCamaraSelect4.BackColor = System.Drawing.Color.White;
-            this.cbCamaraSelect4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCamaraSelect4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbCamaraSelect4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCamaraSelect4.FormattingEnabled = true;
-            this.cbCamaraSelect4.Location = new System.Drawing.Point(90, 145);
-            this.cbCamaraSelect4.Name = "cbCamaraSelect4";
-            this.cbCamaraSelect4.Size = new System.Drawing.Size(278, 26);
-            this.cbCamaraSelect4.TabIndex = 94;
-            // 
-            // IconIniciarCam
-            // 
-            this.IconIniciarCam.BackColor = System.Drawing.Color.Transparent;
-            this.IconIniciarCam.FlatAppearance.BorderSize = 0;
-            this.IconIniciarCam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IconIniciarCam.ForeColor = System.Drawing.Color.White;
-            this.IconIniciarCam.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
-            this.IconIniciarCam.IconColor = System.Drawing.Color.Black;
-            this.IconIniciarCam.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IconIniciarCam.IconSize = 20;
-            this.IconIniciarCam.Location = new System.Drawing.Point(60, 49);
-            this.IconIniciarCam.Name = "IconIniciarCam";
-            this.IconIniciarCam.Size = new System.Drawing.Size(28, 27);
-            this.IconIniciarCam.TabIndex = 95;
-            this.IconIniciarCam.UseVisualStyleBackColor = false;
-            this.IconIniciarCam.Click += new System.EventHandler(this.IconIniciarCam_Click);
-            // 
-            // IconIniciarCam2
-            // 
-            this.IconIniciarCam2.BackColor = System.Drawing.Color.Transparent;
-            this.IconIniciarCam2.FlatAppearance.BorderSize = 0;
-            this.IconIniciarCam2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IconIniciarCam2.ForeColor = System.Drawing.Color.White;
-            this.IconIniciarCam2.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
-            this.IconIniciarCam2.IconColor = System.Drawing.Color.Black;
-            this.IconIniciarCam2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IconIniciarCam2.IconSize = 20;
-            this.IconIniciarCam2.Location = new System.Drawing.Point(60, 82);
-            this.IconIniciarCam2.Name = "IconIniciarCam2";
-            this.IconIniciarCam2.Size = new System.Drawing.Size(28, 27);
-            this.IconIniciarCam2.TabIndex = 96;
-            this.IconIniciarCam2.UseVisualStyleBackColor = false;
-            this.IconIniciarCam2.Click += new System.EventHandler(this.IconIniciarCam2_Click);
-            // 
-            // IconIniciarCam3
-            // 
-            this.IconIniciarCam3.BackColor = System.Drawing.Color.Transparent;
-            this.IconIniciarCam3.FlatAppearance.BorderSize = 0;
-            this.IconIniciarCam3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IconIniciarCam3.ForeColor = System.Drawing.Color.White;
-            this.IconIniciarCam3.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
-            this.IconIniciarCam3.IconColor = System.Drawing.Color.Black;
-            this.IconIniciarCam3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IconIniciarCam3.IconSize = 20;
-            this.IconIniciarCam3.Location = new System.Drawing.Point(60, 112);
-            this.IconIniciarCam3.Name = "IconIniciarCam3";
-            this.IconIniciarCam3.Size = new System.Drawing.Size(28, 27);
-            this.IconIniciarCam3.TabIndex = 97;
-            this.IconIniciarCam3.UseVisualStyleBackColor = false;
-            this.IconIniciarCam3.Click += new System.EventHandler(this.IconIniciarCam3_Click);
-            // 
-            // IconIniciarCam4
-            // 
-            this.IconIniciarCam4.BackColor = System.Drawing.Color.Transparent;
-            this.IconIniciarCam4.FlatAppearance.BorderSize = 0;
-            this.IconIniciarCam4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IconIniciarCam4.ForeColor = System.Drawing.Color.White;
-            this.IconIniciarCam4.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
-            this.IconIniciarCam4.IconColor = System.Drawing.Color.Black;
-            this.IconIniciarCam4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IconIniciarCam4.IconSize = 20;
-            this.IconIniciarCam4.Location = new System.Drawing.Point(60, 145);
-            this.IconIniciarCam4.Name = "IconIniciarCam4";
-            this.IconIniciarCam4.Size = new System.Drawing.Size(28, 27);
-            this.IconIniciarCam4.TabIndex = 98;
-            this.IconIniciarCam4.UseVisualStyleBackColor = false;
-            this.IconIniciarCam4.Click += new System.EventHandler(this.IconIniciarCam4_Click);
             // 
             // Midori_PV
             // 
