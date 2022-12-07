@@ -1,25 +1,24 @@
 ﻿/// <summary>
 /// Midori valve software
 /// </summary>
+/// using AForge.Video;
+using AForge.Video.DirectShow;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.IO;
 using System.IO.Ports;
 using System.Threading;
-using System.Management;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using CustomMessageBox;
 using MidoriValveTest.Forms;
+using AForge.Video;
 
 namespace MidoriValveTest
 {
@@ -101,12 +100,15 @@ namespace MidoriValveTest
         {
             OffEverything();
             timer1.Enabled = true;
+            TimerAnimation.Start();
+            TimerAnimation2.Start();
+            TimerAnimation3.Start();
+            TimerAnimation4.Start();
             if (cbSelectionCOM.Items.Count > 0)     // exist ports com
             {
                 cbSelectionCOM.SelectedIndex = 0;
                 EnableBtn(btnConnect);
             }
-
         }
 
         private void OffEverything()
@@ -139,7 +141,33 @@ namespace MidoriValveTest
             pressures = new List<string>();
             datetimes = new List<string>();
             EnviarPID = false;
-            MostrarSetPoint = false;
+            MostrarSetPoint = false; 
+            Manual = true;
+            Auto = false;
+            AxisY2Maximo = 1000;
+
+            //Reset for Camaras
+            CerrarWebCam();
+            CerrarWebCam2();
+            CerrarWebCam3();
+            CerrarWebCam4();
+
+            animation = 0;
+            aniIMG = 0;
+            offorOn = false;
+
+            animation2 = 0;
+            aniIMG2 = 0;
+            offorOn2 = false;
+
+            animation3 = 0;
+            aniIMG3 = 0;
+            offorOn3 = false;
+
+            animation4 = 0;
+            aniIMG4 = 0;
+            offorOn4 = false;
+
 
             // Return all labels to default text
 
@@ -2259,7 +2287,20 @@ namespace MidoriValveTest
 
                 lbl_pressure.Text = (presionChart);
                 lb_Temperature.Text = temperaturaLabel + " °C";
-                chart1.ChartAreas[0].RecalculateAxesScale();
+
+                if (Auto)
+                {
+                    chart1.ChartAreas[0].AxisY2.Maximum = Double.NaN;
+                    chart1.ChartAreas[0].AxisY2.Minimum = Double.NaN;
+                    chart1.ChartAreas[0].RecalculateAxesScale();
+                }
+                if (Manual)
+                {
+                    chart1.ChartAreas[0].AxisY.Minimum = 0;
+                    chart1.ChartAreas[0].AxisY.Maximum = 100;
+                    chart1.ChartAreas[0].AxisY2.Minimum = 0;
+                    chart1.ChartAreas[0].AxisY2.Maximum = AxisY2Maximo;
+                }
 
             }
 
@@ -2695,7 +2736,453 @@ namespace MidoriValveTest
             }
         }
 
+        // Logica de las CAMARAS!!!
 
+        private bool HayDispositivos;
+        private FilterInfoCollection MisDispositivos;
+
+        // Duplicar como tantas camaras quieras
+        private VideoCaptureDevice MiWebCam;
+        public static bool offorOn = false; 
+        private VideoCaptureDevice MiWebCam2;
+        public static bool offorOn2 = false;
+        private VideoCaptureDevice MiWebCam3;
+        public static bool offorOn3 = false; 
+        private VideoCaptureDevice MiWebCam4;
+        public static bool offorOn4 = false;
+
+        // Animation Variables
+        public static int animation = 0;
+        public static int aniIMG = 0;
+        public static int animation2 = 0;
+        public static int aniIMG2 = 0;
+        public static int animation3 = 0;
+        public static int aniIMG3 = 0;
+        public static int animation4 = 0;
+        public static int aniIMG4 = 0;
+
+        // Para capturas no creo usarla.
+        public static Image capture;
+
+        private void TimerAnimation_Tick(object sender, EventArgs e)
+        {
+            if (animation == 0)
+            {
+
+                if (aniIMG == 0)
+                {
+                    picCamara1.Image.Dispose();
+                    picCamara1.Image = Properties.Resources.signal1;
+                    aniIMG++;
+                    return;
+                }
+                if (aniIMG == 1)
+                {
+                    picCamara1.Image.Dispose();
+                    picCamara1.Image = Properties.Resources.signal2;
+                    aniIMG++;
+                    return;
+                }
+                if (aniIMG == 2)
+                {
+                    picCamara1.Image.Dispose();
+                    picCamara1.Image = Properties.Resources.signal3;
+                    aniIMG++;
+                    return;
+                }
+                if (aniIMG == 3)
+                {
+                    picCamara1.Image.Dispose();
+                    picCamara1.Image = Properties.Resources.signal4;
+                    aniIMG++;
+                    return;
+                }
+                if (aniIMG == 4)
+                {
+                    picCamara1.Image.Dispose();
+                    picCamara1.Image = Properties.Resources.signal5;
+                    aniIMG = 0;
+                    return;
+                }
+            }
+        }
+
+        private void TimerAnimation2_Tick(object sender, EventArgs e)
+        {
+            if (animation2 == 0)
+            {
+
+                if (aniIMG2 == 0)
+                {
+                    picCamara2.Image.Dispose();
+                    picCamara2.Image = Properties.Resources.signal1;
+                    aniIMG2++;
+                    return;
+                }
+                if (aniIMG2 == 1)
+                {
+                    picCamara2.Image.Dispose();
+                    picCamara2.Image = Properties.Resources.signal2;
+                    aniIMG2++;
+                    return;
+                }
+                if (aniIMG2 == 2)
+                {
+                    picCamara2.Image.Dispose();
+                    picCamara2.Image = Properties.Resources.signal3;
+                    aniIMG2++;
+                    return;
+                }
+                if (aniIMG2 == 3)
+                {
+                    picCamara2.Image.Dispose();
+                    picCamara2.Image = Properties.Resources.signal4;
+                    aniIMG2++;
+                    return;
+                }
+                if (aniIMG2 == 4)
+                {
+                    picCamara2.Image.Dispose();
+                    picCamara2.Image = Properties.Resources.signal5;
+                    aniIMG2 = 0;
+                    return;
+                }
+            }
+        }
+
+        private void TimerAnimation3_Tick(object sender, EventArgs e)
+        {
+            if (animation3 == 0)
+            {
+
+                if (aniIMG3 == 0)
+                {
+                    picCamara3.Image.Dispose();
+                    picCamara3.Image = Properties.Resources.signal1;
+                    aniIMG3++;
+                    return;
+                }
+                if (aniIMG3 == 1)
+                {
+                    picCamara3.Image.Dispose();
+                    picCamara3.Image = Properties.Resources.signal2;
+                    aniIMG3++;
+                    return;
+                }
+                if (aniIMG3 == 2)
+                {
+                    picCamara3.Image.Dispose();
+                    picCamara3.Image = Properties.Resources.signal3;
+                    aniIMG3++;
+                    return;
+                }
+                if (aniIMG3 == 3)
+                {
+                    picCamara3.Image.Dispose();
+                    picCamara3.Image = Properties.Resources.signal4;
+                    aniIMG3++;
+                    return;
+                }
+                if (aniIMG3 == 4)
+                {
+                    picCamara3.Image.Dispose();
+                    picCamara3.Image = Properties.Resources.signal5;
+                    aniIMG3 = 0;
+                    return;
+                }
+            }
+        }
+
+        private void TimerAnimation4_Tick(object sender, EventArgs e)
+        {
+            if (animation4 == 0)
+            {
+                if (aniIMG4 == 0)
+                {
+                    picCamara4.Image.Dispose();
+                    picCamara4.Image = Properties.Resources.signal1;
+                    aniIMG4++;
+                    return;
+                }
+                if (aniIMG4 == 1)
+                {
+                    picCamara4.Image.Dispose();
+                    picCamara4.Image = Properties.Resources.signal2;
+                    aniIMG4++;
+                    return;
+                }
+                if (aniIMG4 == 2)
+                {
+                    picCamara4.Image.Dispose();
+                    picCamara4.Image = Properties.Resources.signal3;
+                    aniIMG4++;
+                    return;
+                }
+                if (aniIMG4 == 3)
+                {
+                    picCamara4.Image.Dispose();
+                    picCamara4.Image = Properties.Resources.signal4;
+                    aniIMG4++;
+                    return;
+                }
+                if (aniIMG4 == 4)
+                {
+                    picCamara4.Image.Dispose();
+                    picCamara4.Image = Properties.Resources.signal5;
+                    aniIMG4 = 0;
+                    return;
+                }
+            }
+        }
+
+        public void CargaDiapositivos()
+        {
+            MisDispositivos = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            if (MisDispositivos.Count > 0)
+            {
+                HayDispositivos = true;
+                cbCamaraSelect.Items.Clear();
+                cbCamaraSelect2.Items.Clear();
+                cbCamaraSelect3.Items.Clear();
+                cbCamaraSelect4.Items.Clear();
+                for (int i = 0; i < MisDispositivos.Count; i++)
+                {
+                    cbCamaraSelect.Items.Add(MisDispositivos[i].Name.ToString());
+                    cbCamaraSelect.Text = MisDispositivos[0].Name.ToString(); 
+
+                    cbCamaraSelect2.Items.Add(MisDispositivos[i].Name.ToString());
+                    cbCamaraSelect2.Text = MisDispositivos[0].Name.ToString(); 
+
+                    cbCamaraSelect3.Items.Add(MisDispositivos[i].Name.ToString());
+                    cbCamaraSelect3.Text = MisDispositivos[0].Name.ToString(); 
+
+                    cbCamaraSelect4.Items.Add(MisDispositivos[i].Name.ToString());
+                    cbCamaraSelect4.Text = MisDispositivos[0].Name.ToString();
+                }
+            }
+            else
+            {
+                HayDispositivos = false;
+            }
+        }
+
+        private void iconRefresh_Click(object sender, EventArgs e)
+        {
+            CargaDiapositivos();
+        }
+
+        private void IconIniciarCam4_Click(object sender, EventArgs e)
+        {
+            if (TimerAnimation4.Enabled == true)
+            {
+                TimerAnimation4.Stop();
+                animation4 = 1;
+            }
+
+            if (offorOn4 == false)
+            {
+                CerrarWebCam4();
+                int i = cbCamaraSelect4.SelectedIndex;
+                string NombreVideo = MisDispositivos[i].MonikerString;
+                MiWebCam4 = new VideoCaptureDevice(NombreVideo);
+                MiWebCam4.NewFrame += new NewFrameEventHandler(Capturando4);
+                MiWebCam4.Start();
+                offorOn4 = true;
+            }
+            else if (offorOn4 == true)
+            {
+                CerrarWebCam4();
+                picCamara4.Image.Dispose();
+                picCamara4.Image = Properties.Resources.signal1;
+                TimerAnimation4.Start();
+                animation4 = 0;
+                aniIMG4 = 1;
+                offorOn4 = false;
+            }
+        }
+
+        private void IconIniciarCam3_Click(object sender, EventArgs e)
+        {
+            if (TimerAnimation3.Enabled == true)
+            {
+                TimerAnimation3.Stop();
+                animation3 = 1;
+            }
+
+            if (offorOn3 == false)
+            {
+                CerrarWebCam3();
+                int i = cbCamaraSelect3.SelectedIndex;
+                string NombreVideo = MisDispositivos[i].MonikerString;
+                MiWebCam3 = new VideoCaptureDevice(NombreVideo);
+                MiWebCam3.NewFrame += new NewFrameEventHandler(Capturando3);
+                MiWebCam3.Start();
+                offorOn3 = true;
+            }
+            else if (offorOn3 == true)
+            {
+                CerrarWebCam3();
+                picCamara3.Image.Dispose();
+                picCamara3.Image = Properties.Resources.signal1;
+                TimerAnimation3.Start();
+                animation3 = 0;
+                aniIMG3 = 1;
+                offorOn3 = false;
+            }
+        }
+
+        private void IconIniciarCam2_Click(object sender, EventArgs e)
+        {
+            if (TimerAnimation2.Enabled == true)
+            {
+                TimerAnimation2.Stop();
+                animation2 = 1;
+            }
+
+            if (offorOn2 == false)
+            {
+                CerrarWebCam2();
+                int i = cbCamaraSelect2.SelectedIndex;
+                string NombreVideo = MisDispositivos[i].MonikerString;
+                MiWebCam2 = new VideoCaptureDevice(NombreVideo);
+                MiWebCam2.NewFrame += new NewFrameEventHandler(Capturando2);
+                MiWebCam2.Start();
+                offorOn2 = true;
+            }
+            else if (offorOn2 == true)
+            {
+                CerrarWebCam2();
+                picCamara2.Image.Dispose();
+                picCamara2.Image = Properties.Resources.signal1;
+                TimerAnimation2.Start();
+                animation2 = 0;
+                aniIMG2 = 1;
+                offorOn2 = false;
+            }
+        }
+
+        private void IconIniciarCam_Click(object sender, EventArgs e)
+        {
+            if (TimerAnimation.Enabled == true)
+            {
+                TimerAnimation.Stop();
+                animation = 1;
+            }
+
+            if (offorOn == false)
+            {
+                CerrarWebCam();
+                int i = cbCamaraSelect.SelectedIndex;
+                string NombreVideo = MisDispositivos[i].MonikerString;
+                MiWebCam = new VideoCaptureDevice(NombreVideo);
+                MiWebCam.NewFrame += new NewFrameEventHandler(Capturando);
+                MiWebCam.Start();
+                offorOn = true;
+            }
+            else if (offorOn == true)
+            {
+                CerrarWebCam();
+                picCamara1.Image.Dispose();
+                picCamara1.Image = Properties.Resources.signal1;
+                TimerAnimation.Start();
+                animation = 0;
+                aniIMG = 1;
+                offorOn = false;
+            }
+        }
+
+        private void CerrarWebCam()
+        {
+            if (MiWebCam != null && MiWebCam.IsRunning)
+            {
+                MiWebCam.SignalToStop();
+                MiWebCam = null;
+            }
+        }
+
+        private void CerrarWebCam2()
+        {
+            if (MiWebCam2 != null && MiWebCam2.IsRunning)
+            {
+                MiWebCam2.SignalToStop();
+                MiWebCam2 = null;
+            }
+        }
+
+        private void CerrarWebCam3()
+        {
+            if (MiWebCam3 != null && MiWebCam3.IsRunning)
+            {
+                MiWebCam3.SignalToStop();
+                MiWebCam3 = null;
+            }
+        }
+
+        private void CerrarWebCam4()
+        {
+            if (MiWebCam4 != null && MiWebCam4.IsRunning)
+            {
+                MiWebCam4.SignalToStop();
+                MiWebCam4 = null;
+            }
+        }
+
+        private void Capturando(object sender, NewFrameEventArgs eventsArgs)
+        {
+            Bitmap Imagen = (Bitmap)eventsArgs.Frame.Clone();
+            picCamara1.Image = Imagen;
+        }
+
+        private void Capturando2(object sender, NewFrameEventArgs eventsArgs)
+        {
+            Bitmap Imagen = (Bitmap)eventsArgs.Frame.Clone();
+            picCamara2.Image = Imagen;
+        }
+
+        private void Capturando3(object sender, NewFrameEventArgs eventsArgs)
+        {
+            Bitmap Imagen = (Bitmap)eventsArgs.Frame.Clone();
+            picCamara3.Image = Imagen;
+        }
+
+        private void Capturando4(object sender, NewFrameEventArgs eventsArgs)
+        {
+            Bitmap Imagen = (Bitmap)eventsArgs.Frame.Clone();
+            picCamara4.Image = Imagen;
+        }
+
+
+        int AxisY2Maximo = 1000;
+        bool Auto = false;
+        bool Manual = false;
+
+        private void torrToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Auto = false;
+            Manual = true;
+            AxisY2Maximo = 1000;
+        }
+
+        private void torrToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Auto = false;
+            Manual = true;
+            AxisY2Maximo = 500;
+        }
+
+        private void torrToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Auto = false;
+            Manual = true;
+            AxisY2Maximo = 100;
+        }
+
+        private void scaleAutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Auto = true;
+            Manual = false;
+            AxisY2Maximo = 1000;
+        }
 
     }
 }

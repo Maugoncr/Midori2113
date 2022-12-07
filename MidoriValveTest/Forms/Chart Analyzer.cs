@@ -119,7 +119,7 @@ namespace MidoriValveTest
            // MessageBox.Show(chart1.Series[0].Points.Count.ToString());
             //d1.AddMilliseconds(-(40* chart1.Series[0].Points.Count));
            // date.AddMilliseconds(-40);
-            lbl_time.Text  = "Analysis captured at: " + date.AddMilliseconds(-40).ToString("yyyy/MM/dd - hh:mm:ss:ff tt") + "| Time range[" + date.AddMilliseconds(-40* chart1.Series[0].Points.Count).ToString(" hh:mm:ss:ff tt") +" - " +date.AddMilliseconds(-40).ToString(" hh:mm:ss:ff tt")+ "]";
+           lbl_time.Text  = "Analysis captured at: " + date.AddMilliseconds(-100).ToString("yyyy/MM/dd - hh:mm:ss:ff tt") + "| Time range[" + date.AddMilliseconds(-100* chart1.Series[0].Points.Count).ToString(" hh:mm:ss:ff tt") +" - " +date.AddMilliseconds(-100).ToString(" hh:mm:ss:ff tt")+ "]";
 
             //MessageBox.Show( Convert.ToDouble( chart1.Series["Aperture value"].Points[0].xva).ToString(), "", MessageBoxButtons.OK);
           

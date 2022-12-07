@@ -100,9 +100,6 @@ namespace MidoriValveTest.Forms
                 aniIMG = 1;
                 offorOn = false;
             }
-
-          
-
         }
 
         private void CerrarWebCam() {
@@ -112,8 +109,6 @@ namespace MidoriValveTest.Forms
                 MiWebCam.SignalToStop();
                 MiWebCam = null;
             }
-        
-        
         }
 
         private void Camara_FormClosed(object sender, FormClosedEventArgs e)
@@ -201,10 +196,7 @@ namespace MidoriValveTest.Forms
 
         private void iconRefresh_Click(object sender, EventArgs e)
         {
-
             CargaDiapositivos();
-
-
         }
 
         private void iconCapture_Click(object sender, EventArgs e)
