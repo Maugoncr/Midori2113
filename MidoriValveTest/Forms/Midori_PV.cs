@@ -210,7 +210,7 @@ namespace MidoriValveTest
             DisableBtn(btnAnalyze);
             DisableBtn(btnPIDAnalisis);
             DisableBtn(btnAutoCalibrate);
-            DisableBtn(btnOEM);
+            DisableBtn(btnEMO);
             DisableBtn(btnConnect);
             DisableBtn(btnInfo);
             DisableBtn(btn_valveTest);
@@ -271,11 +271,16 @@ namespace MidoriValveTest
 
         private void EnableBtn(Button btn)
         {
-
             btn.BackgroundImage.Dispose();
             btn.BackgroundImage = MidoriValveTest.Properties.Resources.btnNor;
             btn.Enabled = true;
+        }
 
+        private void EnableBtnEMO(Button btn)
+        {
+            btn.BackgroundImage.Dispose();
+            btn.BackgroundImage = Properties.Resources.btnOff;
+            btn.Enabled = true;
         }
 
 
@@ -355,6 +360,9 @@ namespace MidoriValveTest
                     EnableBtn(btnStartRecord);
                     EnableBtn(btnChartArchiveAnalyzer);
                     EnableBtn(btnAnalyze);
+                    EnableBtn(btnAutoCalibrate);
+                    EnableBtn(btnPIDAnalisis);
+                    EnableBtnEMO(btnEMO);
                 }
 
             }
@@ -447,7 +455,7 @@ namespace MidoriValveTest
             EnableBtn(btnSetApertura);
             EnableBtn(btnInfo);
             EnableBtn(btnChartArchiveAnalyzer);
-            EnableBtn(btnOEM);
+            EnableBtn(btnEMO);
             EnableBtn(btnAnalyze);
             //stop
             EnableBtn(btnStopRecord);
@@ -1530,6 +1538,10 @@ namespace MidoriValveTest
         {
             serialPort1.Close();
             Application.Exit();
+            CerrarWebCam();
+            CerrarWebCam2();
+            CerrarWebCam3();
+            CerrarWebCam4();
         }
 
         private void iconBar_Click(object sender, EventArgs e)
@@ -1835,13 +1847,13 @@ namespace MidoriValveTest
             {
                 btn.BackgroundImage.Dispose();
                 btn.BackgroundImage = MidoriValveTest.Properties.Resources.btnNor;
-                btn.ForeColor = Color.Black;
+                btn.ForeColor = Color.White;
             }
             else
             {
                 btn.BackgroundImage.Dispose();
                 btn.BackgroundImage = MidoriValveTest.Properties.Resources.btnDisa2;
-                btn.ForeColor = Color.Black;
+                btn.ForeColor = Color.White;
             }
         }
 
@@ -2067,12 +2079,12 @@ namespace MidoriValveTest
 
         private void button6_MouseEnter(object sender, EventArgs e)
         {
-            EnterBtn(btnOEM);
+           // EnterBtn(btnEMO);
         }
 
         private void button6_MouseLeave(object sender, EventArgs e)
         {
-            LeftBtn(btnOEM);
+            //LeftBtn(btnEMO);
         }
 
         private void button5_MouseEnter(object sender, EventArgs e)
@@ -2619,7 +2631,7 @@ namespace MidoriValveTest
         {
             if (btnOnMANValve.Enabled == true)
             {
-                lbStatusMANValve.Text = "ON";
+                lbStatusMANValve.Text = "Status Man V: ON";
                 this.Alert("Successfully opened", Form_Alert.enmType.Success);
                 EnableBtn(btnOffMANValve);
                 btnOnMANValve.Enabled = false;
@@ -2630,7 +2642,7 @@ namespace MidoriValveTest
         {
             if (btnOffMANValve.Enabled == true)
             {
-                lbStatusMANValve.Text = "OFF";
+                lbStatusMANValve.Text = "Status Man V: OFF";
                 this.Alert("Successfully closed", Form_Alert.enmType.Success);
                 EnableBtn(btnOnMANValve);
                 btnOffMANValve.Enabled = false;
@@ -2738,7 +2750,6 @@ namespace MidoriValveTest
 
         // Logica de las CAMARAS!!!
 
-        private bool HayDispositivos;
         private FilterInfoCollection MisDispositivos;
 
         // Duplicar como tantas camaras quieras
@@ -2935,43 +2946,12 @@ namespace MidoriValveTest
             }
         }
 
-        public void CargaDiapositivos()
+        public void CargaDiapositivosInter()
         {
             MisDispositivos = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            if (MisDispositivos.Count > 0)
-            {
-                HayDispositivos = true;
-                cbCamaraSelect.Items.Clear();
-                cbCamaraSelect2.Items.Clear();
-                cbCamaraSelect3.Items.Clear();
-                cbCamaraSelect4.Items.Clear();
-                for (int i = 0; i < MisDispositivos.Count; i++)
-                {
-                    cbCamaraSelect.Items.Add(MisDispositivos[i].Name.ToString());
-                    cbCamaraSelect.Text = MisDispositivos[0].Name.ToString(); 
-
-                    cbCamaraSelect2.Items.Add(MisDispositivos[i].Name.ToString());
-                    cbCamaraSelect2.Text = MisDispositivos[0].Name.ToString(); 
-
-                    cbCamaraSelect3.Items.Add(MisDispositivos[i].Name.ToString());
-                    cbCamaraSelect3.Text = MisDispositivos[0].Name.ToString(); 
-
-                    cbCamaraSelect4.Items.Add(MisDispositivos[i].Name.ToString());
-                    cbCamaraSelect4.Text = MisDispositivos[0].Name.ToString();
-                }
-            }
-            else
-            {
-                HayDispositivos = false;
-            }
         }
-
-        private void iconRefresh_Click(object sender, EventArgs e)
-        {
-            CargaDiapositivos();
-        }
-
-        private void IconIniciarCam4_Click(object sender, EventArgs e)
+       
+        public void ActivarCam4(int cb)
         {
             if (TimerAnimation4.Enabled == true)
             {
@@ -2982,7 +2962,7 @@ namespace MidoriValveTest
             if (offorOn4 == false)
             {
                 CerrarWebCam4();
-                int i = cbCamaraSelect4.SelectedIndex;
+                int i = cb;
                 string NombreVideo = MisDispositivos[i].MonikerString;
                 MiWebCam4 = new VideoCaptureDevice(NombreVideo);
                 MiWebCam4.NewFrame += new NewFrameEventHandler(Capturando4);
@@ -3000,19 +2980,17 @@ namespace MidoriValveTest
                 offorOn4 = false;
             }
         }
-
-        private void IconIniciarCam3_Click(object sender, EventArgs e)
+        public void ActivarCam3(int cb)
         {
             if (TimerAnimation3.Enabled == true)
             {
                 TimerAnimation3.Stop();
                 animation3 = 1;
             }
-
             if (offorOn3 == false)
             {
                 CerrarWebCam3();
-                int i = cbCamaraSelect3.SelectedIndex;
+                int i = cb;
                 string NombreVideo = MisDispositivos[i].MonikerString;
                 MiWebCam3 = new VideoCaptureDevice(NombreVideo);
                 MiWebCam3.NewFrame += new NewFrameEventHandler(Capturando3);
@@ -3031,7 +3009,7 @@ namespace MidoriValveTest
             }
         }
 
-        private void IconIniciarCam2_Click(object sender, EventArgs e)
+        public void ActivarCam2(int cb)
         {
             if (TimerAnimation2.Enabled == true)
             {
@@ -3042,7 +3020,7 @@ namespace MidoriValveTest
             if (offorOn2 == false)
             {
                 CerrarWebCam2();
-                int i = cbCamaraSelect2.SelectedIndex;
+                int i = cb;
                 string NombreVideo = MisDispositivos[i].MonikerString;
                 MiWebCam2 = new VideoCaptureDevice(NombreVideo);
                 MiWebCam2.NewFrame += new NewFrameEventHandler(Capturando2);
@@ -3061,7 +3039,7 @@ namespace MidoriValveTest
             }
         }
 
-        private void IconIniciarCam_Click(object sender, EventArgs e)
+        public void ActivarCam1(int cb)
         {
             if (TimerAnimation.Enabled == true)
             {
@@ -3072,7 +3050,7 @@ namespace MidoriValveTest
             if (offorOn == false)
             {
                 CerrarWebCam();
-                int i = cbCamaraSelect.SelectedIndex;
+                int i = cb;
                 string NombreVideo = MisDispositivos[i].MonikerString;
                 MiWebCam = new VideoCaptureDevice(NombreVideo);
                 MiWebCam.NewFrame += new NewFrameEventHandler(Capturando);
@@ -3184,5 +3162,30 @@ namespace MidoriValveTest
             AxisY2Maximo = 1000;
         }
 
+        private void camarasSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmControlCamaras form1 = new FrmControlCamaras(this);
+            form1.ShowDialog();
+        }
+
+        private void btnPIDAnalisis_MouseEnter_1(object sender, EventArgs e)
+        {
+            EnterBtn(btnPIDAnalisis);
+        }
+
+        private void btnPIDAnalisis_MouseLeave_1(object sender, EventArgs e)
+        {
+            LeftBtn(btnPIDAnalisis);
+        }
+
+        private void btnAutoCalibrate_MouseEnter(object sender, EventArgs e)
+        {
+            EnterBtn(btnAutoCalibrate);
+        }
+
+        private void btnAutoCalibrate_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btnAutoCalibrate);
+        }
     }
 }
