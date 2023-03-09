@@ -214,6 +214,13 @@ namespace MidoriValveTest
             DisableBtn(btnConnect);
             DisableBtn(btnInfo);
             DisableBtn(btn_valveTest);
+
+            // Man Val Controls
+            DisableBtn(btnOffMANValve);
+            DisableBtn(btnOnMANValve);
+            cbManValve.Enabled = false;
+            cbManValve.SelectedIndex = -1;
+
             //DisableBtn(btnPlay);
             //DisableBtn(btn_Stop);
             //DisableBtn(btn_Pause);
@@ -248,6 +255,17 @@ namespace MidoriValveTest
             //Led status
             com_led.Image.Dispose();
             com_led.Image = MidoriValveTest.Properties.Resources.led_off;
+
+            //Led status Man V
+
+            ManVOpen1.Image.Dispose();
+            ManVOpen1.Image = Properties.Resources.led_off_green;
+            ManVClose1.Image.Dispose();
+            ManVClose1.Image = Properties.Resources.led_off_red;
+            ManVOpen2.Image.Dispose();
+            ManVOpen2.Image = Properties.Resources.led_off_green;
+            ManVClose2.Image.Dispose();
+            ManVClose2.Image = Properties.Resources.led_off_red;
 
             // Chart
             chart1.Series["Aperture value"].Points.Clear();
@@ -293,8 +311,9 @@ namespace MidoriValveTest
             if (cbSelectionCOM.SelectedIndex >= 0)
             {
                 EnableBtn(btnConnect);
+
             }
-            else 
+            else
             {
                 DisableBtn(btnConnect);
             }
@@ -323,6 +342,13 @@ namespace MidoriValveTest
                     txtSetPresion.Enabled = true;
                     com_led.Image.Dispose();
                     com_led.Image = MidoriValveTest.Properties.Resources.led_on_green;
+                    ManVClose1.Image.Dispose();
+                    ManVClose2.Image.Dispose();
+                    ManVClose1.Image = Properties.Resources.led_on_red;
+                    ManVClose2.Image = Properties.Resources.led_on_red;
+                    cbManValve.Enabled = true;
+                    cbManValve.SelectedIndex = 0;
+
                     EnableBtn(btnOpenGate);
                     btn_P_conf.Enabled = true;
                     EnableBtn(btn_valveTest);
@@ -330,6 +356,7 @@ namespace MidoriValveTest
                     DisableBtn(btnConnect);
                     EnableBtn(btnStartPID);
                     EnableBtn(btnOnMANValve);
+                    EnableBtn(btnOffMANValve);
 
 
                     // Menu settings
@@ -2627,25 +2654,68 @@ namespace MidoriValveTest
 
         }
 
+
+        int KnowWhichManVal = 0;
         private void btnOnMANValve_Click(object sender, EventArgs e)
         {
-            if (btnOnMANValve.Enabled == true)
+
+            if (KnowWhichManVal == 1)
             {
-                lbStatusMANValve.Text = "Status Man V: ON";
+                lbStatusMANValve.Text = "Status Man V:";
                 this.Alert("Successfully opened", Form_Alert.enmType.Success);
-                EnableBtn(btnOffMANValve);
-                btnOnMANValve.Enabled = false;
+
+                //Abrir la 1 y cerrar la 2
+                ManVOpen1.Image.Dispose();
+                ManVOpen1.Image = Properties.Resources.led_on_green;
+                ManVClose1.Image.Dispose();
+                ManVClose1.Image = Properties.Resources.led_off_red;
+
+                ManVOpen2.Image.Dispose();
+                ManVOpen2.Image = Properties.Resources.led_off_green;
+                ManVClose2.Image.Dispose();
+                ManVClose2.Image = Properties.Resources.led_on_red;
+
+
             }
+            else if (KnowWhichManVal == 2)
+            {
+               
+                this.Alert("Successfully opened", Form_Alert.enmType.Success);
+
+                //Abrir la 2 y cerrar la 1
+                ManVOpen1.Image.Dispose();
+                ManVOpen1.Image = Properties.Resources.led_off_green;
+                ManVClose1.Image.Dispose();
+                ManVClose1.Image = Properties.Resources.led_on_red;
+
+                ManVOpen2.Image.Dispose();
+                ManVOpen2.Image = Properties.Resources.led_on_green;
+                ManVClose2.Image.Dispose();
+                ManVClose2.Image = Properties.Resources.led_off_red;
+            }
+
+            
         }
 
         private void btnOffMANValve_Click(object sender, EventArgs e)
         {
-            if (btnOffMANValve.Enabled == true)
+            if (KnowWhichManVal == 1)
             {
-                lbStatusMANValve.Text = "Status Man V: OFF";
                 this.Alert("Successfully closed", Form_Alert.enmType.Success);
-                EnableBtn(btnOnMANValve);
-                btnOffMANValve.Enabled = false;
+                // Cerrar la 1
+                ManVOpen1.Image.Dispose();
+                ManVOpen1.Image = Properties.Resources.led_off_green;
+                ManVClose1.Image.Dispose();
+                ManVClose1.Image = Properties.Resources.led_on_red;
+            }
+            else if (KnowWhichManVal == 2)
+            {
+                this.Alert("Successfully closed", Form_Alert.enmType.Success);
+                // Cerrar la 1
+                ManVOpen2.Image.Dispose();
+                ManVOpen2.Image = Properties.Resources.led_off_green;
+                ManVClose2.Image.Dispose();
+                ManVClose2.Image = Properties.Resources.led_on_red;
             }
         }
 
@@ -3186,6 +3256,22 @@ namespace MidoriValveTest
         private void btnAutoCalibrate_MouseLeave(object sender, EventArgs e)
         {
             LeftBtn(btnAutoCalibrate);
+        }
+
+        private void cbManValve_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbManValve.SelectedIndex == 0)
+            {
+                KnowWhichManVal = 1;
+            }
+            else if (cbManValve.SelectedIndex == 1)
+            {
+                KnowWhichManVal = 2;
+            }
+            else
+            {
+                KnowWhichManVal = 0;
+            }
         }
     }
 }
