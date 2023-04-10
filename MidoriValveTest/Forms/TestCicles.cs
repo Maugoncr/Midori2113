@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CustomMessageBox;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace MidoriValveTest
@@ -14,118 +17,72 @@ namespace MidoriValveTest
     public partial class TestCicles : Form
     {
        public System.IO.Ports.SerialPort Arduino;
-        public static int counter;
-        public static int limit;
-        public static bool greenlight = false;
-        public static bool yellowlight = false;
-        public Midori_PV menssager;
+       public Midori_PV menssager;
        
 
         public TestCicles()
         {
             InitializeComponent();
-           
-
         }
+
 
         private void TestCicles_Load(object sender, EventArgs e)
         {
-             btnTestStart.Enabled = false;
-             button1.Enabled = false;
-        }
-
-
-
-private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (counter < limit)
-            {
-                Arduino.Write("90");
-                Arduino.Write("0");
-                counter++;
-                txt_cycles.Text = counter.ToString();
-
-                //TODO: verificar con los sensores si todo esta correcto, se mantenga en verde, amarillo, rojo
-
-            }
-            if (counter == limit)
-            {
-                
-                menssager.TestFinished();
-                btnTestStart.Enabled=false;
-                NumOfCycles.Enabled = false;
-                timer1.Stop();
-
-            }
-
-
-        }
-
-        // Cycles Reset
-        private void button1_Click(object sender, EventArgs e)
-        {
-            counter = 0;            
-            txt_cycles.Text = "0";
-            menssager.resetCycles();
-            button1.Enabled=false;
-
-        }
-
-        private void btnTestStart_Click(object sender, EventArgs e)
-        {
-           
-                limit = (int)NumOfCycles.Value;
-                timer1.Interval = 2500;
-                timer1.Start();
-                greenlight = true;
-                yellowlight = false;
-                menssager.StartCrono();
-            
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_Stop_Click(object sender, EventArgs e)
-        {
-            timer1.Stop();
-            yellowlight = true;
-            menssager.StopCrono();
-            button1.Enabled = true;
-
-        }
-
-        private void btnForClear_Click(object sender, EventArgs e)
-        {
-            timer1.Stop();
-            greenlight = false;
-            yellowlight=false;
-            counter = 0;
-            limit = 0;
-            NumOfCycles.Value = 0;
-            txt_cycles.Text = "0";
-            menssager.Clear();
+            cbSelectTypeCycle.SelectedIndex = -1;
             btnTestStart.Enabled = false;
-            NumOfCycles.Enabled = true;
+            NumOfCycles.Enabled = false;
+        }
+
+        private void cbSelectTypeCycle_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbSelectTypeCycle.SelectedIndex >= 0)
+            {
+                NumOfCycles.Enabled = true;
+            }
+            //[1] PRETEST CALIBRATION
+            if (cbSelectTypeCycle.SelectedIndex == 0)
+            {
+                menssager.TestToRun = 1;
+            }
+            //[2] STABILITY TESTS 500 - 300 - 150 TORR
+            else if (cbSelectTypeCycle.SelectedIndex == 1)
+            {
+                menssager.TestToRun = 2;
+            }
+            // [3] VALVE LEAK TEST
+            else if (cbSelectTypeCycle.SelectedIndex == 2)
+            {
+                menssager.TestToRun = 3;
+            }
+
 
         }
 
         private void NumOfCycles_ValueChanged(object sender, EventArgs e)
         {
-
             if (NumOfCycles.Value > 0)
             {
                 btnTestStart.Enabled = true;
             }
-           
+            else if (NumOfCycles.Value <= 0)
+            {
+                btnTestStart.Enabled = false;
+            }
+        }
 
+        private void NumOfCycles_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBoxMaugoncr.Show("Only numbers are allowed", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
 
+        private void btnTestStart_Click(object sender, EventArgs e)
+        {
+            menssager.NewThreadForTest();
         }
     }
-
-
-    
 }

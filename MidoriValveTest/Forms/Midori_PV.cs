@@ -548,7 +548,6 @@ namespace MidoriValveTest
             {
                 TestCicles TEST = new TestCicles();
                 TEST.menssager = this;
-               // TEST.Arduino = Arduino;
                 TEST.Show();
             }
             else
@@ -557,6 +556,56 @@ namespace MidoriValveTest
                 return;
             }
         }
+
+        public int TestToRun = 0;
+        public int NumTest = 1;
+
+        public void NewThreadForTest() 
+        {
+            Thread t = new Thread(new ThreadStart(EjecutarTest));
+            t.Start();
+        }
+
+        private void EjecutarTest() 
+        {
+            //Q - Abrir solenoid 1
+            //W - Cerrar solenoid 1
+            //E - Abrir solenoid 2
+            //R - Cerrar solenoid 2
+            //Y - Encender Pump
+            //U - Apagar Pump
+
+            if (TestToRun == 1)
+            {
+                for (int i = 1; i <= NumTest; i++)
+                {
+                    serialPort1.Write("E");
+                    Thread.Sleep(2000);
+                    serialPort1.Write("Y");
+                    Thread.Sleep(62000);
+                    serialPort1.Write("U");
+                    Thread.Sleep(2000);
+                    Thread.Sleep(300000);
+                }
+            }
+            else if (TestToRun == 2)
+            {
+                for (int i = 1; i <= NumTest; i++)
+                {
+                    serialPort1.Write("Y");
+                    Thread.Sleep(62000);
+                    serialPort1.Write("Q");
+                    Thread.Sleep(2000);
+
+
+                }
+            }
+        
+        
+        }
+
+
+
 
         private void btn_0_Click(object sender, EventArgs e)
         {
@@ -1668,48 +1717,48 @@ namespace MidoriValveTest
         }
 
 
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            TimeSpan ts = new TimeSpan(0, 0, 0, 0, (int)oSW.ElapsedMilliseconds);
-            txthoras.Text = ts.Hours.ToString().Length < 2 ? "0" + ts.Hours.ToString() : ts.Hours.ToString();
-            txtminutos.Text = ts.Minutes.ToString().Length < 2 ? "0" + ts.Minutes.ToString() : ts.Minutes.ToString();
-            txtsegundos.Text = ts.Seconds.ToString().Length<2 ? "0" + ts.Seconds.ToString() : ts.Seconds.ToString();
-            txtmilisegundos.Text = ts.Milliseconds.ToString();
+        //private void timer2_Tick(object sender, EventArgs e)
+        //{
+        //    TimeSpan ts = new TimeSpan(0, 0, 0, 0, (int)oSW.ElapsedMilliseconds);
+        //    txthoras.Text = ts.Hours.ToString().Length < 2 ? "0" + ts.Hours.ToString() : ts.Hours.ToString();
+        //    txtminutos.Text = ts.Minutes.ToString().Length < 2 ? "0" + ts.Minutes.ToString() : ts.Minutes.ToString();
+        //    txtsegundos.Text = ts.Seconds.ToString().Length<2 ? "0" + ts.Seconds.ToString() : ts.Seconds.ToString();
+        //    txtmilisegundos.Text = ts.Milliseconds.ToString();
 
-            lb_CounterTest.Text = TestCicles.counter.ToString();
+        //    lb_CounterTest.Text = TestCicles.counter.ToString();
 
-            if (TestCicles.greenlight == true)
-            {
-                green_off.Image.Dispose();
-                green_off.Image = MidoriValveTest.Properties.Resources.led_on_green;
-                if (DateStartedTest.Text == "-/-/-")
-                {
-                    DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy      hh:mm:ss");
-                }
-            }
-            else if (TestCicles.greenlight == false)
-            {
-                green_off.Image.Dispose();
-                green_off.Image = MidoriValveTest.Properties.Resources.led_off_green;
-            }
+        //    if (TestCicles.greenlight == true)
+        //    {
+        //        green_off.Image.Dispose();
+        //        green_off.Image = MidoriValveTest.Properties.Resources.led_on_green;
+        //        if (DateStartedTest.Text == "-/-/-")
+        //        {
+        //            DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy      hh:mm:ss");
+        //        }
+        //    }
+        //    else if (TestCicles.greenlight == false)
+        //    {
+        //        green_off.Image.Dispose();
+        //        green_off.Image = MidoriValveTest.Properties.Resources.led_off_green;
+        //    }
 
-            if (TestCicles.yellowlight == true)
-            {
-                yellow_off.Image.Dispose();
-                yellow_off.Image = MidoriValveTest.Properties.Resources.led_on_yellow;
-                green_off.Image.Dispose();
-                green_off.Image = MidoriValveTest.Properties.Resources.led_off_green;
+        //    if (TestCicles.yellowlight == true)
+        //    {
+        //        yellow_off.Image.Dispose();
+        //        yellow_off.Image = MidoriValveTest.Properties.Resources.led_on_yellow;
+        //        green_off.Image.Dispose();
+        //        green_off.Image = MidoriValveTest.Properties.Resources.led_off_green;
                 
 
-            }
-            else if (TestCicles.yellowlight == false)
-            {
-                yellow_off.Image.Dispose();
-                yellow_off.Image = MidoriValveTest.Properties.Resources.led_off_yellow;
+        //    }
+        //    else if (TestCicles.yellowlight == false)
+        //    {
+        //        yellow_off.Image.Dispose();
+        //        yellow_off.Image = MidoriValveTest.Properties.Resources.led_off_yellow;
 
-            }
+        //    }
 
-        }
+        //}
 
         public void Clear() {
             DateEndedTest.Text = "-/-/-";
