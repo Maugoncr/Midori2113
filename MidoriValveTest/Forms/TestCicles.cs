@@ -1,4 +1,5 @@
 ﻿using CustomMessageBox;
+using MidoriValveTest.Forms;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -63,10 +64,12 @@ namespace MidoriValveTest
             if (NumOfCycles.Value > 0)
             {
                 btnTestStart.Enabled = true;
+                menssager.NumTest = (int)NumOfCycles.Value;
             }
             else if (NumOfCycles.Value <= 0)
             {
                 btnTestStart.Enabled = false;
+                menssager.NumTest = 0;
             }
         }
 
@@ -80,9 +83,17 @@ namespace MidoriValveTest
             }
         }
 
+        public void Alert(string msg, Form_Alert.enmType type)
+        {
+            Form_Alert frm = new Form_Alert();
+            frm.showAlert(msg, type);
+        }
+
         private void btnTestStart_Click(object sender, EventArgs e)
         {
             menssager.NewThreadForTest();
+            this.Alert("Don't touch anything", Form_Alert.enmType.Warning);
+            this.Close();
         }
     }
 }
