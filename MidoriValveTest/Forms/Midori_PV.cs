@@ -569,10 +569,10 @@ namespace MidoriValveTest
 
             if (TestToRun == 1)
             {
-                //minutos = 6;
-                //segundos = 16;
-                minutos = 0;
-                segundos = 10;
+                minutos = 6;
+                segundos = 16;
+                //minutos = 0;
+                //segundos = 10;
             }
             else if (TestToRun == 2)
             {
@@ -594,6 +594,68 @@ namespace MidoriValveTest
             DisableBtn(btn_valveTest);
         }
 
+        private void AbrirSolenoid_1() 
+        {
+            ManVOpen1.Image.Dispose();
+            ManVOpen1.Image = Properties.Resources.led_on_green;
+            ManVClose1.Image.Dispose();
+            ManVClose1.Image = Properties.Resources.led_off_red;
+        }
+
+        private void CerrarSolenoid_1()
+        {
+            ManVOpen1.Image.Dispose();
+            ManVOpen1.Image = Properties.Resources.led_off_green;
+            ManVClose1.Image.Dispose();
+            ManVClose1.Image = Properties.Resources.led_on_red;
+        }
+
+        private void AbrirSolenoid_2()
+        {
+            ManVOpen2.Image.Dispose();
+            ManVOpen2.Image = Properties.Resources.led_on_green;
+            ManVClose2.Image.Dispose();
+            ManVClose2.Image = Properties.Resources.led_off_red;
+        }
+
+        private void CerrarSolenoid_2()
+        {
+            ManVOpen2.Image.Dispose();
+            ManVOpen2.Image = Properties.Resources.led_off_green;
+            ManVClose2.Image.Dispose();
+            ManVClose2.Image = Properties.Resources.led_on_red;
+        }
+
+        private void VisualCerrarMainV()
+        {
+            Current_aperture.Text = "0°";
+            lbl_estado.Text = "Close";
+            picture_frontal.Image.Dispose();
+            picture_plane.Image.Dispose();
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti0B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Front0;
+            base_value = 0;
+            trackBar1A.Value = 0;
+            precision_aperture = 0;
+            DisableBtn(btnCloseGate);
+            EnableBtn(btnOpenGate);
+        }
+
+        private void VisualAbrirMainV() 
+        {
+            Current_aperture.Text = "90°";
+            lbl_estado.Text = "Open";
+            picture_frontal.Image.Dispose();
+            picture_plane.Image.Dispose();
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti90B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Front90;
+            base_value = 90;
+            trackBar1A.Value = 90;
+            precision_aperture = 90;
+            DisableBtn(btnOpenGate);
+            EnableBtn(btnCloseGate);
+        }
+
         private void EjecutarTest()
         {
             //Q - Abrir solenoid 1
@@ -609,38 +671,56 @@ namespace MidoriValveTest
                 serialPort1.Write("U");
                 // Cierra Valvula Main
                 serialPort1.Write("0");
+                VisualCerrarMainV();
+
                 // Cierra Solenoid 1
                 serialPort1.Write("W");
+                CerrarSolenoid_1();
+
                 // Cierra Solenoid 2
                 serialPort1.Write("R");
+                CerrarSolenoid_2();
 
                 DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
                 for (int i = 1; i <= NumTest; i++)
                 {
                     serialPort1.Write("E");
                     lbStepForTest.Text = "Open [PN ISO-V2]";
+                    AbrirSolenoid_2();
                     Thread.Sleep(2000);
+
                     serialPort1.Write("Y");
                     lbStepForTest.Text = "On [PUMP]";
                     Thread.Sleep(2000);
+
                     lbStepForTest.Text = "Waiting down to 1 torr";
                     Thread.Sleep(60000);
+
                     serialPort1.Write("R");
                     lbStepForTest.Text = "Close [PN ISO-V2]";
+                    CerrarSolenoid_2();
                     Thread.Sleep(2000);
+
                     serialPort1.Write("U");
                     lbStepForTest.Text = "Off [PUMP]";
                     Thread.Sleep(2000);
+
                     lbStepForTest.Text = "Verify leak for 5 min";
                     Thread.Sleep(300000);
+
                     serialPort1.Write("E");
                     lbStepForTest.Text = "Open [PN ISO-V2]";
+                    AbrirSolenoid_2();
                     Thread.Sleep(2000);
+
                     serialPort1.Write("90");
                     lbStepForTest.Text = "Open [BCV40]";
+                    VisualAbrirMainV();
                     Thread.Sleep(2000);
+
                     serialPort1.Write("Q");
                     lbStepForTest.Text = "Open [PN ISO-V1]";
+                    AbrirSolenoid_1();
                     Thread.Sleep(2000);
                     
                 }
@@ -654,32 +734,43 @@ namespace MidoriValveTest
 
                 // Apagar Pump
                 serialPort1.Write("U");
+
                 // Abre Valvula Main
                 serialPort1.Write("90");
+                VisualAbrirMainV();
+
                 // Abre Solenoid 1
                 serialPort1.Write("Q");
+                AbrirSolenoid_1();
+
                 // Abre Solenoid 2
                 serialPort1.Write("E");
+                AbrirSolenoid_2();
 
                 for (int i = 1; i <= NumTest; i++)
                 {
                     // Cierra Valvula Main
                     serialPort1.Write("0");
                     lbStepForTest.Text = "Close [BCV40]";
+                    VisualCerrarMainV();
                     Thread.Sleep(2000);
+
                     // Enciende Pump
                     serialPort1.Write("Y");
                     lbStepForTest.Text = "On [PUMP]";
                     Thread.Sleep(2000);
+
                     //Esperamos down to 1 Torr
                     lbStepForTest.Text = "Waiting down to 1 torr";
                     Thread.Sleep(60000);
+
                     // Viene el dilema del PID
                     // Ya debe tener el preset de la presion 500 tor...
                     //Activa el PID y espera 3 min
                     serialPort1.Write("P");
                     lbStepForTest.Text = "STABILITY TEST";
                     Thread.Sleep(180000);
+
                     //Apaga el Pump
                     serialPort1.Write("U");
                     lbStepForTest.Text = "Off [PUMP]";
@@ -696,32 +787,42 @@ namespace MidoriValveTest
                 serialPort1.Write("U");
                 // Abre Valvula Main
                 serialPort1.Write("90");
+                VisualAbrirMainV();
+
                 // Abre Solenoid 1
                 serialPort1.Write("Q");
+                AbrirSolenoid_1();
+
                 // Abre Solenoid 2
                 serialPort1.Write("E");
+                AbrirSolenoid_2();
 
                 for (int i = 0; i <= NumTest; i++)
                 {
                     // Cerrar Solenoid 1
                     serialPort1.Write("W");
                     lbStepForTest.Text = "Open [PN ISO-V1]";
+                    CerrarSolenoid_1();
                     Thread.Sleep(2000);
+
                     //Enciende el pump
                     serialPort1.Write("Y");
                     lbStepForTest.Text = "On [PUMP]";
                     Thread.Sleep(2000);
+
                     // Espera la presion Baje 1 Torr
                     Thread.Sleep(60000);
 
                     //Cierra solenoid 2
                     serialPort1.Write("R");
                     lbStepForTest.Text = "Close [PN ISO-V2]";
+                    CerrarSolenoid_2();
                     Thread.Sleep(2000);
 
                     //Cierra la valvula normal
                     serialPort1.Write("0");
                     lbStepForTest.Text = "Close [BCV40]";
+                    VisualCerrarMainV();
                     Thread.Sleep(2000);
 
                     //Se apaga el pump
@@ -737,16 +838,19 @@ namespace MidoriValveTest
                     // Abre solenoid 1
                     serialPort1.Write("Q");
                     lbStepForTest.Text = "Open [PN ISO-V1]";
+                    AbrirSolenoid_1();
                     Thread.Sleep(2000);
 
                     //Abre valvula 90°
                     serialPort1.Write("90");
                     lbStepForTest.Text = "Open [BCV40]";
+                    VisualAbrirMainV();
                     Thread.Sleep(2000);
 
                     //Abre solenoid 2
                     serialPort1.Write("E");
                     lbStepForTest.Text = "Open [PN ISO-V2]";
+                    AbrirSolenoid_2();
                     Thread.Sleep(2000);
 
                 }
@@ -761,8 +865,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources._0_2;
-            picture_plane.Image = MidoriValveTest.Properties.Resources._0_GRADOS2;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti0B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Front0;
             base_value = 0;
             trackBar1A.Value = 0;
             // precision_aperture = 0;
@@ -783,8 +887,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources._10_2;
-            picture_plane.Image = MidoriValveTest.Properties.Resources._10_GRADOS2;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti10B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Front10;
             base_value = 10;
             trackBar1A.Value = 10;
             // precision_aperture = 10;
@@ -805,8 +909,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources._20_2;
-            picture_plane.Image = MidoriValveTest.Properties.Resources._20_GRADOS2;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti20B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Front20;
             base_value = 20;
             trackBar1A.Value = 20;
             // precision_aperture = 20;
@@ -828,8 +932,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources.Front30;
-            picture_plane.Image = MidoriValveTest.Properties.Resources.Verti30B;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti30B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Front30;
             base_value = 30;
             trackBar1A.Value = 30;
             //precision_aperture = 30;
@@ -851,8 +955,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources._40_2;
-            picture_plane.Image = MidoriValveTest.Properties.Resources._40_GRADOS2;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti40B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Front40;
             base_value = 40;
             trackBar1A.Value = 40;
             //precision_aperture = 40;
@@ -873,8 +977,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources._50_2;
-            picture_plane.Image = MidoriValveTest.Properties.Resources._50_GRADOS2;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti50B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Front50;
             base_value = 50;
             trackBar1A.Value = 50;
             //precision_aperture = 50;
@@ -896,8 +1000,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources._60_2;
-            picture_plane.Image = MidoriValveTest.Properties.Resources._60_GRADOS2;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti60B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Front60;
             base_value = 60;
             trackBar1A.Value = 60;
             //precision_aperture = 60;
@@ -919,8 +1023,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources._70_2;
-            picture_plane.Image = MidoriValveTest.Properties.Resources._70_GRADOS2;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti70B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Front70;
             base_value = 70;
             trackBar1A.Value = 70;
             //precision_aperture = 70;
@@ -942,8 +1046,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources._80_2;
-            picture_plane.Image = MidoriValveTest.Properties.Resources._80_GRADOS2;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti80B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Front80;
             base_value = 80;
             trackBar1A.Value = 80;
             //precision_aperture = 80;
@@ -965,8 +1069,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources._90_2;
-            picture_plane.Image = MidoriValveTest.Properties.Resources._90_GRADOS2;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti90B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Front90;
             base_value = 90;
             trackBar1A.Value = 90;
             //precision_aperture = 90;
@@ -2688,7 +2792,6 @@ namespace MidoriValveTest
 
             if (KnowWhichManVal == 1)
             {
-                lbStatusMANValve.Text = "Status Man V:";
                 this.Alert("Successfully opened", Form_Alert.enmType.Success);
 
                 //Abrir la 1 y cerrar la 2
