@@ -73,6 +73,10 @@
     <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
       <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FontAwesome.Sharp, Version=5.15.4.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.4\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
@@ -83,6 +87,8 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -152,6 +158,12 @@
     <Compile Include="Forms\FrmControlCamaras.Designer.cs">
       <DependentUpon>FrmControlCamaras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmVisualizadorCrystalReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmVisualizadorCrystalReport.Designer.cs">
+      <DependentUpon>FrmVisualizadorCrystalReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Information.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +228,12 @@
     <Compile Include="Forms\TestCicles.Designer.cs">
       <DependentUpon>TestCicles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\RptCyclesComplete.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCyclesComplete.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Forms\Camara.resx">
       <DependentUpon>Camara.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmControlCamaras.resx">
       <DependentUpon>FrmControlCamaras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmVisualizadorCrystalReport.resx">
+      <DependentUpon>FrmVisualizadorCrystalReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Information.aa.resx">
       <DependentUpon>Information.cs</DependentUpon>
@@ -282,6 +303,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TestCicles.resx">
       <DependentUpon>TestCicles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptCyclesComplete.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCyclesComplete.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -493,6 +518,9 @@
       <ProductName>Visual C++ "14" Runtime Libraries %28x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

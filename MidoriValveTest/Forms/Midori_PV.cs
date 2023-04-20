@@ -13,13 +13,14 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.IO;
 using System.IO.Ports;
 using System.Threading;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using CustomMessageBox;
 using MidoriValveTest.Forms;
 using AForge.Video;
 using System.Drawing.Imaging;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 namespace MidoriValveTest
 {
@@ -3563,8 +3564,43 @@ namespace MidoriValveTest
             // Guardar la captura de pantalla en el archivo seleccionado
             if (dialogoGuardar.FileName != "")
             {
-                captura.Save(dialogoGuardar.FileName, ImageFormat.Png);
+                captura.Save(dialogoGuardar.FileName, System.Drawing.Imaging.ImageFormat.Png);
             }
+
+            //Bitmap screenshot = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+
+            //Graphics graphics = Graphics.FromImage(screenshot as Image);
+
+            //graphics.CopyFromScreen(0, 0, 0, 0, screenshot.Size);
+
+            //string imagePath = @"test.jpg";
+            //screenshot.Save(imagePath, ImageFormat.Jpeg);
+
+
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            Bitmap screenCapture = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            Graphics g = Graphics.FromImage(screenCapture);
+            g.CopyFromScreen(0, 0, 0, 0, screenCapture.Size);
+            string imagePath = @"test.jpg";
+            screenCapture.Save(imagePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+
+            ReportDocument MiReporte = new ReportDocument();
+            FrmVisualizadorCrystalReport Visualizador = new FrmVisualizadorCrystalReport();
+
+            MiReporte.Load("../../Reportes/RptCyclesComplete.rpt");
+            MiReporte.SetParameterValue("CompleteCycles", lbCountCycles.Text);
+            MiReporte.SetParameterValue("GoalCycles", lbGoalCycles.Text);
+            MiReporte.SetParameterValue("ImagePath", imagePath);
+
+            Visualizador.crystalReportViewer1.ReportSource = MiReporte;
+            Visualizador.ShowDialog();
+
+
+
         }
     }
 }
