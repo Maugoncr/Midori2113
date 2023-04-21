@@ -15,6 +15,13 @@ namespace MidoriValveTest.Forms
         public FrmVisualizadorCrystalReport()
         {
             InitializeComponent();
+
+          
+
         }
+
+
+
+
     }
 }

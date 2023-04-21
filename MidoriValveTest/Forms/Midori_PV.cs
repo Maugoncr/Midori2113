@@ -3584,8 +3584,10 @@ namespace MidoriValveTest
             Bitmap screenCapture = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             Graphics g = Graphics.FromImage(screenCapture);
             g.CopyFromScreen(0, 0, 0, 0, screenCapture.Size);
-            string imagePath = @"test.jpg";
-            screenCapture.Save(imagePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            string tempPath = Path.Combine(Path.GetTempPath(), "screenshot.jpg");
+
+            screenCapture.Save(tempPath, System.Drawing.Imaging.ImageFormat.Jpeg);
 
 
             ReportDocument MiReporte = new ReportDocument();
@@ -3594,10 +3596,13 @@ namespace MidoriValveTest
             MiReporte.Load("../../Reportes/RptCyclesComplete.rpt");
             MiReporte.SetParameterValue("CompleteCycles", lbCountCycles.Text);
             MiReporte.SetParameterValue("GoalCycles", lbGoalCycles.Text);
-            MiReporte.SetParameterValue("ImagePath", imagePath);
+            MiReporte.SetParameterValue("ImagePath", tempPath);
+            
 
             Visualizador.crystalReportViewer1.ReportSource = MiReporte;
+            Visualizador.crystalReportViewer1.Zoom(85);
             Visualizador.ShowDialog();
+            
 
 
 
