@@ -570,15 +570,15 @@ namespace MidoriValveTest
 
             if (TestToRun == 1)
             {
-                minutos = 6;
-                segundos = 16;
+                minutos = 7;
+                segundos = 14;
                 //minutos = 0;
                 //segundos = 10;
             }
             else if (TestToRun == 2)
             {
-                minutos = 4;
-                segundos = 6;
+                minutos = 5;
+                segundos = 10;
             }
             else if (true)
             {
@@ -670,9 +670,6 @@ namespace MidoriValveTest
             {
                 // Apagar Pump
                 serialPort1.Write("U");
-                // Cierra Valvula Main
-                serialPort1.Write("0");
-                VisualCerrarMainV();
 
                 // Cierra Solenoid 1
                 serialPort1.Write("W");
@@ -682,12 +679,22 @@ namespace MidoriValveTest
                 serialPort1.Write("R");
                 CerrarSolenoid_2();
 
+                // Cierra Valvula Main
+                serialPort1.Write("90");
+                VisualAbrirMainV();
+
                 DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
                 for (int i = 1; i <= NumTest; i++)
                 {
-                    serialPort1.Write("E");
-                    lbStepForTest.Text = "Open [PN ISO-V2]";
-                    AbrirSolenoid_2();
+
+                    serialPort1.Write("0");
+                    lbStepForTest.Text = "Open [BCV40]";
+                    VisualCerrarMainV();
+                    Thread.Sleep(2000);
+
+                    serialPort1.Write("Q");
+                    lbStepForTest.Text = "Open [PN ISO-V1]";
+                    AbrirSolenoid_1();
                     Thread.Sleep(2000);
 
                     serialPort1.Write("Y");
@@ -695,11 +702,12 @@ namespace MidoriValveTest
                     Thread.Sleep(2000);
 
                     lbStepForTest.Text = "Waiting down to 1 torr";
-                    Thread.Sleep(60000);
+                    Thread.Sleep(120000);
 
-                    serialPort1.Write("R");
-                    lbStepForTest.Text = "Close [PN ISO-V2]";
-                    CerrarSolenoid_2();
+
+                    serialPort1.Write("W");
+                    lbStepForTest.Text = "Close [PN ISO-V1]";
+                    CerrarSolenoid_1();
                     Thread.Sleep(2000);
 
                     serialPort1.Write("U");
@@ -709,21 +717,17 @@ namespace MidoriValveTest
                     lbStepForTest.Text = "Verify leak for 5 min";
                     Thread.Sleep(300000);
 
-                    serialPort1.Write("E");
-                    lbStepForTest.Text = "Open [PN ISO-V2]";
-                    AbrirSolenoid_2();
-                    Thread.Sleep(2000);
-
-                    serialPort1.Write("90");
-                    lbStepForTest.Text = "Open [BCV40]";
-                    VisualAbrirMainV();
-                    Thread.Sleep(2000);
-
                     serialPort1.Write("Q");
                     lbStepForTest.Text = "Open [PN ISO-V1]";
                     AbrirSolenoid_1();
                     Thread.Sleep(2000);
+
+                    serialPort1.Write("E");
+                    lbStepForTest.Text = "Open [PN ISO-V2]";
+                    AbrirSolenoid_2();
+                    Thread.Sleep(2000);
                     
+
                 }
                 DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
                 lbStepForTest.Text = "Phase 1 Finished";
@@ -756,14 +760,18 @@ namespace MidoriValveTest
                     VisualCerrarMainV();
                     Thread.Sleep(2000);
 
-                    // Enciende Pump
+                    serialPort1.Write("R");
+                    lbStepForTest.Text = "Close [PN ISO-V2]";
+                    CerrarSolenoid_2();
+                    Thread.Sleep(2000);
+
                     serialPort1.Write("Y");
                     lbStepForTest.Text = "On [PUMP]";
                     Thread.Sleep(2000);
 
                     //Esperamos down to 1 Torr
                     lbStepForTest.Text = "Waiting down to 1 torr";
-                    Thread.Sleep(60000);
+                    Thread.Sleep(120000);
 
                     // Viene el dilema del PID
                     // Ya debe tener el preset de la presion 500 tor...
@@ -776,6 +784,12 @@ namespace MidoriValveTest
                     serialPort1.Write("U");
                     lbStepForTest.Text = "Off [PUMP]";
                     Thread.Sleep(2000);
+
+                    serialPort1.Write("E");
+                    lbStepForTest.Text = "Open [PN ISO-V2]";
+                    AbrirSolenoid_2();
+                    Thread.Sleep(2000);
+
                 }
                 DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
                 lbStepForTest.Text = "Phase 2 Finished";
@@ -800,19 +814,11 @@ namespace MidoriValveTest
 
                 for (int i = 0; i <= NumTest; i++)
                 {
-                    // Cerrar Solenoid 1
-                    serialPort1.Write("W");
-                    lbStepForTest.Text = "Open [PN ISO-V1]";
-                    CerrarSolenoid_1();
+                    //Cierra la valvula normal
+                    serialPort1.Write("0");
+                    lbStepForTest.Text = "Close [BCV40]";
+                    VisualCerrarMainV();
                     Thread.Sleep(2000);
-
-                    //Enciende el pump
-                    serialPort1.Write("Y");
-                    lbStepForTest.Text = "On [PUMP]";
-                    Thread.Sleep(2000);
-
-                    // Espera la presion Baje 1 Torr
-                    Thread.Sleep(60000);
 
                     //Cierra solenoid 2
                     serialPort1.Write("R");
@@ -820,10 +826,19 @@ namespace MidoriValveTest
                     CerrarSolenoid_2();
                     Thread.Sleep(2000);
 
-                    //Cierra la valvula normal
-                    serialPort1.Write("0");
-                    lbStepForTest.Text = "Close [BCV40]";
-                    VisualCerrarMainV();
+                    //Enciende el pump
+                    serialPort1.Write("Y");
+                    lbStepForTest.Text = "On [PUMP]";
+                    Thread.Sleep(2000);
+
+                    //Esperamos down to 1 Torr
+                    lbStepForTest.Text = "Waiting down to 1 torr";
+                    Thread.Sleep(120000);
+
+                    // Cerrar Solenoid 1
+                    serialPort1.Write("W");
+                    lbStepForTest.Text = "Open [PN ISO-V1]";
+                    CerrarSolenoid_1();
                     Thread.Sleep(2000);
 
                     //Se apaga el pump
@@ -842,16 +857,16 @@ namespace MidoriValveTest
                     AbrirSolenoid_1();
                     Thread.Sleep(2000);
 
-                    //Abre valvula 90°
-                    serialPort1.Write("90");
-                    lbStepForTest.Text = "Open [BCV40]";
-                    VisualAbrirMainV();
-                    Thread.Sleep(2000);
-
                     //Abre solenoid 2
                     serialPort1.Write("E");
                     lbStepForTest.Text = "Open [PN ISO-V2]";
                     AbrirSolenoid_2();
+                    Thread.Sleep(2000);
+
+                    //Abre valvula 90°
+                    serialPort1.Write("90");
+                    lbStepForTest.Text = "Open [BCV40]";
+                    VisualAbrirMainV();
                     Thread.Sleep(2000);
 
                 }
@@ -3438,8 +3453,8 @@ namespace MidoriValveTest
                     lb_CounterTest.Text = x.ToString();
                     if (TestToRun == 1)
                     {
-                            minutos = 6;
-                            segundos = 16;
+                            minutos = 7;
+                            segundos = 14;
                             //minutos = 0;
                             //segundos = 10;
                         if (lbCountCycles.Text == lbGoalCycles.Text)
@@ -3453,8 +3468,8 @@ namespace MidoriValveTest
                     }
                     else if (TestToRun == 2)
                     {
-                        minutos = 4;
-                        segundos = 6;
+                        minutos = 5;
+                        segundos = 10;
                         //minutos = 0;
                         //segundos = 10;
                         if (lbCountCycles.Text == lbGoalCycles.Text)
@@ -3602,8 +3617,6 @@ namespace MidoriValveTest
             Visualizador.crystalReportViewer1.ReportSource = MiReporte;
             Visualizador.crystalReportViewer1.Zoom(85);
             Visualizador.ShowDialog();
-            
-
 
 
         }
