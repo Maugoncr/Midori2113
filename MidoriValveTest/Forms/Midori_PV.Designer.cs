@@ -964,7 +964,7 @@ namespace MidoriValveTest
             // 
             this.btnReport.FlatAppearance.BorderSize = 0;
             this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReport.IconChar = FontAwesome.Sharp.IconChar.File;
+            this.btnReport.IconChar = FontAwesome.Sharp.IconChar.FileContract;
             this.btnReport.IconColor = System.Drawing.Color.Black;
             this.btnReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReport.IconSize = 30;
