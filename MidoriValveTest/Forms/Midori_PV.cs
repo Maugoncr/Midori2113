@@ -670,17 +670,21 @@ namespace MidoriValveTest
             {
                 // Apagar Pump
                 serialPort1.Write("U");
+                Thread.Sleep(50);
 
                 // Cierra Solenoid 1
                 serialPort1.Write("W");
+                Thread.Sleep(50);
                 CerrarSolenoid_1();
 
                 // Cierra Solenoid 2
                 serialPort1.Write("R");
+                Thread.Sleep(50);
                 CerrarSolenoid_2();
 
                 // Cierra Valvula Main
                 serialPort1.Write("90");
+                Thread.Sleep(50);
                 VisualAbrirMainV();
 
                 DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
@@ -739,17 +743,20 @@ namespace MidoriValveTest
 
                 // Apagar Pump
                 serialPort1.Write("U");
-
+                Thread.Sleep(50);
                 // Abre Valvula Main
                 serialPort1.Write("90");
+                Thread.Sleep(50);
                 VisualAbrirMainV();
 
                 // Abre Solenoid 1
                 serialPort1.Write("Q");
+                Thread.Sleep(50);
                 AbrirSolenoid_1();
 
                 // Abre Solenoid 2
                 serialPort1.Write("E");
+                Thread.Sleep(50);
                 AbrirSolenoid_2();
 
                 for (int i = 1; i <= NumTest; i++)
@@ -800,16 +807,20 @@ namespace MidoriValveTest
 
                 // Apagar Pump
                 serialPort1.Write("U");
+                Thread.Sleep(50);
                 // Abre Valvula Main
                 serialPort1.Write("90");
+                Thread.Sleep(50);
                 VisualAbrirMainV();
 
                 // Abre Solenoid 1
                 serialPort1.Write("Q");
+                Thread.Sleep(50);
                 AbrirSolenoid_1();
 
                 // Abre Solenoid 2
                 serialPort1.Write("E");
+                Thread.Sleep(50);
                 AbrirSolenoid_2();
 
                 for (int i = 0; i <= NumTest; i++)
