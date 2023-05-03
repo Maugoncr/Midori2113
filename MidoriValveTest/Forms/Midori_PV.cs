@@ -2812,18 +2812,19 @@ namespace MidoriValveTest
 
                 //Abrir la 1 y cerrar la 2
                 serialPort1.Write("Q");
-                serialPort1.Write("R");
-
+               
                 ManVOpen1.Image.Dispose();
                 ManVOpen1.Image = Properties.Resources.led_on_green;
                 ManVClose1.Image.Dispose();
                 ManVClose1.Image = Properties.Resources.led_off_red;
-
                 ManVOpen2.Image.Dispose();
                 ManVOpen2.Image = Properties.Resources.led_off_green;
                 ManVClose2.Image.Dispose();
                 ManVClose2.Image = Properties.Resources.led_on_red;
 
+                Thread.Sleep(50);
+
+                serialPort1.Write("R");
 
             }
             else if (KnowWhichManVal == 2)
@@ -2833,17 +2834,17 @@ namespace MidoriValveTest
 
                 //Abrir la 2 y cerrar la 1
                 serialPort1.Write("E");
-                serialPort1.Write("W");
 
                 ManVOpen1.Image.Dispose();
                 ManVOpen1.Image = Properties.Resources.led_off_green;
                 ManVClose1.Image.Dispose();
                 ManVClose1.Image = Properties.Resources.led_on_red;
-
                 ManVOpen2.Image.Dispose();
                 ManVOpen2.Image = Properties.Resources.led_on_green;
                 ManVClose2.Image.Dispose();
                 ManVClose2.Image = Properties.Resources.led_off_red;
+                Thread.Sleep(50);
+                serialPort1.Write("W");
             }
 
 
