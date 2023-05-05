@@ -3782,6 +3782,149 @@ namespace MidoriValveTest
             LeftBtn(btnOffPump);
         }
 
+
+        bool shouldRun1 = false;
+        bool shouldRun2 = false;
+        private void timerMKS1_Tick(object sender, EventArgs e)
+        {
+            if (shouldRun1 == false)
+            {
+                serialPortMKS1.DiscardOutBuffer();
+                serialPortMKS1.WriteLine("@254PR1?;FF");
+            }
+            else
+            {
+            }
+        }
+
+        private void btnConexionMKS_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmConexionMKS);
+            if (frm == null)
+            {
+                FrmConexionMKS TEST = new FrmConexionMKS();
+                TEST.mensajero = this;
+                TEST.ShowDialog();
+            }
+        }
+
+        public void IniciarConexionMKS1(string COM)
+        {
+            try
+            {
+                if (serialPortMKS1.IsOpen)
+                {
+                    serialPortMKS1.Close();
+                }
+                serialPortMKS1.PortName = COM;
+                serialPortMKS1.Open();
+
+
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        public void IniciarConexionMKS2(string COM)
+        {
+            try
+            {
+                if (serialPortMKS2.IsOpen)
+                {
+                    serialPortMKS2.Close();
+                }
+
+                serialPortMKS2.PortName = COM;
+                serialPortMKS2.Open();
+
+              
+
+            }
+            catch (Exception)
+            {
+            }
+        }
+
       
+
+      
+
+        private void serialPortMKS1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            if (serialPortMKS1.IsOpen)
+            {
+                try
+                {
+                    Thread.Sleep(25);
+                    string DataIn = serialPortMKS1.ReadExisting();
+                    if (DataIn != null && DataIn != String.Empty && DataIn.Contains("F"))
+                    {
+                        ReadData1(DataIn);
+                        serialPortMKS1.DiscardInBuffer();
+                    }
+                }
+                catch (Exception)
+                {
+                }
+            }
+        }
+        private void serialPortMKS2_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            if (serialPortMKS2.IsOpen)
+            {
+                try
+                {
+                    Thread.Sleep(25);
+                    string DataIn = serialPortMKS2.ReadExisting();
+                    if (DataIn != null && DataIn != String.Empty && DataIn.Contains("F"))
+                    {
+                        ReadData2(DataIn);
+                        serialPortMKS2.DiscardInBuffer();
+                    }
+                }
+                catch (Exception)
+                {
+                }
+            }
+        }
+
+        private void ReadData1(string t)
+        {
+            string Format = t;
+            string Out = "";
+
+            int startIndex = Format.IndexOf('K');
+            int endIndex = Format.IndexOf(';', startIndex);
+
+            if (startIndex >= 0 && endIndex >= 0)
+            {
+                Out = Format.Substring(startIndex + 1, endIndex - startIndex - 1);
+            }
+
+            double result = double.Parse(Out, System.Globalization.NumberStyles.Float);
+
+            lbMKS1.Text = result.ToString();
+        }
+
+        private void ReadData2(string t)
+        {
+            string Format = t;
+            string Out = "";
+
+            int startIndex = Format.IndexOf('K');
+            int endIndex = Format.IndexOf(';', startIndex);
+
+            if (startIndex >= 0 && endIndex >= 0)
+            {
+                Out = Format.Substring(startIndex + 1, endIndex - startIndex - 1);
+            }
+
+            double result = double.Parse(Out, System.Globalization.NumberStyles.Float);
+
+            lbMKS2.Text = result.ToString();
+        }
+
+
     }
 }

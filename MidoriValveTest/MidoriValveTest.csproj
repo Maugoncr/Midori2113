@@ -77,8 +77,8 @@
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="FontAwesome.Sharp, Version=5.15.4.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
-      <HintPath>..\packages\FontAwesome.Sharp.5.15.4\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -151,6 +151,12 @@
     </Compile>
     <Compile Include="Forms\Form_Alert.Designer.cs">
       <DependentUpon>Form_Alert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmConexionMKS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmConexionMKS.Designer.cs">
+      <DependentUpon>FrmConexionMKS.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmControlCamaras.cs">
       <SubType>Form</SubType>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMessageBox.resx">
       <DependentUpon>FormMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmConexionMKS.resx">
+      <DependentUpon>FrmConexionMKS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmControlCamaras.resx">
       <DependentUpon>FrmControlCamaras.cs</DependentUpon>
