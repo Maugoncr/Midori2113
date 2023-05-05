@@ -107,6 +107,7 @@ namespace MidoriValveTest
             TimerAnimation2.Start();
             TimerAnimation3.Start();
             TimerAnimation4.Start();
+            TimerAnimation5.Start();
             if (cbSelectionCOM.Items.Count > 0)     // exist ports com
             {
                 cbSelectionCOM.SelectedIndex = 0;
@@ -154,6 +155,7 @@ namespace MidoriValveTest
             CerrarWebCam2();
             CerrarWebCam3();
             CerrarWebCam4();
+            CerrarWebCam5();
 
             animation = 0;
             aniIMG = 0;
@@ -170,6 +172,10 @@ namespace MidoriValveTest
             animation4 = 0;
             aniIMG4 = 0;
             offorOn4 = false;
+
+            animation5 = 0;
+            aniIMG5 = 0;
+            offorOn5 = false;
 
 
             // Return all labels to default text
@@ -223,6 +229,12 @@ namespace MidoriValveTest
             DisableBtn(btnOnMANValve);
             cbManValve.Enabled = false;
             cbManValve.SelectedIndex = -1;
+
+            // Pump Controls
+
+            DisableBtn(btnOffPump);
+            DisableBtn(btnOnPump);
+            lbPumpStatus.Text = "OFF";
 
             //DisableBtn(btnPlay);
             //DisableBtn(btn_Stop);
@@ -361,6 +373,7 @@ namespace MidoriValveTest
                     EnableBtn(btnStartPID);
                     EnableBtn(btnOnMANValve);
                     EnableBtn(btnOffMANValve);
+                    EnableBtn(btnOnPump);
 
 
                     // Menu settings
@@ -1966,20 +1979,19 @@ namespace MidoriValveTest
 
         private void IconReport_Click(object sender, EventArgs e)
         {
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Report);
+            GenerarReporte();
 
-            if (frm == null)
-            {
-                Report nt = new Report();
-                nt.Show();
-
-            }
-            else
-            {
-                frm.BringToFront();
-                return;
-            }
-
+            //Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Report);
+            //if (frm == null)
+            //{
+            //    Report nt = new Report();
+            //    nt.Show();
+            //}
+            //else
+            //{
+            //    frm.BringToFront();
+            //    return;
+            //}
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -2474,8 +2486,6 @@ namespace MidoriValveTest
 
 
             }
-
-
         }
 
 
@@ -2889,7 +2899,7 @@ namespace MidoriValveTest
         {
             if (btn.Enabled == true)
             {
-                if (btn.Name == "btnOnMANValve")
+                if (btn.Name == "btnOnMANValve" || btn.Name == "btnOnPump")
                 {
                     btn.ForeColor = Color.White;
                     btnOnMANValve.IconColor = Color.White;
@@ -2997,6 +3007,8 @@ namespace MidoriValveTest
         public static bool offorOn3 = false;
         private VideoCaptureDevice MiWebCam4;
         public static bool offorOn4 = false;
+        private VideoCaptureDevice MiWebCam5;
+        public static bool offorOn5 = false;
 
         // Animation Variables
         public static int animation = 0;
@@ -3007,6 +3019,8 @@ namespace MidoriValveTest
         public static int aniIMG3 = 0;
         public static int animation4 = 0;
         public static int aniIMG4 = 0;
+        public static int animation5 = 0;
+        public static int aniIMG5 = 0;
 
         // Para capturas no creo usarla.
         public static Image capture;
@@ -3187,6 +3201,36 @@ namespace MidoriValveTest
             MisDispositivos = new FilterInfoCollection(FilterCategory.VideoInputDevice);
         }
 
+        public void ActivarCam5(int cb)
+        {
+            if (TimerAnimation5.Enabled == true)
+            {
+                TimerAnimation5.Stop();
+                animation5 = 1;
+            }
+
+            if (offorOn5 == false)
+            {
+                CerrarWebCam5();
+                int i = cb;
+                string NombreVideo = MisDispositivos[i].MonikerString;
+                MiWebCam5 = new VideoCaptureDevice(NombreVideo);
+                MiWebCam5.NewFrame += new NewFrameEventHandler(Capturando5);
+                MiWebCam5.Start();
+                offorOn5 = true;
+            }
+            else if (offorOn5 == true)
+            {
+                CerrarWebCam5();
+                picCamara5.Image.Dispose();
+                picCamara5.Image = Properties.Resources.signal1;
+                TimerAnimation5.Start();
+                animation5 = 0;
+                aniIMG5 = 1;
+                offorOn5 = false;
+            }
+        }
+
         public void ActivarCam4(int cb)
         {
             if (TimerAnimation4.Enabled == true)
@@ -3341,12 +3385,20 @@ namespace MidoriValveTest
             }
         }
 
+        private void CerrarWebCam5()
+        {
+            if (MiWebCam5 != null && MiWebCam5.IsRunning)
+            {
+                MiWebCam5.SignalToStop();
+                MiWebCam5 = null;
+            }
+        }
+
         private void Capturando(object sender, NewFrameEventArgs eventsArgs)
         {
             Bitmap Imagen = (Bitmap)eventsArgs.Frame.Clone();
             picCamara1.Image = Imagen;
         }
-
         private void Capturando2(object sender, NewFrameEventArgs eventsArgs)
         {
             Bitmap Imagen = (Bitmap)eventsArgs.Frame.Clone();
@@ -3363,6 +3415,11 @@ namespace MidoriValveTest
         {
             Bitmap Imagen = (Bitmap)eventsArgs.Frame.Clone();
             picCamara4.Image = Imagen;
+        }
+        private void Capturando5(object sender, NewFrameEventArgs eventsArgs)
+        {
+            Bitmap Imagen = (Bitmap)eventsArgs.Frame.Clone();
+            picCamara5.Image = Imagen;
         }
 
 
@@ -3576,36 +3633,6 @@ namespace MidoriValveTest
 
         private DateTime InicioChrono;
 
-        private void btnCaptura_Click(object sender, EventArgs e)
-        {
-            Bitmap captura = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-            Graphics graficos = Graphics.FromImage(captura);
-            graficos.CopyFromScreen(Screen.PrimaryScreen.Bounds.X, Screen.PrimaryScreen.Bounds.Y, 0, 0, captura.Size);
-
-            // Mostrar el diálogo para guardar la captura
-            SaveFileDialog dialogoGuardar = new SaveFileDialog();
-            dialogoGuardar.Filter = "Imágenes PNG|*.png";
-            dialogoGuardar.Title = "Guardar captura de pantalla";
-            dialogoGuardar.ShowDialog();
-
-            // Guardar la captura de pantalla en el archivo seleccionado
-            if (dialogoGuardar.FileName != "")
-            {
-                captura.Save(dialogoGuardar.FileName, System.Drawing.Imaging.ImageFormat.Png);
-            }
-
-            //Bitmap screenshot = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-
-            //Graphics graphics = Graphics.FromImage(screenshot as Image);
-
-            //graphics.CopyFromScreen(0, 0, 0, 0, screenshot.Size);
-
-            //string imagePath = @"test.jpg";
-            //screenshot.Save(imagePath, ImageFormat.Jpeg);
-
-
-        }
-
         private void GenerarReporte() 
         {
             Bitmap screenCapture = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
@@ -3643,16 +3670,118 @@ namespace MidoriValveTest
             {
                 MiReporte.SetParameterValue("PhaseName", "[3] Valve Leak Test");
             }
+            else
+            {
+                MiReporte.SetParameterValue("PhaseName", "Phase not selected yet");
+            }
 
             Visualizador.crystalReportViewer1.ReportSource = MiReporte;
             Visualizador.crystalReportViewer1.Zoom(85);
             Visualizador.ShowDialog();
         }
 
-
-        private void btnReport_Click(object sender, EventArgs e)
+        private void takeScreenshotToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GenerarReporte();
+            Bitmap captura = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            Graphics graficos = Graphics.FromImage(captura);
+            graficos.CopyFromScreen(Screen.PrimaryScreen.Bounds.X, Screen.PrimaryScreen.Bounds.Y, 0, 0, captura.Size);
+
+            // Mostrar el diálogo para guardar la captura
+            SaveFileDialog dialogoGuardar = new SaveFileDialog();
+            dialogoGuardar.Filter = "Imágenes PNG|*.png";
+            dialogoGuardar.Title = "Guardar captura de pantalla";
+            dialogoGuardar.ShowDialog();
+
+            // Guardar la captura de pantalla en el archivo seleccionado
+            if (dialogoGuardar.FileName != "")
+            {
+                captura.Save(dialogoGuardar.FileName, System.Drawing.Imaging.ImageFormat.Png);
+            }
         }
+
+   
+
+        private void btnOnPump_Click(object sender, EventArgs e)
+        {
+            this.Alert("Pump On", Form_Alert.enmType.Success);
+            serialPort1.Write("Y");
+            DisableBtn(btnOnPump);
+            EnableBtn(btnOffPump);
+            lbPumpStatus.Text = "ON";
+        }
+
+        private void btnOffPump_Click(object sender, EventArgs e)
+        {
+            this.Alert("Pump Off", Form_Alert.enmType.Success);
+            serialPort1.Write("U");
+            DisableBtn(btnOffPump);
+            EnableBtn(btnOnPump);
+            lbPumpStatus.Text = "OFF";
+
+        }
+
+        private void TimerAnimation5_Tick(object sender, EventArgs e)
+        {
+            if (animation5 == 0)
+            {
+                if (aniIMG5 == 0)
+                {
+                    picCamara5.Image.Dispose();
+                    picCamara5.Image = Properties.Resources.signal1;
+                    aniIMG5++;
+                    return;
+                }
+                if (aniIMG5 == 1)
+                {
+                    picCamara5.Image.Dispose();
+                    picCamara5.Image = Properties.Resources.signal2;
+                    aniIMG5++;
+                    return;
+                }
+                if (aniIMG5 == 2)
+                {
+                    picCamara5.Image.Dispose();
+                    picCamara5.Image = Properties.Resources.signal3;
+                    aniIMG5++;
+                    return;
+                }
+                if (aniIMG5 == 3)
+                {
+                    picCamara5.Image.Dispose();
+                    picCamara5.Image = Properties.Resources.signal4;
+                    aniIMG5++;
+                    return;
+                }
+                if (aniIMG5 == 4)
+                {
+                    picCamara5.Image.Dispose();
+                    picCamara5.Image = Properties.Resources.signal5;
+                    aniIMG5 = 0;
+                    return;
+                }
+            }
+        }
+
+        private void btnOnPump_MouseEnter(object sender, EventArgs e)
+        {
+            EncenderBTN(btnOnPump);
+        }
+
+        private void btnOnPump_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btnOnPump);
+        }
+
+        private void btnOffPump_MouseEnter(object sender, EventArgs e)
+        {
+            EncenderBTN(btnOffPump);
+        }
+
+        private void btnOffPump_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btnOffPump);
+        }
+
+      
     }
 }

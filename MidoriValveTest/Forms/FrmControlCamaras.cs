@@ -58,6 +58,8 @@ namespace MidoriValveTest.Forms
                 cbCamaraSelect2.Items.Clear();
                 cbCamaraSelect3.Items.Clear();
                 cbCamaraSelect4.Items.Clear();
+                cbCamaraSelect5.Items.Clear();
+
                 for (int i = 0; i < MisDispositivos.Count; i++)
                 {
                     cbCamaraSelect.Items.Add(MisDispositivos[i].Name.ToString());
@@ -70,7 +72,10 @@ namespace MidoriValveTest.Forms
                     cbCamaraSelect3.Text = MisDispositivos[0].Name.ToString();
 
                     cbCamaraSelect4.Items.Add(MisDispositivos[i].Name.ToString());
-                    cbCamaraSelect4.Text = MisDispositivos[0].Name.ToString();
+                    cbCamaraSelect4.Text = MisDispositivos[0].Name.ToString(); 
+                    
+                    cbCamaraSelect5.Items.Add(MisDispositivos[i].Name.ToString());
+                    cbCamaraSelect5.Text = MisDispositivos[0].Name.ToString();
                 }
             }
             else
@@ -95,6 +100,11 @@ namespace MidoriValveTest.Forms
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void IconIniciarCam5_Click(object sender, EventArgs e)
+        {
+            Intermediario.ActivarCam5(cbCamaraSelect5.SelectedIndex);
         }
     }
 }
