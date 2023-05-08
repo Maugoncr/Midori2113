@@ -4028,10 +4028,10 @@ namespace MidoriValveTest
             //Abrir la 2 y cerrar la 1
             serialPort1.Write("E");
 
-            ManVOpen1.Image.Dispose();
-            ManVOpen1.Image = Properties.Resources.led_off_green;
-            ManVClose1.Image.Dispose();
-            ManVClose1.Image = Properties.Resources.led_on_red;
+            ManVOpen2.Image.Dispose();
+            ManVOpen2.Image = Properties.Resources.led_on_green;
+            ManVClose2.Image.Dispose();
+            ManVClose2.Image = Properties.Resources.led_off_red;
 
             DisableBtn(btnOnMANValve2);
             EnableBtn(btnOffMANValve2);
