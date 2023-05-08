@@ -705,31 +705,20 @@ namespace MidoriValveTest
         {
             InicioChrono = DateTime.Now;
 
-            if (TestToRun == 1)
-            {
-                minutos = 7;
-                segundos = 14;
-                //minutos = 0;
-                //segundos = 10;
-            }
-            else if (TestToRun == 2)
-            {
-                minutos = 5;
-                segundos = 10;
-            }
-            else if (true)
-            {
-                minutos = 2;
-                segundos = 12;
-            }
-
             lbGoalCycles.Text = NumTest.ToString();
-
             timerTemporizador.Start();
 
             Thread t = new Thread(new ThreadStart(EjecutarTest));
             t.Start();
             DisableBtn(btn_valveTest);
+        }
+
+        private void ContarCycle()
+        {
+            int x = Convert.ToInt32(lbCountCycles.Text);
+            x++;
+            lbCountCycles.Text = x.ToString();
+            lb_CounterTest.Text = x.ToString();
         }
 
         private void AbrirSolenoid_1() 
@@ -867,8 +856,8 @@ namespace MidoriValveTest
                     lbStepForTest.Text = "Open [PN ISO-V2]";
                     AbrirSolenoid_2();
                     Thread.Sleep(2000);
-                    
 
+                    ContarCycle();
                 }
                 DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
                 lbStepForTest.Text = "Phase 1 Finished";
@@ -934,6 +923,7 @@ namespace MidoriValveTest
                     AbrirSolenoid_2();
                     Thread.Sleep(2000);
 
+                    ContarCycle();
                 }
                 DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
                 lbStepForTest.Text = "Phase 2 Finished";
@@ -960,7 +950,7 @@ namespace MidoriValveTest
                 Thread.Sleep(50);
                 AbrirSolenoid_2();
 
-                for (int i = 0; i <= NumTest; i++)
+                for (int i = 1; i <= NumTest; i++)
                 {
                     //Cierra la valvula normal
                     serialPort1.Write("0");
@@ -1017,6 +1007,8 @@ namespace MidoriValveTest
                     VisualAbrirMainV();
                     Thread.Sleep(2000);
 
+                    ContarCycle();
+
                 }
                 DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
                 lbStepForTest.Text = "Phase 3 Finished";
@@ -1033,15 +1025,10 @@ namespace MidoriValveTest
             picture_plane.Image = MidoriValveTest.Properties.Resources.Front0;
             base_value = 0;
             trackBar1A.Value = 0;
-            // precision_aperture = 0;
             Current_aperture.Text = trackBar1A.Value + "°";
             btnSetApertura.Text = "Set Aperture";
-            //btn_set.Enabled = true;
-            //lbl_estado.ForeColor = Color.Red;
-            //lbl_estado.Text = "Close";
             if (lbl_estado.Text == "Open")
             {
-                //btn_set.Enabled = true;
                 EnableBtn(btnSetApertura);
             }
 
@@ -1055,15 +1042,10 @@ namespace MidoriValveTest
             picture_plane.Image = MidoriValveTest.Properties.Resources.Front10;
             base_value = 10;
             trackBar1A.Value = 10;
-            // precision_aperture = 10;
             Current_aperture.Text = trackBar1A.Value + "°";
 
-            //btn_set.Enabled = true;
-            //lbl_estado.ForeColor = Color.Green;
-            //lbl_estado.Text = "Open";
             if (lbl_estado.Text == "Open")
             {
-                //btn_set.Enabled = true;
                 EnableBtn(btnSetApertura);
                 btnSetApertura.Text = "Set Aperture in 10";
             }
@@ -1077,16 +1059,10 @@ namespace MidoriValveTest
             picture_plane.Image = MidoriValveTest.Properties.Resources.Front20;
             base_value = 20;
             trackBar1A.Value = 20;
-            // precision_aperture = 20;
             Current_aperture.Text = trackBar1A.Value + "°";
-
-            //btn_set.Enabled = true;
-            //lbl_estado.ForeColor = Color.Green;
-            //lbl_estado.Text = "Open";
 
             if (lbl_estado.Text == "Open")
             {
-                //btn_set.Enabled = true;
                 EnableBtn(btnSetApertura);
                 btnSetApertura.Text = "Set Aperture in 20";
             }
@@ -1100,15 +1076,9 @@ namespace MidoriValveTest
             picture_plane.Image = MidoriValveTest.Properties.Resources.Front30;
             base_value = 30;
             trackBar1A.Value = 30;
-            //precision_aperture = 30;
             Current_aperture.Text = trackBar1A.Value + "°";
-
-            //btn_set.Enabled = true;
-            //lbl_estado.ForeColor = Color.Green;
-            //lbl_estado.Text = "Open";
             if (lbl_estado.Text == "Open")
             {
-                //btn_set.Enabled = true;
                 EnableBtn(btnSetApertura);
                 btnSetApertura.Text = "Set Aperture in 30";
 
@@ -1123,15 +1093,9 @@ namespace MidoriValveTest
             picture_plane.Image = MidoriValveTest.Properties.Resources.Front40;
             base_value = 40;
             trackBar1A.Value = 40;
-            //precision_aperture = 40;
             Current_aperture.Text = trackBar1A.Value + "°";
-
-            //btn_set.Enabled = true;
-            //lbl_estado.ForeColor = Color.Green;
-            //lbl_estado.Text = "Open";
             if (lbl_estado.Text == "Open")
             {
-                //btn_set.Enabled = true;
                 EnableBtn(btnSetApertura);
                 btnSetApertura.Text = "Set Aperture in 40";
             }
@@ -1145,15 +1109,10 @@ namespace MidoriValveTest
             picture_plane.Image = MidoriValveTest.Properties.Resources.Front50;
             base_value = 50;
             trackBar1A.Value = 50;
-            //precision_aperture = 50;
             Current_aperture.Text = trackBar1A.Value + "°";
 
-            //btn_set.Enabled = true;
-            //lbl_estado.ForeColor = Color.Green;
-            //lbl_estado.Text = "Open";
             if (lbl_estado.Text == "Open")
             {
-                //btn_set.Enabled = true;
                 EnableBtn(btnSetApertura);
                 btnSetApertura.Text = "Set Aperture in 50";
             }
@@ -1168,16 +1127,10 @@ namespace MidoriValveTest
             picture_plane.Image = MidoriValveTest.Properties.Resources.Front60;
             base_value = 60;
             trackBar1A.Value = 60;
-            //precision_aperture = 60;
+          
             Current_aperture.Text = trackBar1A.Value + "°";
-
-            //btn_set.Enabled = true;
-            //lbl_estado.ForeColor = Color.Green;
-            //lbl_estado.Text = "Open";
-
             if (lbl_estado.Text == "Open")
             {
-                //btn_set.Enabled = true;
                 EnableBtn(btnSetApertura);
                 btnSetApertura.Text = "Set Aperture in 60";
             }
@@ -1191,16 +1144,9 @@ namespace MidoriValveTest
             picture_plane.Image = MidoriValveTest.Properties.Resources.Front70;
             base_value = 70;
             trackBar1A.Value = 70;
-            //precision_aperture = 70;
             Current_aperture.Text = trackBar1A.Value + "°";
-
-            //btn_set.Enabled = true;
-            //lbl_estado.ForeColor = Color.Green;
-            //lbl_estado.Text = "Open";
-
             if (lbl_estado.Text == "Open")
             {
-                //btn_set.Enabled = true;
                 EnableBtn(btnSetApertura);
                 btnSetApertura.Text = "Set Aperture in 70";
             }
@@ -1214,15 +1160,9 @@ namespace MidoriValveTest
             picture_plane.Image = MidoriValveTest.Properties.Resources.Front80;
             base_value = 80;
             trackBar1A.Value = 80;
-            //precision_aperture = 80;
             Current_aperture.Text = trackBar1A.Value + "°";
-
-            //btn_set.Enabled = true;
-            //lbl_estado.ForeColor = Color.Green;
-            //lbl_estado.Text = "Open";
             if (lbl_estado.Text == "Open")
             {
-                //btn_set.Enabled = true;
                 EnableBtn(btnSetApertura);
                 btnSetApertura.Text = "Set Aperture in 80";
             }
@@ -1237,29 +1177,12 @@ namespace MidoriValveTest
             picture_plane.Image = MidoriValveTest.Properties.Resources.Front90;
             base_value = 90;
             trackBar1A.Value = 90;
-            //precision_aperture = 90;
             Current_aperture.Text = trackBar1A.Value + "°";
-
-
-            //lbl_estado.ForeColor = Color.Green;
-            //lbl_estado.Text = "Open";
-            //btn_set.Enabled = true;
-
             if (lbl_estado.Text == "Open")
             {
                 btnSetApertura.Enabled = true;
                 btnSetApertura.Text = "Set Aperture in 90";
             }
-
-        }
-
-        private void label20_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
 
         }
 
@@ -2976,10 +2899,6 @@ namespace MidoriValveTest
                 ManVClose2.Image.Dispose();
                 ManVClose2.Image = Properties.Resources.led_on_red;
 
-                Thread.Sleep(50);
-
-                serialPort1.Write("R");
-
                 DisableBtn(btnOnMANValve);
                 EnableBtn(btnOffMANValve);
         }
@@ -3601,120 +3520,120 @@ namespace MidoriValveTest
             //Actualizamos el textbox con el tiempo formateado
             txtCrono.Text = tiempoFormateado;
 
-            if (minutos == 0 && segundos == 0)
-                {
-                    int x = Convert.ToInt32(lbCountCycles.Text);
-                    x++;
-                    lbCountCycles.Text = x.ToString();
-                    lb_CounterTest.Text = x.ToString();
-                    if (TestToRun == 1)
-                    {
-                            minutos = 7;
-                            segundos = 14;
-                            //minutos = 0;
-                            //segundos = 10;
-                        if (lbCountCycles.Text == lbGoalCycles.Text)
-                        {
-                            timerTemporizador.Stop();
-                            NoesUltimoTick = false;
-                            minutos = 0;
-                            segundos = 0;
-                            MessageBoxMaugoncr.Show("[1] PRETEST CALIBRATION FINISHED", "Phase 1", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                    else if (TestToRun == 2)
-                    {
-                        minutos = 5;
-                        segundos = 10;
-                        //minutos = 0;
-                        //segundos = 10;
-                        if (lbCountCycles.Text == lbGoalCycles.Text)
-                        {
-                            timerTemporizador.Stop();
-                            NoesUltimoTick = false;
-                            minutos = 0;
-                            segundos = 0;
-                            MessageBoxMaugoncr.Show("[2] STABILITY TEST FINISHED", "Phase 2", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                    else if (TestToRun == 3)
-                    {
-                        minutos = 2;
-                        segundos = 12;
-                        if (lbCountCycles.Text == lbGoalCycles.Text)
-                        {
-                            timerTemporizador.Stop();
-                            NoesUltimoTick = false;
-                            minutos = 0;
-                            segundos = 0;
-                            MessageBoxMaugoncr.Show("[3] VALVE LEAK TEST", "Phase 3", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                }
+            //if (minutos == 0 && segundos == 0)
+            //    {
+            //        int x = Convert.ToInt32(lbCountCycles.Text);
+            //        x++;
+            //        lbCountCycles.Text = x.ToString();
+            //        lb_CounterTest.Text = x.ToString();
+            //        if (TestToRun == 1)
+            //        {
+            //                minutos = 7;
+            //                segundos = 14;
+            //                //minutos = 0;
+            //                //segundos = 10;
+            //            if (lbCountCycles.Text == lbGoalCycles.Text)
+            //            {
+            //                timerTemporizador.Stop();
+            //                NoesUltimoTick = false;
+            //                minutos = 0;
+            //                segundos = 0;
+            //                MessageBoxMaugoncr.Show("[1] PRETEST CALIBRATION FINISHED", "Phase 1", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            }
+            //        }
+            //        else if (TestToRun == 2)
+            //        {
+            //            minutos = 5;
+            //            segundos = 10;
+            //            //minutos = 0;
+            //            //segundos = 10;
+            //            if (lbCountCycles.Text == lbGoalCycles.Text)
+            //            {
+            //                timerTemporizador.Stop();
+            //                NoesUltimoTick = false;
+            //                minutos = 0;
+            //                segundos = 0;
+            //                MessageBoxMaugoncr.Show("[2] STABILITY TEST FINISHED", "Phase 2", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            }
+            //        }
+            //        else if (TestToRun == 3)
+            //        {
+            //            minutos = 2;
+            //            segundos = 12;
+            //            if (lbCountCycles.Text == lbGoalCycles.Text)
+            //            {
+            //                timerTemporizador.Stop();
+            //                NoesUltimoTick = false;
+            //                minutos = 0;
+            //                segundos = 0;
+            //                MessageBoxMaugoncr.Show("[3] VALVE LEAK TEST", "Phase 3", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            }
+            //        }
+            //    }
 
-            if (NoesUltimoTick)
-            {
-                if (minutos != 0 || segundos != 0)
-                {
-                    if (segundos != 0)
-                    {
-                        segundos--;
-                        if (segundos < 10)
-                        {
-                            if (minutos < 10)
-                            {
-                                txtTemporizador.Text = "0" + minutos.ToString() + ":0" + segundos.ToString();
-                            }
-                            else
-                            {
-                                txtTemporizador.Text = minutos.ToString() + ":0" + segundos.ToString();
-                            }
-                        }
-                        else
-                        {
-                            if (minutos < 10)
-                            {
-                                txtTemporizador.Text = "0" + minutos.ToString() + ":" + segundos.ToString();
-                            }
-                            else
-                            {
-                                txtTemporizador.Text = minutos.ToString() + ":" + segundos.ToString();
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (minutos != 0)
-                        {
-                            minutos--;
-                            segundos = 59;
-                            if (minutos < 10)
-                            {
-                                if (segundos < 10)
-                                {
-                                    txtTemporizador.Text = "0" + minutos.ToString() + ":0" + segundos.ToString();
-                                }
-                                else
-                                {
-                                    txtTemporizador.Text = "0" + minutos.ToString() + ":" + segundos.ToString();
-                                }
-                            }
-                            else
-                            {
-                                if (segundos < 10)
-                                {
-                                    txtTemporizador.Text = minutos.ToString() + ":0" + segundos.ToString();
-                                }
-                                else
-                                {
-                                    txtTemporizador.Text = minutos.ToString() + ":" + segundos.ToString();
-                                }
-                            }
+            //if (NoesUltimoTick)
+            //{
+            //    if (minutos != 0 || segundos != 0)
+            //    {
+            //        if (segundos != 0)
+            //        {
+            //            segundos--;
+            //            if (segundos < 10)
+            //            {
+            //                if (minutos < 10)
+            //                {
+            //                    txtTemporizador.Text = "0" + minutos.ToString() + ":0" + segundos.ToString();
+            //                }
+            //                else
+            //                {
+            //                    txtTemporizador.Text = minutos.ToString() + ":0" + segundos.ToString();
+            //                }
+            //            }
+            //            else
+            //            {
+            //                if (minutos < 10)
+            //                {
+            //                    txtTemporizador.Text = "0" + minutos.ToString() + ":" + segundos.ToString();
+            //                }
+            //                else
+            //                {
+            //                    txtTemporizador.Text = minutos.ToString() + ":" + segundos.ToString();
+            //                }
+            //            }
+            //        }
+            //        else
+            //        {
+            //            if (minutos != 0)
+            //            {
+            //                minutos--;
+            //                segundos = 59;
+            //                if (minutos < 10)
+            //                {
+            //                    if (segundos < 10)
+            //                    {
+            //                        txtTemporizador.Text = "0" + minutos.ToString() + ":0" + segundos.ToString();
+            //                    }
+            //                    else
+            //                    {
+            //                        txtTemporizador.Text = "0" + minutos.ToString() + ":" + segundos.ToString();
+            //                    }
+            //                }
+            //                else
+            //                {
+            //                    if (segundos < 10)
+            //                    {
+            //                        txtTemporizador.Text = minutos.ToString() + ":0" + segundos.ToString();
+            //                    }
+            //                    else
+            //                    {
+            //                        txtTemporizador.Text = minutos.ToString() + ":" + segundos.ToString();
+            //                    }
+            //                }
 
-                        }
-                    }
-                }
-            }
+            //            }
+            //        }
+            //    }
+            //}
             
         }
 
@@ -4131,8 +4050,6 @@ namespace MidoriValveTest
             ManVOpen2.Image = Properties.Resources.led_on_green;
             ManVClose2.Image.Dispose();
             ManVClose2.Image = Properties.Resources.led_off_red;
-            Thread.Sleep(50);
-            serialPort1.Write("W");
 
             DisableBtn(btnOnMANValve2);
             EnableBtn(btnOffMANValve2);
@@ -4172,9 +4089,28 @@ namespace MidoriValveTest
             LeftBtn(btnOffMANValve2);
         }
 
-        private void groupBox4_Enter(object sender, EventArgs e)
+        private void lbCountCycles_TextChanged(object sender, EventArgs e)
         {
-
+            if (lbGoalCycles.Text == lbCountCycles.Text)
+            {
+                if (TestToRun == 1)
+                {
+                        timerTemporizador.Stop();
+                        this.Alert("Phase [1] Finished", Form_Alert.enmType.Success);
+                }
+                else if (TestToRun == 2)
+                {
+                        timerTemporizador.Stop();
+                        this.Alert("Phase [2] Finished", Form_Alert.enmType.Success);
+                }
+                else if (TestToRun == 3)
+                {
+                        timerTemporizador.Stop();
+                        this.Alert("Phase [3] Finished", Form_Alert.enmType.Success);
+                }
+            }
         }
+
+
     }
 }
