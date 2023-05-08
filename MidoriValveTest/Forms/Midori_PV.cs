@@ -256,9 +256,9 @@ namespace MidoriValveTest
 
             // Man Val Controls
             DisableBtn(btnOffMANValve);
+            DisableBtn(btnOffMANValve2);
             DisableBtn(btnOnMANValve);
-            cbManValve.Enabled = false;
-            cbManValve.SelectedIndex = -1;
+            DisableBtn(btnOnMANValve2);
 
             // Pump Controls
 
@@ -408,8 +408,6 @@ namespace MidoriValveTest
                     ManVClose2.Image.Dispose();
                     ManVClose1.Image = Properties.Resources.led_on_red;
                     ManVClose2.Image = Properties.Resources.led_on_red;
-                    cbManValve.Enabled = true;
-                    cbManValve.SelectedIndex = 0;
 
                     EnableBtn(btnOpenGate);
                     btn_P_conf.Enabled = true;
@@ -418,7 +416,7 @@ namespace MidoriValveTest
                     DisableBtn(btnConnect);
                     EnableBtn(btnStartPID);
                     EnableBtn(btnOnMANValve);
-                    EnableBtn(btnOffMANValve);
+                    EnableBtn(btnOnMANValve2);
                     EnableBtn(btnOnPump);
 
 
@@ -2964,9 +2962,6 @@ namespace MidoriValveTest
             //W - Cerrar solenoid 1
             //E - Abrir solenoid 2
             //R - Cerrar solenoid 2
-
-            if (KnowWhichManVal == 1)
-            {
                 this.Alert("Successfully opened", Form_Alert.enmType.Success);
 
                 //Abrir la 1 y cerrar la 2
@@ -2985,34 +2980,12 @@ namespace MidoriValveTest
 
                 serialPort1.Write("R");
 
-            }
-            else if (KnowWhichManVal == 2)
-            {
-
-                this.Alert("Successfully opened", Form_Alert.enmType.Success);
-
-                //Abrir la 2 y cerrar la 1
-                serialPort1.Write("E");
-
-                ManVOpen1.Image.Dispose();
-                ManVOpen1.Image = Properties.Resources.led_off_green;
-                ManVClose1.Image.Dispose();
-                ManVClose1.Image = Properties.Resources.led_on_red;
-                ManVOpen2.Image.Dispose();
-                ManVOpen2.Image = Properties.Resources.led_on_green;
-                ManVClose2.Image.Dispose();
-                ManVClose2.Image = Properties.Resources.led_off_red;
-                Thread.Sleep(50);
-                serialPort1.Write("W");
-            }
-
-
+                DisableBtn(btnOnMANValve);
+                EnableBtn(btnOffMANValve);
         }
 
         private void btnOffMANValve_Click(object sender, EventArgs e)
         {
-            if (KnowWhichManVal == 1)
-            {
                 this.Alert("Successfully closed", Form_Alert.enmType.Success);
                 // Cerrar la 1
                 serialPort1.Write("W");
@@ -3020,24 +2993,16 @@ namespace MidoriValveTest
                 ManVOpen1.Image = Properties.Resources.led_off_green;
                 ManVClose1.Image.Dispose();
                 ManVClose1.Image = Properties.Resources.led_on_red;
-            }
-            else if (KnowWhichManVal == 2)
-            {
-                this.Alert("Successfully closed", Form_Alert.enmType.Success);
-                // Cerrar la 2
-                serialPort1.Write("R");
-                ManVOpen2.Image.Dispose();
-                ManVOpen2.Image = Properties.Resources.led_off_green;
-                ManVClose2.Image.Dispose();
-                ManVClose2.Image = Properties.Resources.led_on_red;
-            }
+
+                DisableBtn(btnOffMANValve);
+                EnableBtn(btnOnMANValve);
         }
 
         private void EncenderBTN(Button btn)
         {
             if (btn.Enabled == true)
             {
-                if (btn.Name == "btnOnMANValve" || btn.Name == "btnOnPump")
+                if (btn.Name == "btnOnMANValve" || btn.Name == "btnOnPump" || btn.Name == "btnOnMANValve2")
                 {
                     btn.ForeColor = Color.White;
                     btnOnMANValve.IconColor = Color.White;
@@ -3619,22 +3584,6 @@ namespace MidoriValveTest
             LeftBtn(btnAutoCalibrate);
         }
 
-        private void cbManValve_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbManValve.SelectedIndex == 0)
-            {
-                KnowWhichManVal = 1;
-            }
-            else if (cbManValve.SelectedIndex == 1)
-            {
-                KnowWhichManVal = 2;
-            }
-            else
-            {
-                KnowWhichManVal = 0;
-            }
-        }
-
         int minutos = 0;
         int segundos = 0;
         bool NoesUltimoTick = true;
@@ -4028,7 +3977,7 @@ namespace MidoriValveTest
 
             double result = double.Parse(Out, System.Globalization.NumberStyles.Float);
 
-            lbMKS1.Text = result.ToString();
+            lbMKS1.Text = result.ToString("F1");
         }
 
         private void ReadData2(string t)
@@ -4046,7 +3995,7 @@ namespace MidoriValveTest
 
             double result = double.Parse(Out, System.Globalization.NumberStyles.Float);
 
-            lbMKS2.Text = result.ToString();
+            lbMKS2.Text = result.ToString("F1");
         }
 
         private void btnCloseMKSConexion_Click(object sender, EventArgs e)
@@ -4165,6 +4114,67 @@ namespace MidoriValveTest
                 lbStatusMKS2.Text = "* Disconnected";
                 cbMKS2.Enabled = true;
             }
+        }
+
+        private void btnOnMANValve2_Click(object sender, EventArgs e)
+        {
+            this.Alert("Successfully opened", Form_Alert.enmType.Success);
+
+            //Abrir la 2 y cerrar la 1
+            serialPort1.Write("E");
+
+            ManVOpen1.Image.Dispose();
+            ManVOpen1.Image = Properties.Resources.led_off_green;
+            ManVClose1.Image.Dispose();
+            ManVClose1.Image = Properties.Resources.led_on_red;
+            ManVOpen2.Image.Dispose();
+            ManVOpen2.Image = Properties.Resources.led_on_green;
+            ManVClose2.Image.Dispose();
+            ManVClose2.Image = Properties.Resources.led_off_red;
+            Thread.Sleep(50);
+            serialPort1.Write("W");
+
+            DisableBtn(btnOnMANValve2);
+            EnableBtn(btnOffMANValve2);
+        }
+
+        private void btnOffMANValve2_Click(object sender, EventArgs e)
+        {
+            this.Alert("Successfully closed", Form_Alert.enmType.Success);
+            // Cerrar la 2
+            serialPort1.Write("R");
+            ManVOpen2.Image.Dispose();
+            ManVOpen2.Image = Properties.Resources.led_off_green;
+            ManVClose2.Image.Dispose();
+            ManVClose2.Image = Properties.Resources.led_on_red;
+
+            DisableBtn(btnOffMANValve2);
+            EnableBtn(btnOnMANValve2);
+        }
+
+        private void btnOnMANValve2_MouseEnter(object sender, EventArgs e)
+        {
+            EncenderBTN(btnOnMANValve2);
+        }
+
+        private void btnOnMANValve2_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btnOnMANValve2);
+        }
+
+        private void btnOffMANValve2_MouseEnter(object sender, EventArgs e)
+        {
+            EncenderBTN(btnOffMANValve2);
+        }
+
+        private void btnOffMANValve2_MouseLeave(object sender, EventArgs e)
+        {
+            LeftBtn(btnOffMANValve2);
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
