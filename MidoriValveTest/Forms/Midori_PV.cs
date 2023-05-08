@@ -2028,7 +2028,7 @@ namespace MidoriValveTest
 
         private void IconReport_Click(object sender, EventArgs e)
         {
-            GenerarReporte();
+            GenerarReporte(ObtenerNombreReport());
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -3625,7 +3625,7 @@ namespace MidoriValveTest
 
         private DateTime InicioChrono;
 
-        private void GenerarReporte() 
+        private void GenerarReporte(string NombreReport) 
         {
             Bitmap screenCapture = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             Graphics g = Graphics.FromImage(screenCapture);
@@ -3638,6 +3638,7 @@ namespace MidoriValveTest
             MiReporte.Load("../../Reportes/RptCyclesComplete.rpt");
             MiReporte.SetParameterValue("CompleteCycles", lbCountCycles.Text);
             MiReporte.SetParameterValue("GoalCycles", lbGoalCycles.Text);
+            MiReporte.SetParameterValue("NameReport", NombreReport);
             MiReporte.SetParameterValue("ImagePath", tempPath);
 
             string k = DateStartedTest.Text;
@@ -4071,6 +4072,26 @@ namespace MidoriValveTest
             LeftBtn(btnOffMANValve2);
         }
 
+        public string NombreReporte = "Name Unregistered";
+
+        private string ObtenerNombreReport()
+        {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmAskNameReport);
+            if (frm == null)
+            {
+                FrmAskNameReport Mensajero = new FrmAskNameReport();
+                Mensajero.inter = this;
+                Mensajero.ShowDialog();
+
+                if (Mensajero.DialogResult == DialogResult.OK)
+                {
+                    return NombreReporte;
+                }
+            }
+
+            return NombreReporte;
+        }
+
         private void lbCountCycles_TextChanged(object sender, EventArgs e)
         {
             if (lbGoalCycles.Text == lbCountCycles.Text)
@@ -4079,19 +4100,19 @@ namespace MidoriValveTest
                 {
                         timerTemporizador.Stop();
                         this.Alert("Phase [1] Finished", Form_Alert.enmType.Success);
-                        GenerarReporte();
+                        GenerarReporte(ObtenerNombreReport());
                 }
                 else if (TestToRun == 2)
                 {
                         timerTemporizador.Stop();
                         this.Alert("Phase [2] Finished", Form_Alert.enmType.Success);
-                        GenerarReporte();
+                        GenerarReporte(ObtenerNombreReport());
                 }
                 else if (TestToRun == 3)
                 {
                         timerTemporizador.Stop();
                         this.Alert("Phase [3] Finished", Form_Alert.enmType.Success);
-                        GenerarReporte();
+                        GenerarReporte(ObtenerNombreReport());
                 }
             }
         }
