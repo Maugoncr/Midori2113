@@ -237,6 +237,8 @@ namespace MidoriValveTest
             btnConnectMKS2.IconChar = FontAwesome.Sharp.IconChar.ToggleOff;
             lbStatusMKS1.Text = "* Disconnected";
             lbStatusMKS2.Text = "* Disconnected";
+            lbMKS1.Text = "---";
+            lbMKS2.Text = "---";
 
             DisableBtn(btnOpenGate);
             DisableBtn(btnCloseGate);
@@ -2027,18 +2029,6 @@ namespace MidoriValveTest
         private void IconReport_Click(object sender, EventArgs e)
         {
             GenerarReporte();
-
-            //Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Report);
-            //if (frm == null)
-            //{
-            //    Report nt = new Report();
-            //    nt.Show();
-            //}
-            //else
-            //{
-            //    frm.BringToFront();
-            //    return;
-            //}
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -2894,10 +2884,6 @@ namespace MidoriValveTest
                 ManVOpen1.Image = Properties.Resources.led_on_green;
                 ManVClose1.Image.Dispose();
                 ManVClose1.Image = Properties.Resources.led_off_red;
-                ManVOpen2.Image.Dispose();
-                ManVOpen2.Image = Properties.Resources.led_off_green;
-                ManVClose2.Image.Dispose();
-                ManVClose2.Image = Properties.Resources.led_on_red;
 
                 DisableBtn(btnOnMANValve);
                 EnableBtn(btnOffMANValve);
@@ -4046,10 +4032,6 @@ namespace MidoriValveTest
             ManVOpen1.Image = Properties.Resources.led_off_green;
             ManVClose1.Image.Dispose();
             ManVClose1.Image = Properties.Resources.led_on_red;
-            ManVOpen2.Image.Dispose();
-            ManVOpen2.Image = Properties.Resources.led_on_green;
-            ManVClose2.Image.Dispose();
-            ManVClose2.Image = Properties.Resources.led_off_red;
 
             DisableBtn(btnOnMANValve2);
             EnableBtn(btnOffMANValve2);
@@ -4097,20 +4079,26 @@ namespace MidoriValveTest
                 {
                         timerTemporizador.Stop();
                         this.Alert("Phase [1] Finished", Form_Alert.enmType.Success);
+                        GenerarReporte();
                 }
                 else if (TestToRun == 2)
                 {
                         timerTemporizador.Stop();
                         this.Alert("Phase [2] Finished", Form_Alert.enmType.Success);
+                        GenerarReporte();
                 }
                 else if (TestToRun == 3)
                 {
                         timerTemporizador.Stop();
                         this.Alert("Phase [3] Finished", Form_Alert.enmType.Success);
+                        GenerarReporte();
                 }
             }
         }
 
+        private void groupBox6_Enter(object sender, EventArgs e)
+        {
 
+        }
     }
 }
