@@ -40,6 +40,9 @@ namespace MidoriValveTest
         double temp = 0;                            // Time in ms
         bool MostrarSetPoint = false;
 
+        bool PedirMKS1 = false;
+        bool PedirMKS2 = false;
+
         DateTime star_record = new DateTime();
         DateTime end_record = new DateTime();
 
@@ -121,9 +124,20 @@ namespace MidoriValveTest
             {
                 serialPort1.Close();
             }
+            if (serialPortMKS1.IsOpen)
+            {
+                serialPortMKS1.Close();
+            }
+            if (serialPortMKS2.IsOpen)
+            {
+                serialPortMKS2.Close();
+            }
 
             //Timers
             timerForData.Stop();
+
+            PedirMKS1 = false;
+            PedirMKS2 = false;
 
             // Return all the variables from ObjetosGlobales to default
             ObjetosGlobales.P = "x";
@@ -201,13 +215,29 @@ namespace MidoriValveTest
 
             // Load COM
             cbSelectionCOM.Enabled = true;
+            cbMKS1.Enabled = true;
+            cbMKS2.Enabled = true;
+
             string[] ports = SerialPort.GetPortNames();
+
             cbSelectionCOM.Items.Clear();
+            cbMKS1.Items.Clear();
+            cbMKS2.Items.Clear();
+
             cbSelectionCOM.Items.AddRange(ports);
+            cbMKS1.Items.AddRange(ports);
+            cbMKS2.Items.AddRange(ports);
 
             //Enable Buttons
 
             //Disable Buttons
+            btnConnectMKS1.Enabled = false;
+            btnConnectMKS1.IconChar = FontAwesome.Sharp.IconChar.ToggleOff;
+            btnConnectMKS2.Enabled = false;
+            btnConnectMKS2.IconChar = FontAwesome.Sharp.IconChar.ToggleOff;
+            lbStatusMKS1.Text = "* Disconnected";
+            lbStatusMKS2.Text = "* Disconnected";
+
             DisableBtn(btnOpenGate);
             DisableBtn(btnCloseGate);
             DisableBtn(btnSetApertura);
@@ -324,15 +354,29 @@ namespace MidoriValveTest
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbSelectionCOM.SelectedIndex >= 0)
+
+            // Obtener el ComboBox actual y su ítem seleccionado
+            ComboBox currentComboBox = (ComboBox)sender;
+            string selectedItem = currentComboBox.SelectedItem.ToString();
+
+            // Recorrer los otros ComboBox y deseleccionar el mismo ítem si fue seleccionado antes
+            foreach (ComboBox otherComboBox in new ComboBox[] { cbMKS1, cbMKS2, cbSelectionCOM })
+            {
+                if (otherComboBox != currentComboBox && otherComboBox.SelectedItem != null && otherComboBox.SelectedItem.ToString() == selectedItem)
+                {
+                    otherComboBox.SelectedItem = null;
+                }
+            }
+
+            if (cbSelectionCOM.SelectedItem != null)
             {
                 EnableBtn(btnConnect);
-
             }
             else
             {
                 DisableBtn(btnConnect);
             }
+           
         }
 
 
@@ -2494,6 +2538,18 @@ namespace MidoriValveTest
             rt = rt + 100;
             temp = rt / 1000;
 
+            if (serialPortMKS1.IsOpen && PedirMKS1)
+            {
+                serialPortMKS1.DiscardOutBuffer();
+                serialPortMKS1.WriteLine("@254PR1?;FF");
+            }
+
+            if (serialPortMKS2.IsOpen && PedirMKS2)
+            {
+                serialPortMKS2.DiscardOutBuffer();
+                serialPortMKS2.WriteLine("@254PR1?;FF");
+            }
+
 
             if (serialPort1.IsOpen && i == true && presionChart != null && temperaturaLabel != null)
             {
@@ -3782,30 +3838,16 @@ namespace MidoriValveTest
             LeftBtn(btnOffPump);
         }
 
-
-        bool shouldRun1 = false;
-        bool shouldRun2 = false;
-        private void timerMKS1_Tick(object sender, EventArgs e)
-        {
-            if (shouldRun1 == false)
-            {
-                serialPortMKS1.DiscardOutBuffer();
-                serialPortMKS1.WriteLine("@254PR1?;FF");
-            }
-            else
-            {
-            }
-        }
-
         private void btnConexionMKS_Click(object sender, EventArgs e)
         {
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmConexionMKS);
-            if (frm == null)
-            {
-                FrmConexionMKS TEST = new FrmConexionMKS();
-                TEST.mensajero = this;
-                TEST.ShowDialog();
-            }
+            int centerX = Screen.PrimaryScreen.Bounds.Width / 2;
+            int centerY = Screen.PrimaryScreen.Bounds.Height / 2;
+            Point centerScreen = new Point(centerX, centerY);
+
+            panelConexionMKS.Location = new Point(centerScreen.X - panelConexionMKS.Size.Width / 2, centerScreen.Y - panelConexionMKS.Size.Height / 2);
+
+            panelConexionMKS.Visible = true;
+
         }
 
         public void IniciarConexionMKS1(string COM)
@@ -3925,6 +3967,61 @@ namespace MidoriValveTest
             lbMKS2.Text = result.ToString();
         }
 
+        private void btnCloseMKSConexion_Click(object sender, EventArgs e)
+        {
+            panelConexionMKS.Visible = false;
 
+        }
+
+        private void cbMKS1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtener el ComboBox actual y su ítem seleccionado
+            ComboBox currentComboBox = (ComboBox)sender;
+            string selectedItem = currentComboBox.SelectedItem.ToString();
+
+            // Recorrer los otros ComboBox y deseleccionar el mismo ítem si fue seleccionado antes
+            foreach (ComboBox otherComboBox in new ComboBox[] { cbMKS1, cbMKS2, cbSelectionCOM })
+            {
+                if (otherComboBox != currentComboBox && otherComboBox.SelectedItem != null && otherComboBox.SelectedItem.ToString() == selectedItem)
+                {
+                    otherComboBox.SelectedItem = null;
+                }
+            }
+
+            if (cbMKS1.SelectedItem != null)
+            {
+                btnConnectMKS1.Enabled = true;
+            }
+            else
+            {
+                btnConnectMKS1.Enabled = false;
+            }
+
+        }
+
+        private void cbMKS2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtener el ComboBox actual y su ítem seleccionado
+            ComboBox currentComboBox = (ComboBox)sender;
+            string selectedItem = currentComboBox.SelectedItem.ToString();
+
+            // Recorrer los otros ComboBox y deseleccionar el mismo ítem si fue seleccionado antes
+            foreach (ComboBox otherComboBox in new ComboBox[] { cbMKS1, cbMKS2, cbSelectionCOM })
+            {
+                if (otherComboBox != currentComboBox && otherComboBox.SelectedItem != null && otherComboBox.SelectedItem.ToString() == selectedItem)
+                {
+                    otherComboBox.SelectedItem = null;
+                }
+            }
+
+            if (cbMKS2.SelectedItem != null)
+            {
+                btnConnectMKS2.Enabled = true;
+            }
+            else
+            {
+                btnConnectMKS2.Enabled = false;
+            }
+        }
     }
 }

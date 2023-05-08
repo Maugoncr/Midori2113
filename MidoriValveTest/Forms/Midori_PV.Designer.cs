@@ -31,10 +31,10 @@ namespace MidoriValveTest
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Midori_PV));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblEstado = new System.Windows.Forms.Label();
@@ -240,6 +240,17 @@ namespace MidoriValveTest
             this.lbMKS2 = new System.Windows.Forms.Label();
             this.serialPortMKS1 = new System.IO.Ports.SerialPort(this.components);
             this.serialPortMKS2 = new System.IO.Ports.SerialPort(this.components);
+            this.panelConexionMKS = new System.Windows.Forms.Panel();
+            this.lbStatusMKS2 = new System.Windows.Forms.Label();
+            this.lbStatusMKS1 = new System.Windows.Forms.Label();
+            this.btnConnectMKS2 = new FontAwesome.Sharp.IconButton();
+            this.btnConnectMKS1 = new FontAwesome.Sharp.IconButton();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.cbMKS2 = new System.Windows.Forms.ComboBox();
+            this.cbMKS1 = new System.Windows.Forms.ComboBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.btnCloseMKSConexion = new FontAwesome.Sharp.IconButton();
             this.groupBox4.SuspendLayout();
             this.groupBox18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCamara5)).BeginInit();
@@ -289,6 +300,8 @@ namespace MidoriValveTest
             this.groupBox20.SuspendLayout();
             this.groupBox21.SuspendLayout();
             this.groupBox22.SuspendLayout();
+            this.panelConexionMKS.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -813,47 +826,47 @@ namespace MidoriValveTest
             this.chart1.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart1.BorderSkin.BackColor = System.Drawing.Color.Black;
             this.chart1.BorderSkin.BorderColor = System.Drawing.Color.Empty;
-            chartArea4.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea4.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
-            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea4.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea4.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea4.AxisY.Minimum = 0D;
-            chartArea4.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.White;
-            chartArea4.AxisY.ScaleView.MinSize = 1D;
-            chartArea4.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea4.AxisY2.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea4.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
-            chartArea4.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
-            chartArea4.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.BackSecondaryColor = System.Drawing.Color.White;
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.BackColor = System.Drawing.Color.Gainsboro;
-            legend4.Name = "Legend1";
-            legend4.TitleAlignment = System.Drawing.StringAlignment.Near;
-            this.chart1.Legends.Add(legend4);
+            chartArea3.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea3.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea3.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea3.AxisY.Minimum = 0D;
+            chartArea3.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisY.ScaleView.MinSize = 1D;
+            chartArea3.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea3.AxisY2.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
+            chartArea3.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
+            chartArea3.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.BackSecondaryColor = System.Drawing.Color.White;
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.BackColor = System.Drawing.Color.Gainsboro;
+            legend3.Name = "Legend1";
+            legend3.TitleAlignment = System.Drawing.StringAlignment.Near;
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(15, 264);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series7.Color = System.Drawing.Color.Green;
-            series7.Legend = "Legend1";
-            series7.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series7.Name = "Pressure";
-            series7.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series7.YValuesPerPoint = 4;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series8.Color = System.Drawing.SystemColors.MenuHighlight;
-            series8.Legend = "Legend1";
-            series8.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series8.Name = "Aperture value";
-            series8.ShadowColor = System.Drawing.Color.Silver;
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series5.Color = System.Drawing.Color.Green;
+            series5.Legend = "Legend1";
+            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series5.Name = "Pressure";
+            series5.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series5.YValuesPerPoint = 4;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series6.Color = System.Drawing.SystemColors.MenuHighlight;
+            series6.Legend = "Legend1";
+            series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series6.Name = "Aperture value";
+            series6.ShadowColor = System.Drawing.Color.Silver;
+            this.chart1.Series.Add(series5);
+            this.chart1.Series.Add(series6);
             this.chart1.Size = new System.Drawing.Size(1262, 648);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -2372,7 +2385,7 @@ namespace MidoriValveTest
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(223, 17);
             this.label1.TabIndex = 71;
-            this.label1.Text = "Rev 2.5.0";
+            this.label1.Text = "Rev 2.5.1";
             // 
             // IconMinima
             // 
@@ -2955,12 +2968,152 @@ namespace MidoriValveTest
             // 
             this.serialPortMKS2.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPortMKS2_DataReceived);
             // 
+            // panelConexionMKS
+            // 
+            this.panelConexionMKS.Controls.Add(this.lbStatusMKS2);
+            this.panelConexionMKS.Controls.Add(this.lbStatusMKS1);
+            this.panelConexionMKS.Controls.Add(this.btnConnectMKS2);
+            this.panelConexionMKS.Controls.Add(this.btnConnectMKS1);
+            this.panelConexionMKS.Controls.Add(this.label16);
+            this.panelConexionMKS.Controls.Add(this.label17);
+            this.panelConexionMKS.Controls.Add(this.cbMKS2);
+            this.panelConexionMKS.Controls.Add(this.cbMKS1);
+            this.panelConexionMKS.Controls.Add(this.panel11);
+            this.panelConexionMKS.Location = new System.Drawing.Point(562, 405);
+            this.panelConexionMKS.Name = "panelConexionMKS";
+            this.panelConexionMKS.Size = new System.Drawing.Size(570, 153);
+            this.panelConexionMKS.TabIndex = 87;
+            this.panelConexionMKS.Visible = false;
+            // 
+            // lbStatusMKS2
+            // 
+            this.lbStatusMKS2.AutoSize = true;
+            this.lbStatusMKS2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatusMKS2.Location = new System.Drawing.Point(426, 106);
+            this.lbStatusMKS2.Name = "lbStatusMKS2";
+            this.lbStatusMKS2.Size = new System.Drawing.Size(122, 18);
+            this.lbStatusMKS2.TabIndex = 121;
+            this.lbStatusMKS2.Text = "* Disconnected";
+            // 
+            // lbStatusMKS1
+            // 
+            this.lbStatusMKS1.AutoSize = true;
+            this.lbStatusMKS1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatusMKS1.Location = new System.Drawing.Point(426, 63);
+            this.lbStatusMKS1.Name = "lbStatusMKS1";
+            this.lbStatusMKS1.Size = new System.Drawing.Size(122, 18);
+            this.lbStatusMKS1.TabIndex = 120;
+            this.lbStatusMKS1.Text = "* Disconnected";
+            // 
+            // btnConnectMKS2
+            // 
+            this.btnConnectMKS2.BackColor = System.Drawing.Color.Transparent;
+            this.btnConnectMKS2.FlatAppearance.BorderSize = 0;
+            this.btnConnectMKS2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConnectMKS2.IconChar = FontAwesome.Sharp.IconChar.ToggleOff;
+            this.btnConnectMKS2.IconColor = System.Drawing.Color.Black;
+            this.btnConnectMKS2.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnConnectMKS2.Location = new System.Drawing.Point(368, 96);
+            this.btnConnectMKS2.Name = "btnConnectMKS2";
+            this.btnConnectMKS2.Size = new System.Drawing.Size(52, 33);
+            this.btnConnectMKS2.TabIndex = 119;
+            this.btnConnectMKS2.UseVisualStyleBackColor = false;
+            // 
+            // btnConnectMKS1
+            // 
+            this.btnConnectMKS1.BackColor = System.Drawing.Color.Transparent;
+            this.btnConnectMKS1.FlatAppearance.BorderSize = 0;
+            this.btnConnectMKS1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConnectMKS1.IconChar = FontAwesome.Sharp.IconChar.ToggleOff;
+            this.btnConnectMKS1.IconColor = System.Drawing.Color.Black;
+            this.btnConnectMKS1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnConnectMKS1.Location = new System.Drawing.Point(368, 57);
+            this.btnConnectMKS1.Name = "btnConnectMKS1";
+            this.btnConnectMKS1.Size = new System.Drawing.Size(52, 33);
+            this.btnConnectMKS1.TabIndex = 118;
+            this.btnConnectMKS1.UseVisualStyleBackColor = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(30, 103);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(46, 18);
+            this.label16.TabIndex = 117;
+            this.label16.Text = "EC-2:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(30, 60);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(46, 18);
+            this.label17.TabIndex = 116;
+            this.label17.Text = "EC-1:";
+            // 
+            // cbMKS2
+            // 
+            this.cbMKS2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbMKS2.BackColor = System.Drawing.Color.White;
+            this.cbMKS2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMKS2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbMKS2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMKS2.FormattingEnabled = true;
+            this.cbMKS2.Location = new System.Drawing.Point(82, 98);
+            this.cbMKS2.Name = "cbMKS2";
+            this.cbMKS2.Size = new System.Drawing.Size(278, 26);
+            this.cbMKS2.TabIndex = 115;
+            this.cbMKS2.SelectedIndexChanged += new System.EventHandler(this.cbMKS2_SelectedIndexChanged);
+            // 
+            // cbMKS1
+            // 
+            this.cbMKS1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbMKS1.BackColor = System.Drawing.Color.White;
+            this.cbMKS1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMKS1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbMKS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMKS1.FormattingEnabled = true;
+            this.cbMKS1.Location = new System.Drawing.Point(82, 57);
+            this.cbMKS1.Name = "cbMKS1";
+            this.cbMKS1.Size = new System.Drawing.Size(278, 26);
+            this.cbMKS1.TabIndex = 114;
+            this.cbMKS1.SelectedIndexChanged += new System.EventHandler(this.cbMKS1_SelectedIndexChanged);
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.Teal;
+            this.panel11.Controls.Add(this.btnCloseMKSConexion);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(570, 39);
+            this.panel11.TabIndex = 0;
+            // 
+            // btnCloseMKSConexion
+            // 
+            this.btnCloseMKSConexion.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCloseMKSConexion.FlatAppearance.BorderSize = 0;
+            this.btnCloseMKSConexion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseMKSConexion.IconChar = FontAwesome.Sharp.IconChar.TimesRectangle;
+            this.btnCloseMKSConexion.IconColor = System.Drawing.Color.White;
+            this.btnCloseMKSConexion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCloseMKSConexion.IconSize = 30;
+            this.btnCloseMKSConexion.Location = new System.Drawing.Point(535, 0);
+            this.btnCloseMKSConexion.Name = "btnCloseMKSConexion";
+            this.btnCloseMKSConexion.Size = new System.Drawing.Size(35, 39);
+            this.btnCloseMKSConexion.TabIndex = 41;
+            this.btnCloseMKSConexion.UseVisualStyleBackColor = true;
+            this.btnCloseMKSConexion.Click += new System.EventHandler(this.btnCloseMKSConexion_Click);
+            // 
             // Midori_PV
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1920, 1061);
+            this.Controls.Add(this.panelConexionMKS);
             this.Controls.Add(this.groupBox22);
             this.Controls.Add(this.groupBox21);
             this.Controls.Add(this.groupBox20);
@@ -3052,6 +3205,9 @@ namespace MidoriValveTest
             this.groupBox21.PerformLayout();
             this.groupBox22.ResumeLayout(false);
             this.groupBox22.PerformLayout();
+            this.panelConexionMKS.ResumeLayout(false);
+            this.panelConexionMKS.PerformLayout();
+            this.panel11.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3263,6 +3419,17 @@ namespace MidoriValveTest
         private System.IO.Ports.SerialPort serialPortMKS1;
         private FontAwesome.Sharp.IconButton btnConexionMKS;
         private System.IO.Ports.SerialPort serialPortMKS2;
+        private System.Windows.Forms.Panel panelConexionMKS;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label lbStatusMKS2;
+        private System.Windows.Forms.Label lbStatusMKS1;
+        private FontAwesome.Sharp.IconButton btnConnectMKS2;
+        private FontAwesome.Sharp.IconButton btnConnectMKS1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox cbMKS2;
+        private System.Windows.Forms.ComboBox cbMKS1;
+        private FontAwesome.Sharp.IconButton btnCloseMKSConexion;
     }
 }
 
