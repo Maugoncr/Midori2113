@@ -43,6 +43,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbCountGenerateReports = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +54,6 @@
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label13
             // 
@@ -133,11 +134,25 @@
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Name = "label12";
             // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Name = "label1";
+            // 
+            // lbCountGenerateReports
+            // 
+            resources.ApplyResources(this.lbCountGenerateReports, "lbCountGenerateReports");
+            this.lbCountGenerateReports.ForeColor = System.Drawing.Color.White;
+            this.lbCountGenerateReports.Name = "lbCountGenerateReports";
+            // 
             // Information
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
+            this.Controls.Add(this.lbCountGenerateReports);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label9);
@@ -178,5 +193,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbCountGenerateReports;
     }
 }

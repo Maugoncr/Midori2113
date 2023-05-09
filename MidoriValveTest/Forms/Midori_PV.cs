@@ -104,6 +104,7 @@ namespace MidoriValveTest
         // Funcion de carga de procedimientos iniciales (inicio automatico). 
         private void Form1_Load(object sender, EventArgs e)
         {
+            CrearArchivoContadorReportesGenerados();
             OffEverything();
             timer1.Enabled = true;
             TimerAnimation.Start();
@@ -2054,15 +2055,50 @@ namespace MidoriValveTest
             }
         }
 
+        private void CrearArchivoContadorReportesGenerados()
+        {
+            string rutaArchivo = Path.Combine(rutaProyecto, "archivo.txt");
+
+            if (File.Exists(rutaArchivo))
+            {
+                StreamReader lector = new StreamReader(rutaArchivo);
+                string linea = lector.ReadLine(); // Leemos la línea del archivo
+                lector.Close(); // Cerramos el lector
+                ContadorReportes = int.Parse(linea);
+            }
+            else
+            {
+                using (StreamWriter escritor = new StreamWriter(rutaArchivo))
+                {
+                    escritor.Write(ContadorReportes.ToString());
+                }
+            }
+        }
+
+        private void AumentarContadorReportesGenerados() 
+        {
+            string rutaArchivo = Path.Combine(rutaProyecto, "archivo.txt");
+
+            if (File.Exists(rutaArchivo))
+            {
+                ContadorReportes++;
+                StreamWriter escritor = new StreamWriter(rutaArchivo);
+                escritor.WriteLine(ContadorReportes.ToString());
+                escritor.Close();
+            }
+        }
+
+        string rutaProyecto = Path.Combine(Environment.CurrentDirectory);
+        public int ContadorReportes = 0;
         private void IconInfo_Click(object sender, EventArgs e)
         {
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Information);
 
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Information);
             if (frm == null)
             {
                 Information nt = new Information();
-                nt.Show();
-
+                nt.interInfo = this;
+                nt.ShowDialog();
             }
             else
             {
@@ -3627,6 +3663,9 @@ namespace MidoriValveTest
 
         private void GenerarReporte(string NombreReport) 
         {
+            // Llamar el aumentador del contador
+            AumentarContadorReportesGenerados();
+
             Bitmap screenCapture = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             Graphics g = Graphics.FromImage(screenCapture);
             g.CopyFromScreen(0, 0, 0, 0, screenCapture.Size);
@@ -4117,9 +4156,6 @@ namespace MidoriValveTest
             }
         }
 
-        private void groupBox6_Enter(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
