@@ -1605,16 +1605,7 @@ namespace MidoriValveTest
             LateralNav.Size = new Size(0, 1019);
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            Terminal nt = new Terminal();
-            LateralNav.Size = new Size(0, 1019);
-            nt.lblPuerto.Text = "Connected";
-            nt.mvt = this;
-            nt.Arduino = serialPort1;
-            nt.ShowDialog();
-
-        }
+        
 
         private void Midori_PV_MouseClick(object sender, MouseEventArgs e)
         {
@@ -1918,23 +1909,18 @@ namespace MidoriValveTest
 
         private void iconTerminal_Click(object sender, EventArgs e)
         {
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Terminal);
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmTerminal);
 
             if (frm == null)
             {
-                Terminal nt = new Terminal();
-                nt.lblPuerto.Text = "Connected";
-                nt.mvt = this;
-                //  nt.Arduino = Arduino;
-                nt.Show();
+                FrmTerminal nt = new FrmTerminal();
+                nt.ShowDialog();
             }
             else
             {
                 frm.BringToFront();
                 return;
             }
-
-
         }
 
         private void iconPID_Click(object sender, EventArgs e)
