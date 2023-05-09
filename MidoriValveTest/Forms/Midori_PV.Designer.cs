@@ -31,10 +31,10 @@ namespace MidoriValveTest
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Midori_PV));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblEstado = new System.Windows.Forms.Label();
@@ -252,6 +252,7 @@ namespace MidoriValveTest
             this.cbMKS1 = new System.Windows.Forms.ComboBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnCloseMKSConexion = new FontAwesome.Sharp.IconButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox4.SuspendLayout();
             this.groupBox18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCamara5)).BeginInit();
@@ -827,47 +828,47 @@ namespace MidoriValveTest
             this.chart1.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart1.BorderSkin.BackColor = System.Drawing.Color.Black;
             this.chart1.BorderSkin.BorderColor = System.Drawing.Color.Empty;
-            chartArea6.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea6.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
-            chartArea6.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea6.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea6.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea6.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea6.AxisY.Minimum = 0D;
-            chartArea6.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.White;
-            chartArea6.AxisY.ScaleView.MinSize = 1D;
-            chartArea6.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea6.AxisY2.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea6.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
-            chartArea6.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
-            chartArea6.BackColor = System.Drawing.Color.Transparent;
-            chartArea6.BackSecondaryColor = System.Drawing.Color.White;
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
-            legend6.BackColor = System.Drawing.Color.Gainsboro;
-            legend6.Name = "Legend1";
-            legend6.TitleAlignment = System.Drawing.StringAlignment.Near;
-            this.chart1.Legends.Add(legend6);
+            chartArea8.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea8.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
+            chartArea8.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea8.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea8.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea8.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea8.AxisY.Minimum = 0D;
+            chartArea8.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.White;
+            chartArea8.AxisY.ScaleView.MinSize = 1D;
+            chartArea8.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea8.AxisY2.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea8.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
+            chartArea8.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
+            chartArea8.BackColor = System.Drawing.Color.Transparent;
+            chartArea8.BackSecondaryColor = System.Drawing.Color.White;
+            chartArea8.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea8);
+            legend8.BackColor = System.Drawing.Color.Gainsboro;
+            legend8.Name = "Legend1";
+            legend8.TitleAlignment = System.Drawing.StringAlignment.Near;
+            this.chart1.Legends.Add(legend8);
             this.chart1.Location = new System.Drawing.Point(15, 264);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series11.Color = System.Drawing.Color.Green;
-            series11.Legend = "Legend1";
-            series11.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series11.Name = "Pressure";
-            series11.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series11.YValuesPerPoint = 4;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series12.Color = System.Drawing.SystemColors.MenuHighlight;
-            series12.Legend = "Legend1";
-            series12.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series12.Name = "Aperture value";
-            series12.ShadowColor = System.Drawing.Color.Silver;
-            this.chart1.Series.Add(series11);
-            this.chart1.Series.Add(series12);
+            series15.ChartArea = "ChartArea1";
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series15.Color = System.Drawing.Color.Green;
+            series15.Legend = "Legend1";
+            series15.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series15.Name = "Pressure";
+            series15.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series15.YValuesPerPoint = 4;
+            series16.ChartArea = "ChartArea1";
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series16.Color = System.Drawing.SystemColors.MenuHighlight;
+            series16.Legend = "Legend1";
+            series16.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series16.Name = "Aperture value";
+            series16.ShadowColor = System.Drawing.Color.Silver;
+            this.chart1.Series.Add(series15);
+            this.chart1.Series.Add(series16);
             this.chart1.Size = new System.Drawing.Size(1262, 648);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -1552,6 +1553,8 @@ namespace MidoriValveTest
             this.btn_P_conf.TabIndex = 68;
             this.btn_P_conf.UseVisualStyleBackColor = false;
             this.btn_P_conf.Click += new System.EventHandler(this.btn_P_conf_Click);
+            this.btn_P_conf.MouseLeave += new System.EventHandler(this.btn_P_conf_MouseLeave);
+            this.btn_P_conf.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btn_P_conf_MouseMove);
             // 
             // lbl_units_track
             // 
@@ -2379,6 +2382,8 @@ namespace MidoriValveTest
             this.IconMinima.TabIndex = 41;
             this.IconMinima.UseVisualStyleBackColor = true;
             this.IconMinima.Click += new System.EventHandler(this.IconMinima_Click);
+            this.IconMinima.MouseLeave += new System.EventHandler(this.IconMinima_MouseLeave);
+            this.IconMinima.MouseMove += new System.Windows.Forms.MouseEventHandler(this.IconMinima_MouseMove);
             // 
             // IconMaxin
             // 
@@ -2395,6 +2400,8 @@ namespace MidoriValveTest
             this.IconMaxin.TabIndex = 40;
             this.IconMaxin.UseVisualStyleBackColor = true;
             this.IconMaxin.Click += new System.EventHandler(this.IconMaxin_Click);
+            this.IconMaxin.MouseLeave += new System.EventHandler(this.IconMaxin_MouseLeave);
+            this.IconMaxin.MouseMove += new System.Windows.Forms.MouseEventHandler(this.IconMaxin_MouseMove);
             // 
             // IconClose
             // 
@@ -2411,6 +2418,8 @@ namespace MidoriValveTest
             this.IconClose.TabIndex = 39;
             this.IconClose.UseVisualStyleBackColor = true;
             this.IconClose.Click += new System.EventHandler(this.IconClose_Click);
+            this.IconClose.MouseLeave += new System.EventHandler(this.IconClose_MouseLeave);
+            this.IconClose.MouseMove += new System.Windows.Forms.MouseEventHandler(this.IconClose_MouseMove);
             // 
             // lbPIDSent
             // 
@@ -2437,6 +2446,8 @@ namespace MidoriValveTest
             this.btnMenu.TabIndex = 38;
             this.btnMenu.UseVisualStyleBackColor = true;
             this.btnMenu.Click += new System.EventHandler(this.iconBar_Click);
+            this.btnMenu.MouseLeave += new System.EventHandler(this.btnMenu_MouseLeave);
+            this.btnMenu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnMenu_MouseMove);
             // 
             // PanelNavTitle
             // 
@@ -2507,6 +2518,7 @@ namespace MidoriValveTest
             this.btnConexionMKS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConexionMKS.UseVisualStyleBackColor = true;
             this.btnConexionMKS.Click += new System.EventHandler(this.btnConexionMKS_Click);
+            this.btnConexionMKS.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnConexionMKS_MouseMove);
             // 
             // iconCamera
             // 
@@ -2529,6 +2541,8 @@ namespace MidoriValveTest
             this.iconCamera.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconCamera.UseVisualStyleBackColor = true;
             this.iconCamera.Click += new System.EventHandler(this.iconCamera_Click);
+            this.iconCamera.MouseLeave += new System.EventHandler(this.iconCamera_MouseLeave);
+            this.iconCamera.MouseMove += new System.Windows.Forms.MouseEventHandler(this.iconCamera_MouseMove);
             // 
             // IconInfo
             // 
@@ -2551,6 +2565,8 @@ namespace MidoriValveTest
             this.IconInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.IconInfo.UseVisualStyleBackColor = true;
             this.IconInfo.Click += new System.EventHandler(this.IconInfo_Click);
+            this.IconInfo.MouseLeave += new System.EventHandler(this.IconInfo_MouseLeave);
+            this.IconInfo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.IconInfo_MouseMove);
             // 
             // IconReport
             // 
@@ -2573,6 +2589,8 @@ namespace MidoriValveTest
             this.IconReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.IconReport.UseVisualStyleBackColor = true;
             this.IconReport.Click += new System.EventHandler(this.IconReport_Click);
+            this.IconReport.MouseLeave += new System.EventHandler(this.IconReport_MouseLeave);
+            this.IconReport.MouseMove += new System.Windows.Forms.MouseEventHandler(this.IconReport_MouseMove);
             // 
             // IconSensor
             // 
@@ -2640,6 +2658,8 @@ namespace MidoriValveTest
             this.iconPID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconPID.UseVisualStyleBackColor = true;
             this.iconPID.Click += new System.EventHandler(this.iconPID_Click);
+            this.iconPID.MouseLeave += new System.EventHandler(this.iconPID_MouseLeave);
+            this.iconPID.MouseMove += new System.Windows.Forms.MouseEventHandler(this.iconPID_MouseMove);
             // 
             // iconTerminal
             // 
@@ -2662,6 +2682,8 @@ namespace MidoriValveTest
             this.iconTerminal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconTerminal.UseVisualStyleBackColor = true;
             this.iconTerminal.Click += new System.EventHandler(this.iconTerminal_Click);
+            this.iconTerminal.MouseLeave += new System.EventHandler(this.iconTerminal_MouseLeave);
+            this.iconTerminal.MouseMove += new System.Windows.Forms.MouseEventHandler(this.iconTerminal_MouseMove);
             // 
             // panel9
             // 
@@ -3473,6 +3495,7 @@ namespace MidoriValveTest
         private System.Windows.Forms.Label label21;
         private FontAwesome.Sharp.IconButton btnOffMANValve2;
         private FontAwesome.Sharp.IconButton btnOnMANValve2;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

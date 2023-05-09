@@ -4142,6 +4142,168 @@ namespace MidoriValveTest
             }
         }
 
-       
+        private (int, int) GetPositionForMouseMove(Button btn) 
+        {
+            Point mousePositionInForm = this.PointToClient(Control.MousePosition);
+            // Obtiene la posición del mouse en relación con el botón
+            Point mousePositionInButton = btn.PointToClient(mousePositionInForm);
+            // Agrega un desplazamiento adicional si es necesario
+            int x = mousePositionInButton.X + 10;
+            int y = mousePositionInButton.Y - 10;
+
+            return (x, y);
+        }
+
+        private void IconMinima_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePositionInForm = this.PointToClient(Control.MousePosition);
+            Point mousePositionInButton = IconMinima.PointToClient(mousePositionInForm);
+            int x = mousePositionInButton.X - 20;
+            int y = mousePositionInButton.Y + 20;
+            toolTip1.Show("Minimize", IconMinima, x,y);
+        }
+
+        private void IconMinima_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(this);
+        }
+
+        private void IconMaxin_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePositionInForm = this.PointToClient(Control.MousePosition);
+            Point mousePositionInButton = IconMaxin.PointToClient(mousePositionInForm);
+            int x = mousePositionInButton.X - 20;
+            int y = mousePositionInButton.Y + 20;
+            toolTip1.Show("Maximize", IconMaxin, x, y);
+        }
+
+        private void IconMaxin_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(this);
+        }
+
+        private void IconClose_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(this);
+        }
+
+        private void IconClose_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePositionInForm = this.PointToClient(Control.MousePosition);
+            Point mousePositionInButton = IconClose.PointToClient(mousePositionInForm);
+            int x = mousePositionInButton.X - 20;
+            int y = mousePositionInButton.Y + 20;
+            toolTip1.Show("Exit", IconClose, x, y);
+        }
+
+        private void iconTerminal_MouseMove(object sender, MouseEventArgs e)
+        {
+            var result = GetPositionForMouseMove(iconTerminal);
+            int x = result.Item1;
+            int y = result.Item2;
+
+            toolTip1.Show("Terminal", iconTerminal, x, y);
+        }
+
+        private void iconTerminal_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(this);
+        }
+
+        private void iconPID_MouseMove(object sender, MouseEventArgs e)
+        {
+            var result = GetPositionForMouseMove(iconPID);
+            int x = result.Item1;
+            int y = result.Item2;
+
+            toolTip1.Show("PID Config", iconPID, x, y);
+        }
+
+        private void iconPID_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(this);
+        }
+
+        private void IconReport_MouseMove(object sender, MouseEventArgs e)
+        {
+            var result = GetPositionForMouseMove(IconReport);
+            int x = result.Item1;
+            int y = result.Item2;
+
+            toolTip1.Show("Reports", IconReport, x, y);
+        }
+
+        private void IconReport_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(this);
+        }
+
+        private void btnConexionMKS_MouseMove(object sender, MouseEventArgs e)
+        {
+            var result = GetPositionForMouseMove(btnConexionMKS);
+            int x = result.Item1;
+            int y = result.Item2;
+
+            toolTip1.Show("Connection", btnConexionMKS, x, y);
+        }
+
+        private void btnConexionMKS_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(this);
+        }
+
+        private void btnMenu_MouseMove(object sender, MouseEventArgs e)
+        {
+            var result = GetPositionForMouseMove(btnMenu);
+            int x = result.Item1;
+            int y = result.Item2;
+
+            toolTip1.Show("Display menu", btnMenu, x, y);
+        }
+
+        private void btnMenu_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(this);
+        }
+
+        private void IconInfo_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePositionInForm = this.PointToClient(Control.MousePosition);
+            Point mousePositionInButton = IconInfo.PointToClient(mousePositionInForm);
+            int x = mousePositionInButton.X + 5;
+            int y = mousePositionInButton.Y - 35;
+            toolTip1.Show("Information", IconInfo, x, y);
+        }
+
+        private void IconInfo_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(this);
+        }
+
+        private void iconCamera_MouseMove(object sender, MouseEventArgs e)
+        {
+            var result = GetPositionForMouseMove(iconCamera);
+            int x = result.Item1;
+            int y = result.Item2;
+            toolTip1.Show("Camera", iconCamera, x, y);
+        }
+
+        private void iconCamera_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(this);
+        }
+
+        private void btn_P_conf_MouseMove(object sender, MouseEventArgs e)
+        {
+            var result = GetPositionForMouseMove(btn_P_conf);
+            int x = result.Item1;
+            int y = result.Item2;
+            toolTip1.Show("Configure unit of measurement", btn_P_conf, x, y);
+        }
+
+        private void btn_P_conf_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(this);
+        }
     }
 }

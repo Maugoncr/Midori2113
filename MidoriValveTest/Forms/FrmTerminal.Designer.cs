@@ -199,14 +199,14 @@ namespace MidoriValveTest
             // 
             // btnCloseForm
             // 
-            this.btnCloseForm.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCloseForm.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnCloseForm.FlatAppearance.BorderSize = 0;
             this.btnCloseForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCloseForm.IconChar = FontAwesome.Sharp.IconChar.TimesRectangle;
             this.btnCloseForm.IconColor = System.Drawing.Color.White;
             this.btnCloseForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCloseForm.IconSize = 30;
-            this.btnCloseForm.Location = new System.Drawing.Point(393, 0);
+            this.btnCloseForm.Location = new System.Drawing.Point(0, 0);
             this.btnCloseForm.Name = "btnCloseForm";
             this.btnCloseForm.Size = new System.Drawing.Size(35, 33);
             this.btnCloseForm.TabIndex = 42;
@@ -289,6 +289,7 @@ namespace MidoriValveTest
             // 
             // btnSlide
             // 
+            this.btnSlide.BackColor = System.Drawing.Color.Silver;
             this.btnSlide.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSlide.FlatAppearance.BorderSize = 0;
             this.btnSlide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -300,7 +301,7 @@ namespace MidoriValveTest
             this.btnSlide.Name = "btnSlide";
             this.btnSlide.Size = new System.Drawing.Size(23, 503);
             this.btnSlide.TabIndex = 0;
-            this.btnSlide.UseVisualStyleBackColor = true;
+            this.btnSlide.UseVisualStyleBackColor = false;
             this.btnSlide.Click += new System.EventHandler(this.btnSlide_Click);
             // 
             // txtInformacionUtil
