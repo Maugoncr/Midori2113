@@ -53,5 +53,15 @@ namespace MidoriValveTest.Forms
                 MessageBox.Show("Please enter a valid name");
             }
         }
+
+        private void FrmAskNameReport_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = txtNameReport;
+
+            Point textBoxLocation = txtNameReport.PointToScreen(new Point(0, 0));
+
+            // Mover el cursor del mouse a las coordenadas del TextBox
+            Cursor.Position = new Point(textBoxLocation.X + (txtNameReport.Width / 2), textBoxLocation.Y + (txtNameReport.Height / 2));
+        }
     }
 }

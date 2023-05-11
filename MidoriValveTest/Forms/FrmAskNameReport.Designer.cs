@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAskNameReport));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtNameReport = new System.Windows.Forms.TextBox();
             this.btnOk = new FontAwesome.Sharp.IconButton();
+            this.txtNameReport = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnCloseMKSConexion = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -50,37 +50,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(600, 200);
             this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Teal;
-            this.panel2.Controls.Add(this.btnCloseMKSConexion);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(600, 33);
-            this.panel2.TabIndex = 0;
-            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(103, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(395, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Please enter your name to generate the report";
-            // 
-            // txtNameReport
-            // 
-            this.txtNameReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameReport.Location = new System.Drawing.Point(107, 97);
-            this.txtNameReport.MaxLength = 100;
-            this.txtNameReport.Name = "txtNameReport";
-            this.txtNameReport.Size = new System.Drawing.Size(391, 29);
-            this.txtNameReport.TabIndex = 2;
-            this.txtNameReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnOk
             // 
@@ -102,6 +71,37 @@
             this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // txtNameReport
+            // 
+            this.txtNameReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameReport.Location = new System.Drawing.Point(107, 97);
+            this.txtNameReport.MaxLength = 100;
+            this.txtNameReport.Name = "txtNameReport";
+            this.txtNameReport.Size = new System.Drawing.Size(391, 29);
+            this.txtNameReport.TabIndex = 2;
+            this.txtNameReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(103, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(395, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Please enter your name to generate the report";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Teal;
+            this.panel2.Controls.Add(this.btnCloseMKSConexion);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(600, 33);
+            this.panel2.TabIndex = 0;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
             // btnCloseMKSConexion
             // 
@@ -130,6 +130,7 @@
             this.Name = "FrmAskNameReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Please Type your Name";
+            this.Load += new System.EventHandler(this.FrmAskNameReport_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

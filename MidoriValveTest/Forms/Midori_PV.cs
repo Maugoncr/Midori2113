@@ -700,22 +700,6 @@ namespace MidoriValveTest
                 return;
             }
         }
-
-        public int TestToRun = 0;
-        public int NumTest = 1;
-
-        public void NewThreadForTest()
-        {
-            InicioChrono = DateTime.Now;
-
-            lbGoalCycles.Text = NumTest.ToString();
-            timerTemporizador.Start();
-
-            Thread t = new Thread(new ThreadStart(EjecutarTest));
-            t.Start();
-            DisableBtn(btn_valveTest);
-        }
-
         private void ContarCycle()
         {
             int x = Convert.ToInt32(lbCountCycles.Text);
@@ -724,7 +708,7 @@ namespace MidoriValveTest
             lb_CounterTest.Text = x.ToString();
         }
 
-        private void AbrirSolenoid_1() 
+        private void AbrirSolenoid_1()
         {
             ManVOpen1.Image.Dispose();
             ManVOpen1.Image = Properties.Resources.led_on_green;
@@ -762,8 +746,8 @@ namespace MidoriValveTest
             lbl_estado.Text = "Close";
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti0B;
-            picture_plane.Image = MidoriValveTest.Properties.Resources.Front0;
+            picture_frontal.Image = Properties.Resources.Verti0B;
+            picture_plane.Image = Properties.Resources.Front0;
             base_value = 0;
             trackBar1A.Value = 0;
             precision_aperture = 0;
@@ -771,19 +755,34 @@ namespace MidoriValveTest
             EnableBtn(btnOpenGate);
         }
 
-        private void VisualAbrirMainV() 
+        private void VisualAbrirMainV()
         {
             Current_aperture.Text = "90°";
             lbl_estado.Text = "Open";
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti90B;
-            picture_plane.Image = MidoriValveTest.Properties.Resources.Front90;
+            picture_frontal.Image = Properties.Resources.Verti90B;
+            picture_plane.Image = Properties.Resources.Front90;
             base_value = 90;
             trackBar1A.Value = 90;
             precision_aperture = 90;
             DisableBtn(btnOpenGate);
             EnableBtn(btnCloseGate);
+        }
+
+        public int TestToRun = 0;
+        public int NumTest = 1;
+
+        public void NewThreadForTest()
+        {
+            LimpiarTestArea();
+            InicioChrono = DateTime.Now;
+            lbGoalCycles.Text = NumTest.ToString();
+          
+
+            Thread t = new Thread(new ThreadStart(EjecutarTest));
+            t.Start();
+            DisableBtn(btn_valveTest);
         }
 
         private void EjecutarTest()
@@ -801,17 +800,17 @@ namespace MidoriValveTest
                 serialPort1.Write("U");
                 Thread.Sleep(50);
 
-                // Cierra Solenoid 1
-                serialPort1.Write("W");
+                // Abrir Solenoid 1
+                serialPort1.Write("Q");
                 Thread.Sleep(50);
-                CerrarSolenoid_1();
+                AbrirSolenoid_1();
 
-                // Cierra Solenoid 2
-                serialPort1.Write("R");
+                // Abrir Solenoid 2
+                serialPort1.Write("E");
                 Thread.Sleep(50);
-                CerrarSolenoid_2();
+                AbrirSolenoid_2();
 
-                // Cierra Valvula Main
+                // Abrir Valvula Main
                 serialPort1.Write("90");
                 Thread.Sleep(50);
                 VisualAbrirMainV();
@@ -819,49 +818,56 @@ namespace MidoriValveTest
                 DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
                 for (int i = 1; i <= NumTest; i++)
                 {
-
+                    // #1
                     serialPort1.Write("0");
-                    lbStepForTest.Text = "Open [BCV40]";
+                    lbStepForTest.Text = "Close [BCV40]";
                     VisualCerrarMainV();
                     Thread.Sleep(2000);
-
-                    serialPort1.Write("Q");
-                    lbStepForTest.Text = "Open [PN ISO-V1]";
-                    AbrirSolenoid_1();
+                    // #2
+                    serialPort1.Write("R");
+                    lbStepForTest.Text = "Close [PN ISO-V2]";
+                    CerrarSolenoid_2();
                     Thread.Sleep(2000);
-
+                    // #3
                     serialPort1.Write("Y");
                     lbStepForTest.Text = "On [PUMP]";
                     Thread.Sleep(2000);
-
+                    // #4
                     lbStepForTest.Text = "Waiting down to 1 torr";
                     Thread.Sleep(120000);
 
-
+                    // #5
                     serialPort1.Write("W");
                     lbStepForTest.Text = "Close [PN ISO-V1]";
                     CerrarSolenoid_1();
                     Thread.Sleep(2000);
-
+                    // #6
                     serialPort1.Write("U");
                     lbStepForTest.Text = "Off [PUMP]";
                     Thread.Sleep(2000);
-
+                    // #7
                     lbStepForTest.Text = "Verify leak for 5 min";
                     Thread.Sleep(300000);
-
+                    // #8
                     serialPort1.Write("Q");
                     lbStepForTest.Text = "Open [PN ISO-V1]";
                     AbrirSolenoid_1();
                     Thread.Sleep(2000);
-
+                    // #9
                     serialPort1.Write("E");
                     lbStepForTest.Text = "Open [PN ISO-V2]";
                     AbrirSolenoid_2();
+                    Thread.Sleep(4000);
+
+                    // #10
+                    serialPort1.Write("90");
+                    lbStepForTest.Text = "Open [BCV40]";
+                    VisualAbrirMainV();
                     Thread.Sleep(2000);
 
                     ContarCycle();
                 }
+                stopChrono = true;
                 DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
                 lbStepForTest.Text = "Phase 1 Finished";
             }
@@ -890,44 +896,44 @@ namespace MidoriValveTest
 
                 for (int i = 1; i <= NumTest; i++)
                 {
-                    // Cierra Valvula Main
+                    // #1
                     serialPort1.Write("0");
                     lbStepForTest.Text = "Close [BCV40]";
                     VisualCerrarMainV();
                     Thread.Sleep(2000);
-
+                    // #2
                     serialPort1.Write("R");
                     lbStepForTest.Text = "Close [PN ISO-V2]";
                     CerrarSolenoid_2();
                     Thread.Sleep(2000);
-
+                    // #3
                     serialPort1.Write("Y");
                     lbStepForTest.Text = "On [PUMP]";
                     Thread.Sleep(2000);
 
-                    //Esperamos down to 1 Torr
+                    // #4
                     lbStepForTest.Text = "Waiting down to 1 torr";
                     Thread.Sleep(120000);
 
-                    // Viene el dilema del PID
-                    // Ya debe tener el preset de la presion 500 tor...
-                    //Activa el PID y espera 3 min
+                    // #5
                     serialPort1.Write("P");
                     lbStepForTest.Text = "STABILITY TEST";
                     Thread.Sleep(180000);
 
-                    //Apaga el Pump
+                    // #6
                     serialPort1.Write("U");
                     lbStepForTest.Text = "Off [PUMP]";
                     Thread.Sleep(2000);
-
+                    // #7
                     serialPort1.Write("E");
                     lbStepForTest.Text = "Open [PN ISO-V2]";
                     AbrirSolenoid_2();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(4000);
 
                     ContarCycle();
                 }
+
+                stopChrono = true;
                 DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
                 lbStepForTest.Text = "Phase 2 Finished";
             }
@@ -955,64 +961,63 @@ namespace MidoriValveTest
 
                 for (int i = 1; i <= NumTest; i++)
                 {
-                    //Cierra la valvula normal
-                    serialPort1.Write("0");
-                    lbStepForTest.Text = "Close [BCV40]";
-                    VisualCerrarMainV();
-                    Thread.Sleep(2000);
+                    // #1
+                    //serialPort1.Write("0");
+                    //lbStepForTest.Text = "Close [BCV40]";
+                    //VisualCerrarMainV();
+                    //Thread.Sleep(2000);
 
-                    //Cierra solenoid 2
-                    serialPort1.Write("R");
-                    lbStepForTest.Text = "Close [PN ISO-V2]";
-                    CerrarSolenoid_2();
-                    Thread.Sleep(2000);
+                    //// #2
+                    //serialPort1.Write("R");
+                    //lbStepForTest.Text = "Close [PN ISO-V2]";
+                    //CerrarSolenoid_2();
+                    //Thread.Sleep(2000);
 
-                    //Enciende el pump
-                    serialPort1.Write("Y");
-                    lbStepForTest.Text = "On [PUMP]";
-                    Thread.Sleep(2000);
+                    //// #3
+                    //serialPort1.Write("Y");
+                    //lbStepForTest.Text = "On [PUMP]";
+                    //Thread.Sleep(2000);
 
-                    //Esperamos down to 1 Torr
-                    lbStepForTest.Text = "Waiting down to 1 torr";
-                    Thread.Sleep(120000);
+                    //// #4
+                    //lbStepForTest.Text = "Waiting down to 1 torr";
+                    //Thread.Sleep(120000);
 
-                    // Cerrar Solenoid 1
-                    serialPort1.Write("W");
-                    lbStepForTest.Text = "Open [PN ISO-V1]";
-                    CerrarSolenoid_1();
-                    Thread.Sleep(2000);
+                    //// #5
+                    //serialPort1.Write("W");
+                    //lbStepForTest.Text = "Close [PN ISO-V1]";
+                    //CerrarSolenoid_1();
+                    //Thread.Sleep(2000);
 
-                    //Se apaga el pump
-                    serialPort1.Write("U");
-                    lbStepForTest.Text = "Off [PUMP]";
-                    Thread.Sleep(2000);
+                    //// #6
+                    //serialPort1.Write("U");
+                    //lbStepForTest.Text = "Off [PUMP]";
+                    //Thread.Sleep(2000);
 
-                    //Se verifica el Leak por 1 minuto
-                    lbStepForTest.Text = "Verify leak for 1 min";
-                    Thread.Sleep(60000);
+                    //// #7
+                    //lbStepForTest.Text = "Verify leak for 1 min";
+                    //Thread.Sleep(60000);
 
-                    //Se abre todo nuevamente
-                    // Abre solenoid 1
-                    serialPort1.Write("Q");
-                    lbStepForTest.Text = "Open [PN ISO-V1]";
-                    AbrirSolenoid_1();
-                    Thread.Sleep(2000);
+                    //// #8
+                    //serialPort1.Write("Q");
+                    //lbStepForTest.Text = "Open [PN ISO-V1]";
+                    //AbrirSolenoid_1();
+                    //Thread.Sleep(2000);
 
-                    //Abre solenoid 2
-                    serialPort1.Write("E");
-                    lbStepForTest.Text = "Open [PN ISO-V2]";
-                    AbrirSolenoid_2();
-                    Thread.Sleep(2000);
+                    //// #9
+                    //serialPort1.Write("E");
+                    //lbStepForTest.Text = "Open [PN ISO-V2]";
+                    //AbrirSolenoid_2();
+                    //Thread.Sleep(4000);
 
-                    //Abre valvula 90°
-                    serialPort1.Write("90");
-                    lbStepForTest.Text = "Open [BCV40]";
-                    VisualAbrirMainV();
+                    ////Abre valvula 90°
+                    //serialPort1.Write("90");
+                    //lbStepForTest.Text = "Open [BCV40]";
+                    //VisualAbrirMainV();
                     Thread.Sleep(2000);
 
                     ContarCycle();
-
                 }
+                stopChrono = true;
                 DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
                 lbStepForTest.Text = "Phase 3 Finished";
             }
@@ -1843,11 +1848,10 @@ namespace MidoriValveTest
                     // S120,x,x,x
                     //string envioConFormato = "S" + presion.ToString() + "," + ObjetosGlobales.P + ","
                     //    +ObjetosGlobales.I + "," + ObjetosGlobales.D;
-
                     string envioConFormato = "S" + presion.ToString() + ",x,x,x";
                     lbSendPID.Text = envioConFormato;
                     serialPort1.Write(envioConFormato);
-                    lbSetPointPressure.Text = presion.ToString();
+                    lbSetPointPressure.Text = presion.ToString()+" Torr";
                     break;
             }
 
@@ -3511,141 +3515,31 @@ namespace MidoriValveTest
             LeftBtn(btnAutoCalibrate);
         }
 
-        int minutos = 0;
-        int segundos = 0;
-        bool NoesUltimoTick = true;
+        bool stopChrono = false;
+        private DateTime InicioChrono;
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-
-            TimeSpan tiempoTranscurrido = DateTime.Now - InicioChrono;
-            // Formateamos el tiempo transcurrido en formato de días, horas, minutos y segundos
-            string tiempoFormateado = string.Format("{0:00}:{1:00}:{2:00}:{3:00}",
-                tiempoTranscurrido.Days,
-                tiempoTranscurrido.Hours,
-                tiempoTranscurrido.Minutes,
-                tiempoTranscurrido.Seconds);
-            //Actualizamos el textbox con el tiempo formateado
-            txtCrono.Text = tiempoFormateado;
-
-            //if (minutos == 0 && segundos == 0)
-            //    {
-            //        int x = Convert.ToInt32(lbCountCycles.Text);
-            //        x++;
-            //        lbCountCycles.Text = x.ToString();
-            //        lb_CounterTest.Text = x.ToString();
-            //        if (TestToRun == 1)
-            //        {
-            //                minutos = 7;
-            //                segundos = 14;
-            //                //minutos = 0;
-            //                //segundos = 10;
-            //            if (lbCountCycles.Text == lbGoalCycles.Text)
-            //            {
-            //                timerTemporizador.Stop();
-            //                NoesUltimoTick = false;
-            //                minutos = 0;
-            //                segundos = 0;
-            //                MessageBoxMaugoncr.Show("[1] PRETEST CALIBRATION FINISHED", "Phase 1", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            }
-            //        }
-            //        else if (TestToRun == 2)
-            //        {
-            //            minutos = 5;
-            //            segundos = 10;
-            //            //minutos = 0;
-            //            //segundos = 10;
-            //            if (lbCountCycles.Text == lbGoalCycles.Text)
-            //            {
-            //                timerTemporizador.Stop();
-            //                NoesUltimoTick = false;
-            //                minutos = 0;
-            //                segundos = 0;
-            //                MessageBoxMaugoncr.Show("[2] STABILITY TEST FINISHED", "Phase 2", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            }
-            //        }
-            //        else if (TestToRun == 3)
-            //        {
-            //            minutos = 2;
-            //            segundos = 12;
-            //            if (lbCountCycles.Text == lbGoalCycles.Text)
-            //            {
-            //                timerTemporizador.Stop();
-            //                NoesUltimoTick = false;
-            //                minutos = 0;
-            //                segundos = 0;
-            //                MessageBoxMaugoncr.Show("[3] VALVE LEAK TEST", "Phase 3", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            }
-            //        }
-            //    }
-
-            //if (NoesUltimoTick)
-            //{
-            //    if (minutos != 0 || segundos != 0)
-            //    {
-            //        if (segundos != 0)
-            //        {
-            //            segundos--;
-            //            if (segundos < 10)
-            //            {
-            //                if (minutos < 10)
-            //                {
-            //                    txtTemporizador.Text = "0" + minutos.ToString() + ":0" + segundos.ToString();
-            //                }
-            //                else
-            //                {
-            //                    txtTemporizador.Text = minutos.ToString() + ":0" + segundos.ToString();
-            //                }
-            //            }
-            //            else
-            //            {
-            //                if (minutos < 10)
-            //                {
-            //                    txtTemporizador.Text = "0" + minutos.ToString() + ":" + segundos.ToString();
-            //                }
-            //                else
-            //                {
-            //                    txtTemporizador.Text = minutos.ToString() + ":" + segundos.ToString();
-            //                }
-            //            }
-            //        }
-            //        else
-            //        {
-            //            if (minutos != 0)
-            //            {
-            //                minutos--;
-            //                segundos = 59;
-            //                if (minutos < 10)
-            //                {
-            //                    if (segundos < 10)
-            //                    {
-            //                        txtTemporizador.Text = "0" + minutos.ToString() + ":0" + segundos.ToString();
-            //                    }
-            //                    else
-            //                    {
-            //                        txtTemporizador.Text = "0" + minutos.ToString() + ":" + segundos.ToString();
-            //                    }
-            //                }
-            //                else
-            //                {
-            //                    if (segundos < 10)
-            //                    {
-            //                        txtTemporizador.Text = minutos.ToString() + ":0" + segundos.ToString();
-            //                    }
-            //                    else
-            //                    {
-            //                        txtTemporizador.Text = minutos.ToString() + ":" + segundos.ToString();
-            //                    }
-            //                }
-
-            //            }
-            //        }
-            //    }
-            //}
-            
+            if (stopChrono)
+            {
+                stopChrono = false;
+                timerTemporizador.Stop();
+                GenerarReporte("Automatically created");
+                btnLimpiarTestArea.Enabled = true;
+            }
+            else
+            {
+                TimeSpan tiempoTranscurrido = DateTime.Now - InicioChrono;
+                // Formateamos el tiempo transcurrido en formato de días, horas, minutos y segundos
+                string tiempoFormateado = string.Format("{0:00}:{1:00}:{2:00}:{3:00}",
+                    tiempoTranscurrido.Days,
+                    tiempoTranscurrido.Hours,
+                    tiempoTranscurrido.Minutes,
+                    tiempoTranscurrido.Seconds);
+                //Actualizamos el textbox con el tiempo formateado
+                txtCrono.Text = tiempoFormateado;
+            }
         }
-
-        private DateTime InicioChrono;
 
         private void GenerarReporte(string NombreReport) 
         {
@@ -3695,7 +3589,7 @@ namespace MidoriValveTest
 
             Visualizador.crystalReportViewer1.ReportSource = MiReporte;
             Visualizador.crystalReportViewer1.Zoom(85);
-            Visualizador.ShowDialog();
+            Visualizador.Show();
         }
 
         private void takeScreenshotToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3932,7 +3826,6 @@ namespace MidoriValveTest
         private void btnCloseMKSConexion_Click(object sender, EventArgs e)
         {
             panelConexionMKS.Visible = false;
-
         }
 
         private void cbMKS1_SelectedIndexChanged(object sender, EventArgs e)
@@ -4112,34 +4005,13 @@ namespace MidoriValveTest
                 {
                     return NombreReporte;
                 }
+                else if (Mensajero.DialogResult == DialogResult.Cancel)
+                {
+                    return NombreReporte;
+                }
             }
 
             return NombreReporte;
-        }
-
-        private void lbCountCycles_TextChanged(object sender, EventArgs e)
-        {
-            if (lbGoalCycles.Text == lbCountCycles.Text)
-            {
-                if (TestToRun == 1)
-                {
-                        timerTemporizador.Stop();
-                        this.Alert("Phase [1] Finished", Form_Alert.enmType.Success);
-                        GenerarReporte(ObtenerNombreReport());
-                }
-                else if (TestToRun == 2)
-                {
-                        timerTemporizador.Stop();
-                        this.Alert("Phase [2] Finished", Form_Alert.enmType.Success);
-                        GenerarReporte(ObtenerNombreReport());
-                }
-                else if (TestToRun == 3)
-                {
-                        timerTemporizador.Stop();
-                        this.Alert("Phase [3] Finished", Form_Alert.enmType.Success);
-                        GenerarReporte(ObtenerNombreReport());
-                }
-            }
         }
 
         private (int, int) GetPositionForMouseMove(Button btn) 
@@ -4304,6 +4176,41 @@ namespace MidoriValveTest
         private void btn_P_conf_MouseLeave(object sender, EventArgs e)
         {
             toolTip1.Hide(this);
+        }
+
+        public void EnviarSetpointFromTestCycles(string Setpoint) 
+        {
+            try
+            {
+                if (serialPort1.IsOpen)
+                {
+                    serialPort1.Write("S" + Setpoint + ",x,x,x");
+                    lbSetPointPressure.Text = Setpoint+" Torr";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
+
+        }
+
+        private void LimpiarTestArea() 
+        {
+            lbGoalCycles.Text = "0";
+            lbCountCycles.Text = "0";
+            txtCrono.Text = "00:00:00:00";
+            DateEndedTest.Text = "-/-/-";
+            DateStartedTest.Text = "-/-/-";
+            lbStepForTest.Text = "In non-execution";
+            lb_CounterTest.Text = "0";
+        }
+
+        private void btnLimpiarTestArea_Click(object sender, EventArgs e)
+        {
+            LimpiarTestArea();
+            btnLimpiarTestArea.Enabled = false;
         }
     }
 }
