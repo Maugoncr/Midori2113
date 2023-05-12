@@ -455,7 +455,7 @@ namespace MidoriValveTest
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.DimGray;
+            this.groupBox1.BackColor = System.Drawing.Color.Teal;
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.checkPID);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -469,7 +469,7 @@ namespace MidoriValveTest
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.DimGray;
+            this.groupBox2.BackColor = System.Drawing.Color.Teal;
             this.groupBox2.Controls.Add(this.txtD);
             this.groupBox2.Controls.Add(this.txtI);
             this.groupBox2.Controls.Add(this.txtP);
@@ -570,7 +570,7 @@ namespace MidoriValveTest
             // 
             // btnSentPID
             // 
-            this.btnSentPID.BackColor = System.Drawing.Color.DimGray;
+            this.btnSentPID.BackColor = System.Drawing.Color.Teal;
             this.btnSentPID.FlatAppearance.BorderSize = 0;
             this.btnSentPID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSentPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -590,7 +590,7 @@ namespace MidoriValveTest
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Controls.Add(this.IconClose);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -605,7 +605,7 @@ namespace MidoriValveTest
             this.IconClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.IconClose.FlatAppearance.BorderSize = 0;
             this.IconClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IconClose.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
+            this.IconClose.IconChar = FontAwesome.Sharp.IconChar.TimesRectangle;
             this.IconClose.IconColor = System.Drawing.Color.White;
             this.IconClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IconClose.IconSize = 30;
@@ -640,7 +640,7 @@ namespace MidoriValveTest
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.DimGray;
+            this.panel3.BackColor = System.Drawing.Color.Teal;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 41);
             this.panel3.Name = "panel3";
@@ -649,7 +649,7 @@ namespace MidoriValveTest
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.DimGray;
+            this.panel4.BackColor = System.Drawing.Color.Teal;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(10, 406);
             this.panel4.Name = "panel4";
@@ -658,7 +658,7 @@ namespace MidoriValveTest
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.DimGray;
+            this.panel2.BackColor = System.Drawing.Color.Teal;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(501, 41);
             this.panel2.Name = "panel2";

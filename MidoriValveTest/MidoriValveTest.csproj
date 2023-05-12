@@ -170,6 +170,12 @@
     <Compile Include="Forms\FrmDontTouch.Designer.cs">
       <DependentUpon>FrmDontTouch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmModifiedSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmModifiedSettings.Designer.cs">
+      <DependentUpon>FrmModifiedSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmVisualizadorCrystalReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDontTouch.resx">
       <DependentUpon>FrmDontTouch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmModifiedSettings.resx">
+      <DependentUpon>FrmModifiedSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmVisualizadorCrystalReport.resx">
       <DependentUpon>FrmVisualizadorCrystalReport.cs</DependentUpon>

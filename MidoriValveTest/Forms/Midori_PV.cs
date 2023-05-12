@@ -21,6 +21,8 @@ using AForge.Video;
 using System.Drawing.Imaging;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
+using MidoriValveTest.Properties;
+using System.Net.Sockets;
 
 namespace MidoriValveTest
 {
@@ -121,6 +123,8 @@ namespace MidoriValveTest
 
         private void OffEverything()
         {
+            lbClientSettings.Text = Settings.Default.Client + " " +Settings.Default.CodeProject;
+
             if (serialPort1.IsOpen)
             {
                 serialPort1.Close();
@@ -1900,6 +1904,8 @@ namespace MidoriValveTest
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            lbClientSettings.Text = Settings.Default.Client + " " + Settings.Default.CodeProject;
+
             string fecha = DateTime.Now.ToString("dddd, MM/dd/yyyy");
             lblhora.Text = DateTime.Now.ToString("hh:mm:ss tt");
             lblfecha.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(fecha);
@@ -4257,11 +4263,8 @@ namespace MidoriValveTest
             btnLimpiarTestArea.Enabled = false;
         }
 
-        private void btnEMO_Click(object sender, EventArgs e)
-        {
+      
 
-        }
-
-       
+      
     }
 }

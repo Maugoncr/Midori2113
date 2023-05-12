@@ -45,6 +45,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbCountGenerateReports = new System.Windows.Forms.Label();
+            this.btnConfigSettings = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,11 +147,25 @@
             this.lbCountGenerateReports.ForeColor = System.Drawing.Color.White;
             this.lbCountGenerateReports.Name = "lbCountGenerateReports";
             // 
+            // btnConfigSettings
+            // 
+            resources.ApplyResources(this.btnConfigSettings, "btnConfigSettings");
+            this.btnConfigSettings.FlatAppearance.BorderSize = 0;
+            this.btnConfigSettings.ForeColor = System.Drawing.Color.White;
+            this.btnConfigSettings.IconChar = FontAwesome.Sharp.IconChar.Gear;
+            this.btnConfigSettings.IconColor = System.Drawing.Color.White;
+            this.btnConfigSettings.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnConfigSettings.IconSize = 25;
+            this.btnConfigSettings.Name = "btnConfigSettings";
+            this.btnConfigSettings.UseVisualStyleBackColor = true;
+            this.btnConfigSettings.Click += new System.EventHandler(this.btnConfigSettings_Click);
+            // 
             // Information
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
+            this.Controls.Add(this.btnConfigSettings);
             this.Controls.Add(this.lbCountGenerateReports);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
@@ -195,5 +210,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbCountGenerateReports;
+        private FontAwesome.Sharp.IconButton btnConfigSettings;
     }
 }
