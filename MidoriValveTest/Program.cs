@@ -33,8 +33,6 @@ namespace MidoriValveTest
             //-si no existe, notificar en pantalla que no existe, e intentar obtener los actuales de la valvula. 
             //si no lo consigue notificar al usuario y pedir nueva configuracion de valores para PID y unidades
 
-
-
             Application.Run(new Midori_PV());
         }
     }

@@ -708,8 +708,24 @@ namespace MidoriValveTest
             lb_CounterTest.Text = x.ToString();
         }
 
+        private void EncenderPump()
+        {
+            lbPumpStatus.Text = "ON";
+            EnableBtn(btnOffPump);
+            DisableBtn(btnOnPump);
+        }
+
+        private void ApagarPump()
+        {
+            lbPumpStatus.Text = "OFF";
+            EnableBtn(btnOnPump);
+            DisableBtn(btnOffPump);
+        }
+
         private void AbrirSolenoid_1()
         {
+            EnableBtn(btnOffMANValve);
+            DisableBtn(btnOnMANValve);
             ManVOpen1.Image.Dispose();
             ManVOpen1.Image = Properties.Resources.led_on_green;
             ManVClose1.Image.Dispose();
@@ -718,6 +734,8 @@ namespace MidoriValveTest
 
         private void CerrarSolenoid_1()
         {
+            EnableBtn(btnOnMANValve);
+            DisableBtn(btnOffMANValve);
             ManVOpen1.Image.Dispose();
             ManVOpen1.Image = Properties.Resources.led_off_green;
             ManVClose1.Image.Dispose();
@@ -726,6 +744,8 @@ namespace MidoriValveTest
 
         private void AbrirSolenoid_2()
         {
+            EnableBtn(btnOffMANValve2);
+            DisableBtn(btnOnMANValve2);
             ManVOpen2.Image.Dispose();
             ManVOpen2.Image = Properties.Resources.led_on_green;
             ManVClose2.Image.Dispose();
@@ -734,6 +754,8 @@ namespace MidoriValveTest
 
         private void CerrarSolenoid_2()
         {
+            EnableBtn(btnOnMANValve2);
+            DisableBtn(btnOffMANValve2);
             ManVOpen2.Image.Dispose();
             ManVOpen2.Image = Properties.Resources.led_off_green;
             ManVClose2.Image.Dispose();
@@ -799,6 +821,7 @@ namespace MidoriValveTest
                 // Apagar Pump
                 serialPort1.Write("U");
                 Thread.Sleep(50);
+                ApagarPump();
 
                 // Abrir Solenoid 1
                 serialPort1.Write("Q");
@@ -831,6 +854,7 @@ namespace MidoriValveTest
                     // #3
                     serialPort1.Write("Y");
                     lbStepForTest.Text = "On [PUMP]";
+                    EncenderPump();
                     Thread.Sleep(2000);
                     // #4
                     lbStepForTest.Text = "Waiting down to 1 torr";
@@ -844,6 +868,7 @@ namespace MidoriValveTest
                     // #6
                     serialPort1.Write("U");
                     lbStepForTest.Text = "Off [PUMP]";
+                    ApagarPump();
                     Thread.Sleep(2000);
                     // #7
                     lbStepForTest.Text = "Verify leak for 5 min";
@@ -879,6 +904,7 @@ namespace MidoriValveTest
                 // Apagar Pump
                 serialPort1.Write("U");
                 Thread.Sleep(50);
+                ApagarPump();
                 // Abre Valvula Main
                 serialPort1.Write("90");
                 Thread.Sleep(50);
@@ -909,6 +935,7 @@ namespace MidoriValveTest
                     // #3
                     serialPort1.Write("Y");
                     lbStepForTest.Text = "On [PUMP]";
+                    EncenderPump();
                     Thread.Sleep(2000);
 
                     // #4
@@ -923,6 +950,7 @@ namespace MidoriValveTest
                     // #6
                     serialPort1.Write("U");
                     lbStepForTest.Text = "Off [PUMP]";
+                    ApagarPump();
                     Thread.Sleep(2000);
                     // #7
                     serialPort1.Write("E");
@@ -944,16 +972,15 @@ namespace MidoriValveTest
                 // Apagar Pump
                 serialPort1.Write("U");
                 Thread.Sleep(50);
+                ApagarPump();
                 // Abre Valvula Main
                 serialPort1.Write("90");
                 Thread.Sleep(50);
                 VisualAbrirMainV();
-
                 // Abre Solenoid 1
                 serialPort1.Write("Q");
                 Thread.Sleep(50);
                 AbrirSolenoid_1();
-
                 // Abre Solenoid 2
                 serialPort1.Write("E");
                 Thread.Sleep(50);
@@ -962,57 +989,59 @@ namespace MidoriValveTest
                 for (int i = 1; i <= NumTest; i++)
                 {
                     // #1
-                    //serialPort1.Write("0");
-                    //lbStepForTest.Text = "Close [BCV40]";
-                    //VisualCerrarMainV();
-                    //Thread.Sleep(2000);
+                    serialPort1.Write("0");
+                    lbStepForTest.Text = "Close [BCV40]";
+                    VisualCerrarMainV();
+                    Thread.Sleep(2000);
 
-                    //// #2
-                    //serialPort1.Write("R");
-                    //lbStepForTest.Text = "Close [PN ISO-V2]";
-                    //CerrarSolenoid_2();
-                    //Thread.Sleep(2000);
+                    // #2
+                    serialPort1.Write("R");
+                    lbStepForTest.Text = "Close [PN ISO-V2]";
+                    CerrarSolenoid_2();
+                    Thread.Sleep(2000);
 
-                    //// #3
-                    //serialPort1.Write("Y");
-                    //lbStepForTest.Text = "On [PUMP]";
-                    //Thread.Sleep(2000);
+                    // #3
+                    serialPort1.Write("Y");
+                    lbStepForTest.Text = "On [PUMP]";
+                    EncenderPump();
+                    Thread.Sleep(2000);
 
-                    //// #4
-                    //lbStepForTest.Text = "Waiting down to 1 torr";
-                    //Thread.Sleep(120000);
+                    // #4
+                    lbStepForTest.Text = "Waiting down to 1 torr";
+                    Thread.Sleep(120000);
 
-                    //// #5
-                    //serialPort1.Write("W");
-                    //lbStepForTest.Text = "Close [PN ISO-V1]";
-                    //CerrarSolenoid_1();
-                    //Thread.Sleep(2000);
+                    // #5
+                    serialPort1.Write("W");
+                    lbStepForTest.Text = "Close [PN ISO-V1]";
+                    CerrarSolenoid_1();
+                    Thread.Sleep(2000);
 
-                    //// #6
-                    //serialPort1.Write("U");
-                    //lbStepForTest.Text = "Off [PUMP]";
-                    //Thread.Sleep(2000);
+                    // #6
+                    serialPort1.Write("U");
+                    lbStepForTest.Text = "Off [PUMP]";
+                    ApagarPump();
+                    Thread.Sleep(2000);
 
-                    //// #7
-                    //lbStepForTest.Text = "Verify leak for 1 min";
-                    //Thread.Sleep(60000);
+                    // #7
+                    lbStepForTest.Text = "Verify leak for 1 min";
+                    Thread.Sleep(60000);
 
-                    //// #8
-                    //serialPort1.Write("Q");
-                    //lbStepForTest.Text = "Open [PN ISO-V1]";
-                    //AbrirSolenoid_1();
-                    //Thread.Sleep(2000);
+                    // #8
+                    serialPort1.Write("Q");
+                    lbStepForTest.Text = "Open [PN ISO-V1]";
+                    AbrirSolenoid_1();
+                    Thread.Sleep(2000);
 
-                    //// #9
-                    //serialPort1.Write("E");
-                    //lbStepForTest.Text = "Open [PN ISO-V2]";
-                    //AbrirSolenoid_2();
-                    //Thread.Sleep(4000);
+                    // #9
+                    serialPort1.Write("E");
+                    lbStepForTest.Text = "Open [PN ISO-V2]";
+                    AbrirSolenoid_2();
+                    Thread.Sleep(4000);
 
-                    ////Abre valvula 90°
-                    //serialPort1.Write("90");
-                    //lbStepForTest.Text = "Open [BCV40]";
-                    //VisualAbrirMainV();
+                    // #10
+                    serialPort1.Write("90");
+                    lbStepForTest.Text = "Open [BCV40]";
+                    VisualAbrirMainV();
                     Thread.Sleep(2000);
 
                     ContarCycle();
@@ -1890,7 +1919,16 @@ namespace MidoriValveTest
 
         private void IconClose_Click(object sender, EventArgs e)
         {
+            FrmDontTouch permitirCerrarFormulario = Application.OpenForms.OfType<FrmDontTouch>().FirstOrDefault();
+            if (permitirCerrarFormulario != null)
+            {
+                permitirCerrarFormulario.permitirCerrar = true;
+                permitirCerrarFormulario.Close(); 
+            }
+
             serialPort1.Close();
+            serialPortMKS1.Close();
+            serialPortMKS2.Close();
             Application.Exit();
             CerrarWebCam();
             CerrarWebCam2();
@@ -3524,6 +3562,12 @@ namespace MidoriValveTest
             {
                 stopChrono = false;
                 timerTemporizador.Stop();
+                FrmDontTouch permitirCerrarFormulario = Application.OpenForms.OfType<FrmDontTouch>().FirstOrDefault();
+                if (permitirCerrarFormulario != null)
+                {
+                    permitirCerrarFormulario.permitirCerrar = true;
+                    permitirCerrarFormulario.Close();
+                }
                 GenerarReporte("Automatically created");
                 btnLimpiarTestArea.Enabled = true;
             }
@@ -4212,5 +4256,12 @@ namespace MidoriValveTest
             LimpiarTestArea();
             btnLimpiarTestArea.Enabled = false;
         }
+
+        private void btnEMO_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }
