@@ -110,10 +110,9 @@ namespace MidoriValveTest
             OffEverything();
             timer1.Enabled = true;
             TimerAnimation.Start();
-            TimerAnimation2.Start();
-            TimerAnimation3.Start();
-            TimerAnimation4.Start();
-            TimerAnimation5.Start();
+
+            
+
             if (cbSelectionCOM.Items.Count > 0)     // exist ports com
             {
                 cbSelectionCOM.SelectedIndex = 0;
@@ -170,6 +169,18 @@ namespace MidoriValveTest
             AxisY2Maximo = 1000;
 
             //Reset for Camaras
+            Animation1 = true;
+            Animation2 = true;
+            Animation3 = true;
+            Animation4 = true;
+            Animation5 = true;
+
+            timerAnimation1 = true;
+            timerAnimation2 = true;
+            timerAnimation3 = true;
+            timerAnimation4 = true;
+            timerAnimation5 = true;
+
             CerrarWebCam();
             CerrarWebCam2();
             CerrarWebCam3();
@@ -3102,177 +3113,235 @@ namespace MidoriValveTest
 
         // Para capturas no creo usarla.
         public static Image capture;
+      
+        private bool Animation1 = true;
+        private bool Animation2 = true;
+        private bool Animation3 = true;
+        private bool Animation4 = true;
+        private bool Animation5 = true;
+
+        public bool timerAnimation1 = false;
+        public bool timerAnimation2 = false;
+        public bool timerAnimation3 = false;
+        public bool timerAnimation4 = false;
+        public bool timerAnimation5 = false;
+
 
         private void TimerAnimation_Tick(object sender, EventArgs e)
         {
-            if (animation == 0)
+            if (timerAnimation1)
             {
-
-                if (aniIMG == 0)
+                if (animation == 0)
                 {
-                    picCamara1.Image.Dispose();
-                    picCamara1.Image = Properties.Resources.signal1;
-                    aniIMG++;
-                    return;
-                }
-                if (aniIMG == 1)
-                {
-                    picCamara1.Image.Dispose();
-                    picCamara1.Image = Properties.Resources.signal2;
-                    aniIMG++;
-                    return;
-                }
-                if (aniIMG == 2)
-                {
-                    picCamara1.Image.Dispose();
-                    picCamara1.Image = Properties.Resources.signal3;
-                    aniIMG++;
-                    return;
-                }
-                if (aniIMG == 3)
-                {
-                    picCamara1.Image.Dispose();
-                    picCamara1.Image = Properties.Resources.signal4;
-                    aniIMG++;
-                    return;
-                }
-                if (aniIMG == 4)
-                {
-                    picCamara1.Image.Dispose();
-                    picCamara1.Image = Properties.Resources.signal5;
-                    aniIMG = 0;
-                    return;
+                    if (aniIMG == 0 && Animation1)
+                    {
+                        picCamara1.Image.Dispose();
+                        picCamara1.Image = Properties.Resources.signal1;
+                        aniIMG++;
+                        Animation1 = false;
+                    }
+                    if (aniIMG == 1 && Animation1)
+                    {
+                        picCamara1.Image.Dispose();
+                        picCamara1.Image = Properties.Resources.signal2;
+                        aniIMG++;
+                        Animation1 = false;
+                    }
+                    if (aniIMG == 2 && Animation1)
+                    {
+                        picCamara1.Image.Dispose();
+                        picCamara1.Image = Properties.Resources.signal3;
+                        aniIMG++;
+                        Animation1 = false;
+                    }
+                    if (aniIMG == 3 && Animation1)
+                    {
+                        picCamara1.Image.Dispose();
+                        picCamara1.Image = Properties.Resources.signal4;
+                        aniIMG++;
+                        Animation1 = false;
+                    }
+                    if (aniIMG == 4 && Animation1)
+                    {
+                        picCamara1.Image.Dispose();
+                        picCamara1.Image = Properties.Resources.signal5;
+                        aniIMG = 0;
+                        Animation1 = false;
+                    }
                 }
             }
-        }
-
-        private void TimerAnimation2_Tick(object sender, EventArgs e)
-        {
-            if (animation2 == 0)
+            Animation1 = true;
+            if (timerAnimation2)
             {
-
-                if (aniIMG2 == 0)
+                if (animation2 == 0)
                 {
-                    picCamara2.Image.Dispose();
-                    picCamara2.Image = Properties.Resources.signal1;
-                    aniIMG2++;
-                    return;
-                }
-                if (aniIMG2 == 1)
-                {
-                    picCamara2.Image.Dispose();
-                    picCamara2.Image = Properties.Resources.signal2;
-                    aniIMG2++;
-                    return;
-                }
-                if (aniIMG2 == 2)
-                {
-                    picCamara2.Image.Dispose();
-                    picCamara2.Image = Properties.Resources.signal3;
-                    aniIMG2++;
-                    return;
-                }
-                if (aniIMG2 == 3)
-                {
-                    picCamara2.Image.Dispose();
-                    picCamara2.Image = Properties.Resources.signal4;
-                    aniIMG2++;
-                    return;
-                }
-                if (aniIMG2 == 4)
-                {
-                    picCamara2.Image.Dispose();
-                    picCamara2.Image = Properties.Resources.signal5;
-                    aniIMG2 = 0;
-                    return;
+                    if (aniIMG2 == 0 && Animation2)
+                    {
+                        picCamara2.Image.Dispose();
+                        picCamara2.Image = Properties.Resources.signal1;
+                        aniIMG2++;
+                        Animation2 = false;
+                    }
+                    if (aniIMG2 == 1 && Animation2)
+                    {
+                        picCamara2.Image.Dispose();
+                        picCamara2.Image = Properties.Resources.signal2;
+                        aniIMG2++;
+                        Animation2 = false;
+                    }
+                    if (aniIMG2 == 2 && Animation2)
+                    {
+                        picCamara2.Image.Dispose();
+                        picCamara2.Image = Properties.Resources.signal3;
+                        aniIMG2++;
+                        Animation2 = false;
+                    }
+                    if (aniIMG2 == 3 && Animation2)
+                    {
+                        picCamara2.Image.Dispose();
+                        picCamara2.Image = Properties.Resources.signal4;
+                        aniIMG2++;
+                        Animation2 = false;
+                    }
+                    if (aniIMG2 == 4 && Animation2)
+                    {
+                        picCamara2.Image.Dispose();
+                        picCamara2.Image = Properties.Resources.signal5;
+                        aniIMG2 = 0;
+                        Animation2 = false;
+                    }
                 }
             }
-        }
-
-        private void TimerAnimation3_Tick(object sender, EventArgs e)
-        {
-            if (animation3 == 0)
+            Animation2 = true;
+            if (timerAnimation3)
             {
-
-                if (aniIMG3 == 0)
+                if (animation3 == 0 )
                 {
-                    picCamara3.Image.Dispose();
-                    picCamara3.Image = Properties.Resources.signal1;
-                    aniIMG3++;
-                    return;
-                }
-                if (aniIMG3 == 1)
-                {
-                    picCamara3.Image.Dispose();
-                    picCamara3.Image = Properties.Resources.signal2;
-                    aniIMG3++;
-                    return;
-                }
-                if (aniIMG3 == 2)
-                {
-                    picCamara3.Image.Dispose();
-                    picCamara3.Image = Properties.Resources.signal3;
-                    aniIMG3++;
-                    return;
-                }
-                if (aniIMG3 == 3)
-                {
-                    picCamara3.Image.Dispose();
-                    picCamara3.Image = Properties.Resources.signal4;
-                    aniIMG3++;
-                    return;
-                }
-                if (aniIMG3 == 4)
-                {
-                    picCamara3.Image.Dispose();
-                    picCamara3.Image = Properties.Resources.signal5;
-                    aniIMG3 = 0;
-                    return;
+                    if (aniIMG3 == 0 && Animation3)
+                    {
+                        picCamara3.Image.Dispose();
+                        picCamara3.Image = Properties.Resources.signal1;
+                        aniIMG3++;
+                        Animation3 = false;
+                    }
+                    if (aniIMG3 == 1 && Animation3)
+                    {
+                        picCamara3.Image.Dispose();
+                        picCamara3.Image = Properties.Resources.signal2;
+                        aniIMG3++;
+                        Animation3 = false;
+                    }
+                    if (aniIMG3 == 2 && Animation3)
+                    {
+                        picCamara3.Image.Dispose();
+                        picCamara3.Image = Properties.Resources.signal3;
+                        aniIMG3++;
+                        Animation3 = false;
+                    }
+                    if (aniIMG3 == 3 && Animation3)
+                    {
+                        picCamara3.Image.Dispose();
+                        picCamara3.Image = Properties.Resources.signal4;
+                        aniIMG3++;
+                        Animation3 = false;
+                    }
+                    if (aniIMG3 == 4 && Animation3)
+                    {
+                        picCamara3.Image.Dispose();
+                        picCamara3.Image = Properties.Resources.signal5;
+                        aniIMG3 = 0;
+                        Animation3 = false;
+                    }
                 }
             }
-        }
-
-        private void TimerAnimation4_Tick(object sender, EventArgs e)
-        {
-            if (animation4 == 0)
+            Animation3 = true;
+            if (timerAnimation4)
             {
-                if (aniIMG4 == 0)
+                if (animation4 == 0)
                 {
-                    picCamara4.Image.Dispose();
-                    picCamara4.Image = Properties.Resources.signal1;
-                    aniIMG4++;
-                    return;
-                }
-                if (aniIMG4 == 1)
-                {
-                    picCamara4.Image.Dispose();
-                    picCamara4.Image = Properties.Resources.signal2;
-                    aniIMG4++;
-                    return;
-                }
-                if (aniIMG4 == 2)
-                {
-                    picCamara4.Image.Dispose();
-                    picCamara4.Image = Properties.Resources.signal3;
-                    aniIMG4++;
-                    return;
-                }
-                if (aniIMG4 == 3)
-                {
-                    picCamara4.Image.Dispose();
-                    picCamara4.Image = Properties.Resources.signal4;
-                    aniIMG4++;
-                    return;
-                }
-                if (aniIMG4 == 4)
-                {
-                    picCamara4.Image.Dispose();
-                    picCamara4.Image = Properties.Resources.signal5;
-                    aniIMG4 = 0;
-                    return;
+                    if (aniIMG4 == 0 && Animation4)
+                    {
+                        picCamara4.Image.Dispose();
+                        picCamara4.Image = Properties.Resources.signal1;
+                        aniIMG4++;
+                        Animation4 = false;
+                    }
+                    if (aniIMG4 == 1 && Animation4)
+                    {
+                        picCamara4.Image.Dispose();
+                        picCamara4.Image = Properties.Resources.signal2;
+                        aniIMG4++;
+                        Animation4 = false;
+                    }
+                    if (aniIMG4 == 2 && Animation4)
+                    {
+                        picCamara4.Image.Dispose();
+                        picCamara4.Image = Properties.Resources.signal3;
+                        aniIMG4++;
+                        Animation4 = false;
+                    }
+                    if (aniIMG4 == 3 && Animation4)
+                    {
+                        picCamara4.Image.Dispose();
+                        picCamara4.Image = Properties.Resources.signal4;
+                        aniIMG4++;
+                        Animation4 = false;
+                    }
+                    if (aniIMG4 == 4 && Animation4)
+                    {
+                        picCamara4.Image.Dispose();
+                        picCamara4.Image = Properties.Resources.signal5;
+                        aniIMG4 = 0;
+                        Animation4 = false;
+                    }
                 }
             }
+            Animation4 = true;
+            if (timerAnimation5)
+            {
+                if (animation5 == 0)
+                {
+                    if (aniIMG5 == 0 && Animation5)
+                    {
+                        picCamara5.Image.Dispose();
+                        picCamara5.Image = Properties.Resources.signal1;
+                        aniIMG5++;
+                        Animation5 = false;
+                    }
+                    if (aniIMG5 == 1 && Animation5)
+                    {
+                        picCamara5.Image.Dispose();
+                        picCamara5.Image = Properties.Resources.signal2;
+                        aniIMG5++;
+                        Animation5 = false;
+                    }
+                    if (aniIMG5 == 2 && Animation5)
+                    {
+                        picCamara5.Image.Dispose();
+                        picCamara5.Image = Properties.Resources.signal3;
+                        aniIMG5++;
+                        Animation5 = false;
+                    }
+                    if (aniIMG5 == 3 && Animation5)
+                    {
+                        picCamara5.Image.Dispose();
+                        picCamara5.Image = Properties.Resources.signal4;
+                        aniIMG5++;
+                        Animation5 = false;
+                    }
+                    if (aniIMG5 == 4 && Animation5)
+                    {
+                        picCamara5.Image.Dispose();
+                        picCamara5.Image = Properties.Resources.signal5;
+                        aniIMG5 = 0;
+                        Animation5 = false;
+                    }
+                }
+            }
+            Animation5 = true;
         }
+
+     
 
         public void CargaDiapositivosInter()
         {
@@ -3281,9 +3350,9 @@ namespace MidoriValveTest
 
         public void ActivarCam5(int cb)
         {
-            if (TimerAnimation5.Enabled == true)
+            if (TimerAnimation.Enabled == true)
             {
-                TimerAnimation5.Stop();
+                timerAnimation5 = false;
                 animation5 = 1;
             }
 
@@ -3302,7 +3371,7 @@ namespace MidoriValveTest
                 CerrarWebCam5();
                 picCamara5.Image.Dispose();
                 picCamara5.Image = Properties.Resources.signal1;
-                TimerAnimation5.Start();
+                timerAnimation5 = true;
                 animation5 = 0;
                 aniIMG5 = 1;
                 offorOn5 = false;
@@ -3311,9 +3380,9 @@ namespace MidoriValveTest
 
         public void ActivarCam4(int cb)
         {
-            if (TimerAnimation4.Enabled == true)
+            if (TimerAnimation.Enabled == true)
             {
-                TimerAnimation4.Stop();
+                timerAnimation4 = false;
                 animation4 = 1;
             }
 
@@ -3332,7 +3401,7 @@ namespace MidoriValveTest
                 CerrarWebCam4();
                 picCamara4.Image.Dispose();
                 picCamara4.Image = Properties.Resources.signal1;
-                TimerAnimation4.Start();
+                timerAnimation4 = true;
                 animation4 = 0;
                 aniIMG4 = 1;
                 offorOn4 = false;
@@ -3340,9 +3409,9 @@ namespace MidoriValveTest
         }
         public void ActivarCam3(int cb)
         {
-            if (TimerAnimation3.Enabled == true)
+            if (TimerAnimation.Enabled == true)
             {
-                TimerAnimation3.Stop();
+                timerAnimation3 = false;
                 animation3 = 1;
             }
             if (offorOn3 == false)
@@ -3360,7 +3429,7 @@ namespace MidoriValveTest
                 CerrarWebCam3();
                 picCamara3.Image.Dispose();
                 picCamara3.Image = Properties.Resources.signal1;
-                TimerAnimation3.Start();
+                timerAnimation3 = true;
                 animation3 = 0;
                 aniIMG3 = 1;
                 offorOn3 = false;
@@ -3369,9 +3438,9 @@ namespace MidoriValveTest
 
         public void ActivarCam2(int cb)
         {
-            if (TimerAnimation2.Enabled == true)
+            if (TimerAnimation.Enabled == true)
             {
-                TimerAnimation2.Stop();
+                timerAnimation2 = false;
                 animation2 = 1;
             }
 
@@ -3390,7 +3459,7 @@ namespace MidoriValveTest
                 CerrarWebCam2();
                 picCamara2.Image.Dispose();
                 picCamara2.Image = Properties.Resources.signal1;
-                TimerAnimation2.Start();
+                timerAnimation2 = true;
                 animation2 = 0;
                 aniIMG2 = 1;
                 offorOn2 = false;
@@ -3401,7 +3470,7 @@ namespace MidoriValveTest
         {
             if (TimerAnimation.Enabled == true)
             {
-                TimerAnimation.Stop();
+                timerAnimation1 = false;
                 animation = 1;
             }
 
@@ -3420,7 +3489,7 @@ namespace MidoriValveTest
                 CerrarWebCam();
                 picCamara1.Image.Dispose();
                 picCamara1.Image = Properties.Resources.signal1;
-                TimerAnimation.Start();
+                timerAnimation1 = true;
                 animation = 0;
                 aniIMG = 1;
                 offorOn = false;
@@ -3682,48 +3751,7 @@ namespace MidoriValveTest
 
         }
 
-        private void TimerAnimation5_Tick(object sender, EventArgs e)
-        {
-            if (animation5 == 0)
-            {
-                if (aniIMG5 == 0)
-                {
-                    picCamara5.Image.Dispose();
-                    picCamara5.Image = Properties.Resources.signal1;
-                    aniIMG5++;
-                    return;
-                }
-                if (aniIMG5 == 1)
-                {
-                    picCamara5.Image.Dispose();
-                    picCamara5.Image = Properties.Resources.signal2;
-                    aniIMG5++;
-                    return;
-                }
-                if (aniIMG5 == 2)
-                {
-                    picCamara5.Image.Dispose();
-                    picCamara5.Image = Properties.Resources.signal3;
-                    aniIMG5++;
-                    return;
-                }
-                if (aniIMG5 == 3)
-                {
-                    picCamara5.Image.Dispose();
-                    picCamara5.Image = Properties.Resources.signal4;
-                    aniIMG5++;
-                    return;
-                }
-                if (aniIMG5 == 4)
-                {
-                    picCamara5.Image.Dispose();
-                    picCamara5.Image = Properties.Resources.signal5;
-                    aniIMG5 = 0;
-                    return;
-                }
-            }
-        }
-
+       
         private void btnOnPump_MouseEnter(object sender, EventArgs e)
         {
             EncenderBTN(btnOnPump);

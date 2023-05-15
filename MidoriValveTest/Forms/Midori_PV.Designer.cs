@@ -87,6 +87,7 @@ namespace MidoriValveTest
             this.label7 = new System.Windows.Forms.Label();
             this.lbl_estado = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbClientSettings = new System.Windows.Forms.Label();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
             this.btnLimpiarTestArea = new FontAwesome.Sharp.IconButton();
             this.label12 = new System.Windows.Forms.Label();
@@ -193,7 +194,6 @@ namespace MidoriValveTest
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblfecha = new System.Windows.Forms.Label();
             this.PanelNav = new System.Windows.Forms.Panel();
-            this.lbClientSettings = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.IconMinima = new FontAwesome.Sharp.IconButton();
             this.IconMaxin = new FontAwesome.Sharp.IconButton();
@@ -226,15 +226,11 @@ namespace MidoriValveTest
             this.btnOffMANValve = new FontAwesome.Sharp.IconButton();
             this.btnOnMANValve = new FontAwesome.Sharp.IconButton();
             this.TimerAnimation = new System.Windows.Forms.Timer(this.components);
-            this.TimerAnimation2 = new System.Windows.Forms.Timer(this.components);
-            this.TimerAnimation3 = new System.Windows.Forms.Timer(this.components);
-            this.TimerAnimation4 = new System.Windows.Forms.Timer(this.components);
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
             this.lbPumpStatus = new System.Windows.Forms.Label();
             this.btnOffPump = new FontAwesome.Sharp.IconButton();
             this.btnOnPump = new FontAwesome.Sharp.IconButton();
-            this.TimerAnimation5 = new System.Windows.Forms.Timer(this.components);
             this.groupBox21 = new System.Windows.Forms.GroupBox();
             this.lbMKS1 = new System.Windows.Forms.Label();
             this.groupBox22 = new System.Windows.Forms.GroupBox();
@@ -1011,6 +1007,17 @@ namespace MidoriValveTest
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Actions";
+            // 
+            // lbClientSettings
+            // 
+            this.lbClientSettings.AutoSize = true;
+            this.lbClientSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lbClientSettings.ForeColor = System.Drawing.Color.Red;
+            this.lbClientSettings.Location = new System.Drawing.Point(17, 195);
+            this.lbClientSettings.Name = "lbClientSettings";
+            this.lbClientSettings.Size = new System.Drawing.Size(45, 18);
+            this.lbClientSettings.TabIndex = 72;
+            this.lbClientSettings.Text = "Client";
             // 
             // groupBox19
             // 
@@ -2349,17 +2356,6 @@ namespace MidoriValveTest
             this.PanelNav.TabIndex = 36;
             this.PanelNav.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelNav_MouseDown);
             // 
-            // lbClientSettings
-            // 
-            this.lbClientSettings.AutoSize = true;
-            this.lbClientSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lbClientSettings.ForeColor = System.Drawing.Color.Red;
-            this.lbClientSettings.Location = new System.Drawing.Point(17, 195);
-            this.lbClientSettings.Name = "lbClientSettings";
-            this.lbClientSettings.Size = new System.Drawing.Size(45, 18);
-            this.lbClientSettings.TabIndex = 72;
-            this.lbClientSettings.Text = "Client";
-            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2881,21 +2877,6 @@ namespace MidoriValveTest
             this.TimerAnimation.Interval = 1000;
             this.TimerAnimation.Tick += new System.EventHandler(this.TimerAnimation_Tick);
             // 
-            // TimerAnimation2
-            // 
-            this.TimerAnimation2.Interval = 1000;
-            this.TimerAnimation2.Tick += new System.EventHandler(this.TimerAnimation2_Tick);
-            // 
-            // TimerAnimation3
-            // 
-            this.TimerAnimation3.Interval = 1000;
-            this.TimerAnimation3.Tick += new System.EventHandler(this.TimerAnimation3_Tick);
-            // 
-            // TimerAnimation4
-            // 
-            this.TimerAnimation4.Interval = 1000;
-            this.TimerAnimation4.Tick += new System.EventHandler(this.TimerAnimation4_Tick);
-            // 
             // groupBox13
             // 
             this.groupBox13.Controls.Add(this.lb_CounterTest);
@@ -2978,11 +2959,6 @@ namespace MidoriValveTest
             this.btnOnPump.Click += new System.EventHandler(this.btnOnPump_Click);
             this.btnOnPump.MouseEnter += new System.EventHandler(this.btnOnPump_MouseEnter);
             this.btnOnPump.MouseLeave += new System.EventHandler(this.btnOnPump_MouseLeave);
-            // 
-            // TimerAnimation5
-            // 
-            this.TimerAnimation5.Interval = 1000;
-            this.TimerAnimation5.Tick += new System.EventHandler(this.TimerAnimation5_Tick);
             // 
             // groupBox21
             // 
@@ -3440,9 +3416,6 @@ namespace MidoriValveTest
         private System.Windows.Forms.PictureBox picCamara3;
         private System.Windows.Forms.PictureBox picCamara4;
         private System.Windows.Forms.Timer TimerAnimation;
-        private System.Windows.Forms.Timer TimerAnimation2;
-        private System.Windows.Forms.Timer TimerAnimation3;
-        private System.Windows.Forms.Timer TimerAnimation4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.ToolStripMenuItem camarasSettingsToolStripMenuItem;
@@ -3471,7 +3444,6 @@ namespace MidoriValveTest
         private System.Windows.Forms.GroupBox groupBox20;
         private FontAwesome.Sharp.IconButton btnOffPump;
         private FontAwesome.Sharp.IconButton btnOnPump;
-        private System.Windows.Forms.Timer TimerAnimation5;
         private System.Windows.Forms.GroupBox groupBox21;
         private System.Windows.Forms.Label lbMKS1;
         private System.Windows.Forms.GroupBox groupBox22;
