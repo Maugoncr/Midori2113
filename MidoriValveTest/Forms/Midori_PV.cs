@@ -3880,7 +3880,14 @@ namespace MidoriValveTest
 
             double result = double.Parse(Out, System.Globalization.NumberStyles.Float);
 
-            lbMKS1.Text = result.ToString("F1");
+            if (result > 10.0)
+            {
+                lbMKS1.Text = result.ToString("0.0");
+            }
+            else
+            {
+                lbMKS1.Text = result.ToString("0.00");
+            }
         }
 
         private void ReadData2(string t)
@@ -3898,7 +3905,14 @@ namespace MidoriValveTest
 
             double result = double.Parse(Out, System.Globalization.NumberStyles.Float);
 
-            lbMKS2.Text = result.ToString("F1");
+            if (result > 10.0)
+            {
+                lbMKS2.Text = result.ToString("0.0");
+            }
+            else
+            {
+                lbMKS2.Text = result.ToString("0.00");
+            }
         }
 
         private void btnCloseMKSConexion_Click(object sender, EventArgs e)
