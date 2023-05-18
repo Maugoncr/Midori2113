@@ -809,6 +809,7 @@ namespace MidoriValveTest
 
         public int TestToRun = 0;
         public int NumTest = 1;
+        public int SetpointPhase2 = 0;
 
         public void NewThreadForTest()
         {
@@ -935,50 +936,87 @@ namespace MidoriValveTest
                 Thread.Sleep(50);
                 AbrirSolenoid_2();
 
+                // FIN INICIAL STATE
+
+                // #1
+                serialPort1.Write("0");
+                lbStepForTest.Text = "Close [BCV40]";
+                VisualCerrarMainV();
+                Thread.Sleep(2000);
+
+                // #2
+                serialPort1.Write("R");
+                lbStepForTest.Text = "Close [PN ISO-V2]";
+                CerrarSolenoid_2();
+                Thread.Sleep(2000);
+
+                // #3
+                serialPort1.Write("Y");
+                lbStepForTest.Text = "On [PUMP]";
+                EncenderPump();
+                Thread.Sleep(2000);
+
+                // #4
+                lbStepForTest.Text = "Waiting down to 1 torr";
+                Thread.Sleep(60000);
+
+                // #5
+                serialPort1.Write("S" + SetpointPhase2 + ",0.1,0.1,0.1");
+                Thread.Sleep(50);
+                serialPort1.Write("P");
+                lbStepForTest.Text = "Waiting 30s to Manual Reset";
+                Thread.Sleep(30000);
+
+
                 for (int i = 1; i <= NumTest; i++)
                 {
-                    // #1
-                    serialPort1.Write("0");
-                    lbStepForTest.Text = "Close [BCV40]";
-                    VisualCerrarMainV();
-                    Thread.Sleep(2000);
-                    // #2
-                    serialPort1.Write("R");
-                    lbStepForTest.Text = "Close [PN ISO-V2]";
-                    CerrarSolenoid_2();
-                    Thread.Sleep(2000);
-                    // #3
-                    serialPort1.Write("Y");
-                    lbStepForTest.Text = "On [PUMP]";
-                    EncenderPump();
-                    Thread.Sleep(2000);
-
-                    // #4
-                    lbStepForTest.Text = "Waiting down to 1 torr";
-                    Thread.Sleep(120000);
-
-                    // #5
-                    serialPort1.Write("P");
+                    // #6
                     lbStepForTest.Text = "STABILITY TEST";
                     Thread.Sleep(180000);
 
-                    // #6
-                    serialPort1.Write("U");
-                    lbStepForTest.Text = "Off [PUMP]";
-                    ApagarPump();
-                    Thread.Sleep(2000);
                     // #7
                     serialPort1.Write("E");
                     lbStepForTest.Text = "Open [PN ISO-V2]";
                     AbrirSolenoid_2();
                     Thread.Sleep(4000);
 
+                    // #8
+                    serialPort1.Write("R");
+                    lbStepForTest.Text = "Close [PN ISO-V2]";
+                    CerrarSolenoid_2();
+                    Thread.Sleep(2000);
+
                     ContarCycle();
                 }
 
-                stopChrono = true;
+                // #9
+                serialPort1.Write("U");
+                lbStepForTest.Text = "Off [PUMP]";
+                ApagarPump();
+                Thread.Sleep(2000);
+
+                // #10
+                serialPort1.Write("E");
+                lbStepForTest.Text = "Open [PN ISO-V2]";
+                AbrirSolenoid_2();
+                Thread.Sleep(4000);
+
+                // #11
+                serialPort1.Write("90");
+                lbStepForTest.Text = "Open [BCV40]";
+                VisualAbrirMainV();
+                Thread.Sleep(2000);
+
+                // #12 Stop PID NEED RESET
+                serialPort1.Write("T");
+                lbStepForTest.Text = "Waiting 20s to Manual Reset";
+                Thread.Sleep(20000);
+
                 DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
                 lbStepForTest.Text = "Phase 2 Finished";
+                stopChrono = true;
+
+
             }
             else if (TestToRun == 3)
             {

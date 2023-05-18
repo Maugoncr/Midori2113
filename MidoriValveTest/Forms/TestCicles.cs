@@ -177,6 +177,7 @@ namespace MidoriValveTest
                     // Actualizar el valor del TextBox
                     txtSetPoint.Text = value.ToString();
                     txtSetPoint.SelectionStart = text.Length; // Colocar el cursor al final del texto
+                    menssager.SetpointPhase2 = Convert.ToInt32(txtSetPoint.Text);
                     btnSetPoint.Enabled = true;
                 }
                 else
