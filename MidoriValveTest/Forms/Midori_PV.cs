@@ -958,27 +958,28 @@ namespace MidoriValveTest
 
                 // #4
                 lbStepForTest.Text = "Waiting down to 1 torr";
-                Thread.Sleep(60000);
+                Thread.Sleep(90000);
 
                 // #5
                 serialPort1.Write("S" + SetpointPhase2 + ",0.1,0.1,0.1");
                 Thread.Sleep(50);
                 serialPort1.Write("P");
+                lbStepForTest.BackColor = Color.Yellow;
                 lbStepForTest.Text = "Waiting 30s to Manual Reset";
                 Thread.Sleep(30000);
 
-
+                lbStepForTest.BackColor = SystemColors.Control;
                 for (int i = 1; i <= NumTest; i++)
                 {
                     // #6
                     lbStepForTest.Text = "STABILITY TEST";
-                    Thread.Sleep(180000);
+                    Thread.Sleep(300000);
 
                     // #7
                     serialPort1.Write("E");
                     lbStepForTest.Text = "Open [PN ISO-V2]";
                     AbrirSolenoid_2();
-                    Thread.Sleep(4000);
+                    Thread.Sleep(20000);
 
                     // #8
                     serialPort1.Write("R");
