@@ -138,10 +138,19 @@ namespace MidoriValveTest
             }
 
             //Timers
+            timerTemporizador.Stop();
             timerForData.Stop();
 
             PedirMKS1 = false;
             PedirMKS2 = false;
+
+            //MarathonTEST
+            stillRunning = false;
+            stopChrono = false;
+            generateReport = false;
+            SetpointPhase2 = 0;
+
+            btnStopMarathon.Enabled = false;
 
             // Return all the variables from ObjetosGlobales to default
             ObjetosGlobales.P = "x";
@@ -336,6 +345,9 @@ namespace MidoriValveTest
             ChartArea CA = chart1.ChartAreas[0];
             CA.CursorX.AutoScroll = true;
 
+            // Limpiar todo sobre TEST
+            LimpiarTestArea();
+
         }
 
 
@@ -406,6 +418,8 @@ namespace MidoriValveTest
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
+            stillRunning = true;
+            LimpiarTestArea();
             OffEverything();
             this.Alert("Successfully restarted", Form_Alert.enmType.Success);
         }
@@ -507,9 +521,10 @@ namespace MidoriValveTest
                     cbMKS2.Enabled = true;
                     return false;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     lbStatusMKS1.Text = "* Disconnected";
+                    MessageBox.Show(ex.Message);
                     return false;
                 }
             }
@@ -540,9 +555,10 @@ namespace MidoriValveTest
                     return false;
                 }
 
-                catch (Exception)
+                catch (Exception ex)
                 {
                     lbStatusMKS2.Text = "* Disconnected";
+                    MessageBox.Show(ex.Message);
                     return false;
                 }
             }
@@ -574,8 +590,6 @@ namespace MidoriValveTest
                     serialPort1.Close();
 
                     MessageBoxMaugoncr.Show("Data is not being received correctly. The program will not start until this is fixed.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
                     return false;
                 }
 
@@ -591,10 +605,11 @@ namespace MidoriValveTest
                 cbMKS2.Enabled = true;
                 return false;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 LblEstado.Text = "Disconnected *";
                 lblPuerto.Text = "Disconnected *";
+                MessageBox.Show(ex.Message);
                 return false;
             }
         }
@@ -656,48 +671,22 @@ namespace MidoriValveTest
             serialPort1.Write("0");
             Thread.Sleep(50);
 
-
-            //esperamos la señal de movimeinto de partura
-            //while (respuesta != "B")
-            //{
-            //    respuesta = Arduino.ReadExisting(); //MessageBox.Show(respuesta);
-            //    Thread.Sleep(50);
-            //}
-            //trackBar1.Enabled = false;
-            trackBar2A.Enabled = false;
-            trackBar2A.Value = 0;
-            trackBar1A.Value = 0;
             precision_aperture = 0;
             Current_aperture.Text = precision_aperture + "°";
             picture_frontal.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources._0_2;
+            picture_frontal.Image = Resources.Front0;
             picture_plane.Image.Dispose();
-            picture_plane.Image = MidoriValveTest.Properties.Resources._0_GRADOS2;
-            precision_aperture = 0;
+            picture_plane.Image = Resources.Verti0B;
+
+            trackBar1A.Value = 0;
+
             lbl_estado.ForeColor = Color.Red;
             lbl_estado.Text = "Close";
             btnSetPresion.Text = "Set Target Pressure";
             btnSetApertura.Text = "Set Apperture";
-            //btn_encender.Enabled = true;
+
             EnableBtn(btnOpenGate);
-
-            //btn_apagar.Enabled = false;
             DisableBtn(btnCloseGate);
-
-            //btn_90.Enabled = false;
-            //btn_80.Enabled = false;
-            //btn_70.Enabled = false;
-            //btn_60.Enabled = false;
-            //btn_50.Enabled = false;
-            //btn_40.Enabled = false;
-            //btn_30.Enabled = false;
-            //btn_20.Enabled = false;
-            //btn_10.Enabled = false;
-            //btn_0.Enabled = false;
-
-            //btn_set.Enabled=false;
-            DisableBtn(btnSetApertura);
-
         }
 
         private void btn_valveTest_Click(object sender, EventArgs e)
@@ -814,9 +803,10 @@ namespace MidoriValveTest
         public void NewThreadForTest()
         {
             LimpiarTestArea();
+            btnStopMarathon.Enabled = true;
+            stillRunning = false;
             InicioChrono = DateTime.Now;
             lbGoalCycles.Text = NumTest.ToString();
-          
 
             Thread t = new Thread(new ThreadStart(EjecutarTest));
             t.Start();
@@ -832,279 +822,575 @@ namespace MidoriValveTest
             //Y - Encender Pump
             //U - Apagar Pump
 
-            if (TestToRun == 1)
+            try
             {
-                // Apagar Pump
-                serialPort1.Write("U");
-                Thread.Sleep(50);
-                ApagarPump();
-
-                // Abrir Solenoid 1
-                serialPort1.Write("Q");
-                Thread.Sleep(50);
-                AbrirSolenoid_1();
-
-                // Abrir Solenoid 2
-                serialPort1.Write("E");
-                Thread.Sleep(50);
-                AbrirSolenoid_2();
-
-                // Abrir Valvula Main
-                serialPort1.Write("90");
-                Thread.Sleep(50);
-                VisualAbrirMainV();
-
-                DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
-                for (int i = 1; i <= NumTest; i++)
+                if (TestToRun == 1)
                 {
+                    DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy || hh:mm:ss tt");
+
+                    // Apagar Pump
+                    serialPort1.Write("U");
+                    Thread.Sleep(50);
+                    ApagarPump();
+
+                    // Abrir Solenoid 1
+                    serialPort1.Write("Q");
+                    Thread.Sleep(50);
+                    AbrirSolenoid_1();
+
+                    // Abrir Solenoid 2
+                    serialPort1.Write("E");
+                    Thread.Sleep(50);
+                    AbrirSolenoid_2();
+
+                    // Abrir Valvula Main
+                    serialPort1.Write("90");
+                    Thread.Sleep(50);
+                    VisualAbrirMainV();
+
+                    if (stillRunning)
+                    {
+                        stopChrono = true;
+                        return;
+                    }
+
+                    for (int i = 1; i <= NumTest; i++)
+                    {
+                        // #1
+                        serialPort1.Write("0");
+                        lbStepForTest.Text = "Close [BCV40]";
+                        VisualCerrarMainV();
+
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #2
+                        serialPort1.Write("R");
+                        lbStepForTest.Text = "Close [PN ISO-V2]";
+                        CerrarSolenoid_2();
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #3
+                        serialPort1.Write("Y");
+                        lbStepForTest.Text = "On [PUMP]";
+                        EncenderPump();
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #4
+                        lbStepForTest.Text = "Waiting down to 1 torr";
+                        for (int j = 0; j < 120; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #5
+                        serialPort1.Write("W");
+                        lbStepForTest.Text = "Close [PN ISO-V1]";
+                        CerrarSolenoid_1();
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #6
+                        serialPort1.Write("U");
+                        lbStepForTest.Text = "Off [PUMP]";
+                        ApagarPump();
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #7
+                        lbStepForTest.Text = "Verify leak for 5 min";
+                        for (int j = 0; j < 300; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #8
+                        serialPort1.Write("Q");
+                        lbStepForTest.Text = "Open [PN ISO-V1]";
+                        AbrirSolenoid_1();
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #9
+                        serialPort1.Write("E");
+                        lbStepForTest.Text = "Open [PN ISO-V2]";
+                        AbrirSolenoid_2();
+                        for (int j = 0; j < 4; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #10
+                        serialPort1.Write("90");
+                        lbStepForTest.Text = "Open [BCV40]";
+                        VisualAbrirMainV();
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        ContarCycle();
+                    }
+                    // TERMINA CORRECTAMENTE!!
+                    generateReport = true;
+                    stopChrono = true;
+
+                    DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy || hh:mm:ss tt");
+                    lbStepForTest.Text = "Phase 1 Finished";
+                }
+                else if (TestToRun == 2)
+                {
+
+                    DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy || hh:mm:ss tt");
+
+                    // Apagar Pump
+                    serialPort1.Write("U");
+                    Thread.Sleep(50);
+                    ApagarPump();
+                    // Abre Valvula Main
+                    serialPort1.Write("90");
+                    Thread.Sleep(50);
+                    VisualAbrirMainV();
+
+                    // Abre Solenoid 1
+                    serialPort1.Write("Q");
+                    Thread.Sleep(50);
+                    AbrirSolenoid_1();
+
+                    // Abre Solenoid 2
+                    serialPort1.Write("E");
+                    Thread.Sleep(50);
+                    AbrirSolenoid_2();
+
+                    if (stillRunning)
+                    {
+                        stopChrono = true;
+                        return;
+                    }
+                    // FIN INICIAL STATE
+
                     // #1
                     serialPort1.Write("0");
                     lbStepForTest.Text = "Close [BCV40]";
                     VisualCerrarMainV();
-                    Thread.Sleep(2000);
-                    // #2
-                    serialPort1.Write("R");
-                    lbStepForTest.Text = "Close [PN ISO-V2]";
-                    CerrarSolenoid_2();
-                    Thread.Sleep(2000);
-                    // #3
-                    serialPort1.Write("Y");
-                    lbStepForTest.Text = "On [PUMP]";
-                    EncenderPump();
-                    Thread.Sleep(2000);
-                    // #4
-                    lbStepForTest.Text = "Waiting down to 1 torr";
-                    Thread.Sleep(120000);
-
-                    // #5
-                    serialPort1.Write("W");
-                    lbStepForTest.Text = "Close [PN ISO-V1]";
-                    CerrarSolenoid_1();
-                    Thread.Sleep(2000);
-                    // #6
-                    serialPort1.Write("U");
-                    lbStepForTest.Text = "Off [PUMP]";
-                    ApagarPump();
-                    Thread.Sleep(2000);
-                    // #7
-                    lbStepForTest.Text = "Verify leak for 5 min";
-                    Thread.Sleep(300000);
-                    // #8
-                    serialPort1.Write("Q");
-                    lbStepForTest.Text = "Open [PN ISO-V1]";
-                    AbrirSolenoid_1();
-                    Thread.Sleep(2000);
-                    // #9
-                    serialPort1.Write("E");
-                    lbStepForTest.Text = "Open [PN ISO-V2]";
-                    AbrirSolenoid_2();
-                    Thread.Sleep(4000);
-
-                    // #10
-                    serialPort1.Write("90");
-                    lbStepForTest.Text = "Open [BCV40]";
-                    VisualAbrirMainV();
-                    Thread.Sleep(2000);
-
-                    ContarCycle();
-                }
-                stopChrono = true;
-                DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
-                lbStepForTest.Text = "Phase 1 Finished";
-            }
-            else if (TestToRun == 2)
-            {
-
-                DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
-
-                // Apagar Pump
-                serialPort1.Write("U");
-                Thread.Sleep(50);
-                ApagarPump();
-                // Abre Valvula Main
-                serialPort1.Write("90");
-                Thread.Sleep(50);
-                VisualAbrirMainV();
-
-                // Abre Solenoid 1
-                serialPort1.Write("Q");
-                Thread.Sleep(50);
-                AbrirSolenoid_1();
-
-                // Abre Solenoid 2
-                serialPort1.Write("E");
-                Thread.Sleep(50);
-                AbrirSolenoid_2();
-
-                // FIN INICIAL STATE
-
-                // #1
-                serialPort1.Write("0");
-                lbStepForTest.Text = "Close [BCV40]";
-                VisualCerrarMainV();
-                Thread.Sleep(2000);
-
-                // #2
-                serialPort1.Write("R");
-                lbStepForTest.Text = "Close [PN ISO-V2]";
-                CerrarSolenoid_2();
-                Thread.Sleep(2000);
-
-                // #3
-                serialPort1.Write("Y");
-                lbStepForTest.Text = "On [PUMP]";
-                EncenderPump();
-                Thread.Sleep(2000);
-
-                // #4
-                lbStepForTest.Text = "Waiting down to 1 torr";
-                Thread.Sleep(90000);
-
-                // #5
-                serialPort1.Write("S" + SetpointPhase2 + ",0.1,0.1,0.1");
-                Thread.Sleep(50);
-                serialPort1.Write("P");
-                lbStepForTest.BackColor = Color.Yellow;
-                lbStepForTest.Text = "Waiting 30s to Manual Reset";
-                Thread.Sleep(30000);
-
-                lbStepForTest.BackColor = SystemColors.Control;
-                for (int i = 1; i <= NumTest; i++)
-                {
-                    // #6
-                    lbStepForTest.Text = "STABILITY TEST";
-                    Thread.Sleep(300000);
-
-                    // #7
-                    serialPort1.Write("E");
-                    lbStepForTest.Text = "Open [PN ISO-V2]";
-                    AbrirSolenoid_2();
-                    Thread.Sleep(20000);
-
-                    // #8
-                    serialPort1.Write("R");
-                    lbStepForTest.Text = "Close [PN ISO-V2]";
-                    CerrarSolenoid_2();
-                    Thread.Sleep(2000);
-
-                    ContarCycle();
-                }
-
-                // #9
-                serialPort1.Write("U");
-                lbStepForTest.Text = "Off [PUMP]";
-                ApagarPump();
-                Thread.Sleep(2000);
-
-                // #10
-                serialPort1.Write("E");
-                lbStepForTest.Text = "Open [PN ISO-V2]";
-                AbrirSolenoid_2();
-                Thread.Sleep(4000);
-
-                // #11
-                serialPort1.Write("90");
-                lbStepForTest.Text = "Open [BCV40]";
-                VisualAbrirMainV();
-                Thread.Sleep(2000);
-
-                // #12 Stop PID NEED RESET
-                serialPort1.Write("T");
-                lbStepForTest.Text = "Waiting 20s to Manual Reset";
-                Thread.Sleep(20000);
-
-                DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
-                lbStepForTest.Text = "Phase 2 Finished";
-                stopChrono = true;
-
-
-            }
-            else if (TestToRun == 3)
-            {
-                DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
-
-                // Apagar Pump
-                serialPort1.Write("U");
-                Thread.Sleep(50);
-                ApagarPump();
-                // Abre Valvula Main
-                serialPort1.Write("90");
-                Thread.Sleep(50);
-                VisualAbrirMainV();
-                // Abre Solenoid 1
-                serialPort1.Write("Q");
-                Thread.Sleep(50);
-                AbrirSolenoid_1();
-                // Abre Solenoid 2
-                serialPort1.Write("E");
-                Thread.Sleep(50);
-                AbrirSolenoid_2();
-
-                for (int i = 1; i <= NumTest; i++)
-                {
-                    // #1
-                    serialPort1.Write("0");
-                    lbStepForTest.Text = "Close [BCV40]";
-                    VisualCerrarMainV();
-                    Thread.Sleep(2000);
+                    for (int j = 0; j < 2; j++)
+                    {
+                        Thread.Sleep(1000);
+                        if (stillRunning)
+                        {
+                            stopChrono = true;
+                            return;
+                        }
+                    }
 
                     // #2
                     serialPort1.Write("R");
                     lbStepForTest.Text = "Close [PN ISO-V2]";
                     CerrarSolenoid_2();
-                    Thread.Sleep(2000);
+                    for (int j = 0; j < 2; j++)
+                    {
+                        Thread.Sleep(1000);
+                        if (stillRunning)
+                        {
+                            stopChrono = true;
+                            return;
+                        }
+                    }
 
                     // #3
                     serialPort1.Write("Y");
                     lbStepForTest.Text = "On [PUMP]";
                     EncenderPump();
-                    Thread.Sleep(2000);
+                    for (int j = 0; j < 2; j++)
+                    {
+                        Thread.Sleep(1000);
+                        if (stillRunning)
+                        {
+                            stopChrono = true;
+                            return;
+                        }
+                    }
 
                     // #4
                     lbStepForTest.Text = "Waiting down to 1 torr";
-                    Thread.Sleep(120000);
+                    for (int j = 0; j < 120; j++)
+                    {
+                        Thread.Sleep(1000);
+                        if (stillRunning)
+                        {
+                            stopChrono = true;
+                            return;
+                        }
+                    }
 
                     // #5
-                    serialPort1.Write("W");
-                    lbStepForTest.Text = "Close [PN ISO-V1]";
-                    CerrarSolenoid_1();
-                    Thread.Sleep(2000);
+                    serialPort1.Write("S" + SetpointPhase2 + ",0.1,0.1,0.1");
+                    Thread.Sleep(50);
+                    serialPort1.Write("P");
 
-                    // #6
+                    lbStepForTest.BackColor = Color.Yellow;
+                    lbStepForTest.Text = "Waiting 30s to Manual Reset";
+                    for (int j = 0; j < 30; j++)
+                    {
+                        Thread.Sleep(1000);
+                        if (stillRunning)
+                        {
+                            stopChrono = true;
+                            return;
+                        }
+                    }
+
+                    lbStepForTest.BackColor = SystemColors.Control;
+                    for (int i = 1; i <= NumTest; i++)
+                    {
+                        // #6
+                        lbStepForTest.Text = "STABILITY TEST";
+                        for (int j = 0; j < 300; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #7
+                        serialPort1.Write("E");
+                        lbStepForTest.Text = "Open [PN ISO-V2]";
+                        AbrirSolenoid_2();
+                        for (int j = 0; j < 4; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #8
+                        serialPort1.Write("R");
+                        lbStepForTest.Text = "Close [PN ISO-V2]";
+                        CerrarSolenoid_2();
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        ContarCycle();
+                    }
+
+                    // #9
                     serialPort1.Write("U");
                     lbStepForTest.Text = "Off [PUMP]";
                     ApagarPump();
-                    Thread.Sleep(2000);
+                    for (int j = 0; j < 2; j++)
+                    {
+                        Thread.Sleep(1000);
+                        if (stillRunning)
+                        {
+                            stopChrono = true;
+                            return;
+                        }
+                    }
 
-                    // #7
-                    lbStepForTest.Text = "Verify leak for 1 min";
-                    Thread.Sleep(60000);
-
-                    // #8
-                    serialPort1.Write("Q");
-                    lbStepForTest.Text = "Open [PN ISO-V1]";
-                    AbrirSolenoid_1();
-                    Thread.Sleep(2000);
-
-                    // #9
+                    // #10
                     serialPort1.Write("E");
                     lbStepForTest.Text = "Open [PN ISO-V2]";
                     AbrirSolenoid_2();
-                    Thread.Sleep(4000);
+                    for (int j = 0; j < 4; j++)
+                    {
+                        Thread.Sleep(1000);
+                        if (stillRunning)
+                        {
+                            stopChrono = true;
+                            return;
+                        }
+                    }
 
-                    // #10
+                    // #11
                     serialPort1.Write("90");
                     lbStepForTest.Text = "Open [BCV40]";
                     VisualAbrirMainV();
-                    Thread.Sleep(2000);
+                    for (int j = 0; j < 2; j++)
+                    {
+                        Thread.Sleep(1000);
+                        if (stillRunning)
+                        {
+                            stopChrono = true;
+                            return;
+                        }
+                    }
 
-                    ContarCycle();
+                    // #12 Stop PID NEED RESET
+                    serialPort1.Write("T");
+                    lbStepForTest.Text = "Waiting 20s to Manual Reset";
+                    for (int j = 0; j < 20; j++)
+                    {
+                        Thread.Sleep(1000);
+                        if (stillRunning)
+                        {
+                            stopChrono = true;
+                            return;
+                        }
+                    }
+
+                    generateReport = true;
+                    stopChrono = true;
+
+                    DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy || hh:mm:ss tt");
+                    lbStepForTest.Text = "Phase 2 Finished";
                 }
-                stopChrono = true;
-                DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy\nhh:mm:ss tt");
-                lbStepForTest.Text = "Phase 3 Finished";
+                else if (TestToRun == 3)
+                {
+                    DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy || hh:mm:ss tt");
+
+                    // Apagar Pump
+                    serialPort1.Write("U");
+                    Thread.Sleep(50);
+                    ApagarPump();
+                    // Abre Valvula Main
+                    serialPort1.Write("90");
+                    Thread.Sleep(50);
+                    VisualAbrirMainV();
+                    // Abre Solenoid 1
+                    serialPort1.Write("Q");
+                    Thread.Sleep(50);
+                    AbrirSolenoid_1();
+                    // Abre Solenoid 2
+                    serialPort1.Write("E");
+                    Thread.Sleep(50);
+                    AbrirSolenoid_2();
+
+                    if (stillRunning)
+                    {
+                        stopChrono = true;
+                        return;
+                    }
+
+                    for (int i = 1; i <= NumTest; i++)
+                    {
+                        // #1
+                        serialPort1.Write("0");
+                        lbStepForTest.Text = "Close [BCV40]";
+                        VisualCerrarMainV();
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #2
+                        serialPort1.Write("R");
+                        lbStepForTest.Text = "Close [PN ISO-V2]";
+                        CerrarSolenoid_2();
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #3
+                        serialPort1.Write("Y");
+                        lbStepForTest.Text = "On [PUMP]";
+                        EncenderPump();
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #4
+                        lbStepForTest.Text = "Waiting down to 1 torr";
+                        for (int j = 0; j < 120; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #5
+                        serialPort1.Write("W");
+                        lbStepForTest.Text = "Close [PN ISO-V1]";
+                        CerrarSolenoid_1();
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #6
+                        serialPort1.Write("U");
+                        lbStepForTest.Text = "Off [PUMP]";
+                        ApagarPump();
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #7
+                        lbStepForTest.Text = "Verify leak for 1 min";
+                        for (int j = 0; j < 60; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #8
+                        serialPort1.Write("Q");
+                        lbStepForTest.Text = "Open [PN ISO-V1]";
+                        AbrirSolenoid_1();
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #9
+                        serialPort1.Write("E");
+                        lbStepForTest.Text = "Open [PN ISO-V2]";
+                        AbrirSolenoid_2();
+                        for (int j = 0; j < 4; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        // #10
+                        serialPort1.Write("90");
+                        lbStepForTest.Text = "Open [BCV40]";
+                        VisualAbrirMainV();
+                        for (int j = 0; j < 2; j++)
+                        {
+                            Thread.Sleep(1000);
+                            if (stillRunning)
+                            {
+                                stopChrono = true;
+                                return;
+                            }
+                        }
+
+                        ContarCycle();
+                    }
+                    generateReport = true;
+                    stopChrono = true;
+                    DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy || hh:mm:ss tt");
+                    lbStepForTest.Text = "Phase 3 Finished";
+                }
             }
-            EnableBtn(btn_valveTest);
+            catch (Exception ex)
+            {
+                string message = "    The marathon test ended abruptly\n             Exception Message:\n           " +ex.Message;
+                MessageBoxMaugoncr.Show(message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
         }
 
 
@@ -2118,6 +2404,7 @@ namespace MidoriValveTest
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+            stillRunning = true;
             OffEverything();
             this.Alert("Successfully stoped", Form_Alert.enmType.Success);
         }
@@ -3668,12 +3955,14 @@ namespace MidoriValveTest
         }
 
         bool stopChrono = false;
+        bool generateReport = false;
         private DateTime InicioChrono;
 
-        private void timer2_Tick(object sender, EventArgs e)
+        private void timerTemporizador_Tick(object sender, EventArgs e)
         {
             if (stopChrono)
             {
+                EnableBtn(btn_valveTest);
                 stopChrono = false;
                 timerTemporizador.Stop();
                 FrmDontTouch permitirCerrarFormulario = Application.OpenForms.OfType<FrmDontTouch>().FirstOrDefault();
@@ -3682,7 +3971,13 @@ namespace MidoriValveTest
                     permitirCerrarFormulario.permitirCerrar = true;
                     permitirCerrarFormulario.Close();
                 }
-                GenerarReporte("Automatically created");
+
+                if (generateReport)
+                {
+                    generateReport = false;
+                    GenerarReporte("Automatically created");
+                }
+
                 btnLimpiarTestArea.Enabled = true;
             }
             else
@@ -4033,7 +4328,6 @@ namespace MidoriValveTest
                     PedirMKS1 = false;
                     cbMKS1.Enabled = true;
                 }
-
             }
             else
             {
@@ -4334,8 +4628,16 @@ namespace MidoriValveTest
             txtCrono.Text = "00:00:00:00";
             DateEndedTest.Text = "-/-/-";
             DateStartedTest.Text = "-/-/-";
+            lbStepForTest.BackColor = Color.WhiteSmoke;
             lbStepForTest.Text = "In non-execution";
             lb_CounterTest.Text = "0";
+
+            FrmDontTouch permitirCerrarFormulario = Application.OpenForms.OfType<FrmDontTouch>().FirstOrDefault();
+            if (permitirCerrarFormulario != null)
+            {
+                permitirCerrarFormulario.permitirCerrar = true;
+                permitirCerrarFormulario.Close();
+            }
         }
 
         private void btnLimpiarTestArea_Click(object sender, EventArgs e)
@@ -4344,8 +4646,62 @@ namespace MidoriValveTest
             btnLimpiarTestArea.Enabled = false;
         }
 
-      
+        // Boton que detendrá TODO!!
+        bool stillRunning = false;
+        private void btnStopMarathon_Click(object sender, EventArgs e)
+        {
+            stillRunning = true;
+            btnStopMarathon.Enabled = false;
+            btnLimpiarTestArea.Enabled = true;
+            lbStepForTest.BackColor = Color.Red;
+            lbStepForTest.Text = "TEST STOPPED";
 
-      
+            FrmDontTouch permitirCerrarFormulario = Application.OpenForms.OfType<FrmDontTouch>().FirstOrDefault();
+            if (permitirCerrarFormulario != null)
+            {
+                permitirCerrarFormulario.permitirCerrar = true;
+                permitirCerrarFormulario.Close();
+            }
+
+            if (serialPort1.IsOpen)
+            {
+                // Apagar Pump
+                serialPort1.Write("Y");
+                Thread.Sleep(50);
+                EncenderPump();
+
+                // Cerrar Solenoid 1
+                serialPort1.Write("W");
+                Thread.Sleep(50);
+                CerrarSolenoid_1();
+
+                // Cerrar Solenoid 2
+                serialPort1.Write("R");
+                Thread.Sleep(50);
+                CerrarSolenoid_2();
+
+                // Abrir Valvula Main
+                serialPort1.Write("0");
+                Thread.Sleep(50);
+                VisualCerrarMainV();
+
+                // Abrir Solenoid 1
+                serialPort1.Write("Q");
+                Thread.Sleep(50);
+                AbrirSolenoid_1();
+
+                // Abrir Solenoid 2
+                serialPort1.Write("E");
+                Thread.Sleep(50);
+                AbrirSolenoid_2();
+
+                // Abrir Valvula Main
+                serialPort1.Write("90");
+                Thread.Sleep(50);
+                VisualAbrirMainV();
+            }
+
+
+        }
     }
 }

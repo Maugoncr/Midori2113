@@ -416,6 +416,7 @@
     <None Include="Resources\90 GRADOS.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Stop.png" />
     <None Include="Resources\progress.gif" />
     <None Include="Resources\warning.png" />
     <None Include="Resources\success.png" />
