@@ -31,7 +31,9 @@ namespace MidoriValveTest
             string info = 
                 "Command To Calibrate MKS\n" +
                 "@254ATM!7.19E+2;FF\n" +
-                "7.19E+2 Variable from 5.00E+2 to 7.80E+2"
+                "7.19E+2 Variable from 5.00E+2 to 7.80E+2\n" +
+                "Send first time this to better precision on PID\n" +
+                "Sx,0.1,0.1,0.1"
                 ;
             txtInformacionUtil.Text = info;
         }
