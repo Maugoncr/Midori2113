@@ -1423,8 +1423,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti0B;
-            picture_plane.Image = MidoriValveTest.Properties.Resources.Front0;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Front0;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Verti0B;
             base_value = 0;
             trackBar1A.Value = 0;
             Current_aperture.Text = trackBar1A.Value + "°";
@@ -1440,8 +1440,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti10B;
-            picture_plane.Image = MidoriValveTest.Properties.Resources.Front10;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Front10;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Verti10B;
             base_value = 10;
             trackBar1A.Value = 10;
             Current_aperture.Text = trackBar1A.Value + "°";
@@ -1457,8 +1457,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti20B;
-            picture_plane.Image = MidoriValveTest.Properties.Resources.Front20;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Front20;
+            picture_plane.Image =  MidoriValveTest.Properties.Resources.Verti20B;
             base_value = 20;
             trackBar1A.Value = 20;
             Current_aperture.Text = trackBar1A.Value + "°";
@@ -1474,8 +1474,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti30B;
-            picture_plane.Image = MidoriValveTest.Properties.Resources.Front30;
+            picture_frontal.Image =  MidoriValveTest.Properties.Resources.Front30;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Verti30B;
             base_value = 30;
             trackBar1A.Value = 30;
             Current_aperture.Text = trackBar1A.Value + "°";
@@ -1491,8 +1491,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti40B;
-            picture_plane.Image = MidoriValveTest.Properties.Resources.Front40;
+            picture_frontal.Image =  MidoriValveTest.Properties.Resources.Front40;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Verti40B;
             base_value = 40;
             trackBar1A.Value = 40;
             Current_aperture.Text = trackBar1A.Value + "°";
@@ -1507,8 +1507,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti50B;
-            picture_plane.Image = MidoriValveTest.Properties.Resources.Front50;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Front50;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Verti50B;
             base_value = 50;
             trackBar1A.Value = 50;
             Current_aperture.Text = trackBar1A.Value + "°";
@@ -1525,8 +1525,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti60B;
-            picture_plane.Image = MidoriValveTest.Properties.Resources.Front60;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Front60;
+            picture_plane.Image =  MidoriValveTest.Properties.Resources.Verti60B;
             base_value = 60;
             trackBar1A.Value = 60;
           
@@ -1542,8 +1542,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti70B;
-            picture_plane.Image = MidoriValveTest.Properties.Resources.Front70;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Front70;
+            picture_plane.Image =  MidoriValveTest.Properties.Resources.Verti70B;
             base_value = 70;
             trackBar1A.Value = 70;
             Current_aperture.Text = trackBar1A.Value + "°";
@@ -1558,8 +1558,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti80B;
-            picture_plane.Image = MidoriValveTest.Properties.Resources.Front80;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Front80;
+            picture_plane.Image =  MidoriValveTest.Properties.Resources.Verti80B;
             base_value = 80;
             trackBar1A.Value = 80;
             Current_aperture.Text = trackBar1A.Value + "°";
@@ -1575,8 +1575,8 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image = MidoriValveTest.Properties.Resources.Verti90B;
-            picture_plane.Image = MidoriValveTest.Properties.Resources.Front90;
+            picture_frontal.Image =  MidoriValveTest.Properties.Resources.Front90;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Verti90B;
             base_value = 90;
             trackBar1A.Value = 90;
             Current_aperture.Text = trackBar1A.Value + "°";
