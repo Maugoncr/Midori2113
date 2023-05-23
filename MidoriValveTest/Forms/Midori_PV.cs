@@ -366,7 +366,7 @@ namespace MidoriValveTest
             CA.CursorX.AutoScroll = true;
 
             // Limpiar todo sobre TEST
-            LimpiarTestArea();
+            LimpiarTestArea(true);
 
         }
 
@@ -438,8 +438,7 @@ namespace MidoriValveTest
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
-            
-            LimpiarTestArea();
+            LimpiarTestArea(true);
             OffEverything();
             this.Alert("Successfully restarted", Form_Alert.enmType.Success);
         }
@@ -4008,17 +4007,6 @@ namespace MidoriValveTest
             }
             else
             {
-                Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmDontTouch);
-                if (frm == null)
-                {
-                    FrmDontTouch nt = new FrmDontTouch();
-                    nt.Show();
-                }
-                else
-                {
-                    frm.BringToFront();
-                }
-
                 TimeSpan tiempoTranscurrido = DateTime.Now - InicioChrono;
                 // Formateamos el tiempo transcurrido en formato de días, horas, minutos y segundos
                 string tiempoFormateado = string.Format("{0:00}:{1:00}:{2:00}:{3:00}",
@@ -4678,7 +4666,7 @@ namespace MidoriValveTest
 
         }
 
-        private void LimpiarTestArea() 
+        private void LimpiarTestArea(bool LimpiarPopUp = false) 
         {
             lbGoalCycles.Text = "0";
             lbCountCycles.Text = "0";
@@ -4689,17 +4677,21 @@ namespace MidoriValveTest
             lbStepForTest.Text = "In non-execution";
             lb_CounterTest.Text = "0";
 
-            FrmDontTouch permitirCerrarFormulario = Application.OpenForms.OfType<FrmDontTouch>().FirstOrDefault();
-            if (permitirCerrarFormulario != null)
+            if (LimpiarPopUp)
             {
-                permitirCerrarFormulario.permitirCerrar = true;
-                permitirCerrarFormulario.Close();
+                FrmDontTouch permitirCerrarFormulario = Application.OpenForms.OfType<FrmDontTouch>().FirstOrDefault();
+                if (permitirCerrarFormulario != null)
+                {
+                    permitirCerrarFormulario.permitirCerrar = true;
+                    permitirCerrarFormulario.Close();
+                }
             }
+          
         }
 
         private void btnLimpiarTestArea_Click(object sender, EventArgs e)
         {
-            LimpiarTestArea();
+            LimpiarTestArea(true);
             btnLimpiarTestArea.Enabled = false;
         }
 

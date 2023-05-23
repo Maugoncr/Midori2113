@@ -145,6 +145,16 @@ namespace MidoriValveTest
 
         private void btnTestStart_Click(object sender, EventArgs e)
         {
+            if (Application.OpenForms.OfType<FrmDontTouch>().Any())
+            {
+
+            }
+            else
+            {
+                FrmDontTouch miFormulario = new FrmDontTouch();
+                miFormulario.Show();
+            }
+
             menssager.timerTemporizador.Start();
             menssager.NewThreadForTest();
             this.Close();
