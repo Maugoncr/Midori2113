@@ -23,6 +23,7 @@ using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using MidoriValveTest.Properties;
 using System.Net.Sockets;
+using System.Windows.Shell;
 
 namespace MidoriValveTest
 {
@@ -2399,7 +2400,8 @@ namespace MidoriValveTest
 
         private void IconReport_Click(object sender, EventArgs e)
         {
-            GenerarReporte(ObtenerNombreReport());
+            GenerateNewReportVersion();
+           // GenerarReporte(ObtenerNombreReport());
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -3992,6 +3994,30 @@ namespace MidoriValveTest
                 //Actualizamos el textbox con el tiempo formateado
                 txtCrono.Text = tiempoFormateado;
             }
+        }
+
+        private void GenerateNewReportVersion()
+        {
+            ReportDocument MiReporte = new ReportDocument();
+            FrmVisualizadorCrystalReport Visualizador = new FrmVisualizadorCrystalReport();
+
+            MiReporte.Load("../../Reportes/RptTableMarathon.rpt");
+
+            MiReporte.SetParameterValue("totalCycles", lbGoalCycles.Text);
+            MiReporte.SetParameterValue("customerName", Settings.Default.Client);
+            MiReporte.SetParameterValue("projectCode", Settings.Default.CodeProject);
+            MiReporte.SetParameterValue("operatorName", "Mauricio");
+            string k = DateStartedTest.Text;
+            string j = k.Replace("\n", " - ");
+            MiReporte.SetParameterValue("startDate", j);
+            k = DateEndedTest.Text;
+            j = k.Replace("\n", " - ");
+            MiReporte.SetParameterValue("endDate", j);
+
+            Visualizador.crystalReportViewer1.ReportSource = MiReporte;
+            Visualizador.crystalReportViewer1.Zoom(85);
+            Visualizador.Show();
+
         }
 
         private void GenerarReporte(string NombreReport) 
