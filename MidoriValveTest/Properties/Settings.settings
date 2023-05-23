@@ -2,11 +2,23 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MidoriValveTest.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Client" Type="System.String" Scope="User">
-      <Value Profile="(Default)">[GLOB]</Value>
+    <Setting Name="Customer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">GLOB (Global Intercom)</Value>
     </Setting>
     <Setting Name="CodeProject" Type="System.String" Scope="User">
       <Value Profile="(Default)">0-510-2228</Value>
+    </Setting>
+    <Setting Name="PersonOfContact" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Fred Rezaie</Value>
+    </Setting>
+    <Setting Name="PurchaseOrder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">201XXX</Value>
+    </Setting>
+    <Setting Name="Operator" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Jason Tran - SSNE</Value>
+    </Setting>
+    <Setting Name="FirstTimeOpen" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

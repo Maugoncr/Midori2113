@@ -38,8 +38,13 @@ namespace MidoriValveTest.Forms
                     if (indice == secuencia.Length)
                     {
                         btnLock.IconChar = FontAwesome.Sharp.IconChar.LockOpen;
+
                         txtNumberProject.Enabled = true;
                         txtClient.Enabled = true;
+                        txtOperator.Enabled = true;
+                        txtPersonOfContact.Enabled = true;
+                        txtPurchaseOrder.Enabled = true;
+
                         btnReset.Visible = true;
                         btnSave.Enabled = true;
                         entrada = "";
@@ -66,11 +71,21 @@ namespace MidoriValveTest.Forms
             entrada = "";
             indice = 0;
             btnLock.IconChar = FontAwesome.Sharp.IconChar.Lock;
-            txtClient.Text = Settings.Default.Client;
+
+            txtClient.Text = Settings.Default.Customer;
             txtNumberProject.Text = Settings.Default.CodeProject;
+            txtPersonOfContact.Text = Settings.Default.PersonOfContact;
+            txtPurchaseOrder.Text = Settings.Default.PurchaseOrder;
+            txtOperator.Text = Settings.Default.Operator;
+
             txtPassword.Visible = false;
+
             txtClient.Enabled = false;
             txtNumberProject.Enabled = false;
+            txtPersonOfContact.Enabled = false;
+            txtPurchaseOrder.Enabled = false;
+            txtOperator.Enabled = false;
+
             txtPassword.Clear();
             btnSave.Enabled = false;
             btnLock.Visible = false;
@@ -103,10 +118,15 @@ namespace MidoriValveTest.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtClient.Text) && !string.IsNullOrEmpty(txtNumberProject.Text))
+            if (!string.IsNullOrEmpty(txtClient.Text) && !string.IsNullOrEmpty(txtNumberProject.Text) && !string.IsNullOrEmpty(txtPersonOfContact.Text)
+                && !string.IsNullOrEmpty(txtPurchaseOrder.Text) && !string.IsNullOrEmpty(txtOperator.Text))
             {
-                Settings.Default.Client = txtClient.Text;
+                Settings.Default.Customer = txtClient.Text;
                 Settings.Default.CodeProject = txtNumberProject.Text;
+                Settings.Default.PersonOfContact = txtPersonOfContact.Text;
+                Settings.Default.PurchaseOrder = txtPurchaseOrder.Text;
+                Settings.Default.Operator = txtOperator.Text;
+
                 Settings.Default.Save();
                 CargarFormulario();
             }

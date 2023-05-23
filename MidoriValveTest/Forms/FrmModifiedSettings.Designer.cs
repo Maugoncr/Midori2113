@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmModifiedSettings));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.IconClose = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -43,7 +44,12 @@
             this.btnSave = new FontAwesome.Sharp.IconButton();
             this.btnLock = new FontAwesome.Sharp.IconButton();
             this.btnReset = new FontAwesome.Sharp.IconButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPurchaseOrder = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPersonOfContact = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtOperator = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +65,17 @@
             this.panel1.Size = new System.Drawing.Size(590, 41);
             this.panel1.TabIndex = 40;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MidoriValveTest.Properties.Resources.MIDORI_OFICIAL2;
+            this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(125, 41);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 55;
+            this.pictureBox1.TabStop = false;
             // 
             // IconClose
             // 
@@ -82,7 +99,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(585, 41);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(5, 295);
+            this.panel2.Size = new System.Drawing.Size(5, 417);
             this.panel2.TabIndex = 43;
             // 
             // panel3
@@ -91,14 +108,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 41);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(5, 295);
+            this.panel3.Size = new System.Drawing.Size(5, 417);
             this.panel3.TabIndex = 44;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Teal;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(5, 331);
+            this.panel4.Location = new System.Drawing.Point(5, 453);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(580, 5);
             this.panel4.TabIndex = 45;
@@ -116,26 +133,26 @@
             // 
             this.lbClientCompany.AutoSize = true;
             this.lbClientCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbClientCompany.Location = new System.Drawing.Point(95, 118);
+            this.lbClientCompany.Location = new System.Drawing.Point(81, 118);
             this.lbClientCompany.Name = "lbClientCompany";
-            this.lbClientCompany.Size = new System.Drawing.Size(148, 24);
+            this.lbClientCompany.Size = new System.Drawing.Size(96, 24);
             this.lbClientCompany.TabIndex = 47;
-            this.lbClientCompany.Text = "Client/Company:";
+            this.lbClientCompany.Text = "Customer:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(95, 170);
+            this.label1.Location = new System.Drawing.Point(81, 165);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 24);
+            this.label1.Size = new System.Drawing.Size(124, 24);
             this.label1.TabIndex = 49;
-            this.label1.Text = "Number Project:";
+            this.label1.Text = "Code Project:";
             // 
             // txtNumberProject
             // 
             this.txtNumberProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumberProject.Location = new System.Drawing.Point(249, 170);
+            this.txtNumberProject.Location = new System.Drawing.Point(249, 165);
             this.txtNumberProject.Name = "txtNumberProject";
             this.txtNumberProject.Size = new System.Drawing.Size(231, 26);
             this.txtNumberProject.TabIndex = 48;
@@ -155,7 +172,7 @@
             // 
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(203, 285);
+            this.txtPassword.Location = new System.Drawing.Point(221, 411);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(150, 19);
             this.txtPassword.TabIndex = 51;
@@ -175,7 +192,7 @@
             this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnSave.IconSize = 30;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(203, 235);
+            this.btnSave.Location = new System.Drawing.Point(221, 361);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(150, 35);
             this.btnSave.TabIndex = 52;
@@ -192,7 +209,7 @@
             this.btnLock.IconColor = System.Drawing.Color.White;
             this.btnLock.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLock.IconSize = 25;
-            this.btnLock.Location = new System.Drawing.Point(359, 235);
+            this.btnLock.Location = new System.Drawing.Point(377, 361);
             this.btnLock.Name = "btnLock";
             this.btnLock.Size = new System.Drawing.Size(30, 35);
             this.btnLock.TabIndex = 53;
@@ -208,29 +225,81 @@
             this.btnReset.IconColor = System.Drawing.Color.White;
             this.btnReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReset.IconSize = 25;
-            this.btnReset.Location = new System.Drawing.Point(167, 235);
+            this.btnReset.Location = new System.Drawing.Point(185, 361);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(30, 35);
             this.btnReset.TabIndex = 54;
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // pictureBox1
+            // label3
             // 
-            this.pictureBox1.Image = global::MidoriValveTest.Properties.Resources.MIDORI_OFICIAL2;
-            this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(125, 41);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 55;
-            this.pictureBox1.TabStop = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(81, 213);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(149, 24);
+            this.label3.TabIndex = 56;
+            this.label3.Text = "Purchase Order:";
+            // 
+            // txtPurchaseOrder
+            // 
+            this.txtPurchaseOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPurchaseOrder.Location = new System.Drawing.Point(249, 213);
+            this.txtPurchaseOrder.Name = "txtPurchaseOrder";
+            this.txtPurchaseOrder.Size = new System.Drawing.Size(231, 26);
+            this.txtPurchaseOrder.TabIndex = 55;
+            this.txtPurchaseOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(81, 263);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(163, 24);
+            this.label4.TabIndex = 58;
+            this.label4.Text = "Person of Contact:";
+            // 
+            // txtPersonOfContact
+            // 
+            this.txtPersonOfContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPersonOfContact.Location = new System.Drawing.Point(249, 263);
+            this.txtPersonOfContact.Name = "txtPersonOfContact";
+            this.txtPersonOfContact.Size = new System.Drawing.Size(231, 26);
+            this.txtPersonOfContact.TabIndex = 57;
+            this.txtPersonOfContact.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(81, 305);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 24);
+            this.label5.TabIndex = 60;
+            this.label5.Text = "Operator:";
+            // 
+            // txtOperator
+            // 
+            this.txtOperator.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOperator.Location = new System.Drawing.Point(249, 305);
+            this.txtOperator.Name = "txtOperator";
+            this.txtOperator.Size = new System.Drawing.Size(231, 26);
+            this.txtOperator.TabIndex = 59;
+            this.txtOperator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FrmModifiedSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 336);
+            this.ClientSize = new System.Drawing.Size(590, 458);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtOperator);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtPersonOfContact);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtPurchaseOrder);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnLock);
             this.Controls.Add(this.btnSave);
@@ -276,5 +345,11 @@
         private FontAwesome.Sharp.IconButton btnLock;
         private FontAwesome.Sharp.IconButton btnReset;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtPurchaseOrder;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtPersonOfContact;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtOperator;
     }
 }

@@ -46,6 +46,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbCountGenerateReports = new System.Windows.Forms.Label();
             this.btnConfigSettings = new FontAwesome.Sharp.IconButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbOperator = new System.Windows.Forms.Label();
+            this.btnUser = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,11 +163,39 @@
             this.btnConfigSettings.UseVisualStyleBackColor = true;
             this.btnConfigSettings.Click += new System.EventHandler(this.btnConfigSettings_Click);
             // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Name = "label2";
+            // 
+            // lbOperator
+            // 
+            resources.ApplyResources(this.lbOperator, "lbOperator");
+            this.lbOperator.ForeColor = System.Drawing.Color.White;
+            this.lbOperator.Name = "lbOperator";
+            // 
+            // btnUser
+            // 
+            resources.ApplyResources(this.btnUser, "btnUser");
+            this.btnUser.FlatAppearance.BorderSize = 0;
+            this.btnUser.ForeColor = System.Drawing.Color.White;
+            this.btnUser.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.btnUser.IconColor = System.Drawing.Color.White;
+            this.btnUser.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnUser.IconSize = 25;
+            this.btnUser.Name = "btnUser";
+            this.btnUser.UseVisualStyleBackColor = true;
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
+            // 
             // Information
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
+            this.Controls.Add(this.btnUser);
+            this.Controls.Add(this.lbOperator);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnConfigSettings);
             this.Controls.Add(this.lbCountGenerateReports);
             this.Controls.Add(this.label1);
@@ -211,5 +242,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbCountGenerateReports;
         private FontAwesome.Sharp.IconButton btnConfigSettings;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbOperator;
+        private FontAwesome.Sharp.IconButton btnUser;
     }
 }

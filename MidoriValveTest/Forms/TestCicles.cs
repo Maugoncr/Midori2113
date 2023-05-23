@@ -1,5 +1,6 @@
 ﻿using CustomMessageBox;
 using MidoriValveTest.Forms;
+using MidoriValveTest.Properties;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace MidoriValveTest
 
         private void TestCicles_Load(object sender, EventArgs e)
         {
+
             MostrarOcultarSetpointPhase2(true);
             cbSelectTypeCycle.SelectedIndex = -1;
             btnTestStart.Enabled = false;
@@ -85,10 +87,12 @@ namespace MidoriValveTest
 
         private void MostrarOcultarSetpointPhase2(bool OcultarMostrar)
         {
+            lbOperator.Text = Properties.Settings.Default.Operator;
+
             if (OcultarMostrar)
             {
-                lbNumOfClycles.Location = new Point(193, 136);
-                NumOfCycles.Location = new Point(171, 159);
+                lbNumOfClycles.Location = new Point(193, 182);
+                NumOfCycles.Location = new Point(171, 205);
                 btnSetPoint.Visible = false;
                 txtSetPoint.Visible = false;
                 lbSentSetpoint.Visible = false;
@@ -97,8 +101,8 @@ namespace MidoriValveTest
             }
             else
             {
-                lbNumOfClycles.Location = new Point(94, 136);
-                NumOfCycles.Location = new Point(72, 159);
+                lbNumOfClycles.Location = new Point(94, 183);
+                NumOfCycles.Location = new Point(72, 206);
                 btnSetPoint.Visible = true;
                 txtSetPoint.Visible = true;
                 lbSentSetpoint.Visible = true;
@@ -150,6 +154,7 @@ namespace MidoriValveTest
                 FrmDontTouch miFormulario = new FrmDontTouch();
                 miFormulario.Show();
             }
+
             menssager.timerTemporizador.Start();
             menssager.NewThreadForTest();
             this.Close();
@@ -213,6 +218,19 @@ namespace MidoriValveTest
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnOperator_Click(object sender, EventArgs e)
+        {
+            int valor = 1;
+
+            FrmAskNameReport frm = new FrmAskNameReport(valor);
+            DialogResult resultado = frm.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                lbOperator.Text = Settings.Default.Operator;
+            }
         }
     }
 }

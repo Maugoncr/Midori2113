@@ -2593,7 +2593,7 @@ namespace MidoriValveTest
             this.IconReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IconReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IconReport.ForeColor = System.Drawing.Color.White;
-            this.IconReport.IconChar = FontAwesome.Sharp.IconChar.Book;
+            this.IconReport.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
             this.IconReport.IconColor = System.Drawing.Color.White;
             this.IconReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IconReport.IconSize = 25;

@@ -25,13 +25,13 @@ namespace MidoriValveTest.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("[GLOB]")]
-        public string Client {
+        [global::System.Configuration.DefaultSettingValueAttribute("GLOB (Global Intercom)")]
+        public string Customer {
             get {
-                return ((string)(this["Client"]));
+                return ((string)(this["Customer"]));
             }
             set {
-                this["Client"] = value;
+                this["Customer"] = value;
             }
         }
         
@@ -44,6 +44,54 @@ namespace MidoriValveTest.Properties {
             }
             set {
                 this["CodeProject"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Fred Rezaie")]
+        public string PersonOfContact {
+            get {
+                return ((string)(this["PersonOfContact"]));
+            }
+            set {
+                this["PersonOfContact"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("201XXX")]
+        public string PurchaseOrder {
+            get {
+                return ((string)(this["PurchaseOrder"]));
+            }
+            set {
+                this["PurchaseOrder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Jason Tran - SSNE")]
+        public string Operator {
+            get {
+                return ((string)(this["Operator"]));
+            }
+            set {
+                this["Operator"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool FirstTimeOpen {
+            get {
+                return ((bool)(this["FirstTimeOpen"]));
+            }
+            set {
+                this["FirstTimeOpen"] = value;
             }
         }
     }

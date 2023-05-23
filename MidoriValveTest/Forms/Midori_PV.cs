@@ -107,6 +107,24 @@ namespace MidoriValveTest
         // Funcion de carga de procedimientos iniciales (inicio automatico). 
         private void Form1_Load(object sender, EventArgs e)
         {
+            bool firstTime = Settings.Default.FirstTimeOpen;
+
+            if (firstTime)
+            {
+                FrmAskNameReport frm = new FrmAskNameReport();
+                DialogResult resultado = frm.ShowDialog();
+
+                if (resultado == DialogResult.OK)
+                {
+                    Settings.Default.FirstTimeOpen = false;
+                    Settings.Default.Save();
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+
             CrearArchivoContadorReportesGenerados();
             OffEverything();
             timer1.Enabled = true;
@@ -123,7 +141,7 @@ namespace MidoriValveTest
 
         private void OffEverything()
         {
-            lbClientSettings.Text = Settings.Default.Client + " " +Settings.Default.CodeProject;
+            lbClientSettings.Text = Settings.Default.Customer + " " +Settings.Default.CodeProject;
 
             if (serialPort1.IsOpen)
             {
@@ -146,7 +164,8 @@ namespace MidoriValveTest
             PedirMKS2 = false;
 
             //MarathonTEST
-            stillRunning = false;
+            // Hace que siempre al realizar un reset la variable haga que cualquier secuencia mal detenida se apague por completo!
+            stillRunning = true;
             stopChrono = false;
             generateReport = false;
             SetpointPhase2 = 0;
@@ -419,7 +438,7 @@ namespace MidoriValveTest
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
-            stillRunning = true;
+            
             LimpiarTestArea();
             OffEverything();
             this.Alert("Successfully restarted", Form_Alert.enmType.Success);
@@ -484,6 +503,10 @@ namespace MidoriValveTest
                     EnableBtn(btnAutoCalibrate);
                     EnableBtn(btnPIDAnalisis);
                     EnableBtnEMO(btnEMO);
+
+                    // Se propone realizar una apertura y cierre total de todas las valvulas principalmente BCV para evitar problemas
+
+
                 }
 
             }
@@ -692,6 +715,8 @@ namespace MidoriValveTest
 
         private void btn_valveTest_Click(object sender, EventArgs e)
         {
+            stillRunning = false;
+
             Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is TestCicles);
             if (frm == null)
             {
@@ -2241,7 +2266,7 @@ namespace MidoriValveTest
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lbClientSettings.Text = Settings.Default.Client + " " + Settings.Default.CodeProject;
+            lbClientSettings.Text = Settings.Default.Customer + " " + Settings.Default.CodeProject;
 
             string fecha = DateTime.Now.ToString("dddd, MM/dd/yyyy");
             lblhora.Text = DateTime.Now.ToString("hh:mm:ss tt");
@@ -2406,7 +2431,6 @@ namespace MidoriValveTest
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            stillRunning = true;
             OffEverything();
             this.Alert("Successfully stoped", Form_Alert.enmType.Success);
         }
@@ -4004,15 +4028,11 @@ namespace MidoriValveTest
             MiReporte.Load("../../Reportes/RptTableMarathon.rpt");
 
             MiReporte.SetParameterValue("totalCycles", lbGoalCycles.Text);
-            MiReporte.SetParameterValue("customerName", Settings.Default.Client);
+            MiReporte.SetParameterValue("customerName", Settings.Default.Customer);
             MiReporte.SetParameterValue("projectCode", Settings.Default.CodeProject);
             MiReporte.SetParameterValue("operatorName", "Mauricio");
-            string k = DateStartedTest.Text;
-            string j = k.Replace("\n", " - ");
-            MiReporte.SetParameterValue("startDate", j);
-            k = DateEndedTest.Text;
-            j = k.Replace("\n", " - ");
-            MiReporte.SetParameterValue("endDate", j);
+            MiReporte.SetParameterValue("startDate", DateStartedTest.Text);
+            MiReporte.SetParameterValue("endDate", DateEndedTest.Text);
 
             Visualizador.crystalReportViewer1.ReportSource = MiReporte;
             Visualizador.crystalReportViewer1.Zoom(85);
@@ -4692,9 +4712,9 @@ namespace MidoriValveTest
             if (serialPort1.IsOpen)
             {
                 // Apagar Pump
-                serialPort1.Write("Y");
+                serialPort1.Write("U");
                 Thread.Sleep(50);
-                EncenderPump();
+                ApagarPump();
 
                 // Cerrar Solenoid 1
                 serialPort1.Write("W");
