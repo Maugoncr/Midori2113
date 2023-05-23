@@ -105,7 +105,7 @@ namespace MidoriValveTest.Forms
 
         private void FrmDontTouch_Activated(object sender, EventArgs e)
         {
-            this.BringToFront();
+          this.BringToFront();
         }
 
         public bool permitirCerrar = false;

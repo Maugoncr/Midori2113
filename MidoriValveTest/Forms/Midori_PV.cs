@@ -4008,6 +4008,17 @@ namespace MidoriValveTest
             }
             else
             {
+                Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmDontTouch);
+                if (frm == null)
+                {
+                    FrmDontTouch nt = new FrmDontTouch();
+                    nt.Show();
+                }
+                else
+                {
+                    frm.BringToFront();
+                }
+
                 TimeSpan tiempoTranscurrido = DateTime.Now - InicioChrono;
                 // Formateamos el tiempo transcurrido en formato de días, horas, minutos y segundos
                 string tiempoFormateado = string.Format("{0:00}:{1:00}:{2:00}:{3:00}",
@@ -4749,5 +4760,7 @@ namespace MidoriValveTest
 
 
         }
+       
+
     }
 }
