@@ -4893,6 +4893,13 @@ namespace MidoriValveTest
         bool stillRunning = false;
         private void btnStopMarathon_Click(object sender, EventArgs e)
         {
+
+            // Posible Change, use .Abort
+
+            generateReport = false;
+
+            //
+
             stillRunning = true;
             btnStopMarathon.Enabled = false;
             btnStopMarathon.BackgroundImage = Resources.StopDisable;
