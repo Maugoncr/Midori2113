@@ -890,6 +890,10 @@ namespace MidoriValveTest
                         lbStepForTest.Text = "Close [BCV40]";
                         VisualCerrarMainV();
 
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -904,6 +908,11 @@ namespace MidoriValveTest
                         serialPort1.Write("R");
                         lbStepForTest.Text = "Close [PN ISO-V2]";
                         CerrarSolenoid_2();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -918,6 +927,11 @@ namespace MidoriValveTest
                         serialPort1.Write("Y");
                         lbStepForTest.Text = "On [PUMP]";
                         EncenderPump();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -930,6 +944,11 @@ namespace MidoriValveTest
 
                         // #4
                         lbStepForTest.Text = "Waiting down to 1 torr";
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("02:00", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 120; j++)
                         {
                             Thread.Sleep(1000);
@@ -944,6 +963,11 @@ namespace MidoriValveTest
                         serialPort1.Write("W");
                         lbStepForTest.Text = "Close [PN ISO-V1]";
                         CerrarSolenoid_1();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -958,6 +982,11 @@ namespace MidoriValveTest
                         serialPort1.Write("U");
                         lbStepForTest.Text = "Off [PUMP]";
                         ApagarPump();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -970,6 +999,11 @@ namespace MidoriValveTest
 
                         // #7
                         lbStepForTest.Text = "Verify leak for 5 min";
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("05:00", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 300; j++)
                         {
                             Thread.Sleep(1000);
@@ -984,6 +1018,11 @@ namespace MidoriValveTest
                         serialPort1.Write("Q");
                         lbStepForTest.Text = "Open [PN ISO-V1]";
                         AbrirSolenoid_1();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -998,6 +1037,11 @@ namespace MidoriValveTest
                         serialPort1.Write("E");
                         lbStepForTest.Text = "Open [PN ISO-V2]";
                         AbrirSolenoid_2();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:04", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 4; j++)
                         {
                             Thread.Sleep(1000);
@@ -1012,6 +1056,11 @@ namespace MidoriValveTest
                         serialPort1.Write("90");
                         lbStepForTest.Text = "Open [BCV40]";
                         VisualAbrirMainV();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -1066,6 +1115,11 @@ namespace MidoriValveTest
                     serialPort1.Write("0");
                     lbStepForTest.Text = "Close [BCV40]";
                     VisualCerrarMainV();
+
+                    tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                    lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                    runTimer = true;
+
                     for (int j = 0; j < 2; j++)
                     {
                         Thread.Sleep(1000);
@@ -1080,6 +1134,11 @@ namespace MidoriValveTest
                     serialPort1.Write("R");
                     lbStepForTest.Text = "Close [PN ISO-V2]";
                     CerrarSolenoid_2();
+
+                    tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                    lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                    runTimer = true;
+
                     for (int j = 0; j < 2; j++)
                     {
                         Thread.Sleep(1000);
@@ -1094,6 +1153,11 @@ namespace MidoriValveTest
                     serialPort1.Write("Y");
                     lbStepForTest.Text = "On [PUMP]";
                     EncenderPump();
+
+                    tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                    lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                    runTimer = true;
+
                     for (int j = 0; j < 2; j++)
                     {
                         Thread.Sleep(1000);
@@ -1106,6 +1170,11 @@ namespace MidoriValveTest
 
                     // #4
                     lbStepForTest.Text = "Waiting down to 1 torr";
+
+                    tiempoSeleccionado = TimeSpan.ParseExact("02:00", @"mm\:ss", null);
+                    lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                    runTimer = true;
+
                     for (int j = 0; j < 120; j++)
                     {
                         Thread.Sleep(1000);
@@ -1123,6 +1192,11 @@ namespace MidoriValveTest
 
                     lbStepForTest.BackColor = Color.Yellow;
                     lbStepForTest.Text = "Waiting 30s to Manual Reset";
+
+                    tiempoSeleccionado = TimeSpan.ParseExact("00:30", @"mm\:ss", null);
+                    lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                    runTimer = true;
+
                     for (int j = 0; j < 30; j++)
                     {
                         Thread.Sleep(1000);
@@ -1138,6 +1212,11 @@ namespace MidoriValveTest
                     {
                         // #6
                         lbStepForTest.Text = "STABILITY TEST";
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("05:00", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 300; j++)
                         {
                             Thread.Sleep(1000);
@@ -1152,6 +1231,11 @@ namespace MidoriValveTest
                         serialPort1.Write("E");
                         lbStepForTest.Text = "Open [PN ISO-V2]";
                         AbrirSolenoid_2();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:04", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 4; j++)
                         {
                             Thread.Sleep(1000);
@@ -1166,6 +1250,11 @@ namespace MidoriValveTest
                         serialPort1.Write("R");
                         lbStepForTest.Text = "Close [PN ISO-V2]";
                         CerrarSolenoid_2();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -1183,6 +1272,11 @@ namespace MidoriValveTest
                     serialPort1.Write("U");
                     lbStepForTest.Text = "Off [PUMP]";
                     ApagarPump();
+
+                    tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                    lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                    runTimer = true;
+
                     for (int j = 0; j < 2; j++)
                     {
                         Thread.Sleep(1000);
@@ -1197,6 +1291,11 @@ namespace MidoriValveTest
                     serialPort1.Write("E");
                     lbStepForTest.Text = "Open [PN ISO-V2]";
                     AbrirSolenoid_2();
+
+                    tiempoSeleccionado = TimeSpan.ParseExact("00:04", @"mm\:ss", null);
+                    lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                    runTimer = true;
+
                     for (int j = 0; j < 4; j++)
                     {
                         Thread.Sleep(1000);
@@ -1211,6 +1310,11 @@ namespace MidoriValveTest
                     serialPort1.Write("90");
                     lbStepForTest.Text = "Open [BCV40]";
                     VisualAbrirMainV();
+
+                    tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                    lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                    runTimer = true;
+
                     for (int j = 0; j < 2; j++)
                     {
                         Thread.Sleep(1000);
@@ -1224,6 +1328,11 @@ namespace MidoriValveTest
                     // #12 Stop PID NEED RESET
                     serialPort1.Write("T");
                     lbStepForTest.Text = "Waiting 20s to Manual Reset";
+
+                    tiempoSeleccionado = TimeSpan.ParseExact("00:20", @"mm\:ss", null);
+                    lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                    runTimer = true;
+
                     for (int j = 0; j < 20; j++)
                     {
                         Thread.Sleep(1000);
