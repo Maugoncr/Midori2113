@@ -23,7 +23,9 @@ namespace MidoriValveTest
 
         private void Information_Load(object sender, EventArgs e)
         {
+#pragma warning disable CS1690 // Accessing a member on a field of a marshal-by-reference class may cause a runtime exception
             lbCountGenerateReports.Text = interInfo.ContadorReportes.ToString();
+#pragma warning restore CS1690 // Accessing a member on a field of a marshal-by-reference class may cause a runtime exception
 
             lbOperator.Text = Settings.Default.Operator;
         }

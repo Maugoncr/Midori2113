@@ -18,12 +18,8 @@ using System.Diagnostics;
 using CustomMessageBox;
 using MidoriValveTest.Forms;
 using AForge.Video;
-using System.Drawing.Imaging;
 using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.Shared;
 using MidoriValveTest.Properties;
-using System.Net.Sockets;
-using System.Windows.Shell;
 
 namespace MidoriValveTest
 {
@@ -165,12 +161,14 @@ namespace MidoriValveTest
 
             //MarathonTEST
             // Hace que siempre al realizar un reset la variable haga que cualquier secuencia mal detenida se apague por completo!
-            stillRunning = true;
+            runTimer = false;
+            stillRunning = false;
             stopChrono = false;
             generateReport = false;
             SetpointPhase2 = 0;
 
             btnStopMarathon.Enabled = false;
+            btnStopMarathon.BackgroundImage = Resources.StopDisable;
 
             // Return all the variables from ObjetosGlobales to default
             ObjetosGlobales.P = "x";
@@ -438,7 +436,10 @@ namespace MidoriValveTest
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
-            LimpiarTestArea(true);
+            if (t != null && t.IsAlive)
+            {
+                t.Abort();
+            }
             OffEverything();
             this.Alert("Successfully restarted", Form_Alert.enmType.Success);
         }
@@ -824,16 +825,19 @@ namespace MidoriValveTest
         public int TestToRun = 0;
         public int NumTest = 1;
         public int SetpointPhase2 = 0;
+        Thread t;
 
         public void NewThreadForTest()
         {
             LimpiarTestArea();
             btnStopMarathon.Enabled = true;
-            stillRunning = false;
+            btnStopMarathon.BackgroundImage = Resources.Stop;
+            btnLimpiarTestArea.Enabled = false;
             InicioChrono = DateTime.Now;
             lbGoalCycles.Text = NumTest.ToString();
+            stillRunning = false;
 
-            Thread t = new Thread(new ThreadStart(EjecutarTest));
+            t = new Thread(new ThreadStart(EjecutarTest));
             t.Start();
             DisableBtn(btn_valveTest);
         }
@@ -1269,6 +1273,11 @@ namespace MidoriValveTest
                         serialPort1.Write("0");
                         lbStepForTest.Text = "Close [BCV40]";
                         VisualCerrarMainV();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -1283,6 +1292,11 @@ namespace MidoriValveTest
                         serialPort1.Write("R");
                         lbStepForTest.Text = "Close [PN ISO-V2]";
                         CerrarSolenoid_2();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -1297,6 +1311,11 @@ namespace MidoriValveTest
                         serialPort1.Write("Y");
                         lbStepForTest.Text = "On [PUMP]";
                         EncenderPump();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -1309,6 +1328,11 @@ namespace MidoriValveTest
 
                         // #4
                         lbStepForTest.Text = "Waiting down to 1 torr";
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("02:00", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 120; j++)
                         {
                             Thread.Sleep(1000);
@@ -1323,6 +1347,11 @@ namespace MidoriValveTest
                         serialPort1.Write("W");
                         lbStepForTest.Text = "Close [PN ISO-V1]";
                         CerrarSolenoid_1();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -1337,6 +1366,11 @@ namespace MidoriValveTest
                         serialPort1.Write("U");
                         lbStepForTest.Text = "Off [PUMP]";
                         ApagarPump();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -1349,6 +1383,11 @@ namespace MidoriValveTest
 
                         // #7
                         lbStepForTest.Text = "Verify leak for 1 min";
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("01:00", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 60; j++)
                         {
                             Thread.Sleep(1000);
@@ -1363,6 +1402,11 @@ namespace MidoriValveTest
                         serialPort1.Write("Q");
                         lbStepForTest.Text = "Open [PN ISO-V1]";
                         AbrirSolenoid_1();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -1377,6 +1421,11 @@ namespace MidoriValveTest
                         serialPort1.Write("E");
                         lbStepForTest.Text = "Open [PN ISO-V2]";
                         AbrirSolenoid_2();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 4; j++)
                         {
                             Thread.Sleep(1000);
@@ -1391,6 +1440,11 @@ namespace MidoriValveTest
                         serialPort1.Write("90");
                         lbStepForTest.Text = "Open [BCV40]";
                         VisualAbrirMainV();
+
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+                        runTimer = true;
+
                         for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
@@ -2296,11 +2350,16 @@ namespace MidoriValveTest
             serialPort1.Close();
             serialPortMKS1.Close();
             serialPortMKS2.Close();
-            Application.Exit();
             CerrarWebCam();
             CerrarWebCam2();
             CerrarWebCam3();
             CerrarWebCam4();
+            if (t != null && t.IsAlive)
+            {
+                t.Abort();
+            }
+
+            Application.Exit();
         }
 
         private void iconBar_Click(object sender, EventArgs e)
@@ -2430,6 +2489,10 @@ namespace MidoriValveTest
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+            if (t != null && t.IsAlive)
+            {
+                t.Abort();
+            }
             OffEverything();
             this.Alert("Successfully stoped", Form_Alert.enmType.Success);
         }
@@ -3983,6 +4046,10 @@ namespace MidoriValveTest
         bool generateReport = false;
         private DateTime InicioChrono;
 
+        //Temporizador Step by Step
+        private TimeSpan tiempoSeleccionado;
+        private bool runTimer = false;
+
         private void timerTemporizador_Tick(object sender, EventArgs e)
         {
             if (stopChrono)
@@ -3990,6 +4057,9 @@ namespace MidoriValveTest
                 EnableBtn(btn_valveTest);
                 stopChrono = false;
                 timerTemporizador.Stop();
+                btnStopMarathon.Enabled= false;
+                btnStopMarathon.BackgroundImage = Resources.StopDisable;
+
                 FrmDontTouch permitirCerrarFormulario = Application.OpenForms.OfType<FrmDontTouch>().FirstOrDefault();
                 if (permitirCerrarFormulario != null)
                 {
@@ -4016,6 +4086,20 @@ namespace MidoriValveTest
                     tiempoTranscurrido.Seconds);
                 //Actualizamos el textbox con el tiempo formateado
                 txtCrono.Text = tiempoFormateado;
+                
+                // Temporizador Step by Step
+
+                if (runTimer)
+                {
+                    tiempoSeleccionado = tiempoSeleccionado.Subtract(TimeSpan.FromSeconds(1));
+                    lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
+
+                    if (tiempoSeleccionado.TotalSeconds <= 0)
+                    {
+                        runTimer = false;
+                    }
+                }
+
             }
         }
 
@@ -4669,6 +4753,7 @@ namespace MidoriValveTest
         private void LimpiarTestArea(bool LimpiarPopUp = false) 
         {
             lbGoalCycles.Text = "0";
+            lbTemporizadorStepByStep.Text = "00:00";
             lbCountCycles.Text = "0";
             txtCrono.Text = "00:00:00:00";
             DateEndedTest.Text = "-/-/-";
@@ -4701,6 +4786,7 @@ namespace MidoriValveTest
         {
             stillRunning = true;
             btnStopMarathon.Enabled = false;
+            btnStopMarathon.BackgroundImage = Resources.StopDisable;
             btnLimpiarTestArea.Enabled = true;
             lbStepForTest.BackColor = Color.Red;
             lbStepForTest.Text = "TEST STOPPED";
