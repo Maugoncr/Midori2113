@@ -3156,6 +3156,11 @@ namespace MidoriValveTest
                 lbl_pressure.Text = (presionChart);
                 lb_Temperature.Text = temperaturaLabel + " °C";
 
+                if (!string.IsNullOrEmpty(presionSetPoint))
+                {
+                    lbSetPointPressure.Text = presionSetPoint;
+                }
+
                 if (Auto)
                 {
                     chart1.ChartAreas[0].AxisY2.Maximum = Double.NaN;
