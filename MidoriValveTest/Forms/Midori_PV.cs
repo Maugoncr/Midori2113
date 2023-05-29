@@ -2593,7 +2593,7 @@ namespace MidoriValveTest
         private void IconReport_Click(object sender, EventArgs e)
         {
             GenerateNewReportVersion();
-           // GenerarReporte(ObtenerNombreReport());
+           //GenerarReporte(ObtenerNombreReport());
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -4184,7 +4184,8 @@ namespace MidoriValveTest
                 if (generateReport)
                 {
                     generateReport = false;
-                    GenerarReporte("Automatically created");
+                    GenerateNewReportVersion(TestToRun);
+                    //GenerarReporte("Automatically created");
                 }
 
                 btnLimpiarTestArea.Enabled = true;
@@ -4217,23 +4218,70 @@ namespace MidoriValveTest
             }
         }
 
-        private void GenerateNewReportVersion()
+        private void GenerateNewReportVersion(int WhoIam = 0)
         {
+            AumentarContadorReportesGenerados();
+
             ReportDocument MiReporte = new ReportDocument();
             FrmVisualizadorCrystalReport Visualizador = new FrmVisualizadorCrystalReport();
 
-            MiReporte.Load("../../Reportes/RptTableMarathon.rpt");
+            // Reporte creado desde fuera de las fases, intermedio o etc..
+            if (WhoIam == 0)
+            {
 
-            MiReporte.SetParameterValue("totalCycles", lbGoalCycles.Text);
-            MiReporte.SetParameterValue("customerName", Settings.Default.Customer);
-            MiReporte.SetParameterValue("projectCode", Settings.Default.CodeProject);
-            MiReporte.SetParameterValue("operatorName", "Mauricio");
-            MiReporte.SetParameterValue("startDate", DateStartedTest.Text);
-            MiReporte.SetParameterValue("endDate", DateEndedTest.Text);
+            }
+            // Reporte creado desde Fase 1
+            if (WhoIam == 1)
+            {
 
-            Visualizador.crystalReportViewer1.ReportSource = MiReporte;
-            Visualizador.crystalReportViewer1.Zoom(85);
-            Visualizador.Show();
+            }
+            // Reporte creado desde Fase 2, PID Problem...
+            if (WhoIam == 2)
+            {
+
+            }
+            //Reporte creado desde Fase 3, Leak test!
+            if (WhoIam == 3)
+            {
+                MiReporte.Load("../../Reportes/RptTableMarathon.rpt");
+
+                MiReporte.SetParameterValue("customerName", Settings.Default.Customer);
+                MiReporte.SetParameterValue("personContact", Settings.Default.PersonOfContact);
+                MiReporte.SetParameterValue("projectCode", Settings.Default.CodeProject);
+                MiReporte.SetParameterValue("operatorName", Settings.Default.Operator);
+                MiReporte.SetParameterValue("purchaseOrder", Settings.Default.PurchaseOrder);
+
+                MiReporte.SetParameterValue("reportNumber", "TBD");
+
+                MiReporte.SetParameterValue("startDate", DateStartedTest.Text);
+                MiReporte.SetParameterValue("endDate", DateEndedTest.Text);
+
+                // Debe verificarse que el ultimo ciclo se haya contado correctamente!
+                MiReporte.SetParameterValue("totalCycles", lbCountCycles.Text);
+
+                //Traer las variables requeridas para los demás espacios!
+
+
+
+
+
+
+                Visualizador.crystalReportViewer1.ReportSource = MiReporte;
+                Visualizador.crystalReportViewer1.Zoom(85);
+                Visualizador.Show();
+            }
+
+
+           
+
+            
+
+           
+           
+           
+           
+
+           
 
         }
 
