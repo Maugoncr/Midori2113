@@ -126,7 +126,7 @@ namespace MidoriValveTest
             timer1.Enabled = true;
             TimerAnimation.Start();
 
-            
+
 
             if (cbSelectionCOM.Items.Count > 0)     // exist ports com
             {
@@ -137,7 +137,7 @@ namespace MidoriValveTest
 
         private void OffEverything()
         {
-            lbClientSettings.Text = Settings.Default.Customer + " " +Settings.Default.CodeProject;
+            lbClientSettings.Text = Settings.Default.Customer + " " + Settings.Default.CodeProject;
 
             if (serialPort1.IsOpen)
             {
@@ -426,7 +426,7 @@ namespace MidoriValveTest
             {
                 DisableBtn(btnConnect);
             }
-           
+
         }
 
 
@@ -503,6 +503,7 @@ namespace MidoriValveTest
                     EnableBtn(btnAutoCalibrate);
                     EnableBtn(btnPIDAnalisis);
                     EnableBtnEMO(btnEMO);
+                    btnEMO.ForeColor = Color.Yellow;
 
                     // Se propone realizar una apertura y cierre total de todas las valvulas principalmente BCV para evitar problemas
 
@@ -570,7 +571,7 @@ namespace MidoriValveTest
                 }
                 catch (UnauthorizedAccessException)
                 {
-                    MessageBoxMaugoncr.Show("Access to "+ COMM + " port denied", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBoxMaugoncr.Show("Access to " + COMM + " port denied", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     lbStatusMKS2.Text = "* Disconnected";
 
                     cbSelectionCOM.Enabled = true;
@@ -586,7 +587,7 @@ namespace MidoriValveTest
                     return false;
                 }
             }
-           
+
         }
 
         public bool reconocer_arduino(string COMM)
@@ -1497,6 +1498,11 @@ namespace MidoriValveTest
                         lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                         runTimer = true;
 
+                        //Reset de las variables para cada ciclo evitar problemas!
+                        pressureDinamicMax = 0;
+                        pressureDinamicMin = double.MaxValue;
+                        capturarPresionMaxMinPhase3 = true;
+
                         for (int j = 0; j < 60; j++)
                         {
                             Thread.Sleep(1000);
@@ -1506,6 +1512,8 @@ namespace MidoriValveTest
                                 return;
                             }
                         }
+
+                        capturarPresionMaxMinPhase3 = false;
 
                         // #8
                         serialPort1.Write("Q");
@@ -1565,7 +1573,18 @@ namespace MidoriValveTest
                         }
 
                         ContarCycle();
+
+                        if (lbCountCycles.Text == "1")
+                        {
+                            CalcularPhase3PerCycle(true);
+                        }
+                        else
+                        {
+                            CalcularPhase3PerCycle();
+                        }
                     }
+
+
                     generateReport = true;
                     stopChrono = true;
                     DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy || hh:mm:ss tt");
@@ -1574,7 +1593,7 @@ namespace MidoriValveTest
             }
             catch (Exception ex)
             {
-                string message = "    The marathon test ended abruptly\n             Exception Message:\n           " +ex.Message;
+                string message = "    The marathon test ended abruptly\n             Exception Message:\n           " + ex.Message;
                 MessageBoxMaugoncr.Show(message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
@@ -1621,7 +1640,7 @@ namespace MidoriValveTest
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
             picture_frontal.Image = MidoriValveTest.Properties.Resources.Front20;
-            picture_plane.Image =  MidoriValveTest.Properties.Resources.Verti20B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Verti20B;
             base_value = 20;
             trackBar1A.Value = 20;
             Current_aperture.Text = trackBar1A.Value + "°";
@@ -1637,7 +1656,7 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image =  MidoriValveTest.Properties.Resources.Front30;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Front30;
             picture_plane.Image = MidoriValveTest.Properties.Resources.Verti30B;
             base_value = 30;
             trackBar1A.Value = 30;
@@ -1654,7 +1673,7 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image =  MidoriValveTest.Properties.Resources.Front40;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Front40;
             picture_plane.Image = MidoriValveTest.Properties.Resources.Verti40B;
             base_value = 40;
             trackBar1A.Value = 40;
@@ -1689,10 +1708,10 @@ namespace MidoriValveTest
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
             picture_frontal.Image = MidoriValveTest.Properties.Resources.Front60;
-            picture_plane.Image =  MidoriValveTest.Properties.Resources.Verti60B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Verti60B;
             base_value = 60;
             trackBar1A.Value = 60;
-          
+
             Current_aperture.Text = trackBar1A.Value + "°";
             if (lbl_estado.Text == "Open")
             {
@@ -1706,7 +1725,7 @@ namespace MidoriValveTest
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
             picture_frontal.Image = MidoriValveTest.Properties.Resources.Front70;
-            picture_plane.Image =  MidoriValveTest.Properties.Resources.Verti70B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Verti70B;
             base_value = 70;
             trackBar1A.Value = 70;
             Current_aperture.Text = trackBar1A.Value + "°";
@@ -1722,7 +1741,7 @@ namespace MidoriValveTest
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
             picture_frontal.Image = MidoriValveTest.Properties.Resources.Front80;
-            picture_plane.Image =  MidoriValveTest.Properties.Resources.Verti80B;
+            picture_plane.Image = MidoriValveTest.Properties.Resources.Verti80B;
             base_value = 80;
             trackBar1A.Value = 80;
             Current_aperture.Text = trackBar1A.Value + "°";
@@ -1738,7 +1757,7 @@ namespace MidoriValveTest
         {
             picture_frontal.Image.Dispose();
             picture_plane.Image.Dispose();
-            picture_frontal.Image =  MidoriValveTest.Properties.Resources.Front90;
+            picture_frontal.Image = MidoriValveTest.Properties.Resources.Front90;
             picture_plane.Image = MidoriValveTest.Properties.Resources.Verti90B;
             base_value = 90;
             trackBar1A.Value = 90;
@@ -2167,7 +2186,7 @@ namespace MidoriValveTest
             LateralNav.Size = new Size(0, 1019);
         }
 
-        
+
 
         private void Midori_PV_MouseClick(object sender, MouseEventArgs e)
         {
@@ -2408,7 +2427,7 @@ namespace MidoriValveTest
                     string envioConFormato = "S" + presion.ToString() + ",x,x,x";
                     lbSendPID.Text = envioConFormato;
                     serialPort1.Write(envioConFormato);
-                    lbSetPointPressure.Text = presion.ToString()+" Torr";
+                    lbSetPointPressure.Text = presion.ToString() + " Torr";
                     break;
             }
 
@@ -2453,7 +2472,7 @@ namespace MidoriValveTest
             if (permitirCerrarFormulario != null)
             {
                 permitirCerrarFormulario.permitirCerrar = true;
-                permitirCerrarFormulario.Close(); 
+                permitirCerrarFormulario.Close();
             }
 
             serialPort1.Close();
@@ -2593,7 +2612,7 @@ namespace MidoriValveTest
         private void IconReport_Click(object sender, EventArgs e)
         {
             GenerateNewReportVersion();
-           //GenerarReporte(ObtenerNombreReport());
+            //GenerarReporte(ObtenerNombreReport());
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -2643,7 +2662,7 @@ namespace MidoriValveTest
             }
         }
 
-        private void AumentarContadorReportesGenerados() 
+        private void AumentarContadorReportesGenerados()
         {
             string rutaArchivo = Path.Combine(rutaProyecto, "archivo.txt");
 
@@ -3129,9 +3148,118 @@ namespace MidoriValveTest
             }
         }
 
+        private void ResetVariablesPhases()
+        {
+            capturarPresionMaxMinPhase3 = false;
+            cycleDeltaMax = 0;
+            cycleDeltaMin = 0;
+            deltaMaxPhase3 = 0;
+            deltaMinPhase3 = 0;
+
+            pressureHigh1Phase3 = 0;
+            pressureLow1Phase3 = 0;
+
+            pressureHigh2Phase3 = 0;
+            pressureLow2Phase3 = 0;
+
+            leakRate1Phase3 = 0;
+            leakRate2Phase3 = 0;
+
+            pressureDinamicMax = 0;
+            pressureDinamicMin = double.MaxValue;
+        }
+            
+
+        // Variables para cubrir todas las fases e información para el reporte!
+        bool capturarPresionMaxMinPhase3 = false;
+
+        int cycleDeltaMax = 0;
+        int cycleDeltaMin = 0;
+
+        double deltaMaxPhase3 = 0;
+        double deltaMinPhase3 = 0;
+
+        double pressureHigh1Phase3 = 0;
+        double pressureLow1Phase3 = 0;
+       
+        double pressureHigh2Phase3 = 0;
+        double pressureLow2Phase3 = 0;
+
+        double leakRate1Phase3 = 0;
+        double leakRate2Phase3 = 0;
+
+        double pressureDinamicMax = 0;
+        double pressureDinamicMin = double.MaxValue;
+
+        private void CalcularPhase3PerCycle(bool primerCiclo = false) 
+        {
+            if (primerCiclo)
+            {
+                cycleDeltaMax = Convert.ToInt32(lbCountCycles.Text);
+                cycleDeltaMin = Convert.ToInt32(lbCountCycles.Text);
+
+                pressureHigh1Phase3 = pressureDinamicMax;
+                pressureHigh2Phase3 = pressureDinamicMax;
+
+                pressureLow1Phase3 = pressureDinamicMin;
+                pressureLow2Phase3 = pressureDinamicMin;
+
+                deltaMaxPhase3 = pressureDinamicMax - pressureDinamicMin;
+                deltaMinPhase3 = pressureDinamicMax - pressureDinamicMin;
+
+                leakRate1Phase3 = deltaMaxPhase3 / 60000;
+                leakRate2Phase3 = deltaMinPhase3 / 60000;
+            }
+            else
+            {
+
+                double deltaDinamica = pressureDinamicMax - pressureDinamicMin;
+
+                if (deltaDinamica > deltaMaxPhase3)
+                {
+                    cycleDeltaMax = Convert.ToInt32(lbCountCycles.Text);
+
+                    pressureHigh1Phase3 = pressureDinamicMax;
+
+                    pressureLow1Phase3 = pressureDinamicMin;
+
+                    deltaMaxPhase3 = deltaDinamica;
+
+                    leakRate1Phase3 = deltaMaxPhase3 / 60000;
+                }
+
+                if (deltaDinamica < deltaMinPhase3)
+                {
+                    cycleDeltaMin = Convert.ToInt32(lbCountCycles.Text);
+
+                    pressureHigh2Phase3 = pressureDinamicMax;
+
+                    pressureLow2Phase3 = pressureDinamicMin;
+
+                    deltaMinPhase3 = deltaDinamica;
+
+                    leakRate2Phase3 = deltaMinPhase3 / 60000;
+                }
+            }
+        }
 
         private void TimerForData_Tick(object sender, EventArgs e)
         {
+
+            if (capturarPresionMaxMinPhase3)
+            {
+                double pressureDinamic = Convert.ToDouble(presionChart);
+
+                if (pressureDinamic > pressureDinamicMax)
+                {
+                    pressureDinamicMax = pressureDinamic;
+                }
+                if (pressureDinamic < pressureDinamicMin)
+                {
+                    pressureDinamicMin = pressureDinamic;
+                }
+            }
+
             rt = rt + 100;
             temp = rt / 1000;
 
@@ -3176,8 +3304,6 @@ namespace MidoriValveTest
                 }
 
             }
-
-
 
             if (chart1.Series["Aperture value"].Points.Count == 349)
             {
@@ -4218,6 +4344,10 @@ namespace MidoriValveTest
             }
         }
 
+
+
+
+
         private void GenerateNewReportVersion(int WhoIam = 0)
         {
             AumentarContadorReportesGenerados();
@@ -4261,9 +4391,15 @@ namespace MidoriValveTest
 
                 //Traer las variables requeridas para los demás espacios!
 
+                MiReporte.SetParameterValue("APMaxPhase3", deltaMaxPhase3.ToString());
+                MiReporte.SetParameterValue("pressureHigh1Phase3", pressureHigh1Phase3.ToString());
+                MiReporte.SetParameterValue("pressureLow1Phase3", pressureLow1Phase3.ToString());
+                MiReporte.SetParameterValue("leakRate1Phase3", leakRate1Phase3.ToString());
 
-
-
+                MiReporte.SetParameterValue("APMinPhase3", deltaMinPhase3.ToString());
+                MiReporte.SetParameterValue("pressureHigh2Phase3", pressureHigh2Phase3.ToString());
+                MiReporte.SetParameterValue("pressureLow2Phase3", pressureLow2Phase3.ToString());
+                MiReporte.SetParameterValue("leakRate2Phase3", leakRate2Phase3.ToString());
 
 
                 Visualizador.crystalReportViewer1.ReportSource = MiReporte;
