@@ -3181,7 +3181,7 @@ namespace MidoriValveTest
 
         double pressureHigh1Phase3 = 0;
         double pressureLow1Phase3 = 0;
-       
+
         double pressureHigh2Phase3 = 0;
         double pressureLow2Phase3 = 0;
 
@@ -4395,11 +4395,13 @@ namespace MidoriValveTest
                 MiReporte.SetParameterValue("pressureHigh1Phase3", pressureHigh1Phase3.ToString());
                 MiReporte.SetParameterValue("pressureLow1Phase3", pressureLow1Phase3.ToString());
                 MiReporte.SetParameterValue("leakRate1Phase3", leakRate1Phase3.ToString());
+                MiReporte.SetParameterValue("NumCyclePhase3MaxDelta", cycleDeltaMax.ToString());
 
                 MiReporte.SetParameterValue("APMinPhase3", deltaMinPhase3.ToString());
                 MiReporte.SetParameterValue("pressureHigh2Phase3", pressureHigh2Phase3.ToString());
                 MiReporte.SetParameterValue("pressureLow2Phase3", pressureLow2Phase3.ToString());
                 MiReporte.SetParameterValue("leakRate2Phase3", leakRate2Phase3.ToString());
+                MiReporte.SetParameterValue("NumCyclePhase3MinDelta", cycleDeltaMin.ToString());
 
 
                 Visualizador.crystalReportViewer1.ReportSource = MiReporte;
