@@ -4404,6 +4404,9 @@ namespace MidoriValveTest
                 MiReporte.SetParameterValue("NumCyclePhase3MinDelta", cycleDeltaMin.ToString());
 
 
+                MiReporte.SetParameterValue("cyclesPhase3", lbCountCycles.Text);
+
+
                 Visualizador.crystalReportViewer1.ReportSource = MiReporte;
                 Visualizador.crystalReportViewer1.Zoom(85);
                 Visualizador.Show();
