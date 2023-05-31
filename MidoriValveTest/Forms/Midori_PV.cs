@@ -3293,7 +3293,7 @@ namespace MidoriValveTest
             else
             {
 
-                double deltaDinamica = pressureDinamicMax - pressureDinamicMin;
+                double deltaDinamica = Math.Round((pressureDinamicMax - pressureDinamicMin),2);
 
                 if (deltaDinamica > deltaMaxPhase3)
                 {
@@ -3305,7 +3305,7 @@ namespace MidoriValveTest
 
                     deltaMaxPhase3 = deltaDinamica;
 
-                    leakRate1Phase3 = deltaMaxPhase3 / 60000;
+                    leakRate1Phase3 = Math.Round((deltaMaxPhase3 / 60000),2);
                 }
 
                 if (deltaDinamica < deltaMinPhase3)
@@ -3318,7 +3318,7 @@ namespace MidoriValveTest
 
                     deltaMinPhase3 = deltaDinamica;
 
-                    leakRate2Phase3 = deltaMinPhase3 / 60000;
+                    leakRate2Phase3 = Math.Round((deltaMinPhase3 / 60000), 2);
                 }
             }
         }
