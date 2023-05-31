@@ -1639,11 +1639,11 @@ namespace MidoriValveTest
                     writer.WriteLine("# Start Test Time " + DateStartedTest.Text);
                     writer.WriteLine("# End Test Time " + DateEndedTest.Text);
                     writer.WriteLine("# Operator Test " + Settings.Default.Operator);
-                    writer.WriteLine("Pressure , Time , Number Cycle , DateTime");
+                    writer.WriteLine("Cycle Number , Pressure , Time , DateTime");
 
                     for (int i = 0; i < timesPressurePhase3L.Count; i++)
                     {
-                        writer.WriteLine(pressuresPhase3L[i] + "," + timesPressurePhase3L[i] + "," + numberCyclePhase3L[i] + "," + datetimesPhase3L[i]);
+                        writer.WriteLine(numberCyclePhase3L[i] + "," + pressuresPhase3L[i] + "," + timesPressurePhase3L[i] + "," + datetimesPhase3L[i]);
                     }
                 }
 
