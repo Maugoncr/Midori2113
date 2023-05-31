@@ -167,6 +167,8 @@ namespace MidoriValveTest
             generateReport = false;
             SetpointPhase2 = 0;
 
+            ResetVariablesPhases();
+
             btnStopMarathon.Enabled = false;
             btnStopMarathon.BackgroundImage = Resources.StopDisable;
 
@@ -838,6 +840,8 @@ namespace MidoriValveTest
             lbGoalCycles.Text = NumTest.ToString();
             stillRunning = false;
 
+            ResetVariablesPhases();
+
             t = new Thread(new ThreadStart(EjecutarTest));
             t.Start();
             DisableBtn(btn_valveTest);
@@ -1443,7 +1447,7 @@ namespace MidoriValveTest
                         lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                         runTimer = true;
 
-                        for (int j = 0; j < 120; j++)
+                        for (int j = 0; j < 10; j++)
                         {
                             Thread.Sleep(1000);
                             if (stillRunning)
@@ -1502,8 +1506,9 @@ namespace MidoriValveTest
                         pressureDinamicMax = 0;
                         pressureDinamicMin = double.MaxValue;
                         capturarPresionMaxMinPhase3 = true;
+                        grabarPresionPhase3 = true;
 
-                        for (int j = 0; j < 60; j++)
+                        for (int j = 0; j < 10; j++)
                         {
                             Thread.Sleep(1000);
                             if (stillRunning)
@@ -1514,6 +1519,7 @@ namespace MidoriValveTest
                         }
 
                         capturarPresionMaxMinPhase3 = false;
+                        grabarPresionPhase3 = false;
 
                         // #8
                         serialPort1.Write("Q");
@@ -1584,11 +1590,14 @@ namespace MidoriValveTest
                         }
                     }
 
-
                     generateReport = true;
                     stopChrono = true;
                     DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy || hh:mm:ss tt");
                     lbStepForTest.Text = "Phase 3 Finished";
+
+                    // Función que guarde en csv los datos recopilados!
+                    GuardarGrabacionPhase3();
+
                 }
             }
             catch (Exception ex)
@@ -1600,6 +1609,48 @@ namespace MidoriValveTest
             }
         }
 
+        private void GuardarGrabacionPhase3() 
+        {
+            string ruta;
+            if (Settings.Default.PathSaveRecords == "Environment.SpecialFolder.Desktop")
+            {
+                ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            }
+            else
+            {
+                ruta = Settings.Default.PathSaveRecords;
+            }
+            string nameFile = "Report Data Phase 3 Created at " + (DateTime.Now.ToString("MM-dd-yy  HH-mm-ss"));
+            string extension = ".txt";
+            string rutaCompleta = Path.Combine(ruta, nameFile + extension);
+
+            try
+            {
+                File.WriteAllText(rutaCompleta, string.Empty);
+                using (StreamWriter writer = new StreamWriter(rutaCompleta))
+                {
+                    writer.WriteLine("# Software Midori II");
+                    writer.WriteLine("# Start Test Time " + DateStartedTest.Text);
+                    writer.WriteLine("# End Test Time " + DateEndedTest.Text);
+                    writer.WriteLine("# Operator Test " + Settings.Default.Operator);
+                    writer.WriteLine("Pressure , Time , Number Cycle , DateTime");
+
+                    for (int i = 0; i < timesPressurePhase3L.Count; i++)
+                    {
+                        writer.WriteLine(pressuresPhase3L[i] + "," + timesPressurePhase3L[i] + "," + numberCyclePhase3L[i] + "," + datetimesPhase3L[i]);
+                    }
+                }
+
+                pressuresPhase3L.Clear();
+                timesPressurePhase3L.Clear();
+                numberCyclePhase3L.Clear();
+                datetimesPhase3L.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         private void btn_0_Click(object sender, EventArgs e)
         {
@@ -3151,6 +3202,7 @@ namespace MidoriValveTest
         private void ResetVariablesPhases()
         {
             capturarPresionMaxMinPhase3 = false;
+
             cycleDeltaMax = 0;
             cycleDeltaMin = 0;
             deltaMaxPhase3 = 0;
@@ -3167,10 +3219,21 @@ namespace MidoriValveTest
 
             pressureDinamicMax = 0;
             pressureDinamicMin = double.MaxValue;
-        }
+
+            grabarPresionPhase3 = false;
+            timeForRecordPhase3 = 0;
+            tempForRecordPhase3 = 0;
+
+            pressuresPhase3L.Clear();
+            timesPressurePhase3L.Clear();
+            datetimesPhase3L.Clear();
+            numberCyclePhase3L.Clear();
+    }
             
 
         // Variables para cubrir todas las fases e información para el reporte!
+
+        // Variables Phase 3
         bool capturarPresionMaxMinPhase3 = false;
 
         int cycleDeltaMax = 0;
@@ -3190,6 +3253,17 @@ namespace MidoriValveTest
 
         double pressureDinamicMax = 0;
         double pressureDinamicMin = double.MaxValue;
+
+        // Variables Phase 3 Grabaciones
+
+        bool grabarPresionPhase3 = false;
+        double timeForRecordPhase3 = 0;
+        double tempForRecordPhase3 = 0;
+
+        private List<string> pressuresPhase3L = new List<string>();
+        private List<string> timesPressurePhase3L = new List<string>();
+        private List<string> datetimesPhase3L = new List<string>();
+        private List<string> numberCyclePhase3L = new List<string>();
 
         private void CalcularPhase3PerCycle(bool primerCiclo = false) 
         {
@@ -3258,7 +3332,21 @@ namespace MidoriValveTest
                 {
                     pressureDinamicMin = pressureDinamic;
                 }
+
+                if (grabarPresionPhase3)
+                {
+                    int numCycle = Convert.ToInt32(lbCountCycles.Text) + 1;
+
+                    timeForRecordPhase3 = timeForRecordPhase3 + 100;
+                    tempForRecordPhase3 = timeForRecordPhase3 / 1000;
+
+                    pressuresPhase3L.Add(pressureDinamic.ToString());
+                    timesPressurePhase3L.Add(tempForRecordPhase3.ToString());
+                    numberCyclePhase3L.Add(numCycle.ToString());
+                    datetimesPhase3L.Add(DateTime.Now.ToString("hh:mm:ss:ff tt"));
+                }
             }
+            
 
             rt = rt + 100;
             temp = rt / 1000;

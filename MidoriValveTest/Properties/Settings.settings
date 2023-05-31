@@ -20,5 +20,8 @@
     <Setting Name="FirstTimeOpen" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="PathSaveRecords" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Environment.SpecialFolder.Desktop</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -50,6 +50,9 @@
             this.txtPersonOfContact = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtOperator = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtSavePath = new System.Windows.Forms.TextBox();
+            this.btnSelectedPath = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -99,7 +102,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(585, 41);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(5, 417);
+            this.panel2.Size = new System.Drawing.Size(5, 465);
             this.panel2.TabIndex = 43;
             // 
             // panel3
@@ -108,14 +111,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 41);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(5, 417);
+            this.panel3.Size = new System.Drawing.Size(5, 465);
             this.panel3.TabIndex = 44;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Teal;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(5, 453);
+            this.panel4.Location = new System.Drawing.Point(5, 501);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(580, 5);
             this.panel4.TabIndex = 45;
@@ -162,7 +165,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(198, 56);
+            this.label2.Location = new System.Drawing.Point(202, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(189, 25);
             this.label2.TabIndex = 50;
@@ -172,7 +175,7 @@
             // 
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(221, 411);
+            this.txtPassword.Location = new System.Drawing.Point(216, 469);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(150, 19);
             this.txtPassword.TabIndex = 51;
@@ -192,7 +195,7 @@
             this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnSave.IconSize = 30;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(221, 361);
+            this.btnSave.Location = new System.Drawing.Point(216, 419);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(150, 35);
             this.btnSave.TabIndex = 52;
@@ -209,7 +212,7 @@
             this.btnLock.IconColor = System.Drawing.Color.White;
             this.btnLock.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLock.IconSize = 25;
-            this.btnLock.Location = new System.Drawing.Point(377, 361);
+            this.btnLock.Location = new System.Drawing.Point(372, 419);
             this.btnLock.Name = "btnLock";
             this.btnLock.Size = new System.Drawing.Size(30, 35);
             this.btnLock.TabIndex = 53;
@@ -225,7 +228,7 @@
             this.btnReset.IconColor = System.Drawing.Color.White;
             this.btnReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReset.IconSize = 25;
-            this.btnReset.Location = new System.Drawing.Point(185, 361);
+            this.btnReset.Location = new System.Drawing.Point(180, 419);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(30, 35);
             this.btnReset.TabIndex = 54;
@@ -289,11 +292,49 @@
             this.txtOperator.TabIndex = 59;
             this.txtOperator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(81, 351);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(98, 24);
+            this.label6.TabIndex = 62;
+            this.label6.Text = "Save path:";
+            // 
+            // txtSavePath
+            // 
+            this.txtSavePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSavePath.Location = new System.Drawing.Point(249, 351);
+            this.txtSavePath.Name = "txtSavePath";
+            this.txtSavePath.Size = new System.Drawing.Size(231, 26);
+            this.txtSavePath.TabIndex = 61;
+            this.txtSavePath.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnSelectedPath
+            // 
+            this.btnSelectedPath.BackColor = System.Drawing.Color.Teal;
+            this.btnSelectedPath.FlatAppearance.BorderSize = 0;
+            this.btnSelectedPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelectedPath.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
+            this.btnSelectedPath.IconColor = System.Drawing.Color.White;
+            this.btnSelectedPath.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSelectedPath.IconSize = 25;
+            this.btnSelectedPath.Location = new System.Drawing.Point(486, 351);
+            this.btnSelectedPath.Name = "btnSelectedPath";
+            this.btnSelectedPath.Size = new System.Drawing.Size(30, 26);
+            this.btnSelectedPath.TabIndex = 63;
+            this.btnSelectedPath.UseVisualStyleBackColor = false;
+            this.btnSelectedPath.Click += new System.EventHandler(this.btnSelectedPath_Click);
+            // 
             // FrmModifiedSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 458);
+            this.ClientSize = new System.Drawing.Size(590, 506);
+            this.Controls.Add(this.btnSelectedPath);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtSavePath);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtOperator);
             this.Controls.Add(this.label4);
@@ -351,5 +392,8 @@
         private System.Windows.Forms.TextBox txtPersonOfContact;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtOperator;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtSavePath;
+        private FontAwesome.Sharp.IconButton btnSelectedPath;
     }
 }

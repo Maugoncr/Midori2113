@@ -45,6 +45,7 @@ namespace MidoriValveTest.Forms
                         txtPersonOfContact.Enabled = true;
                         txtPurchaseOrder.Enabled = true;
 
+                        btnSelectedPath.Visible = true;
                         btnReset.Visible = true;
                         btnSave.Enabled = true;
                         entrada = "";
@@ -78,6 +79,16 @@ namespace MidoriValveTest.Forms
             txtPurchaseOrder.Text = Settings.Default.PurchaseOrder;
             txtOperator.Text = Settings.Default.Operator;
 
+            if (Settings.Default.PathSaveRecords == "Environment.SpecialFolder.Desktop")
+            {
+                string rutaEscritorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                txtSavePath.Text = rutaEscritorio;
+            }
+            else
+            {
+                txtSavePath.Text = Settings.Default.PathSaveRecords;
+            }
+
             txtPassword.Visible = false;
 
             txtClient.Enabled = false;
@@ -85,11 +96,13 @@ namespace MidoriValveTest.Forms
             txtPersonOfContact.Enabled = false;
             txtPurchaseOrder.Enabled = false;
             txtOperator.Enabled = false;
+            txtSavePath.Enabled = false;
 
             txtPassword.Clear();
             btnSave.Enabled = false;
             btnLock.Visible = false;
             btnReset.Visible = false;
+            btnSelectedPath.Visible = false;
 
         }
 
@@ -126,6 +139,7 @@ namespace MidoriValveTest.Forms
                 Settings.Default.PersonOfContact = txtPersonOfContact.Text;
                 Settings.Default.PurchaseOrder = txtPurchaseOrder.Text;
                 Settings.Default.Operator = txtOperator.Text;
+                Settings.Default.PathSaveRecords = txtSavePath.Text;
 
                 Settings.Default.Save();
                 CargarFormulario();
@@ -140,6 +154,26 @@ namespace MidoriValveTest.Forms
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnSelectedPath_Click(object sender, EventArgs e)
+        {
+            string rutainicial = txtSavePath.Text;
+
+            using (var folderDialog = new FolderBrowserDialog())
+            {
+                // Establecer la ruta inicial del explorador de archivos
+                if (!string.IsNullOrWhiteSpace(rutainicial))
+                {
+                    folderDialog.SelectedPath = rutainicial;
+                }
+
+                DialogResult result = folderDialog.ShowDialog();
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderDialog.SelectedPath))
+                {
+                    txtSavePath.Text = folderDialog.SelectedPath;
+                }
+            }
         }
     }
 }

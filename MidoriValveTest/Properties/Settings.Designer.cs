@@ -94,5 +94,17 @@ namespace MidoriValveTest.Properties {
                 this["FirstTimeOpen"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Environment.SpecialFolder.Desktop")]
+        public string PathSaveRecords {
+            get {
+                return ((string)(this["PathSaveRecords"]));
+            }
+            set {
+                this["PathSaveRecords"] = value;
+            }
+        }
     }
 }
