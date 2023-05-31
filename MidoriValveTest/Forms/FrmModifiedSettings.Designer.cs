@@ -307,6 +307,7 @@
             this.txtSavePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSavePath.Location = new System.Drawing.Point(249, 351);
             this.txtSavePath.Name = "txtSavePath";
+            this.txtSavePath.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtSavePath.Size = new System.Drawing.Size(231, 26);
             this.txtSavePath.TabIndex = 61;
             this.txtSavePath.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

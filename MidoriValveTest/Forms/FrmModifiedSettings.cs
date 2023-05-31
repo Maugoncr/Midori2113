@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using CustomMessageBox;
@@ -79,14 +80,39 @@ namespace MidoriValveTest.Forms
             txtPurchaseOrder.Text = Settings.Default.PurchaseOrder;
             txtOperator.Text = Settings.Default.Operator;
 
-            if (Settings.Default.PathSaveRecords == "Environment.SpecialFolder.Desktop")
+            if (Settings.Default.PathSaveRecords == "Environment.SpecialFolder.MyDocuments")
             {
-                string rutaEscritorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                txtSavePath.Text = rutaEscritorio;
+                string documentosPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string saveFolderPath = Path.Combine(documentosPath, "MIDORI II REPORT DATA");
+                Directory.CreateDirectory(saveFolderPath);
+
+                if (Directory.Exists(saveFolderPath))
+                {
+                    txtSavePath.Text = saveFolderPath;
+                    Settings.Default.PathSaveRecords = saveFolderPath;
+                    Settings.Default.Save();
+                }
+               
             }
             else
             {
-                txtSavePath.Text = Settings.Default.PathSaveRecords;
+                if (Directory.Exists(Settings.Default.PathSaveRecords))
+                {
+                    txtSavePath.Text = Settings.Default.PathSaveRecords;
+                }
+                else
+                {
+                    string documentosPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    string saveFolderPath = Path.Combine(documentosPath, "MIDORI II REPORT DATA");
+                    Directory.CreateDirectory(saveFolderPath);
+                    if (Directory.Exists(saveFolderPath))
+                    {
+                        txtSavePath.Text = saveFolderPath;
+                        Settings.Default.PathSaveRecords = saveFolderPath;
+                        Settings.Default.Save();
+                    }
+                }
+               
             }
 
             txtPassword.Visible = false;

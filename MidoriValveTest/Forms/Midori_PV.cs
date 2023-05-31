@@ -1545,7 +1545,7 @@ namespace MidoriValveTest
                         lbStepForTest.Text = "Open [PN ISO-V2]";
                         AbrirSolenoid_2();
 
-                        tiempoSeleccionado = TimeSpan.ParseExact("00:02", @"mm\:ss", null);
+                        tiempoSeleccionado = TimeSpan.ParseExact("00:04", @"mm\:ss", null);
                         lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                         runTimer = true;
 
@@ -1611,18 +1611,24 @@ namespace MidoriValveTest
 
         private void GuardarGrabacionPhase3() 
         {
-            string ruta;
-            if (Settings.Default.PathSaveRecords == "Environment.SpecialFolder.Desktop")
+            string rutaCompleta;
+
+            if (Directory.Exists(Settings.Default.PathSaveRecords))
             {
-                ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string ruta = Settings.Default.PathSaveRecords;
+                string nameFile = "Report Data Phase 3 Created at " + (DateTime.Now.ToString("MM-dd-yy  HH-mm-ss"));
+                string extension = ".txt";
+                rutaCompleta = Path.Combine(ruta, nameFile + extension);
             }
             else
             {
-                ruta = Settings.Default.PathSaveRecords;
+                string ruta = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string saveFolderPath = Path.Combine(ruta, "MIDORI II REPORT DATA");
+                Directory.CreateDirectory(saveFolderPath);
+                string nameFile = "Report Data Phase 3 Created at " + (DateTime.Now.ToString("MM-dd-yy  HH-mm-ss"));
+                string extension = ".txt";
+                rutaCompleta = Path.Combine(saveFolderPath, nameFile + extension);
             }
-            string nameFile = "Report Data Phase 3 Created at " + (DateTime.Now.ToString("MM-dd-yy  HH-mm-ss"));
-            string extension = ".txt";
-            string rutaCompleta = Path.Combine(ruta, nameFile + extension);
 
             try
             {

@@ -97,7 +97,7 @@ namespace MidoriValveTest.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Environment.SpecialFolder.Desktop")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Environment.SpecialFolder.MyDocuments")]
         public string PathSaveRecords {
             get {
                 return ((string)(this["PathSaveRecords"]));
