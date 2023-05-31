@@ -1447,7 +1447,7 @@ namespace MidoriValveTest
                         lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                         runTimer = true;
 
-                        for (int j = 0; j < 10; j++)
+                        for (int j = 0; j < 120; j++)
                         {
                             Thread.Sleep(1000);
                             if (stillRunning)
@@ -1508,7 +1508,7 @@ namespace MidoriValveTest
                         capturarPresionMaxMinPhase3 = true;
                         grabarPresionPhase3 = true;
 
-                        for (int j = 0; j < 10; j++)
+                        for (int j = 0; j < 60; j++)
                         {
                             Thread.Sleep(1000);
                             if (stillRunning)
