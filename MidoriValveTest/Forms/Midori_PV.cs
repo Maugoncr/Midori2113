@@ -3287,8 +3287,10 @@ namespace MidoriValveTest
                 deltaMaxPhase3 = Math.Round((pressureDinamicMax - pressureDinamicMin), 2);
                 deltaMinPhase3 = Math.Round((pressureDinamicMax - pressureDinamicMin), 2);
 
-                leakRate1Phase3 = Math.Round((deltaMaxPhase3 / 60000), 2);
-                leakRate2Phase3 = Math.Round((deltaMinPhase3 / 60000), 2);
+                //leakRate1Phase3 = Math.Round((deltaMaxPhase3 / 60000), 2);
+                //leakRate2Phase3 = Math.Round((deltaMinPhase3 / 60000), 2);
+                leakRate1Phase3 = deltaMaxPhase3 / 60000;
+                leakRate2Phase3 = deltaMinPhase3 / 60000;
             }
             else
             {
@@ -3305,7 +3307,8 @@ namespace MidoriValveTest
 
                     deltaMaxPhase3 = deltaDinamica;
 
-                    leakRate1Phase3 = Math.Round((deltaMaxPhase3 / 60000),2);
+                    //leakRate1Phase3 = Math.Round((deltaMaxPhase3 / 60000),2);
+                    leakRate1Phase3 = deltaMaxPhase3 / 60000;
                 }
 
                 if (deltaDinamica < deltaMinPhase3)
@@ -3318,7 +3321,8 @@ namespace MidoriValveTest
 
                     deltaMinPhase3 = deltaDinamica;
 
-                    leakRate2Phase3 = Math.Round((deltaMinPhase3 / 60000), 2);
+                    //leakRate2Phase3 = Math.Round((deltaMinPhase3 / 60000), 2);
+                    leakRate2Phase3 = deltaMinPhase3 / 60000;
                 }
             }
         }
@@ -4488,13 +4492,17 @@ namespace MidoriValveTest
                 MiReporte.SetParameterValue("APMaxPhase3", deltaMaxPhase3.ToString());
                 MiReporte.SetParameterValue("pressureHigh1Phase3", pressureHigh1Phase3.ToString());
                 MiReporte.SetParameterValue("pressureLow1Phase3", pressureLow1Phase3.ToString());
-                MiReporte.SetParameterValue("leakRate1Phase3", leakRate1Phase3.ToString());
+
+                MiReporte.SetParameterValue("leakRate1Phase3", leakRate1Phase3.ToString("0.00"));
+
                 MiReporte.SetParameterValue("NumCyclePhase3MaxDelta", cycleDeltaMax.ToString());
 
                 MiReporte.SetParameterValue("APMinPhase3", deltaMinPhase3.ToString());
                 MiReporte.SetParameterValue("pressureHigh2Phase3", pressureHigh2Phase3.ToString());
                 MiReporte.SetParameterValue("pressureLow2Phase3", pressureLow2Phase3.ToString());
-                MiReporte.SetParameterValue("leakRate2Phase3", leakRate2Phase3.ToString());
+
+                MiReporte.SetParameterValue("leakRate2Phase3", leakRate2Phase3.ToString("0.00"));
+
                 MiReporte.SetParameterValue("NumCyclePhase3MinDelta", cycleDeltaMin.ToString());
 
 
