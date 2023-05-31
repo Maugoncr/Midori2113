@@ -3284,11 +3284,11 @@ namespace MidoriValveTest
                 pressureLow1Phase3 = pressureDinamicMin;
                 pressureLow2Phase3 = pressureDinamicMin;
 
-                deltaMaxPhase3 = pressureDinamicMax - pressureDinamicMin;
-                deltaMinPhase3 = pressureDinamicMax - pressureDinamicMin;
+                deltaMaxPhase3 = Math.Round((pressureDinamicMax - pressureDinamicMin), 2);
+                deltaMinPhase3 = Math.Round((pressureDinamicMax - pressureDinamicMin), 2);
 
-                leakRate1Phase3 = deltaMaxPhase3 / 60000;
-                leakRate2Phase3 = deltaMinPhase3 / 60000;
+                leakRate1Phase3 = Math.Round((deltaMaxPhase3 / 60000), 2);
+                leakRate2Phase3 = Math.Round((deltaMinPhase3 / 60000), 2);
             }
             else
             {
