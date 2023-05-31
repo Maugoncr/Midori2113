@@ -48,6 +48,7 @@
             this.crystalReportViewer1.ShowGroupTreeButton = false;
             this.crystalReportViewer1.ShowLogo = false;
             this.crystalReportViewer1.ShowParameterPanelButton = false;
+            this.crystalReportViewer1.ShowPrintButton = false;
             this.crystalReportViewer1.ShowRefreshButton = false;
             this.crystalReportViewer1.Size = new System.Drawing.Size(800, 390);
             this.crystalReportViewer1.TabIndex = 0;

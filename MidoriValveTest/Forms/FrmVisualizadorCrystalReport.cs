@@ -31,6 +31,8 @@ namespace MidoriValveTest.Forms
             saveFileDialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
             saveFileDialog.Title = "Save Report as PDF";
 
+            saveFileDialog.FileName = "Report MIDORI II Exported at "+DateTime.Now.ToString("MM-dd-yyyy  HH-mm-ss");
+
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -45,11 +47,11 @@ namespace MidoriValveTest.Forms
 
                     reportDocument.Export(exportOptions);
 
-                    MessageBox.Show("El reporte se ha exportado exitosamente a PDF.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Report successfully exported to PDF.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ocurrió un error al exportar el reporte a PDF: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An error occurred when exporting the report to PDF " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
