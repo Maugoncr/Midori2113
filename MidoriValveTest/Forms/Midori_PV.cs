@@ -1447,7 +1447,7 @@ namespace MidoriValveTest
                         lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                         runTimer = true;
 
-                        for (int j = 0; j < 120; j++)
+                        for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
                             if (stillRunning)
@@ -1508,7 +1508,7 @@ namespace MidoriValveTest
                         capturarPresionMaxMinPhase3 = true;
                         grabarPresionPhase3 = true;
 
-                        for (int j = 0; j < 60; j++)
+                        for (int j = 0; j < 2; j++)
                         {
                             Thread.Sleep(1000);
                             if (stillRunning)
@@ -3278,11 +3278,11 @@ namespace MidoriValveTest
                 cycleDeltaMax = Convert.ToInt32(lbCountCycles.Text);
                 cycleDeltaMin = Convert.ToInt32(lbCountCycles.Text);
 
-                pressureHigh1Phase3 = pressureDinamicMax;
-                pressureHigh2Phase3 = pressureDinamicMax;
+                pressureHigh1Phase3 = Math.Round(pressureDinamicMax,2);
+                pressureHigh2Phase3 = Math.Round(pressureDinamicMax,2);
 
-                pressureLow1Phase3 = pressureDinamicMin;
-                pressureLow2Phase3 = pressureDinamicMin;
+                pressureLow1Phase3 = Math.Round(pressureDinamicMin,2);
+                pressureLow2Phase3 = Math.Round(pressureDinamicMin, 2);
 
                 deltaMaxPhase3 = Math.Round((pressureDinamicMax - pressureDinamicMin), 2);
                 deltaMinPhase3 = Math.Round((pressureDinamicMax - pressureDinamicMin), 2);
@@ -3299,9 +3299,9 @@ namespace MidoriValveTest
                 {
                     cycleDeltaMax = Convert.ToInt32(lbCountCycles.Text);
 
-                    pressureHigh1Phase3 = pressureDinamicMax;
+                    pressureHigh1Phase3 = Math.Round(pressureDinamicMax, 2);
 
-                    pressureLow1Phase3 = pressureDinamicMin;
+                    pressureLow1Phase3 = Math.Round(pressureDinamicMin, 2);
 
                     deltaMaxPhase3 = deltaDinamica;
 
@@ -3312,9 +3312,9 @@ namespace MidoriValveTest
                 {
                     cycleDeltaMin = Convert.ToInt32(lbCountCycles.Text);
 
-                    pressureHigh2Phase3 = pressureDinamicMax;
+                    pressureHigh2Phase3 = Math.Round(pressureDinamicMax, 2);
 
-                    pressureLow2Phase3 = pressureDinamicMin;
+                    pressureLow2Phase3 = Math.Round(pressureDinamicMin, 2);
 
                     deltaMinPhase3 = deltaDinamica;
 
