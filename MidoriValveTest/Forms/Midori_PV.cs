@@ -4493,7 +4493,7 @@ namespace MidoriValveTest
                 MiReporte.SetParameterValue("pressureHigh1Phase3", pressureHigh1Phase3.ToString());
                 MiReporte.SetParameterValue("pressureLow1Phase3", pressureLow1Phase3.ToString());
 
-                MiReporte.SetParameterValue("leakRate1Phase3", leakRate1Phase3.ToString("0.00"));
+                MiReporte.SetParameterValue("leakRate1Phase3", leakRate1Phase3.ToString("0.0000E+0"));
 
                 MiReporte.SetParameterValue("NumCyclePhase3MaxDelta", cycleDeltaMax.ToString());
 
@@ -4501,7 +4501,7 @@ namespace MidoriValveTest
                 MiReporte.SetParameterValue("pressureHigh2Phase3", pressureHigh2Phase3.ToString());
                 MiReporte.SetParameterValue("pressureLow2Phase3", pressureLow2Phase3.ToString());
 
-                MiReporte.SetParameterValue("leakRate2Phase3", leakRate2Phase3.ToString("0.00"));
+                MiReporte.SetParameterValue("leakRate2Phase3", leakRate2Phase3.ToString("0.0000E+0"));
 
                 MiReporte.SetParameterValue("NumCyclePhase3MinDelta", cycleDeltaMin.ToString());
 
