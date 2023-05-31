@@ -683,7 +683,7 @@ namespace MidoriValveTest
             EnableBtn(btnSetApertura);
             EnableBtn(btnInfo);
             EnableBtn(btnChartArchiveAnalyzer);
-            EnableBtn(btnEMO);
+            EnableBtnEMO(btnEMO);
             EnableBtn(btnAnalyze);
             //stop
             EnableBtn(btnStopRecord);
