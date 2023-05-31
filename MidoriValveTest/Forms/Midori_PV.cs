@@ -3349,7 +3349,7 @@ namespace MidoriValveTest
                     pressuresPhase3L.Add(pressureDinamic.ToString());
                     timesPressurePhase3L.Add(tempForRecordPhase3.ToString());
                     numberCyclePhase3L.Add(numCycle.ToString());
-                    datetimesPhase3L.Add(DateTime.Now.ToString("hh:mm:ss:ff tt"));
+                    datetimesPhase3L.Add(DateTime.Now.ToString("MM/dd/yyyy  HH:mm:ss:ff"));
                 }
             }
             
