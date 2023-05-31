@@ -41,7 +41,7 @@
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 27);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ShowCopyButton = false;
             this.crystalReportViewer1.ShowExportButton = false;
@@ -57,25 +57,31 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Controls.Add(this.btnExportPDF);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 390);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 27);
             this.panel1.TabIndex = 1;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // btnExportPDF
             // 
-            this.btnExportPDF.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExportPDF.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnExportPDF.FlatAppearance.BorderSize = 0;
             this.btnExportPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportPDF.ForeColor = System.Drawing.Color.White;
             this.btnExportPDF.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
             this.btnExportPDF.IconColor = System.Drawing.Color.White;
             this.btnExportPDF.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnExportPDF.IconSize = 25;
-            this.btnExportPDF.Location = new System.Drawing.Point(759, 0);
+            this.btnExportPDF.IconSize = 24;
+            this.btnExportPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExportPDF.Location = new System.Drawing.Point(0, 0);
             this.btnExportPDF.Name = "btnExportPDF";
-            this.btnExportPDF.Size = new System.Drawing.Size(41, 27);
+            this.btnExportPDF.Size = new System.Drawing.Size(118, 27);
             this.btnExportPDF.TabIndex = 0;
+            this.btnExportPDF.Text = "Export to PDF";
+            this.btnExportPDF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExportPDF.UseVisualStyleBackColor = true;
             this.btnExportPDF.Click += new System.EventHandler(this.btnExportPDF_Click);
             // 
