@@ -426,6 +426,10 @@
     <None Include="Resources\90 GRADOS.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\TurnOnEnable.png" />
+    <None Include="Resources\TurnOnDisable.png" />
+    <None Include="Resources\TurnOffEnable.png" />
+    <None Include="Resources\TurnOffDisable.png" />
     <None Include="Resources\StopDisable.png" />
     <None Include="Resources\Stop.png" />
     <None Include="Resources\progress.gif" />

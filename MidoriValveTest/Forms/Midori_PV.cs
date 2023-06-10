@@ -20,6 +20,7 @@ using MidoriValveTest.Forms;
 using AForge.Video;
 using CrystalDecisions.CrystalReports.Engine;
 using MidoriValveTest.Properties;
+using CrystalDecisions.Windows.Forms;
 
 namespace MidoriValveTest
 {
@@ -66,6 +67,9 @@ namespace MidoriValveTest
         {
             InitializeComponent();
             InitializeSetting();
+            InicializarComboboxes();
+
+
             Control.CheckForIllegalCrossThreadCalls = false;
         }
 
@@ -90,6 +94,59 @@ namespace MidoriValveTest
             lbl_P_unit_top.Text = "Torr";
             lbl_presure_chart.Text = "[Torr]";
         }
+
+        private List<ComboBox> comboBoxes;
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox selectedComboBox = (ComboBox)sender;
+            bool isItemSelectedInOtherComboBox = false;
+            foreach (ComboBox comboBox in comboBoxes)
+            {
+                if (comboBox != selectedComboBox && comboBox.SelectedItem != null && comboBox.SelectedItem.Equals(selectedComboBox.SelectedItem))
+                {
+                    isItemSelectedInOtherComboBox = true;
+                    break;
+                }
+            }
+            if (isItemSelectedInOtherComboBox)
+            {
+                MessageBoxMaugoncr.Show("Cannot select the same item in multiple ComboBoxes.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                selectedComboBox.SelectedIndex = -1;
+            }
+            else
+            {
+                selectedComboBox = comboBoxes.Find(comboBox => comboBox.SelectedItem != null && comboBox.SelectedItem.Equals(selectedComboBox.SelectedItem));
+                if (selectedComboBox != null)
+                {
+                    if (selectedComboBox == cbMKS1)
+                    {
+                        ActivarConnectMKS(1);
+                    }
+                    else if (selectedComboBox == cbMKS2)
+                    {
+                        ActivarConnectMKS(2);
+                    }
+                    else if (selectedComboBox == cbSelectionCOM)
+                    {
+                        EnableBtn(btnConnect);
+                    }
+                }
+            }
+
+        }
+
+        private void InicializarComboboxes() 
+        {
+            comboBoxes = new List<ComboBox> { cbMKS1, cbMKS2, cbSelectionCOM };
+
+            // Suscribe al evento SelectedIndexChanged para todos los ComboBox
+            foreach (ComboBox comboBox in comboBoxes)
+            {
+                comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+            }
+        }
+
+        
 
         public void Alert(string msg, Form_Alert.enmType type)
         {
@@ -128,11 +185,11 @@ namespace MidoriValveTest
 
 
 
-            if (cbSelectionCOM.Items.Count > 0)     // exist ports com
-            {
-                cbSelectionCOM.SelectedIndex = 0;
-                EnableBtn(btnConnect);
-            }
+            //if (cbSelectionCOM.Items.Count > 0)     // exist ports com
+            //{
+            //    cbSelectionCOM.SelectedIndex = 0;
+            //    EnableBtn(btnConnect);
+            //}
         }
 
         private void OffEverything()
@@ -273,13 +330,28 @@ namespace MidoriValveTest
             cbMKS1.Items.AddRange(ports);
             cbMKS2.Items.AddRange(ports);
 
+
             //Enable Buttons
 
             //Disable Buttons
+            btnConexionMKS.Enabled = true;
+
             btnConnectMKS1.Enabled = false;
-            btnConnectMKS1.IconChar = FontAwesome.Sharp.IconChar.ToggleOff;
+            btnConnectMKS1.BackgroundImage.Dispose();
+            btnConnectMKS1.BackgroundImage = Resources.TurnOnDisable;
+
+            btnDisconnectMKS1.Enabled = false;
+            btnDisconnectMKS1.BackgroundImage.Dispose();
+            btnDisconnectMKS1.BackgroundImage = Resources.TurnOffDisable;
+
             btnConnectMKS2.Enabled = false;
-            btnConnectMKS2.IconChar = FontAwesome.Sharp.IconChar.ToggleOff;
+            btnConnectMKS2.BackgroundImage.Dispose();
+            btnConnectMKS2.BackgroundImage = Resources.TurnOnDisable;
+
+            btnDisconnectMKS2.Enabled = false;
+            btnDisconnectMKS2.BackgroundImage.Dispose();
+            btnDisconnectMKS2.BackgroundImage = Resources.TurnOffDisable;
+
             lbStatusMKS1.Text = "* Disconnected";
             lbStatusMKS2.Text = "* Disconnected";
             lbMKS1.Text = "---";
@@ -395,6 +467,7 @@ namespace MidoriValveTest
             btn.BackgroundImage.Dispose();
             btn.BackgroundImage = Properties.Resources.btnOff;
             btn.Enabled = true;
+            btn.ForeColor = Color.Yellow;
         }
 
 
@@ -402,36 +475,7 @@ namespace MidoriValveTest
         // ser capaces de activar el boton Connect
 
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbSelectionCOM.SelectedItem != null)
-            {
-                // Obtener el ComboBox actual y su ítem seleccionado
-                ComboBox currentComboBox = (ComboBox)sender;
-                string selectedItem = currentComboBox.SelectedItem.ToString();
-
-                // Recorrer los otros ComboBox y deseleccionar el mismo ítem si fue seleccionado antes
-                foreach (ComboBox otherComboBox in new ComboBox[] { cbMKS1, cbMKS2, cbSelectionCOM })
-                {
-                    if (otherComboBox != currentComboBox && otherComboBox.SelectedItem != null && otherComboBox.SelectedItem.ToString() == selectedItem)
-                    {
-                        otherComboBox.SelectedItem = null;
-                    }
-                }
-            }
-
-            if (cbSelectionCOM.SelectedItem != null)
-            {
-                EnableBtn(btnConnect);
-            }
-            else
-            {
-                DisableBtn(btnConnect);
-            }
-
-        }
-
-
+      
 
         //Maugoncr// 
         // Reboot the whole system as when it started up
@@ -488,6 +532,7 @@ namespace MidoriValveTest
                     btnAutoCalibrate.Enabled = true;
                     btnPIDAnalisis.Enabled = true;
                     btnInfo.Enabled = true;
+                    btnConexionMKS.Enabled = false;
 
                     EnableBtn(btn_90);
                     EnableBtn(btn_80);
@@ -505,11 +550,9 @@ namespace MidoriValveTest
                     EnableBtn(btnAutoCalibrate);
                     EnableBtn(btnPIDAnalisis);
                     EnableBtnEMO(btnEMO);
-                    btnEMO.ForeColor = Color.Yellow;
+                   
 
                     // Se propone realizar una apertura y cierre total de todas las valvulas principalmente BCV para evitar problemas
-
-
                 }
 
             }
@@ -533,24 +576,27 @@ namespace MidoriValveTest
 
                     serialPortMKS1.PortName = COMM;
                     serialPortMKS1.Open();
-                    lbStatusMKS1.Text = "Connected";
-
+                    lbStatusMKS1.Text = "* Connected";
 
                     return true;
                 }
                 catch (UnauthorizedAccessException)
                 {
-                    MessageBoxMaugoncr.Show("Access to " + COMM + " port denied", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     lbStatusMKS1.Text = "* Disconnected";
+                    serialPortMKS1.Close();
 
-                    cbSelectionCOM.Enabled = true;
                     cbMKS1.Enabled = true;
-                    cbMKS2.Enabled = true;
+
+                    MessageBoxMaugoncr.Show("Access to " + COMM + " port denied", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 catch (Exception ex)
                 {
                     lbStatusMKS1.Text = "* Disconnected";
+                    serialPortMKS1.Close();
+
+                    cbMKS1.Enabled = true;
+
                     MessageBox.Show(ex.Message);
                     return false;
                 }
@@ -567,24 +613,28 @@ namespace MidoriValveTest
 
                     serialPortMKS2.PortName = COMM;
                     serialPortMKS2.Open();
-                    lbStatusMKS2.Text = "Connected";
+                    lbStatusMKS2.Text = "* Connected";
 
                     return true;
                 }
                 catch (UnauthorizedAccessException)
                 {
-                    MessageBoxMaugoncr.Show("Access to " + COMM + " port denied", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     lbStatusMKS2.Text = "* Disconnected";
+                    serialPortMKS2.Close();
 
-                    cbSelectionCOM.Enabled = true;
-                    cbMKS1.Enabled = true;
                     cbMKS2.Enabled = true;
+
+                    MessageBoxMaugoncr.Show("Access to " + COMM + " port denied", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
 
                 catch (Exception ex)
                 {
                     lbStatusMKS2.Text = "* Disconnected";
+                    serialPortMKS2.Close();
+
+                    cbMKS2.Enabled = true;
+
                     MessageBox.Show(ex.Message);
                     return false;
                 }
@@ -4514,18 +4564,6 @@ namespace MidoriValveTest
                 Visualizador.Show();
             }
 
-
-           
-
-            
-
-           
-           
-           
-           
-
-           
-
         }
 
         private void GenerarReporte(string NombreReport) 
@@ -4788,114 +4826,260 @@ namespace MidoriValveTest
             panelConexionMKS.Visible = false;
         }
 
-        private void cbMKS1_SelectedIndexChanged(object sender, EventArgs e)
+        private void DesactivarConnectMKS(int wich) 
         {
-            // Obtener el ComboBox actual y su ítem seleccionado
-
-            if (cbMKS1.SelectedItem != null)
-            {
-                ComboBox currentComboBox = (ComboBox)sender;
-                string selectedItem = currentComboBox.SelectedItem.ToString();
-
-                // Recorrer los otros ComboBox y deseleccionar el mismo ítem si fue seleccionado antes
-                foreach (ComboBox otherComboBox in new ComboBox[] { cbMKS1, cbMKS2, cbSelectionCOM })
-                {
-                    if (otherComboBox != currentComboBox && otherComboBox.SelectedItem != null && otherComboBox.SelectedItem.ToString() == selectedItem)
-                    {
-                        otherComboBox.SelectedItem = null;
-                    }
-                }
-            }
-            
-
-            if (cbMKS1.SelectedItem != null)
-            {
-                btnConnectMKS1.Enabled = true;
-            }
-            else
+            if (wich == 1)
             {
                 btnConnectMKS1.Enabled = false;
+                btnConnectMKS1.BackgroundImage.Dispose();
+                btnConnectMKS1.BackgroundImage = Resources.TurnOnDisable;
+
+                btnDisconnectMKS1.Enabled = true;
+                btnDisconnectMKS1.BackgroundImage.Dispose();
+                btnDisconnectMKS1.BackgroundImage = Resources.TurnOffEnable;
             }
-
-        }
-
-        private void cbMKS2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Obtener el ComboBox actual y su ítem seleccionado
-            if (cbMKS2.SelectedItem != null) 
-            {
-                ComboBox currentComboBox = (ComboBox)sender;
-                string selectedItem = currentComboBox.SelectedItem.ToString();
-
-                // Recorrer los otros ComboBox y deseleccionar el mismo ítem si fue seleccionado antes
-                foreach (ComboBox otherComboBox in new ComboBox[] { cbMKS1, cbMKS2, cbSelectionCOM })
-                {
-                    if (otherComboBox != currentComboBox && otherComboBox.SelectedItem != null && otherComboBox.SelectedItem.ToString() == selectedItem)
-                    {
-                        otherComboBox.SelectedItem = null;
-                    }
-                }
-            }
-
-            if (cbMKS2.SelectedItem != null)
-            {
-                btnConnectMKS2.Enabled = true;
-            }
-            else
+            else if (wich == 2)
             {
                 btnConnectMKS2.Enabled = false;
+                btnConnectMKS2.BackgroundImage.Dispose();
+                btnConnectMKS2.BackgroundImage = Resources.TurnOnDisable;
+
+                btnDisconnectMKS2.Enabled = true;
+                btnDisconnectMKS2.BackgroundImage.Dispose();
+                btnDisconnectMKS2.BackgroundImage = Resources.TurnOffEnable;
             }
+        }
+
+        private void ActivarConnectMKS(int wich)
+        {
+            if (wich == 1)
+            {
+                btnConnectMKS1.Enabled = true;
+                btnConnectMKS1.BackgroundImage.Dispose();
+                btnConnectMKS1.BackgroundImage = Resources.TurnOnEnable;
+
+                btnDisconnectMKS1.Enabled = false;
+                btnDisconnectMKS1.BackgroundImage.Dispose();
+                btnDisconnectMKS1.BackgroundImage = Resources.TurnOffDisable;
+            }
+            else if (wich == 2)
+            {
+                btnConnectMKS2.Enabled = true;
+                btnConnectMKS2.BackgroundImage.Dispose();
+                btnConnectMKS2.BackgroundImage = Resources.TurnOnEnable;
+
+                btnDisconnectMKS2.Enabled = false;
+                btnDisconnectMKS2.BackgroundImage.Dispose();
+                btnDisconnectMKS2.BackgroundImage = Resources.TurnOffDisable;
+            }
+        }
+
+
+        private void btnDisconnectMKS1_Click(object sender, EventArgs e)
+        {
+            cbMKS1.Enabled = true;
+
+            string[] ports = SerialPort.GetPortNames();
+
+            cbMKS1.Items.Clear();
+
+            cbMKS1.Items.AddRange(ports);
+
+            cbMKS1.SelectedIndex = -1;
+
+            if (serialPortMKS1.IsOpen)
+            {
+                serialPortMKS1.Close();
+            }
+
+            lbStatusMKS1.Text = "* Disconnected";
+            PedirMKS1 = false;
+
+            btnConnectMKS1.Enabled = false;
+            btnDisconnectMKS1.Enabled = false;
+
+            btnConnectMKS1.BackgroundImage.Dispose();
+            btnDisconnectMKS1.BackgroundImage.Dispose();
+
+            btnConnectMKS1.BackgroundImage = Resources.TurnOnDisable;
+            btnDisconnectMKS1.BackgroundImage = Resources.TurnOffDisable;
+        }
+
+        private void btnDisconnectMKS2_Click(object sender, EventArgs e)
+        {
+            cbMKS2.Enabled = true;
+
+            string[] ports = SerialPort.GetPortNames();
+
+            cbMKS2.Items.Clear();
+
+            cbMKS2.Items.AddRange(ports);
+
+            cbMKS2.SelectedIndex = -1;
+
+            if (serialPortMKS2.IsOpen)
+            {
+                serialPortMKS2.Close();
+            }
+
+            lbStatusMKS2.Text = "* Disconnected";
+            PedirMKS2 = false;
+
+            btnConnectMKS2.Enabled = false;
+            btnDisconnectMKS2.Enabled = false;
+
+            btnConnectMKS2.BackgroundImage.Dispose();
+            btnDisconnectMKS2.BackgroundImage.Dispose();
+
+            btnConnectMKS2.BackgroundImage = Resources.TurnOnDisable;
+            btnDisconnectMKS2.BackgroundImage = Resources.TurnOffDisable;
         }
 
         private void btnConnectMKS1_Click(object sender, EventArgs e)
         {
-            if (btnConnectMKS1.IconChar == FontAwesome.Sharp.IconChar.ToggleOff)
+            if (cbMKS1.SelectedIndex >= 0 && btnConnectMKS1.Enabled == true)
             {
-                if (reconocerCOMMKS(cbMKS1.SelectedItem.ToString(), 1))
-                {
-                    btnConnectMKS1.IconChar = FontAwesome.Sharp.IconChar.ToggleOn;
-                    PedirMKS1 = true;
-                    cbMKS1.Enabled = false;
-                }
-                else
-                {
-                    PedirMKS1 = false;
-                    cbMKS1.Enabled = true;
-                }
-            }
-            else
-            {
-                btnConnectMKS1.IconChar = FontAwesome.Sharp.IconChar.ToggleOff;
-                PedirMKS1 = false;
-                lbStatusMKS1.Text = "* Disconnected";
-                cbMKS1.Enabled = true;
+                string port = cbMKS1.SelectedItem.ToString();
 
+                try
+                {
+                    if (serialPortMKS1.IsOpen)
+                    {
+                        serialPortMKS1.Close();
+
+                        cbMKS1.Enabled = true;
+
+                        string[] ports = SerialPort.GetPortNames();
+
+                        cbMKS1.Items.Clear();
+
+                        cbMKS1.Items.AddRange(ports);
+
+                        cbMKS1.SelectedIndex = -1;
+
+                        lbStatusMKS1.Text = "* Disconnected";
+                        PedirMKS1 = false;
+
+                        btnConnectMKS1.Enabled = false;
+                        btnDisconnectMKS1.Enabled = false;
+
+                        btnConnectMKS1.BackgroundImage.Dispose(); btnConnectMKS1.BackgroundImage = Resources.TurnOnDisable;
+                        btnDisconnectMKS1.BackgroundImage.Dispose(); btnDisconnectMKS1.BackgroundImage = Resources.TurnOffDisable;
+
+                        return;
+                    }
+                    else
+                    {
+                        cbMKS1.Enabled = false;
+
+                        serialPortMKS1.PortName = port;
+                        serialPortMKS1.Open();
+                        lbStatusMKS1.Text = "* Connected";
+                        PedirMKS1 = true;
+
+                        DesactivarConnectMKS(1);
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBoxMaugoncr.Show("An error occurred:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    serialPortMKS1.Close();
+
+                    cbMKS1.Enabled = true;
+
+                    string[] ports = SerialPort.GetPortNames();
+
+                    cbMKS1.Items.Clear();
+
+                    cbMKS1.Items.AddRange(ports);
+
+                    cbMKS1.SelectedIndex = -1;
+
+                    lbStatusMKS1.Text = "* Disconnected";
+                    PedirMKS1 = false;
+
+                    btnConnectMKS1.Enabled = false;
+                    btnDisconnectMKS1.Enabled = false;
+
+                    btnConnectMKS1.BackgroundImage.Dispose(); btnConnectMKS1.BackgroundImage = Resources.TurnOnDisable;
+                    btnDisconnectMKS1.BackgroundImage.Dispose(); btnDisconnectMKS1.BackgroundImage = Resources.TurnOffDisable;
+                }
             }
         }
 
         private void btnConnectMKS2_Click(object sender, EventArgs e)
         {
-            if (btnConnectMKS2.IconChar == FontAwesome.Sharp.IconChar.ToggleOff)
+            if (cbMKS2.SelectedIndex >= 0 && btnConnectMKS2.Enabled == true)
             {
-                if (reconocerCOMMKS(cbMKS2.SelectedItem.ToString(),2))
-                {
-                    btnConnectMKS2.IconChar = FontAwesome.Sharp.IconChar.ToggleOn;
-                    PedirMKS2 = true;
-                    cbMKS2.Enabled = false;
-                }
-                else
-                {
-                    PedirMKS2 = false;
-                    cbMKS2.Enabled = true;
-                }
+                string port = cbMKS2.SelectedItem.ToString();
 
-            }
-            else
-            {
-                btnConnectMKS2.IconChar = FontAwesome.Sharp.IconChar.ToggleOff;
-                PedirMKS2 = false;
-                lbStatusMKS2.Text = "* Disconnected";
-                cbMKS2.Enabled = true;
+                try
+                {
+                    if (serialPortMKS2.IsOpen)
+                    {
+                        serialPortMKS2.Close();
+
+                        cbMKS2.Enabled = true;
+
+                        string[] ports = SerialPort.GetPortNames();
+
+                        cbMKS2.Items.Clear();
+
+                        cbMKS2.Items.AddRange(ports);
+
+                        cbMKS2.SelectedIndex = -1;
+
+                        lbStatusMKS2.Text = "* Disconnected";
+                        PedirMKS2 = false;
+
+                        btnConnectMKS2.Enabled = false;
+                        btnDisconnectMKS2.Enabled = false;
+
+                        btnConnectMKS2.BackgroundImage.Dispose(); btnConnectMKS2.BackgroundImage = Resources.TurnOnDisable;
+                        btnDisconnectMKS2.BackgroundImage.Dispose(); btnDisconnectMKS2.BackgroundImage = Resources.TurnOffDisable;
+
+                        return;
+                    }
+                    else
+                    {
+                        cbMKS2.Enabled = false;
+
+                        serialPortMKS2.PortName = port;
+                        serialPortMKS2.Open();
+                        lbStatusMKS2.Text = "* Connected";
+                        PedirMKS2 = true;
+
+                        DesactivarConnectMKS(2);
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBoxMaugoncr.Show("An error occurred:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    serialPortMKS2.Close();
+
+                    cbMKS2.Enabled = true;
+
+                    string[] ports = SerialPort.GetPortNames();
+
+                    cbMKS2.Items.Clear();
+
+                    cbMKS2.Items.AddRange(ports);
+
+                    cbMKS2.SelectedIndex = -1;
+
+                    lbStatusMKS2.Text = "* Disconnected";
+                    PedirMKS2 = false;
+
+                    btnConnectMKS2.Enabled = false;
+                    btnDisconnectMKS2.Enabled = false;
+
+                    btnConnectMKS2.BackgroundImage.Dispose(); btnConnectMKS2.BackgroundImage = Resources.TurnOnDisable;
+                    btnDisconnectMKS2.BackgroundImage.Dispose(); btnDisconnectMKS2.BackgroundImage = Resources.TurnOffDisable;
+                }
             }
         }
 
@@ -5250,7 +5434,71 @@ namespace MidoriValveTest
 
 
         }
-       
 
+        private void btnReloadMKS1_Click(object sender, EventArgs e)
+        {
+
+            cbMKS1.Enabled = true;
+
+            string[] ports = SerialPort.GetPortNames();
+
+            cbMKS1.Items.Clear();
+
+            cbMKS1.Items.AddRange(ports);
+
+            cbMKS1.SelectedIndex = -1;
+
+            if (serialPortMKS1.IsOpen)
+            {
+                serialPortMKS1.Close();
+            }
+
+            lbStatusMKS1.Text = "* Disconnected";
+            PedirMKS1 = false;
+
+            btnConnectMKS1.Enabled = false;
+            btnDisconnectMKS1.Enabled = false;
+
+            btnConnectMKS1.BackgroundImage.Dispose();
+            btnDisconnectMKS1.BackgroundImage.Dispose();
+
+            btnConnectMKS1.BackgroundImage = Resources.TurnOnDisable;
+            btnDisconnectMKS1.BackgroundImage = Resources.TurnOffDisable;
+
+        }
+
+        private void btnReloadMKS2_Click(object sender, EventArgs e)
+        {
+
+            cbMKS2.Enabled = true;
+
+            string[] ports = SerialPort.GetPortNames();
+
+            cbMKS2.Items.Clear();
+
+            cbMKS2.Items.AddRange(ports);
+
+            cbMKS2.SelectedIndex = -1;
+
+            if (serialPortMKS2.IsOpen)
+            {
+                serialPortMKS2.Close();
+            }
+
+            lbStatusMKS2.Text = "* Disconnected";
+            PedirMKS2 = false;
+
+            btnConnectMKS2.Enabled = false;
+            btnDisconnectMKS2.Enabled = false;
+
+            btnConnectMKS2.BackgroundImage.Dispose();
+            btnDisconnectMKS2.BackgroundImage.Dispose();
+
+            btnConnectMKS2.BackgroundImage = Resources.TurnOnDisable;
+            btnDisconnectMKS2.BackgroundImage = Resources.TurnOffDisable;
+
+        }
+
+      
     }
 }

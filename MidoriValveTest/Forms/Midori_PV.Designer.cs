@@ -31,10 +31,10 @@ namespace MidoriValveTest
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Midori_PV));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblEstado = new System.Windows.Forms.Label();
@@ -240,6 +240,10 @@ namespace MidoriValveTest
             this.serialPortMKS1 = new System.IO.Ports.SerialPort(this.components);
             this.serialPortMKS2 = new System.IO.Ports.SerialPort(this.components);
             this.panelConexionMKS = new System.Windows.Forms.Panel();
+            this.btnReloadMKS2 = new FontAwesome.Sharp.IconButton();
+            this.btnReloadMKS1 = new FontAwesome.Sharp.IconButton();
+            this.btnDisconnectMKS2 = new FontAwesome.Sharp.IconButton();
+            this.btnDisconnectMKS1 = new FontAwesome.Sharp.IconButton();
             this.lbStatusMKS2 = new System.Windows.Forms.Label();
             this.lbStatusMKS1 = new System.Windows.Forms.Label();
             this.btnConnectMKS2 = new FontAwesome.Sharp.IconButton();
@@ -826,47 +830,47 @@ namespace MidoriValveTest
             this.chart1.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart1.BorderSkin.BackColor = System.Drawing.Color.Black;
             this.chart1.BorderSkin.BorderColor = System.Drawing.Color.Empty;
-            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea2.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea2.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea2.AxisY.Minimum = 0D;
-            chartArea2.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisY.ScaleView.MinSize = 1D;
-            chartArea2.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea2.AxisY2.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
-            chartArea2.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.BackSecondaryColor = System.Drawing.Color.White;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.BackColor = System.Drawing.Color.Gainsboro;
-            legend2.Name = "Legend1";
-            legend2.TitleAlignment = System.Drawing.StringAlignment.Near;
-            this.chart1.Legends.Add(legend2);
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.ScaleView.MinSize = 1D;
+            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea1.AxisY2.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
+            chartArea1.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.BackSecondaryColor = System.Drawing.Color.White;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Gainsboro;
+            legend1.Name = "Legend1";
+            legend1.TitleAlignment = System.Drawing.StringAlignment.Near;
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(15, 264);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series3.Color = System.Drawing.Color.Green;
-            series3.Legend = "Legend1";
-            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series3.Name = "Pressure";
-            series3.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series3.YValuesPerPoint = 4;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series4.Color = System.Drawing.SystemColors.MenuHighlight;
-            series4.Legend = "Legend1";
-            series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series4.Name = "Aperture value";
-            series4.ShadowColor = System.Drawing.Color.Silver;
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series1.Color = System.Drawing.Color.Green;
+            series1.Legend = "Legend1";
+            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series1.Name = "Pressure";
+            series1.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series1.YValuesPerPoint = 4;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series2.Color = System.Drawing.SystemColors.MenuHighlight;
+            series2.Legend = "Legend1";
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series2.Name = "Aperture value";
+            series2.ShadowColor = System.Drawing.Color.Silver;
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1262, 648);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -1406,7 +1410,6 @@ namespace MidoriValveTest
             this.cbSelectionCOM.Name = "cbSelectionCOM";
             this.cbSelectionCOM.Size = new System.Drawing.Size(192, 26);
             this.cbSelectionCOM.TabIndex = 21;
-            this.cbSelectionCOM.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -2395,7 +2398,7 @@ namespace MidoriValveTest
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(223, 17);
             this.label1.TabIndex = 71;
-            this.label1.Text = "Rev 2.7.1";
+            this.label1.Text = "Rev 2.7.2";
             // 
             // IconMinima
             // 
@@ -2548,6 +2551,7 @@ namespace MidoriValveTest
             this.btnConexionMKS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConexionMKS.UseVisualStyleBackColor = true;
             this.btnConexionMKS.Click += new System.EventHandler(this.btnConexionMKS_Click);
+            this.btnConexionMKS.MouseLeave += new System.EventHandler(this.btnConexionMKS_MouseLeave);
             this.btnConexionMKS.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnConexionMKS_MouseMove);
             // 
             // iconCamera
@@ -3043,6 +3047,11 @@ namespace MidoriValveTest
             // 
             // panelConexionMKS
             // 
+            this.panelConexionMKS.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelConexionMKS.Controls.Add(this.btnReloadMKS2);
+            this.panelConexionMKS.Controls.Add(this.btnReloadMKS1);
+            this.panelConexionMKS.Controls.Add(this.btnDisconnectMKS2);
+            this.panelConexionMKS.Controls.Add(this.btnDisconnectMKS1);
             this.panelConexionMKS.Controls.Add(this.lbStatusMKS2);
             this.panelConexionMKS.Controls.Add(this.lbStatusMKS1);
             this.panelConexionMKS.Controls.Add(this.btnConnectMKS2);
@@ -3052,17 +3061,83 @@ namespace MidoriValveTest
             this.panelConexionMKS.Controls.Add(this.cbMKS2);
             this.panelConexionMKS.Controls.Add(this.cbMKS1);
             this.panelConexionMKS.Controls.Add(this.panel11);
-            this.panelConexionMKS.Location = new System.Drawing.Point(562, 405);
+            this.panelConexionMKS.Location = new System.Drawing.Point(558, 405);
             this.panelConexionMKS.Name = "panelConexionMKS";
-            this.panelConexionMKS.Size = new System.Drawing.Size(570, 153);
+            this.panelConexionMKS.Size = new System.Drawing.Size(574, 153);
             this.panelConexionMKS.TabIndex = 87;
             this.panelConexionMKS.Visible = false;
+            // 
+            // btnReloadMKS2
+            // 
+            this.btnReloadMKS2.BackColor = System.Drawing.Color.Teal;
+            this.btnReloadMKS2.FlatAppearance.BorderSize = 0;
+            this.btnReloadMKS2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReloadMKS2.IconChar = FontAwesome.Sharp.IconChar.Repeat;
+            this.btnReloadMKS2.IconColor = System.Drawing.Color.White;
+            this.btnReloadMKS2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReloadMKS2.IconSize = 20;
+            this.btnReloadMKS2.Location = new System.Drawing.Point(5, 114);
+            this.btnReloadMKS2.Name = "btnReloadMKS2";
+            this.btnReloadMKS2.Size = new System.Drawing.Size(23, 23);
+            this.btnReloadMKS2.TabIndex = 164;
+            this.btnReloadMKS2.UseVisualStyleBackColor = false;
+            this.btnReloadMKS2.Click += new System.EventHandler(this.btnReloadMKS2_Click);
+            // 
+            // btnReloadMKS1
+            // 
+            this.btnReloadMKS1.BackColor = System.Drawing.Color.Teal;
+            this.btnReloadMKS1.FlatAppearance.BorderSize = 0;
+            this.btnReloadMKS1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReloadMKS1.IconChar = FontAwesome.Sharp.IconChar.Repeat;
+            this.btnReloadMKS1.IconColor = System.Drawing.Color.White;
+            this.btnReloadMKS1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReloadMKS1.IconSize = 20;
+            this.btnReloadMKS1.Location = new System.Drawing.Point(5, 59);
+            this.btnReloadMKS1.Name = "btnReloadMKS1";
+            this.btnReloadMKS1.Size = new System.Drawing.Size(23, 23);
+            this.btnReloadMKS1.TabIndex = 163;
+            this.btnReloadMKS1.UseVisualStyleBackColor = false;
+            this.btnReloadMKS1.Click += new System.EventHandler(this.btnReloadMKS1_Click);
+            // 
+            // btnDisconnectMKS2
+            // 
+            this.btnDisconnectMKS2.BackColor = System.Drawing.Color.Transparent;
+            this.btnDisconnectMKS2.BackgroundImage = global::MidoriValveTest.Properties.Resources.TurnOffEnable;
+            this.btnDisconnectMKS2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDisconnectMKS2.FlatAppearance.BorderSize = 0;
+            this.btnDisconnectMKS2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDisconnectMKS2.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnDisconnectMKS2.IconColor = System.Drawing.Color.Black;
+            this.btnDisconnectMKS2.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnDisconnectMKS2.Location = new System.Drawing.Point(376, 99);
+            this.btnDisconnectMKS2.Name = "btnDisconnectMKS2";
+            this.btnDisconnectMKS2.Size = new System.Drawing.Size(40, 40);
+            this.btnDisconnectMKS2.TabIndex = 123;
+            this.btnDisconnectMKS2.UseVisualStyleBackColor = false;
+            this.btnDisconnectMKS2.Click += new System.EventHandler(this.btnDisconnectMKS2_Click);
+            // 
+            // btnDisconnectMKS1
+            // 
+            this.btnDisconnectMKS1.BackColor = System.Drawing.Color.Transparent;
+            this.btnDisconnectMKS1.BackgroundImage = global::MidoriValveTest.Properties.Resources.TurnOffEnable;
+            this.btnDisconnectMKS1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDisconnectMKS1.FlatAppearance.BorderSize = 0;
+            this.btnDisconnectMKS1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDisconnectMKS1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnDisconnectMKS1.IconColor = System.Drawing.Color.Black;
+            this.btnDisconnectMKS1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnDisconnectMKS1.Location = new System.Drawing.Point(376, 50);
+            this.btnDisconnectMKS1.Name = "btnDisconnectMKS1";
+            this.btnDisconnectMKS1.Size = new System.Drawing.Size(40, 40);
+            this.btnDisconnectMKS1.TabIndex = 122;
+            this.btnDisconnectMKS1.UseVisualStyleBackColor = false;
+            this.btnDisconnectMKS1.Click += new System.EventHandler(this.btnDisconnectMKS1_Click);
             // 
             // lbStatusMKS2
             // 
             this.lbStatusMKS2.AutoSize = true;
             this.lbStatusMKS2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStatusMKS2.Location = new System.Drawing.Point(426, 106);
+            this.lbStatusMKS2.Location = new System.Drawing.Point(429, 112);
             this.lbStatusMKS2.Name = "lbStatusMKS2";
             this.lbStatusMKS2.Size = new System.Drawing.Size(122, 18);
             this.lbStatusMKS2.TabIndex = 121;
@@ -3072,7 +3147,7 @@ namespace MidoriValveTest
             // 
             this.lbStatusMKS1.AutoSize = true;
             this.lbStatusMKS1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStatusMKS1.Location = new System.Drawing.Point(426, 63);
+            this.lbStatusMKS1.Location = new System.Drawing.Point(429, 61);
             this.lbStatusMKS1.Name = "lbStatusMKS1";
             this.lbStatusMKS1.Size = new System.Drawing.Size(122, 18);
             this.lbStatusMKS1.TabIndex = 120;
@@ -3081,14 +3156,16 @@ namespace MidoriValveTest
             // btnConnectMKS2
             // 
             this.btnConnectMKS2.BackColor = System.Drawing.Color.Transparent;
+            this.btnConnectMKS2.BackgroundImage = global::MidoriValveTest.Properties.Resources.TurnOnEnable;
+            this.btnConnectMKS2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnConnectMKS2.FlatAppearance.BorderSize = 0;
             this.btnConnectMKS2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConnectMKS2.IconChar = FontAwesome.Sharp.IconChar.ToggleOff;
+            this.btnConnectMKS2.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnConnectMKS2.IconColor = System.Drawing.Color.Black;
             this.btnConnectMKS2.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnConnectMKS2.Location = new System.Drawing.Point(368, 96);
+            this.btnConnectMKS2.Location = new System.Drawing.Point(330, 99);
             this.btnConnectMKS2.Name = "btnConnectMKS2";
-            this.btnConnectMKS2.Size = new System.Drawing.Size(52, 33);
+            this.btnConnectMKS2.Size = new System.Drawing.Size(40, 40);
             this.btnConnectMKS2.TabIndex = 119;
             this.btnConnectMKS2.UseVisualStyleBackColor = false;
             this.btnConnectMKS2.Click += new System.EventHandler(this.btnConnectMKS2_Click);
@@ -3096,14 +3173,16 @@ namespace MidoriValveTest
             // btnConnectMKS1
             // 
             this.btnConnectMKS1.BackColor = System.Drawing.Color.Transparent;
+            this.btnConnectMKS1.BackgroundImage = global::MidoriValveTest.Properties.Resources.TurnOnEnable;
+            this.btnConnectMKS1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnConnectMKS1.FlatAppearance.BorderSize = 0;
             this.btnConnectMKS1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConnectMKS1.IconChar = FontAwesome.Sharp.IconChar.ToggleOff;
+            this.btnConnectMKS1.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnConnectMKS1.IconColor = System.Drawing.Color.Black;
             this.btnConnectMKS1.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnConnectMKS1.Location = new System.Drawing.Point(368, 57);
+            this.btnConnectMKS1.Location = new System.Drawing.Point(330, 50);
             this.btnConnectMKS1.Name = "btnConnectMKS1";
-            this.btnConnectMKS1.Size = new System.Drawing.Size(52, 33);
+            this.btnConnectMKS1.Size = new System.Drawing.Size(40, 40);
             this.btnConnectMKS1.TabIndex = 118;
             this.btnConnectMKS1.UseVisualStyleBackColor = false;
             this.btnConnectMKS1.Click += new System.EventHandler(this.btnConnectMKS1_Click);
@@ -3112,7 +3191,7 @@ namespace MidoriValveTest
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(30, 103);
+            this.label16.Location = new System.Drawing.Point(30, 114);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(47, 18);
             this.label16.TabIndex = 117;
@@ -3136,11 +3215,10 @@ namespace MidoriValveTest
             this.cbMKS2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbMKS2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMKS2.FormattingEnabled = true;
-            this.cbMKS2.Location = new System.Drawing.Point(82, 98);
+            this.cbMKS2.Location = new System.Drawing.Point(84, 109);
             this.cbMKS2.Name = "cbMKS2";
-            this.cbMKS2.Size = new System.Drawing.Size(278, 26);
+            this.cbMKS2.Size = new System.Drawing.Size(242, 26);
             this.cbMKS2.TabIndex = 115;
-            this.cbMKS2.SelectedIndexChanged += new System.EventHandler(this.cbMKS2_SelectedIndexChanged);
             // 
             // cbMKS1
             // 
@@ -3152,9 +3230,8 @@ namespace MidoriValveTest
             this.cbMKS1.FormattingEnabled = true;
             this.cbMKS1.Location = new System.Drawing.Point(82, 57);
             this.cbMKS1.Name = "cbMKS1";
-            this.cbMKS1.Size = new System.Drawing.Size(278, 26);
+            this.cbMKS1.Size = new System.Drawing.Size(242, 26);
             this.cbMKS1.TabIndex = 114;
-            this.cbMKS1.SelectedIndexChanged += new System.EventHandler(this.cbMKS1_SelectedIndexChanged);
             // 
             // panel11
             // 
@@ -3163,7 +3240,7 @@ namespace MidoriValveTest
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(570, 39);
+            this.panel11.Size = new System.Drawing.Size(574, 39);
             this.panel11.TabIndex = 0;
             // 
             // btnCloseMKSConexion
@@ -3175,7 +3252,7 @@ namespace MidoriValveTest
             this.btnCloseMKSConexion.IconColor = System.Drawing.Color.White;
             this.btnCloseMKSConexion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCloseMKSConexion.IconSize = 30;
-            this.btnCloseMKSConexion.Location = new System.Drawing.Point(535, 0);
+            this.btnCloseMKSConexion.Location = new System.Drawing.Point(539, 0);
             this.btnCloseMKSConexion.Name = "btnCloseMKSConexion";
             this.btnCloseMKSConexion.Size = new System.Drawing.Size(35, 39);
             this.btnCloseMKSConexion.TabIndex = 41;
@@ -3504,6 +3581,10 @@ namespace MidoriValveTest
         private System.Windows.Forms.Label lbClientSettings;
         private System.Windows.Forms.Button btnStopMarathon;
         private System.Windows.Forms.Label lbTemporizadorStepByStep;
+        private FontAwesome.Sharp.IconButton btnDisconnectMKS2;
+        private FontAwesome.Sharp.IconButton btnDisconnectMKS1;
+        private FontAwesome.Sharp.IconButton btnReloadMKS2;
+        private FontAwesome.Sharp.IconButton btnReloadMKS1;
     }
 }
 
