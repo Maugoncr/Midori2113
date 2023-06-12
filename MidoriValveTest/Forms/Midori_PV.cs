@@ -4516,7 +4516,7 @@ namespace MidoriValveTest
             // Reporte creado desde Fase 2, PID Problem...
             if (WhoIam == 2)
             {
-
+                GenerarReporte(Settings.Default.Operator);
             }
             //Reporte creado desde Fase 3, Leak test!
             if (WhoIam == 3)
