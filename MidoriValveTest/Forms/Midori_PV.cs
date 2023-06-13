@@ -1138,6 +1138,8 @@ namespace MidoriValveTest
                 else if (TestToRun == 2)
                 {
 
+                    phase2Setpoint = SetpointPhase2;
+
                     DateStartedTest.Text = DateTime.Now.ToString("MM/dd/yy || hh:mm:ss tt");
 
                     // Apagar Pump
@@ -1262,7 +1264,8 @@ namespace MidoriValveTest
                         }
                     }
 
-                    lbStepForTest.BackColor = SystemColors.Control;
+                    lbStepForTest.BackColor = Color.Transparent;
+
                     for (int i = 1; i <= NumTest; i++)
                     {
                         // #6
@@ -1275,6 +1278,18 @@ namespace MidoriValveTest
                         for (int j = 0; j < 300; j++)
                         {
                             Thread.Sleep(1000);
+                            double pressureChartDinamic = Convert.ToDouble(presionChart);
+
+                            if (capturarPresionPhase2 == false && pressureChartDinamic >= phase2Setpoint-6 && pressureChartDinamic <= phase2Setpoint+6)
+                            {
+                                capturarPresionPhase2 = true;
+                            }
+
+                            if (j == 120 && capturarPresionPhase2 == false)
+                            {
+                                capturarPresionPhase2 = true;
+                            }
+
                             if (stillRunning)
                             {
                                 stopChrono = true;
@@ -2719,7 +2734,6 @@ namespace MidoriValveTest
         private void IconReport_Click(object sender, EventArgs e)
         {
             GenerateNewReportVersion();
-            //GenerarReporte(ObtenerNombreReport());
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -3257,6 +3271,50 @@ namespace MidoriValveTest
 
         private void ResetVariablesPhases()
         {
+            // Variables PHASE 2
+
+            capturarPresionPhase2 = false;
+
+            numOMax = 0;
+            numOMin = 0;
+
+            numUMax = 0;
+            numUMin = 0;
+
+            numDMaxP2 = 0;
+            numDMinP2 = 0;
+
+            phase2Setpoint = 0;
+
+            overshootMaxDelta = 0;
+            overshootMinDelta = 0;
+
+            undershootMaxDelta = 0;
+            undershootMinDelta = 0;
+
+            overshootMax = 0;
+            overshootMin = 0;
+
+            undershootMax = 0;
+            undershootMin = 0;
+
+            deltaMaxP2 = 0;
+            deltaMinP2 = 0;
+
+            ptgOMax = 0;
+            ptgOMin = 0;
+
+            ptgUMax = 0;
+            ptgUMin = 0;
+
+            pressureDOMax = Double.NaN;
+            pressureDOMin = Double.NaN;
+
+            pressureDUMax = Double.NaN;
+            pressureDUMin = Double.NaN;
+
+
+            // Variables PHASE 3
             capturarPresionMaxMinPhase3 = false;
 
             cycleDeltaMax = 0;
@@ -3285,9 +3343,50 @@ namespace MidoriValveTest
             datetimesPhase3L.Clear();
             numberCyclePhase3L.Clear();
     }
-            
+
 
         // Variables para cubrir todas las fases e información para el reporte!
+
+        // Variables Phase 2
+        bool capturarPresionPhase2 = false;
+
+        int numOMax = 0;
+        int numOMin = 0;
+
+        int numUMax = 0;
+        int numUMin = 0;
+
+        int numDMaxP2 = 0;
+        int numDMinP2 = 0;
+
+        double phase2Setpoint = 0;
+
+        double overshootMaxDelta = 0;
+        double overshootMinDelta = 0;
+
+        double undershootMaxDelta = 0;
+        double undershootMinDelta = 0;
+
+        double overshootMax = 0;
+        double overshootMin = 0;
+
+        double undershootMax = 0;
+        double undershootMin = 0;
+
+        double deltaMaxP2 = 0;
+        double deltaMinP2 = 0;
+
+        double ptgOMax = 0;
+        double ptgOMin = 0;
+
+        double ptgUMax = 0;
+        double ptgUMin = 0;
+
+        double pressureDOMax = Double.NaN;
+        double pressureDOMin = Double.NaN;
+       
+        double pressureDUMax = Double.NaN;
+        double pressureDUMin = Double.NaN;
 
         // Variables Phase 3
         bool capturarPresionMaxMinPhase3 = false;
@@ -3321,6 +3420,83 @@ namespace MidoriValveTest
         private List<string> datetimesPhase3L = new List<string>();
         private List<string> numberCyclePhase3L = new List<string>();
 
+        private void CalcularPhase2PerCycle(bool primerCiclo = false) 
+        {
+            if (primerCiclo)
+            {
+                numOMax = Convert.ToInt32(lbCountCycles.Text);
+                numOMin = Convert.ToInt32(lbCountCycles.Text); 
+                numUMax = Convert.ToInt32(lbCountCycles.Text);
+                numUMin = Convert.ToInt32(lbCountCycles.Text);
+                numDMaxP2 = Convert.ToInt32(lbCountCycles.Text);
+                numDMinP2 = Convert.ToInt32(lbCountCycles.Text);
+                overshootMax = Math.Round(pressureDOMax, 2);
+                overshootMin = Math.Round(pressureDOMin, 2);
+                undershootMax = Math.Round(pressureDUMax, 2);
+                undershootMin = Math.Round(pressureDUMin, 2);
+                deltaMaxP2 = Math.Round((overshootMax - undershootMax), 2);
+                overshootMaxDelta = overshootMax;
+                undershootMaxDelta = undershootMax;
+                deltaMinP2 = Math.Round((overshootMin - undershootMin), 2);
+                overshootMinDelta = overshootMin;
+                undershootMinDelta = undershootMin;
+                ptgOMax = Math.Round(((overshootMax - phase2Setpoint) / phase2Setpoint) * 100, 2);
+                ptgOMin = Math.Round(((overshootMin - phase2Setpoint) / phase2Setpoint) * 100, 2);
+                ptgUMax = Math.Round(((undershootMax - phase2Setpoint) / phase2Setpoint) * 100, 2);
+                ptgUMin = Math.Round(((undershootMin - phase2Setpoint) / phase2Setpoint) * 100, 2);
+            }
+            else
+            {
+                double deltaDMaxP2 = Math.Round((pressureDOMax - pressureDUMax), 2);
+
+                if (deltaDMaxP2 > deltaMaxP2)
+                {
+                    deltaMaxP2 = deltaDMaxP2;
+                    numDMaxP2 = Convert.ToInt32(lbCountCycles.Text);
+                    overshootMaxDelta = pressureDOMax;
+                    undershootMaxDelta = pressureDUMax;
+
+                
+                }
+                double deltaDMinP2 = Math.Round((pressureDOMin - pressureDUMin), 2);
+                
+                if (deltaDMinP2 < deltaMinP2)
+                {
+                    deltaMinP2 = deltaDMinP2;
+                    numDMinP2 = Convert.ToInt32(lbCountCycles.Text);
+                    overshootMinDelta = pressureDOMin;
+                    undershootMinDelta = pressureDUMin;
+                }
+
+                // Over and Under shooting
+
+                if (pressureDOMax > overshootMax)
+                {
+                    overshootMax = pressureDOMax;
+                    ptgOMax = Math.Round(((overshootMax - phase2Setpoint) / phase2Setpoint) * 100, 2);
+                    numOMax = Convert.ToInt32(lbCountCycles.Text);
+                }
+                if (pressureDOMin < overshootMin)
+                {
+                    overshootMin = pressureDOMin;
+                    ptgOMin = Math.Round(((overshootMin - phase2Setpoint) / phase2Setpoint) * 100, 2);
+                    numOMin = Convert.ToInt32(lbCountCycles.Text);
+                }
+                if (pressureDUMax > undershootMax)
+                {
+                    undershootMax = pressureDUMax;
+                    ptgUMax = Math.Round(((undershootMax - phase2Setpoint) / phase2Setpoint) * 100, 2);
+                    numUMax = Convert.ToInt32(lbCountCycles.Text);
+                }
+                if (pressureDUMin < undershootMin)
+                {
+                    undershootMin = pressureDUMin;
+                    ptgUMin = Math.Round(((undershootMin - phase2Setpoint) / phase2Setpoint) * 100, 2);
+                    numUMin = Convert.ToInt32(lbCountCycles.Text);
+                }
+            }
+        }
+
         private void CalcularPhase3PerCycle(bool primerCiclo = false) 
         {
             if (primerCiclo)
@@ -3337,14 +3513,11 @@ namespace MidoriValveTest
                 deltaMaxPhase3 = Math.Round((pressureDinamicMax - pressureDinamicMin), 2);
                 deltaMinPhase3 = Math.Round((pressureDinamicMax - pressureDinamicMin), 2);
 
-                //leakRate1Phase3 = Math.Round((deltaMaxPhase3 / 60000), 2);
-                //leakRate2Phase3 = Math.Round((deltaMinPhase3 / 60000), 2);
                 leakRate1Phase3 = deltaMaxPhase3 / 60000;
                 leakRate2Phase3 = deltaMinPhase3 / 60000;
             }
             else
             {
-
                 double deltaDinamica = Math.Round((pressureDinamicMax - pressureDinamicMin),2);
 
                 if (deltaDinamica > deltaMaxPhase3)
@@ -3357,7 +3530,6 @@ namespace MidoriValveTest
 
                     deltaMaxPhase3 = deltaDinamica;
 
-                    //leakRate1Phase3 = Math.Round((deltaMaxPhase3 / 60000),2);
                     leakRate1Phase3 = deltaMaxPhase3 / 60000;
                 }
 
@@ -3371,7 +3543,6 @@ namespace MidoriValveTest
 
                     deltaMinPhase3 = deltaDinamica;
 
-                    //leakRate2Phase3 = Math.Round((deltaMinPhase3 / 60000), 2);
                     leakRate2Phase3 = deltaMinPhase3 / 60000;
                 }
             }
@@ -3379,6 +3550,34 @@ namespace MidoriValveTest
 
         private void TimerForData_Tick(object sender, EventArgs e)
         {
+            if (capturarPresionPhase2)
+            {
+                double pressureDinamic = Convert.ToDouble(presionChart);
+
+                if (pressureDinamic > phase2Setpoint)
+                {
+                    if (double.IsNaN(pressureDOMax) || pressureDinamic > pressureDOMax)
+                    {
+                        pressureDOMax = pressureDinamic;
+                    }
+                    if (double.IsNaN(pressureDOMin) || pressureDinamic < pressureDOMin)
+                    {
+                        pressureDOMin = pressureDinamic;
+                    }
+                }
+                else if (pressureDinamic < phase2Setpoint)
+                {
+                    if (double.IsNaN(pressureDUMax) || pressureDinamic > pressureDUMax)
+                    {
+                        pressureDUMax = pressureDinamic;
+                    }
+                    if (double.IsNaN(pressureDUMin) || pressureDinamic < pressureDUMin)
+                    {
+                        pressureDUMin = pressureDinamic;
+                    }
+                }
+            }
+
 
             if (capturarPresionMaxMinPhase3)
             {
@@ -4516,7 +4715,65 @@ namespace MidoriValveTest
             // Reporte creado desde Fase 2, PID Problem...
             if (WhoIam == 2)
             {
-                GenerarReporte(Settings.Default.Operator);
+                MiReporte.Load("../../Reportes/RptTableMarathon.rpt");
+
+                MiReporte.SetParameterValue("customerName", Settings.Default.Customer);
+                MiReporte.SetParameterValue("personContact", Settings.Default.PersonOfContact);
+                MiReporte.SetParameterValue("projectCode", Settings.Default.CodeProject);
+                MiReporte.SetParameterValue("operatorName", Settings.Default.Operator);
+                MiReporte.SetParameterValue("purchaseOrder", Settings.Default.PurchaseOrder);
+
+                MiReporte.SetParameterValue("reportNumber", "TBD");
+
+                MiReporte.SetParameterValue("startDate", DateStartedTest.Text);
+                MiReporte.SetParameterValue("endDate", DateEndedTest.Text);
+
+                // Debe verificarse que el ultimo ciclo se haya contado correctamente!
+                MiReporte.SetParameterValue("totalCycles", lbCountCycles.Text);
+
+                //Traer las variables requeridas para los demás espacios PHASE 2!
+
+                MiReporte.SetParameterValue("phase2Setpoint","1");
+                MiReporte.SetParameterValue("overshootMax", "1");
+                MiReporte.SetParameterValue("overshootMin","1");
+                MiReporte.SetParameterValue("undershootMax","1");
+                MiReporte.SetParameterValue("undershootMin","1");
+                MiReporte.SetParameterValue("deltaMaxP2","1");
+                MiReporte.SetParameterValue("deltaMinP2","1");
+                MiReporte.SetParameterValue("numOMax","1");
+                MiReporte.SetParameterValue("numOMin","1");
+                MiReporte.SetParameterValue("numUMax","1");
+                MiReporte.SetParameterValue("numUMin","1");
+                MiReporte.SetParameterValue("numDMaxP2","1");
+                MiReporte.SetParameterValue("numDMinP2","1");
+                MiReporte.SetParameterValue("ptgOMax","1");
+                MiReporte.SetParameterValue("ptgOMin","1");
+                MiReporte.SetParameterValue("ptgUMax","1");
+                MiReporte.SetParameterValue("ptgUMin","1");
+
+                MiReporte.SetParameterValue("cyclesPhase2", lbCountCycles.Text);
+
+                MiReporte.SetParameterValue("cyclesFailP2", "Not Calculated");
+
+                // Campos muertos por que es phase 2
+
+                MiReporte.SetParameterValue("APMaxPhase3", "~");
+                MiReporte.SetParameterValue("pressureHigh1Phase3", "~");
+                MiReporte.SetParameterValue("pressureLow1Phase3", "~");
+                MiReporte.SetParameterValue("leakRate1Phase3", "~");
+                MiReporte.SetParameterValue("NumCyclePhase3MaxDelta", "~");
+                MiReporte.SetParameterValue("APMinPhase3", "~");
+                MiReporte.SetParameterValue("pressureHigh2Phase3", "~");
+                MiReporte.SetParameterValue("pressureLow2Phase3", "~");
+                MiReporte.SetParameterValue("leakRate2Phase3", "~");
+                MiReporte.SetParameterValue("NumCyclePhase3MinDelta", "~");
+                MiReporte.SetParameterValue("cyclesPhase3", "~");
+                MiReporte.SetParameterValue("cyclesFailP3", "~");
+
+                Visualizador.crystalReportViewer1.ReportSource = MiReporte;
+                Visualizador.crystalReportViewer1.Zoom(85);
+                Visualizador.Show();
+
             }
             //Reporte creado desde Fase 3, Leak test!
             if (WhoIam == 3)
@@ -4537,7 +4794,7 @@ namespace MidoriValveTest
                 // Debe verificarse que el ultimo ciclo se haya contado correctamente!
                 MiReporte.SetParameterValue("totalCycles", lbCountCycles.Text);
 
-                //Traer las variables requeridas para los demás espacios!
+                //Traer las variables requeridas para los demás espacios PHASE 3!
 
                 MiReporte.SetParameterValue("APMaxPhase3", deltaMaxPhase3.ToString("0.00"));
                 MiReporte.SetParameterValue("pressureHigh1Phase3", pressureHigh1Phase3.ToString("0.00"));
@@ -4555,8 +4812,31 @@ namespace MidoriValveTest
 
                 MiReporte.SetParameterValue("NumCyclePhase3MinDelta", cycleDeltaMin.ToString());
 
-
                 MiReporte.SetParameterValue("cyclesPhase3", lbCountCycles.Text);
+                MiReporte.SetParameterValue("cyclesFailP3", "Not Calculated");
+
+
+                // Variables a rellenar que no se utilizan
+
+                MiReporte.SetParameterValue("phase2Setpoint", "~");
+                MiReporte.SetParameterValue("overshootMax", "~");
+                MiReporte.SetParameterValue("overshootMin", "~");
+                MiReporte.SetParameterValue("undershootMax", "~");
+                MiReporte.SetParameterValue("undershootMin", "~");
+                MiReporte.SetParameterValue("deltaMaxP2", "~");
+                MiReporte.SetParameterValue("deltaMinP2", "~");
+                MiReporte.SetParameterValue("numOMax", "~");
+                MiReporte.SetParameterValue("numOMin", "~");
+                MiReporte.SetParameterValue("numUMax", "~");
+                MiReporte.SetParameterValue("numUMin", "~");
+                MiReporte.SetParameterValue("numDMaxP2", "~");
+                MiReporte.SetParameterValue("numDMinP2", "~");
+                MiReporte.SetParameterValue("ptgOMax", "~");
+                MiReporte.SetParameterValue("ptgOMin", "~");
+                MiReporte.SetParameterValue("ptgUMax", "~");
+                MiReporte.SetParameterValue("ptgUMin", "~");
+                MiReporte.SetParameterValue("cyclesPhase2", "~");
+                MiReporte.SetParameterValue("cyclesFailP2", "~");
 
 
                 Visualizador.crystalReportViewer1.ReportSource = MiReporte;

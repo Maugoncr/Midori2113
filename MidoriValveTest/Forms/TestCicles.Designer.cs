@@ -132,7 +132,7 @@ namespace MidoriValveTest
             this.txtSetPoint.Location = new System.Drawing.Point(272, 206);
             this.txtSetPoint.Name = "txtSetPoint";
             this.txtSetPoint.ShortcutsEnabled = false;
-            this.txtSetPoint.Size = new System.Drawing.Size(107, 26);
+            this.txtSetPoint.Size = new System.Drawing.Size(143, 26);
             this.txtSetPoint.TabIndex = 30;
             this.txtSetPoint.TextChanged += new System.EventHandler(this.txtSetPoint_TextChanged);
             this.txtSetPoint.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSetPoint_KeyPress);
@@ -147,11 +147,12 @@ namespace MidoriValveTest
             this.btnSetPoint.IconColor = System.Drawing.Color.White;
             this.btnSetPoint.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSetPoint.IconSize = 28;
-            this.btnSetPoint.Location = new System.Drawing.Point(384, 206);
+            this.btnSetPoint.Location = new System.Drawing.Point(463, 295);
             this.btnSetPoint.Name = "btnSetPoint";
             this.btnSetPoint.Size = new System.Drawing.Size(31, 27);
             this.btnSetPoint.TabIndex = 31;
             this.btnSetPoint.UseVisualStyleBackColor = false;
+            this.btnSetPoint.Visible = false;
             this.btnSetPoint.Click += new System.EventHandler(this.btnSetPoint_Click);
             // 
             // lbSentSetpoint
