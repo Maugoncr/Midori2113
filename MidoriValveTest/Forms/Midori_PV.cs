@@ -4506,7 +4506,7 @@ namespace MidoriValveTest
             // Reporte creado desde fuera de las fases, intermedio o etc..
             if (WhoIam == 0)
             {
-
+                GenerarReporte(Settings.Default.Operator);
             }
             // Reporte creado desde Fase 1
             if (WhoIam == 1)
