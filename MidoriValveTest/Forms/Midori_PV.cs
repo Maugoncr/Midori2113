@@ -1279,23 +1279,22 @@ namespace MidoriValveTest
                         {
                             Thread.Sleep(1000);
                             double pressureChartDinamic = Convert.ToDouble(presionChart);
-
                             if (capturarPresionPhase2 == false && pressureChartDinamic >= phase2Setpoint-6 && pressureChartDinamic <= phase2Setpoint+6)
                             {
                                 capturarPresionPhase2 = true;
                             }
-
                             if (j == 120 && capturarPresionPhase2 == false)
                             {
                                 capturarPresionPhase2 = true;
                             }
-
                             if (stillRunning)
                             {
                                 stopChrono = true;
                                 return;
                             }
                         }
+
+                        capturarPresionPhase2 = false;
 
                         // #7
                         serialPort1.Write("E");
@@ -1336,6 +1335,15 @@ namespace MidoriValveTest
                         }
 
                         ContarCycle();
+
+                        if (lbCountCycles.Text == "1")
+                        {
+                            CalcularPhase2PerCycle(true);
+                        }
+                        else
+                        {
+                            CalcularPhase2PerCycle();
+                        }
                     }
 
                     // #9
@@ -1662,7 +1670,6 @@ namespace MidoriValveTest
 
                     // Función que guarde en csv los datos recopilados!
                     GuardarGrabacionPhase3();
-
                 }
             }
             catch (Exception ex)
@@ -3272,7 +3279,6 @@ namespace MidoriValveTest
         private void ResetVariablesPhases()
         {
             // Variables PHASE 2
-
             capturarPresionPhase2 = false;
 
             numOMax = 0;
@@ -4733,23 +4739,23 @@ namespace MidoriValveTest
 
                 //Traer las variables requeridas para los demás espacios PHASE 2!
 
-                MiReporte.SetParameterValue("phase2Setpoint","1");
-                MiReporte.SetParameterValue("overshootMax", "1");
-                MiReporte.SetParameterValue("overshootMin","1");
-                MiReporte.SetParameterValue("undershootMax","1");
-                MiReporte.SetParameterValue("undershootMin","1");
-                MiReporte.SetParameterValue("deltaMaxP2","1");
-                MiReporte.SetParameterValue("deltaMinP2","1");
-                MiReporte.SetParameterValue("numOMax","1");
-                MiReporte.SetParameterValue("numOMin","1");
-                MiReporte.SetParameterValue("numUMax","1");
-                MiReporte.SetParameterValue("numUMin","1");
-                MiReporte.SetParameterValue("numDMaxP2","1");
-                MiReporte.SetParameterValue("numDMinP2","1");
-                MiReporte.SetParameterValue("ptgOMax","1");
-                MiReporte.SetParameterValue("ptgOMin","1");
-                MiReporte.SetParameterValue("ptgUMax","1");
-                MiReporte.SetParameterValue("ptgUMin","1");
+                MiReporte.SetParameterValue("phase2Setpoint",phase2Setpoint.ToString("0.00"));
+                MiReporte.SetParameterValue("overshootMax", overshootMax.ToString("0.00")+" (+"+ (overshootMax - phase2Setpoint).ToString("0.0")+")");
+                MiReporte.SetParameterValue("overshootMin",overshootMin.ToString("0.00") + " (+" + (overshootMin - phase2Setpoint).ToString("0.0") + ")");
+                MiReporte.SetParameterValue("undershootMax",undershootMax.ToString("0.00") + " (-" + (phase2Setpoint - undershootMax).ToString("0.0") + ")");
+                MiReporte.SetParameterValue("undershootMin",undershootMin.ToString("0.00") + " (-" + (phase2Setpoint - undershootMin).ToString("0.0") + ")");
+                MiReporte.SetParameterValue("deltaMaxP2", deltaMaxP2.ToString("0.00")+" ("+overshootMaxDelta+"-"+undershootMaxDelta+")");
+                MiReporte.SetParameterValue("deltaMinP2",deltaMinP2.ToString("0.00")+" ("+overshootMinDelta+"-"+undershootMinDelta+")");
+                MiReporte.SetParameterValue("numOMax","#"+numOMax);
+                MiReporte.SetParameterValue("numOMin","#"+numOMin);
+                MiReporte.SetParameterValue("numUMax","#"+numUMax);
+                MiReporte.SetParameterValue("numUMin","#"+numUMin);
+                MiReporte.SetParameterValue("numDMaxP2","#"+numDMaxP2);
+                MiReporte.SetParameterValue("numDMinP2","#"+numDMinP2);
+                MiReporte.SetParameterValue("ptgOMax","+" + ptgOMax.ToString("0.00")+"%");
+                MiReporte.SetParameterValue("ptgOMin","+" + ptgOMin.ToString("0.00")+"%");
+                MiReporte.SetParameterValue("ptgUMax","-" + ptgUMax.ToString("0.00")+"%");
+                MiReporte.SetParameterValue("ptgUMin","-" + ptgUMin.ToString("0.00")+"%");
 
                 MiReporte.SetParameterValue("cyclesPhase2", lbCountCycles.Text);
 
@@ -4802,7 +4808,7 @@ namespace MidoriValveTest
 
                 MiReporte.SetParameterValue("leakRate1Phase3", leakRate1Phase3.ToString("0.00E+0"));
 
-                MiReporte.SetParameterValue("NumCyclePhase3MaxDelta", cycleDeltaMax.ToString());
+                MiReporte.SetParameterValue("NumCyclePhase3MaxDelta", "#" + cycleDeltaMax.ToString());
 
                 MiReporte.SetParameterValue("APMinPhase3", deltaMinPhase3.ToString("0.00"));
                 MiReporte.SetParameterValue("pressureHigh2Phase3", pressureHigh2Phase3.ToString("0.00"));
@@ -4810,7 +4816,7 @@ namespace MidoriValveTest
 
                 MiReporte.SetParameterValue("leakRate2Phase3", leakRate2Phase3.ToString("0.00E+0"));
 
-                MiReporte.SetParameterValue("NumCyclePhase3MinDelta", cycleDeltaMin.ToString());
+                MiReporte.SetParameterValue("NumCyclePhase3MinDelta", "#" + cycleDeltaMin.ToString());
 
                 MiReporte.SetParameterValue("cyclesPhase3", lbCountCycles.Text);
                 MiReporte.SetParameterValue("cyclesFailP3", "Not Calculated");
