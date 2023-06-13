@@ -3491,13 +3491,13 @@ namespace MidoriValveTest
                 if (pressureDUMax > undershootMax)
                 {
                     undershootMax = pressureDUMax;
-                    ptgUMax = Math.Round(((undershootMax - phase2Setpoint) / phase2Setpoint) * 100, 2);
+                    ptgUMax = Math.Round(((phase2Setpoint - undershootMax) / phase2Setpoint) * 100, 2);
                     numUMax = Convert.ToInt32(lbCountCycles.Text);
                 }
                 if (pressureDUMin < undershootMin)
                 {
                     undershootMin = pressureDUMin;
-                    ptgUMin = Math.Round(((undershootMin - phase2Setpoint) / phase2Setpoint) * 100, 2);
+                    ptgUMin = Math.Round(((phase2Setpoint - undershootMin) / phase2Setpoint) * 100, 2);
                     numUMin = Convert.ToInt32(lbCountCycles.Text);
                 }
             }
