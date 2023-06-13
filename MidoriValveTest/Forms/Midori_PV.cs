@@ -1232,7 +1232,7 @@ namespace MidoriValveTest
                     lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                     runTimer = true;
 
-                    for (int j = 0; j < 120; j++)
+                    for (int j = 0; j < 2; j++)
                     {
                         Thread.Sleep(1000);
                         if (stillRunning)
@@ -1254,7 +1254,7 @@ namespace MidoriValveTest
                     lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                     runTimer = true;
 
-                    for (int j = 0; j < 30; j++)
+                    for (int j = 0; j < 2; j++)
                     {
                         Thread.Sleep(1000);
                         if (stillRunning)
@@ -1275,7 +1275,7 @@ namespace MidoriValveTest
                         lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                         runTimer = true;
 
-                        for (int j = 0; j < 300; j++)
+                        for (int j = 0; j < 20; j++)
                         {
                             Thread.Sleep(1000);
                             double pressureChartDinamic = Convert.ToDouble(presionChart);
@@ -4739,7 +4739,7 @@ namespace MidoriValveTest
                 }
                 else
                 {
-                    MiReporte.SetParameterValue("deltaMaxP2", deltaMaxP2.ToString("0.00") + " (" + overshootMaxDelta + "-" + undershootMaxDelta + ")");
+                    MiReporte.SetParameterValue("deltaMaxP2", deltaMaxP2.ToString("0.00") + " (" + overshootMaxDelta + " - " + undershootMaxDelta + ")");
                 }
                 if (double.IsNaN(deltaMinP2))
                 {
@@ -4747,7 +4747,7 @@ namespace MidoriValveTest
                 }
                 else
                 {
-                    MiReporte.SetParameterValue("deltaMinP2", deltaMinP2.ToString("0.00") + " (" + overshootMinDelta + "-" + undershootMinDelta + ")");
+                    MiReporte.SetParameterValue("deltaMinP2", deltaMinP2.ToString("0.00") + " (" + overshootMinDelta + " - " + undershootMinDelta + ")");
                 }
                 MiReporte.SetParameterValue("numOMax","#"+numOMax);
                 MiReporte.SetParameterValue("numOMin","#"+numOMin);
