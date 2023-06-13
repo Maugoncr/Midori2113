@@ -25,7 +25,7 @@ namespace MidoriValveTest.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("GLOB (Global Intercom)")]
+        [global::System.Configuration.DefaultSettingValueAttribute("(GLOB)")]
         public string Customer {
             get {
                 return ((string)(this["Customer"]));
@@ -37,7 +37,7 @@ namespace MidoriValveTest.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0-510-2228")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2228")]
         public string CodeProject {
             get {
                 return ((string)(this["CodeProject"]));

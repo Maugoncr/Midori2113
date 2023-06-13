@@ -194,7 +194,7 @@ namespace MidoriValveTest
 
         private void OffEverything()
         {
-            lbClientSettings.Text = Settings.Default.Customer + " " + Settings.Default.CodeProject;
+            lbClientSettings.Text = Settings.Default.CodeProject + " " + Settings.Default.Customer;
 
             if (serialPort1.IsOpen)
             {
@@ -2560,23 +2560,12 @@ namespace MidoriValveTest
                     break;
             }
 
-
-            //pressure_get = trackBar2.Value;
-            //lbl_pressure.Text = "Current Pressure:" + pressure_get + "°";
-            //btn_S_pressure.Text = "Set Pressure";
-            //btn_S_pressure.Enabled = false;
-            //DisableBtn(btn_S_pressure);
-            //// lbl_estado.ForeColor = Color.Green;
-            //// lbl_estado.Text = "Open";
-            //Arduino.Write(pressure_get.ToString());
-
-
         }
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lbClientSettings.Text = Settings.Default.Customer + " " + Settings.Default.CodeProject;
+            lbClientSettings.Text = Settings.Default.CodeProject + " " + Settings.Default.Customer; 
 
             string fecha = DateTime.Now.ToString("dddd, MM/dd/yyyy");
             lblhora.Text = DateTime.Now.ToString("hh:mm:ss tt");

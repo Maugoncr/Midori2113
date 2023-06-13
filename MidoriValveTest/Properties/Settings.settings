@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="Customer" Type="System.String" Scope="User">
-      <Value Profile="(Default)">GLOB (Global Intercom)</Value>
+      <Value Profile="(Default)">(GLOB)</Value>
     </Setting>
     <Setting Name="CodeProject" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0-510-2228</Value>
+      <Value Profile="(Default)">2228</Value>
     </Setting>
     <Setting Name="PersonOfContact" Type="System.String" Scope="User">
       <Value Profile="(Default)">Fred Rezaie</Value>
