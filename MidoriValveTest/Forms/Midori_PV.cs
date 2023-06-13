@@ -4733,8 +4733,22 @@ namespace MidoriValveTest
                 MiReporte.SetParameterValue("overshootMin",overshootMin.ToString("0.00") + " (+" + (overshootMin - phase2Setpoint).ToString("0.0") + ")");
                 MiReporte.SetParameterValue("undershootMax",undershootMax.ToString("0.00") + " (-" + (phase2Setpoint - undershootMax).ToString("0.0") + ")");
                 MiReporte.SetParameterValue("undershootMin",undershootMin.ToString("0.00") + " (-" + (phase2Setpoint - undershootMin).ToString("0.0") + ")");
-                MiReporte.SetParameterValue("deltaMaxP2", deltaMaxP2.ToString("0.00")+" ("+overshootMaxDelta+"-"+undershootMaxDelta+")");
-                MiReporte.SetParameterValue("deltaMinP2",deltaMinP2.ToString("0.00")+" ("+overshootMinDelta+"-"+undershootMinDelta+")");
+                if (double.IsNaN(deltaMaxP2))
+                {
+                    MiReporte.SetParameterValue("deltaMaxP2", deltaMaxP2.ToString("0.00"));
+                }
+                else
+                {
+                    MiReporte.SetParameterValue("deltaMaxP2", deltaMaxP2.ToString("0.00") + " (" + overshootMaxDelta + "-" + undershootMaxDelta + ")");
+                }
+                if (double.IsNaN(deltaMinP2))
+                {
+                    MiReporte.SetParameterValue("deltaMinP2", deltaMinP2.ToString("0.00"));
+                }
+                else
+                {
+                    MiReporte.SetParameterValue("deltaMinP2", deltaMinP2.ToString("0.00") + " (" + overshootMinDelta + "-" + undershootMinDelta + ")");
+                }
                 MiReporte.SetParameterValue("numOMax","#"+numOMax);
                 MiReporte.SetParameterValue("numOMin","#"+numOMin);
                 MiReporte.SetParameterValue("numUMax","#"+numUMax);
