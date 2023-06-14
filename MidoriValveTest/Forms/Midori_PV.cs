@@ -1232,7 +1232,7 @@ namespace MidoriValveTest
                     lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                     runTimer = true;
 
-                    for (int j = 0; j < 2; j++)
+                    for (int j = 0; j < 120; j++)
                     {
                         Thread.Sleep(1000);
                         if (stillRunning)
@@ -1254,7 +1254,7 @@ namespace MidoriValveTest
                     lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                     runTimer = true;
 
-                    for (int j = 0; j < 2; j++)
+                    for (int j = 0; j < 30; j++)
                     {
                         Thread.Sleep(1000);
                         if (stillRunning)
@@ -1275,7 +1275,7 @@ namespace MidoriValveTest
                         lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                         runTimer = true;
 
-                        for (int j = 0; j < 20; j++)
+                        for (int j = 0; j < 300; j++)
                         {
                             Thread.Sleep(1000);
                             double pressureChartDinamic = Convert.ToDouble(presionChart);
@@ -3562,11 +3562,11 @@ namespace MidoriValveTest
                 }
                 else if (pressureDinamic < phase2Setpoint)
                 {
-                    if (double.IsNaN(pressureDUMax) || pressureDinamic > pressureDUMax)
+                    if (double.IsNaN(pressureDUMax) || pressureDinamic < pressureDUMax)
                     {
                         pressureDUMax = pressureDinamic;
                     }
-                    if (double.IsNaN(pressureDUMin) || pressureDinamic < pressureDUMin)
+                    if (double.IsNaN(pressureDUMin) || pressureDinamic > pressureDUMin)
                     {
                         pressureDUMin = pressureDinamic;
                     }
