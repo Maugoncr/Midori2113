@@ -1232,7 +1232,7 @@ namespace MidoriValveTest
                     lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                     runTimer = true;
 
-                    for (int j = 0; j < 120; j++)
+                    for (int j = 0; j < 2; j++)
                     {
                         Thread.Sleep(1000);
                         if (stillRunning)
@@ -1254,7 +1254,7 @@ namespace MidoriValveTest
                     lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                     runTimer = true;
 
-                    for (int j = 0; j < 30; j++)
+                    for (int j = 0; j < 2; j++)
                     {
                         Thread.Sleep(1000);
                         if (stillRunning)
@@ -1275,7 +1275,7 @@ namespace MidoriValveTest
                         lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                         runTimer = true;
 
-                        for (int j = 0; j < 300; j++)
+                        for (int j = 0; j < 10; j++)
                         {
                             Thread.Sleep(1000);
                             double pressureChartDinamic = Convert.ToDouble(presionChart);
@@ -1411,7 +1411,7 @@ namespace MidoriValveTest
                     lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                     runTimer = true;
 
-                    for (int j = 0; j < 20; j++)
+                    for (int j = 0; j < 2; j++)
                     {
                         Thread.Sleep(1000);
                         if (stillRunning)
@@ -3444,7 +3444,7 @@ namespace MidoriValveTest
             {
                 double deltaDMaxP2 = Math.Round((pressureDOMax - pressureDUMax), 2);
 
-                if (deltaDMaxP2 > deltaMaxP2)
+                if (deltaDMaxP2 > deltaMaxP2 || !double.IsNaN(deltaDMaxP2))
                 {
                     deltaMaxP2 = deltaDMaxP2;
                     numDMaxP2 = Convert.ToInt32(lbCountCycles.Text);
@@ -3455,7 +3455,7 @@ namespace MidoriValveTest
                 }
                 double deltaDMinP2 = Math.Round((pressureDOMin - pressureDUMin), 2);
                 
-                if (deltaDMinP2 < deltaMinP2)
+                if (deltaDMinP2 < deltaMinP2 || !double.IsNaN(deltaDMinP2))
                 {
                     deltaMinP2 = deltaDMinP2;
                     numDMinP2 = Convert.ToInt32(lbCountCycles.Text);
@@ -3465,25 +3465,25 @@ namespace MidoriValveTest
 
                 // Over and Under shooting
 
-                if (pressureDOMax > overshootMax)
+                if (pressureDOMax > overshootMax || !double.IsNaN(pressureDOMax) && pressureDOMax > overshootMax || !double.IsNaN(pressureDOMax) && double.IsNaN(overshootMax))
                 {
                     overshootMax = pressureDOMax;
                     ptgOMax = Math.Round(((overshootMax - phase2Setpoint) / phase2Setpoint) * 100, 2);
                     numOMax = Convert.ToInt32(lbCountCycles.Text);
                 }
-                if (pressureDOMin < overshootMin)
+                if (pressureDOMin < overshootMin || !double.IsNaN(pressureDOMin) && pressureDOMin > overshootMin || !double.IsNaN(pressureDOMin) && double.IsNaN(overshootMin))
                 {
                     overshootMin = pressureDOMin;
                     ptgOMin = Math.Round(((overshootMin - phase2Setpoint) / phase2Setpoint) * 100, 2);
                     numOMin = Convert.ToInt32(lbCountCycles.Text);
                 }
-                if (pressureDUMax > undershootMax)
+                if (pressureDUMax < undershootMax || !double.IsNaN(pressureDUMax) && pressureDUMax < undershootMax || !double.IsNaN(pressureDUMax) && double.IsNaN(undershootMax))
                 {
                     undershootMax = pressureDUMax;
                     ptgUMax = Math.Round(((phase2Setpoint - undershootMax) / phase2Setpoint) * 100, 2);
                     numUMax = Convert.ToInt32(lbCountCycles.Text);
                 }
-                if (pressureDUMin < undershootMin)
+                if (pressureDUMin > undershootMin || !double.IsNaN(pressureDUMin) && pressureDUMin > undershootMin || !double.IsNaN(pressureDUMin) && double.IsNaN(undershootMin))
                 {
                     undershootMin = pressureDUMin;
                     ptgUMin = Math.Round(((phase2Setpoint - undershootMin) / phase2Setpoint) * 100, 2);
