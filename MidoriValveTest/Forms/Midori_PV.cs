@@ -3437,8 +3437,8 @@ namespace MidoriValveTest
                 undershootMinDelta = undershootMin;
                 ptgOMax = Math.Round(((overshootMax - phase2Setpoint) / phase2Setpoint) * 100, 2);
                 ptgOMin = Math.Round(((overshootMin - phase2Setpoint) / phase2Setpoint) * 100, 2);
-                ptgUMax = Math.Round(((undershootMax - phase2Setpoint) / phase2Setpoint) * 100, 2);
-                ptgUMin = Math.Round(((undershootMin - phase2Setpoint) / phase2Setpoint) * 100, 2);
+                ptgUMax = Math.Round(((phase2Setpoint - undershootMax) / phase2Setpoint) * 100, 2);
+                ptgUMin = Math.Round(((phase2Setpoint - undershootMin) / phase2Setpoint) * 100, 2);
             }
             else
             {
