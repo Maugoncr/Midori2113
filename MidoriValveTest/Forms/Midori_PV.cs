@@ -5095,6 +5095,31 @@ namespace MidoriValveTest
             }
         }
 
+        private void ReadData3(string t)
+        {
+            string Format = t;
+            string Out = "";
+
+            int startIndex = Format.IndexOf('K');
+            int endIndex = Format.IndexOf(';', startIndex);
+
+            if (startIndex >= 0 && endIndex >= 0)
+            {
+                Out = Format.Substring(startIndex + 1, endIndex - startIndex - 1);
+            }
+
+            double result = double.Parse(Out, System.Globalization.NumberStyles.Float);
+
+            if (result > 10.0)
+            {
+                //lbMKS3.Text = result.ToString("0.0");
+            }
+            else
+            {
+                //lbMKS3.Text = result.ToString("0.00");
+            }
+        }
+
         private void btnCloseMKSConexion_Click(object sender, EventArgs e)
         {
             panelConexionMKS.Visible = false;
@@ -5788,6 +5813,36 @@ namespace MidoriValveTest
                 frm.BringToFront();
                 return;
             }
+        }
+
+        private void serialPortMKS3_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            if (serialPortMKS3.IsOpen)
+            {
+                try
+                {
+                    Thread.Sleep(25);
+                    string DataIn = serialPortMKS3.ReadExisting();
+                    if (DataIn != null && DataIn != String.Empty && DataIn.Contains("F"))
+                    {
+                        ReadData2(DataIn);
+                        serialPortMKS3.DiscardInBuffer();
+                    }
+                }
+                catch (Exception)
+                {
+                }
+            }
+        }
+
+        private void ManVOpen1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ManVClose1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

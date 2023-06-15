@@ -31,10 +31,10 @@ namespace MidoriValveTest
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Midori_PV));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblEstado = new System.Windows.Forms.Label();
@@ -107,13 +107,9 @@ namespace MidoriValveTest
             this.label9 = new System.Windows.Forms.Label();
             this.ManVOpen2 = new System.Windows.Forms.PictureBox();
             this.ManVClose2 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.ManVClose1 = new System.Windows.Forms.PictureBox();
             this.ManVOpen1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.red_off = new System.Windows.Forms.PictureBox();
-            this.yellow_off = new System.Windows.Forms.PictureBox();
-            this.green_off = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCloseGate = new System.Windows.Forms.Button();
             this.btnOpenGate = new System.Windows.Forms.Button();
@@ -255,6 +251,18 @@ namespace MidoriValveTest
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnCloseMKSConexion = new FontAwesome.Sharp.IconButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnReloadMKS3 = new FontAwesome.Sharp.IconButton();
+            this.btnDisconnectMKS3 = new FontAwesome.Sharp.IconButton();
+            this.lbStatusMKS3 = new System.Windows.Forms.Label();
+            this.btnConnectMKS3 = new FontAwesome.Sharp.IconButton();
+            this.label22 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.serialPortMKS3 = new System.IO.Ports.SerialPort(this.components);
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCamara5)).BeginInit();
@@ -274,9 +282,6 @@ namespace MidoriValveTest
             ((System.ComponentModel.ISupportInitialize)(this.ManVClose2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ManVClose1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ManVOpen1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.red_off)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yellow_off)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.green_off)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.com_led)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -306,6 +311,8 @@ namespace MidoriValveTest
             this.groupBox22.SuspendLayout();
             this.panelConexionMKS.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.groupBox23.SuspendLayout();
+            this.groupBox24.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -829,47 +836,47 @@ namespace MidoriValveTest
             this.chart1.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart1.BorderSkin.BackColor = System.Drawing.Color.Black;
             this.chart1.BorderSkin.BorderColor = System.Drawing.Color.Empty;
-            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea1.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea1.AxisY.Minimum = 0D;
-            chartArea1.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY.ScaleView.MinSize = 1D;
-            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea1.AxisY2.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
-            chartArea1.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.BackSecondaryColor = System.Drawing.Color.White;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.Color.Gainsboro;
-            legend1.Name = "Legend1";
-            legend1.TitleAlignment = System.Drawing.StringAlignment.Near;
-            this.chart1.Legends.Add(legend1);
+            chartArea11.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea11.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
+            chartArea11.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea11.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea11.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea11.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea11.AxisY.Minimum = 0D;
+            chartArea11.AxisY.ScaleBreakStyle.LineColor = System.Drawing.Color.White;
+            chartArea11.AxisY.ScaleView.MinSize = 1D;
+            chartArea11.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea11.AxisY2.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea11.AxisY2.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
+            chartArea11.AxisY2.ScaleBreakStyle.StartFromZero = System.Windows.Forms.DataVisualization.Charting.StartFromZero.Yes;
+            chartArea11.BackColor = System.Drawing.Color.Transparent;
+            chartArea11.BackSecondaryColor = System.Drawing.Color.White;
+            chartArea11.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea11);
+            legend11.BackColor = System.Drawing.Color.Gainsboro;
+            legend11.Name = "Legend1";
+            legend11.TitleAlignment = System.Drawing.StringAlignment.Near;
+            this.chart1.Legends.Add(legend11);
             this.chart1.Location = new System.Drawing.Point(15, 264);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series1.Color = System.Drawing.Color.Green;
-            series1.Legend = "Legend1";
-            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series1.Name = "Pressure";
-            series1.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series1.YValuesPerPoint = 4;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series2.Color = System.Drawing.SystemColors.MenuHighlight;
-            series2.Legend = "Legend1";
-            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series2.Name = "Aperture value";
-            series2.ShadowColor = System.Drawing.Color.Silver;
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series21.Color = System.Drawing.Color.Green;
+            series21.Legend = "Legend1";
+            series21.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series21.Name = "Pressure";
+            series21.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series21.YValuesPerPoint = 4;
+            series22.ChartArea = "ChartArea1";
+            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series22.Color = System.Drawing.SystemColors.MenuHighlight;
+            series22.Legend = "Legend1";
+            series22.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series22.Name = "Aperture value";
+            series22.ShadowColor = System.Drawing.Color.Silver;
+            this.chart1.Series.Add(series21);
+            this.chart1.Series.Add(series22);
             this.chart1.Size = new System.Drawing.Size(1262, 648);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -955,11 +962,11 @@ namespace MidoriValveTest
             this.lbStatusMANValve.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lbStatusMANValve.Font = new System.Drawing.Font("Calibri", 11.25F);
             this.lbStatusMANValve.ForeColor = System.Drawing.Color.Black;
-            this.lbStatusMANValve.Location = new System.Drawing.Point(12, 115);
+            this.lbStatusMANValve.Location = new System.Drawing.Point(105, 76);
             this.lbStatusMANValve.Name = "lbStatusMANValve";
-            this.lbStatusMANValve.Size = new System.Drawing.Size(88, 18);
+            this.lbStatusMANValve.Size = new System.Drawing.Size(69, 18);
             this.lbStatusMANValve.TabIndex = 76;
-            this.lbStatusMANValve.Text = "Status Pne V:";
+            this.lbStatusMANValve.Text = "Status V2:";
             this.lbStatusMANValve.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
@@ -967,7 +974,7 @@ namespace MidoriValveTest
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 11.25F);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(12, 71);
+            this.label7.Location = new System.Drawing.Point(16, 62);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 18);
             this.label7.TabIndex = 15;
@@ -978,7 +985,7 @@ namespace MidoriValveTest
             this.lbl_estado.AutoSize = true;
             this.lbl_estado.Font = new System.Drawing.Font("Calibri", 11.25F);
             this.lbl_estado.ForeColor = System.Drawing.Color.Red;
-            this.lbl_estado.Location = new System.Drawing.Point(101, 71);
+            this.lbl_estado.Location = new System.Drawing.Point(105, 62);
             this.lbl_estado.Name = "lbl_estado";
             this.lbl_estado.Size = new System.Drawing.Size(32, 18);
             this.lbl_estado.TabIndex = 20;
@@ -987,28 +994,18 @@ namespace MidoriValveTest
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.lbClientSettings);
             this.groupBox1.Controls.Add(this.groupBox19);
-            this.groupBox1.Controls.Add(this.ManVOpen2);
-            this.groupBox1.Controls.Add(this.ManVClose2);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.ManVClose1);
-            this.groupBox1.Controls.Add(this.ManVOpen1);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.lbStatusMANValve);
-            this.groupBox1.Controls.Add(this.red_off);
-            this.groupBox1.Controls.Add(this.yellow_off);
-            this.groupBox1.Controls.Add(this.green_off);
-            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.groupBox20);
             this.groupBox1.Controls.Add(this.lbl_estado);
             this.groupBox1.Controls.Add(this.btnCloseGate);
+            this.groupBox1.Controls.Add(this.groupBox10);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnOpenGate);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(52, 181);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(544, 221);
+            this.groupBox1.Size = new System.Drawing.Size(544, 297);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Actions";
@@ -1017,24 +1014,26 @@ namespace MidoriValveTest
             // 
             this.lbClientSettings.Font = new System.Drawing.Font("Calibri", 10F);
             this.lbClientSettings.ForeColor = System.Drawing.Color.Red;
-            this.lbClientSettings.Location = new System.Drawing.Point(6, 195);
+            this.lbClientSettings.Location = new System.Drawing.Point(12, 256);
             this.lbClientSettings.Name = "lbClientSettings";
-            this.lbClientSettings.Size = new System.Drawing.Size(215, 15);
+            this.lbClientSettings.Size = new System.Drawing.Size(258, 15);
             this.lbClientSettings.TabIndex = 72;
             this.lbClientSettings.Text = "Client";
             this.lbClientSettings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox19
             // 
+            this.groupBox19.Controls.Add(this.label8);
+            this.groupBox19.Controls.Add(this.lbClientSettings);
             this.groupBox19.Controls.Add(this.lbTemporizadorStepByStep);
             this.groupBox19.Controls.Add(this.btnStopMarathon);
-            this.groupBox19.Controls.Add(this.btnLimpiarTestArea);
             this.groupBox19.Controls.Add(this.label12);
+            this.groupBox19.Controls.Add(this.btnLimpiarTestArea);
             this.groupBox19.Controls.Add(this.btn_valveTest);
             this.groupBox19.Controls.Add(this.lbGoalCycles);
             this.groupBox19.Controls.Add(this.label14);
-            this.groupBox19.Controls.Add(this.lbCountCycles);
             this.groupBox19.Controls.Add(this.txtCrono);
+            this.groupBox19.Controls.Add(this.lbCountCycles);
             this.groupBox19.Controls.Add(this.label15);
             this.groupBox19.Controls.Add(this.label13);
             this.groupBox19.Controls.Add(this.lbStepForTest);
@@ -1042,9 +1041,9 @@ namespace MidoriValveTest
             this.groupBox19.Controls.Add(this.label11);
             this.groupBox19.Controls.Add(this.DateEndedTest);
             this.groupBox19.Controls.Add(this.label9);
-            this.groupBox19.Location = new System.Drawing.Point(222, 13);
+            this.groupBox19.Location = new System.Drawing.Point(225, 10);
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(316, 200);
+            this.groupBox19.Size = new System.Drawing.Size(309, 281);
             this.groupBox19.TabIndex = 156;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Testing";
@@ -1053,7 +1052,7 @@ namespace MidoriValveTest
             // 
             this.lbTemporizadorStepByStep.AutoSize = true;
             this.lbTemporizadorStepByStep.Font = new System.Drawing.Font("Calibri", 11.25F);
-            this.lbTemporizadorStepByStep.Location = new System.Drawing.Point(81, 20);
+            this.lbTemporizadorStepByStep.Location = new System.Drawing.Point(170, 47);
             this.lbTemporizadorStepByStep.Name = "lbTemporizadorStepByStep";
             this.lbTemporizadorStepByStep.Size = new System.Drawing.Size(40, 18);
             this.lbTemporizadorStepByStep.TabIndex = 164;
@@ -1068,7 +1067,7 @@ namespace MidoriValveTest
             this.btnStopMarathon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStopMarathon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStopMarathon.ForeColor = System.Drawing.Color.Black;
-            this.btnStopMarathon.Location = new System.Drawing.Point(223, 146);
+            this.btnStopMarathon.Location = new System.Drawing.Point(12, 197);
             this.btnStopMarathon.Name = "btnStopMarathon";
             this.btnStopMarathon.Size = new System.Drawing.Size(50, 50);
             this.btnStopMarathon.TabIndex = 163;
@@ -1085,9 +1084,9 @@ namespace MidoriValveTest
             this.btnLimpiarTestArea.IconColor = System.Drawing.Color.White;
             this.btnLimpiarTestArea.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLimpiarTestArea.IconSize = 20;
-            this.btnLimpiarTestArea.Location = new System.Drawing.Point(284, 166);
+            this.btnLimpiarTestArea.Location = new System.Drawing.Point(281, 253);
             this.btnLimpiarTestArea.Name = "btnLimpiarTestArea";
-            this.btnLimpiarTestArea.Size = new System.Drawing.Size(23, 27);
+            this.btnLimpiarTestArea.Size = new System.Drawing.Size(23, 22);
             this.btnLimpiarTestArea.TabIndex = 162;
             this.btnLimpiarTestArea.UseVisualStyleBackColor = false;
             this.btnLimpiarTestArea.Click += new System.EventHandler(this.btnLimpiarTestArea_Click);
@@ -1097,7 +1096,7 @@ namespace MidoriValveTest
             this.label12.AllowDrop = true;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 11.25F);
-            this.label12.Location = new System.Drawing.Point(9, 172);
+            this.label12.Location = new System.Drawing.Point(9, 175);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(57, 18);
             this.label12.TabIndex = 160;
@@ -1113,7 +1112,7 @@ namespace MidoriValveTest
             this.btn_valveTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_valveTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_valveTest.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_valveTest.Location = new System.Drawing.Point(219, 10);
+            this.btn_valveTest.Location = new System.Drawing.Point(147, 199);
             this.btn_valveTest.Name = "btn_valveTest";
             this.btn_valveTest.Size = new System.Drawing.Size(91, 39);
             this.btn_valveTest.TabIndex = 21;
@@ -1127,9 +1126,9 @@ namespace MidoriValveTest
             // 
             this.lbGoalCycles.AllowDrop = true;
             this.lbGoalCycles.Font = new System.Drawing.Font("Calibri", 11.25F);
-            this.lbGoalCycles.Location = new System.Drawing.Point(79, 124);
+            this.lbGoalCycles.Location = new System.Drawing.Point(81, 71);
             this.lbGoalCycles.Name = "lbGoalCycles";
-            this.lbGoalCycles.Size = new System.Drawing.Size(137, 18);
+            this.lbGoalCycles.Size = new System.Drawing.Size(221, 18);
             this.lbGoalCycles.TabIndex = 159;
             this.lbGoalCycles.Text = "0";
             this.lbGoalCycles.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1139,7 +1138,7 @@ namespace MidoriValveTest
             this.label14.AllowDrop = true;
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Calibri", 11.25F);
-            this.label14.Location = new System.Drawing.Point(9, 147);
+            this.label14.Location = new System.Drawing.Point(9, 94);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(49, 18);
             this.label14.TabIndex = 156;
@@ -1149,9 +1148,9 @@ namespace MidoriValveTest
             // 
             this.lbCountCycles.AllowDrop = true;
             this.lbCountCycles.Font = new System.Drawing.Font("Calibri", 11.25F);
-            this.lbCountCycles.Location = new System.Drawing.Point(79, 147);
+            this.lbCountCycles.Location = new System.Drawing.Point(81, 94);
             this.lbCountCycles.Name = "lbCountCycles";
-            this.lbCountCycles.Size = new System.Drawing.Size(137, 18);
+            this.lbCountCycles.Size = new System.Drawing.Size(221, 18);
             this.lbCountCycles.TabIndex = 157;
             this.lbCountCycles.Text = "0";
             this.lbCountCycles.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1161,7 +1160,7 @@ namespace MidoriValveTest
             this.txtCrono.BackColor = System.Drawing.Color.White;
             this.txtCrono.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCrono.Font = new System.Drawing.Font("Calibri", 13F);
-            this.txtCrono.Location = new System.Drawing.Point(84, 171);
+            this.txtCrono.Location = new System.Drawing.Point(127, 171);
             this.txtCrono.Name = "txtCrono";
             this.txtCrono.ReadOnly = true;
             this.txtCrono.ShortcutsEnabled = false;
@@ -1175,7 +1174,7 @@ namespace MidoriValveTest
             this.label15.AllowDrop = true;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Calibri", 11.25F);
-            this.label15.Location = new System.Drawing.Point(9, 124);
+            this.label15.Location = new System.Drawing.Point(9, 71);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(40, 18);
             this.label15.TabIndex = 158;
@@ -1186,7 +1185,7 @@ namespace MidoriValveTest
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Calibri", 11.25F);
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(9, 20);
+            this.label13.Location = new System.Drawing.Point(9, 23);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(72, 18);
             this.label13.TabIndex = 83;
@@ -1196,20 +1195,19 @@ namespace MidoriValveTest
             // 
             this.lbStepForTest.Font = new System.Drawing.Font("Calibri", 11.25F);
             this.lbStepForTest.ForeColor = System.Drawing.Color.Black;
-            this.lbStepForTest.Location = new System.Drawing.Point(9, 40);
+            this.lbStepForTest.Location = new System.Drawing.Point(84, 17);
             this.lbStepForTest.Name = "lbStepForTest";
-            this.lbStepForTest.Size = new System.Drawing.Size(207, 30);
+            this.lbStepForTest.Size = new System.Drawing.Size(218, 30);
             this.lbStepForTest.TabIndex = 84;
             this.lbStepForTest.Text = "In non-execution";
-            this.lbStepForTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbStepForTest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DateStartedTest
             // 
-            this.DateStartedTest.AutoSize = true;
             this.DateStartedTest.Font = new System.Drawing.Font("Calibri", 11.25F);
-            this.DateStartedTest.Location = new System.Drawing.Point(83, 78);
+            this.DateStartedTest.Location = new System.Drawing.Point(87, 127);
             this.DateStartedTest.Name = "DateStartedTest";
-            this.DateStartedTest.Size = new System.Drawing.Size(35, 18);
+            this.DateStartedTest.Size = new System.Drawing.Size(215, 18);
             this.DateStartedTest.TabIndex = 45;
             this.DateStartedTest.Text = "-/-/-";
             this.DateStartedTest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1218,7 +1216,7 @@ namespace MidoriValveTest
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Calibri", 11.25F);
-            this.label11.Location = new System.Drawing.Point(9, 99);
+            this.label11.Location = new System.Drawing.Point(9, 147);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 18);
             this.label11.TabIndex = 46;
@@ -1226,11 +1224,10 @@ namespace MidoriValveTest
             // 
             // DateEndedTest
             // 
-            this.DateEndedTest.AutoSize = true;
             this.DateEndedTest.Font = new System.Drawing.Font("Calibri", 11.25F);
-            this.DateEndedTest.Location = new System.Drawing.Point(83, 101);
+            this.DateEndedTest.Location = new System.Drawing.Point(83, 149);
             this.DateEndedTest.Name = "DateEndedTest";
-            this.DateEndedTest.Size = new System.Drawing.Size(35, 18);
+            this.DateEndedTest.Size = new System.Drawing.Size(219, 18);
             this.DateEndedTest.TabIndex = 47;
             this.DateEndedTest.Text = "-/-/-";
             this.DateEndedTest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1239,7 +1236,7 @@ namespace MidoriValveTest
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 11.25F);
-            this.label9.Location = new System.Drawing.Point(9, 76);
+            this.label9.Location = new System.Drawing.Point(9, 125);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(57, 18);
             this.label9.TabIndex = 44;
@@ -1248,7 +1245,7 @@ namespace MidoriValveTest
             // ManVOpen2
             // 
             this.ManVOpen2.Image = global::MidoriValveTest.Properties.Resources.led_off_green;
-            this.ManVOpen2.Location = new System.Drawing.Point(152, 125);
+            this.ManVOpen2.Location = new System.Drawing.Point(111, 97);
             this.ManVOpen2.Name = "ManVOpen2";
             this.ManVOpen2.Size = new System.Drawing.Size(25, 25);
             this.ManVOpen2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1258,97 +1255,58 @@ namespace MidoriValveTest
             // ManVClose2
             // 
             this.ManVClose2.Image = global::MidoriValveTest.Properties.Resources.led_off_red;
-            this.ManVClose2.Location = new System.Drawing.Point(183, 125);
+            this.ManVClose2.Location = new System.Drawing.Point(142, 97);
             this.ManVClose2.Name = "ManVClose2";
             this.ManVClose2.Size = new System.Drawing.Size(25, 25);
             this.ManVClose2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ManVClose2.TabIndex = 81;
             this.ManVClose2.TabStop = false;
             // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label8.Font = new System.Drawing.Font("Calibri", 11.25F);
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(117, 126);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 29);
-            this.label8.TabIndex = 80;
-            this.label8.Text = "V2";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // ManVClose1
             // 
             this.ManVClose1.Image = global::MidoriValveTest.Properties.Resources.led_off_red;
-            this.ManVClose1.Location = new System.Drawing.Point(183, 101);
+            this.ManVClose1.Location = new System.Drawing.Point(53, 97);
             this.ManVClose1.Name = "ManVClose1";
             this.ManVClose1.Size = new System.Drawing.Size(25, 25);
             this.ManVClose1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ManVClose1.TabIndex = 79;
             this.ManVClose1.TabStop = false;
+            this.ManVClose1.Click += new System.EventHandler(this.ManVClose1_Click);
             // 
             // ManVOpen1
             // 
             this.ManVOpen1.Image = global::MidoriValveTest.Properties.Resources.led_off_green;
-            this.ManVOpen1.Location = new System.Drawing.Point(152, 101);
+            this.ManVOpen1.Location = new System.Drawing.Point(23, 97);
             this.ManVOpen1.Name = "ManVOpen1";
             this.ManVOpen1.Size = new System.Drawing.Size(25, 25);
             this.ManVOpen1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ManVOpen1.TabIndex = 78;
             this.ManVOpen1.TabStop = false;
+            this.ManVOpen1.Click += new System.EventHandler(this.ManVOpen1_Click);
             // 
             // label5
             // 
+            this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label5.Font = new System.Drawing.Font("Calibri", 11.25F);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(117, 101);
+            this.label5.Location = new System.Drawing.Point(20, 77);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 29);
+            this.label5.Size = new System.Drawing.Size(69, 18);
             this.label5.TabIndex = 77;
-            this.label5.Text = "V1";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // red_off
-            // 
-            this.red_off.Image = global::MidoriValveTest.Properties.Resources.led_off_red;
-            this.red_off.Location = new System.Drawing.Point(183, 157);
-            this.red_off.Name = "red_off";
-            this.red_off.Size = new System.Drawing.Size(25, 25);
-            this.red_off.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.red_off.TabIndex = 43;
-            this.red_off.TabStop = false;
-            // 
-            // yellow_off
-            // 
-            this.yellow_off.Image = global::MidoriValveTest.Properties.Resources.led_off_yellow;
-            this.yellow_off.Location = new System.Drawing.Point(152, 157);
-            this.yellow_off.Name = "yellow_off";
-            this.yellow_off.Size = new System.Drawing.Size(25, 25);
-            this.yellow_off.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.yellow_off.TabIndex = 42;
-            this.yellow_off.TabStop = false;
-            // 
-            // green_off
-            // 
-            this.green_off.Image = global::MidoriValveTest.Properties.Resources.led_off_green;
-            this.green_off.Location = new System.Drawing.Point(121, 157);
-            this.green_off.Name = "green_off";
-            this.green_off.Size = new System.Drawing.Size(25, 25);
-            this.green_off.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.green_off.TabIndex = 41;
-            this.green_off.TabStop = false;
+            this.label5.Text = "Status V1:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 11.25F);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(12, 159);
+            this.label4.Location = new System.Drawing.Point(6, 28);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 18);
+            this.label4.Size = new System.Drawing.Size(92, 18);
             this.label4.TabIndex = 40;
-            this.label4.Text = "Valve Status:";
+            this.label4.Text = "Status Pump :";
             // 
             // btnCloseGate
             // 
@@ -1505,9 +1463,9 @@ namespace MidoriValveTest
             this.groupBox2.Controls.Add(this.groupBox12);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(52, 408);
+            this.groupBox2.Location = new System.Drawing.Point(52, 484);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(544, 641);
+            this.groupBox2.Size = new System.Drawing.Size(544, 577);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Manual Valve Control ";
@@ -1533,9 +1491,9 @@ namespace MidoriValveTest
             this.groupBox11.Controls.Add(this.lbl_T_6);
             this.groupBox11.Controls.Add(this.trackBar2A);
             this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox11.Location = new System.Drawing.Point(277, 21);
+            this.groupBox11.Location = new System.Drawing.Point(261, 21);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(252, 449);
+            this.groupBox11.Size = new System.Drawing.Size(268, 423);
             this.groupBox11.TabIndex = 65;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Target Pressure";
@@ -1545,9 +1503,9 @@ namespace MidoriValveTest
             this.txtSetPresion.BackColor = System.Drawing.Color.White;
             this.txtSetPresion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSetPresion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSetPresion.Location = new System.Drawing.Point(10, 372);
+            this.txtSetPresion.Location = new System.Drawing.Point(124, 345);
             this.txtSetPresion.Name = "txtSetPresion";
-            this.txtSetPresion.Size = new System.Drawing.Size(179, 24);
+            this.txtSetPresion.Size = new System.Drawing.Size(143, 24);
             this.txtSetPresion.TabIndex = 70;
             this.txtSetPresion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSetPresion.TextChanged += new System.EventHandler(this.txtSetPresion_TextChanged);
@@ -1563,7 +1521,7 @@ namespace MidoriValveTest
             this.btnStartPID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStartPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartPID.ForeColor = System.Drawing.Color.White;
-            this.btnStartPID.Location = new System.Drawing.Point(164, 402);
+            this.btnStartPID.Location = new System.Drawing.Point(45, 376);
             this.btnStartPID.Name = "btnStartPID";
             this.btnStartPID.Size = new System.Drawing.Size(71, 42);
             this.btnStartPID.TabIndex = 69;
@@ -1580,7 +1538,7 @@ namespace MidoriValveTest
             this.btn_P_conf.FlatAppearance.BorderSize = 0;
             this.btn_P_conf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_P_conf.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_P_conf.Location = new System.Drawing.Point(204, 367);
+            this.btn_P_conf.Location = new System.Drawing.Point(6, 388);
             this.btn_P_conf.Name = "btn_P_conf";
             this.btn_P_conf.Size = new System.Drawing.Size(31, 29);
             this.btn_P_conf.TabIndex = 68;
@@ -1633,7 +1591,7 @@ namespace MidoriValveTest
             this.btnSetPresion.FlatAppearance.BorderSize = 0;
             this.btnSetPresion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetPresion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSetPresion.Location = new System.Drawing.Point(10, 402);
+            this.btnSetPresion.Location = new System.Drawing.Point(120, 375);
             this.btnSetPresion.Name = "btnSetPresion";
             this.btnSetPresion.Size = new System.Drawing.Size(147, 43);
             this.btnSetPresion.TabIndex = 27;
@@ -1773,7 +1731,7 @@ namespace MidoriValveTest
             this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox9.Location = new System.Drawing.Point(15, 21);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(240, 449);
+            this.groupBox9.Size = new System.Drawing.Size(240, 423);
             this.groupBox9.TabIndex = 56;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Target Position";
@@ -2076,7 +2034,7 @@ namespace MidoriValveTest
             this.btnSetApertura.FlatAppearance.BorderSize = 0;
             this.btnSetApertura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetApertura.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSetApertura.Location = new System.Drawing.Point(44, 400);
+            this.btnSetApertura.Location = new System.Drawing.Point(46, 371);
             this.btnSetApertura.Name = "btnSetApertura";
             this.btnSetApertura.Size = new System.Drawing.Size(147, 43);
             this.btnSetApertura.TabIndex = 27;
@@ -2181,11 +2139,11 @@ namespace MidoriValveTest
             // 
             // groupBox12
             // 
-            this.groupBox12.Controls.Add(this.picture_plane);
             this.groupBox12.Controls.Add(this.picture_frontal);
-            this.groupBox12.Location = new System.Drawing.Point(15, 479);
+            this.groupBox12.Controls.Add(this.picture_plane);
+            this.groupBox12.Location = new System.Drawing.Point(15, 444);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(514, 156);
+            this.groupBox12.Size = new System.Drawing.Size(514, 127);
             this.groupBox12.TabIndex = 66;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Visual Apperture:";
@@ -2197,7 +2155,7 @@ namespace MidoriValveTest
             this.picture_plane.Image = global::MidoriValveTest.Properties.Resources.Verti0B;
             this.picture_plane.Location = new System.Drawing.Point(262, 23);
             this.picture_plane.Name = "picture_plane";
-            this.picture_plane.Size = new System.Drawing.Size(218, 126);
+            this.picture_plane.Size = new System.Drawing.Size(218, 98);
             this.picture_plane.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picture_plane.TabIndex = 39;
             this.picture_plane.TabStop = false;
@@ -2207,9 +2165,9 @@ namespace MidoriValveTest
             this.picture_frontal.BackColor = System.Drawing.Color.Transparent;
             this.picture_frontal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picture_frontal.Image = global::MidoriValveTest.Properties.Resources.Front0;
-            this.picture_frontal.Location = new System.Drawing.Point(31, 23);
+            this.picture_frontal.Location = new System.Drawing.Point(23, 23);
             this.picture_frontal.Name = "picture_frontal";
-            this.picture_frontal.Size = new System.Drawing.Size(209, 126);
+            this.picture_frontal.Size = new System.Drawing.Size(209, 98);
             this.picture_frontal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picture_frontal.TabIndex = 38;
             this.picture_frontal.TabStop = false;
@@ -2218,7 +2176,7 @@ namespace MidoriValveTest
             // 
             this.groupBox6.Controls.Add(this.Current_aperture);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(984, 51);
+            this.groupBox6.Location = new System.Drawing.Point(1133, 50);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(191, 80);
             this.groupBox6.TabIndex = 25;
@@ -2241,31 +2199,31 @@ namespace MidoriValveTest
             // 
             this.groupBox7.Controls.Add(this.lb_Temperature);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(1427, 51);
+            this.groupBox7.Location = new System.Drawing.Point(1576, 51);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(233, 80);
+            this.groupBox7.Size = new System.Drawing.Size(168, 80);
             this.groupBox7.TabIndex = 26;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Motor Temp:";
             // 
             // lb_Temperature
             // 
-            this.lb_Temperature.AutoSize = true;
             this.lb_Temperature.BackColor = System.Drawing.Color.Transparent;
             this.lb_Temperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Temperature.ForeColor = System.Drawing.Color.Red;
-            this.lb_Temperature.Location = new System.Drawing.Point(60, 28);
+            this.lb_Temperature.Location = new System.Drawing.Point(6, 30);
             this.lb_Temperature.Name = "lb_Temperature";
-            this.lb_Temperature.Size = new System.Drawing.Size(93, 39);
+            this.lb_Temperature.Size = new System.Drawing.Size(156, 39);
             this.lb_Temperature.TabIndex = 57;
             this.lb_Temperature.Text = " 0° C";
+            this.lb_Temperature.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.lbl_P_unit_top);
             this.groupBox8.Controls.Add(this.lbl_pressure);
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(1181, 51);
+            this.groupBox8.Location = new System.Drawing.Point(1330, 51);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(240, 80);
             this.groupBox8.TabIndex = 27;
@@ -2758,7 +2716,7 @@ namespace MidoriValveTest
             // 
             this.groupBox5.Controls.Add(this.lbSetPointPressure);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(766, 51);
+            this.groupBox5.Location = new System.Drawing.Point(915, 51);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(212, 80);
             this.groupBox5.TabIndex = 81;
@@ -2770,13 +2728,19 @@ namespace MidoriValveTest
             this.groupBox10.Controls.Add(this.label21);
             this.groupBox10.Controls.Add(this.btnOffMANValve2);
             this.groupBox10.Controls.Add(this.btnOnMANValve2);
+            this.groupBox10.Controls.Add(this.ManVOpen2);
+            this.groupBox10.Controls.Add(this.ManVClose2);
             this.groupBox10.Controls.Add(this.label20);
             this.groupBox10.Controls.Add(this.btnOffMANValve);
+            this.groupBox10.Controls.Add(this.ManVClose1);
             this.groupBox10.Controls.Add(this.btnOnMANValve);
+            this.groupBox10.Controls.Add(this.ManVOpen1);
+            this.groupBox10.Controls.Add(this.lbStatusMANValve);
+            this.groupBox10.Controls.Add(this.label5);
             this.groupBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox10.Location = new System.Drawing.Point(1666, 51);
+            this.groupBox10.Location = new System.Drawing.Point(16, 80);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(128, 80);
+            this.groupBox10.Size = new System.Drawing.Size(185, 130);
             this.groupBox10.TabIndex = 82;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Pne Valve";
@@ -2787,7 +2751,7 @@ namespace MidoriValveTest
             this.label21.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(3, 55);
+            this.label21.Location = new System.Drawing.Point(14, 55);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(25, 18);
             this.label21.TabIndex = 98;
@@ -2809,7 +2773,7 @@ namespace MidoriValveTest
             this.btnOffMANValve2.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnOffMANValve2.IconSize = 18;
             this.btnOffMANValve2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOffMANValve2.Location = new System.Drawing.Point(77, 51);
+            this.btnOffMANValve2.Location = new System.Drawing.Point(114, 48);
             this.btnOffMANValve2.Name = "btnOffMANValve2";
             this.btnOffMANValve2.Size = new System.Drawing.Size(49, 25);
             this.btnOffMANValve2.TabIndex = 97;
@@ -2834,7 +2798,7 @@ namespace MidoriValveTest
             this.btnOnMANValve2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOnMANValve2.IconSize = 18;
             this.btnOnMANValve2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOnMANValve2.Location = new System.Drawing.Point(30, 51);
+            this.btnOnMANValve2.Location = new System.Drawing.Point(45, 49);
             this.btnOnMANValve2.Name = "btnOnMANValve2";
             this.btnOnMANValve2.Size = new System.Drawing.Size(46, 25);
             this.btnOnMANValve2.TabIndex = 96;
@@ -2850,7 +2814,7 @@ namespace MidoriValveTest
             this.label20.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(3, 27);
+            this.label20.Location = new System.Drawing.Point(14, 27);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(25, 18);
             this.label20.TabIndex = 95;
@@ -2872,7 +2836,7 @@ namespace MidoriValveTest
             this.btnOffMANValve.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnOffMANValve.IconSize = 18;
             this.btnOffMANValve.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOffMANValve.Location = new System.Drawing.Point(77, 23);
+            this.btnOffMANValve.Location = new System.Drawing.Point(114, 23);
             this.btnOffMANValve.Name = "btnOffMANValve";
             this.btnOffMANValve.Size = new System.Drawing.Size(49, 25);
             this.btnOffMANValve.TabIndex = 78;
@@ -2897,7 +2861,7 @@ namespace MidoriValveTest
             this.btnOnMANValve.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOnMANValve.IconSize = 18;
             this.btnOnMANValve.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOnMANValve.Location = new System.Drawing.Point(30, 23);
+            this.btnOnMANValve.Location = new System.Drawing.Point(45, 23);
             this.btnOnMANValve.Name = "btnOnMANValve";
             this.btnOnMANValve.Size = new System.Drawing.Size(46, 25);
             this.btnOnMANValve.TabIndex = 77;
@@ -2916,7 +2880,7 @@ namespace MidoriValveTest
             // 
             this.groupBox13.Controls.Add(this.lb_CounterTest);
             this.groupBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox13.Location = new System.Drawing.Point(600, 51);
+            this.groupBox13.Location = new System.Drawing.Point(749, 51);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(160, 80);
             this.groupBox13.TabIndex = 83;
@@ -2928,10 +2892,11 @@ namespace MidoriValveTest
             this.groupBox20.Controls.Add(this.lbPumpStatus);
             this.groupBox20.Controls.Add(this.btnOffPump);
             this.groupBox20.Controls.Add(this.btnOnPump);
+            this.groupBox20.Controls.Add(this.label4);
             this.groupBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox20.Location = new System.Drawing.Point(1802, 51);
+            this.groupBox20.Location = new System.Drawing.Point(15, 211);
             this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(116, 80);
+            this.groupBox20.Size = new System.Drawing.Size(186, 80);
             this.groupBox20.TabIndex = 84;
             this.groupBox20.TabStop = false;
             this.groupBox20.Text = "V Pump";
@@ -2941,7 +2906,7 @@ namespace MidoriValveTest
             this.lbPumpStatus.AutoSize = true;
             this.lbPumpStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPumpStatus.ForeColor = System.Drawing.Color.Red;
-            this.lbPumpStatus.Location = new System.Drawing.Point(37, 28);
+            this.lbPumpStatus.Location = new System.Drawing.Point(27, 50);
             this.lbPumpStatus.Name = "lbPumpStatus";
             this.lbPumpStatus.Size = new System.Drawing.Size(41, 20);
             this.lbPumpStatus.TabIndex = 95;
@@ -2961,7 +2926,7 @@ namespace MidoriValveTest
             this.btnOffPump.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnOffPump.IconSize = 18;
             this.btnOffPump.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOffPump.Location = new System.Drawing.Point(61, 51);
+            this.btnOffPump.Location = new System.Drawing.Point(115, 49);
             this.btnOffPump.Name = "btnOffPump";
             this.btnOffPump.Size = new System.Drawing.Size(52, 25);
             this.btnOffPump.TabIndex = 78;
@@ -2985,7 +2950,7 @@ namespace MidoriValveTest
             this.btnOnPump.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOnPump.IconSize = 18;
             this.btnOnPump.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOnPump.Location = new System.Drawing.Point(3, 51);
+            this.btnOnPump.Location = new System.Drawing.Point(115, 19);
             this.btnOnPump.Name = "btnOnPump";
             this.btnOnPump.Size = new System.Drawing.Size(55, 25);
             this.btnOnPump.TabIndex = 77;
@@ -3009,7 +2974,7 @@ namespace MidoriValveTest
             // lbMKS1
             // 
             this.lbMKS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMKS1.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lbMKS1.ForeColor = System.Drawing.Color.Blue;
             this.lbMKS1.Location = new System.Drawing.Point(6, 26);
             this.lbMKS1.Name = "lbMKS1";
             this.lbMKS1.Size = new System.Drawing.Size(148, 39);
@@ -3021,7 +2986,7 @@ namespace MidoriValveTest
             // 
             this.groupBox22.Controls.Add(this.lbMKS2);
             this.groupBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox22.Location = new System.Drawing.Point(413, 118);
+            this.groupBox22.Location = new System.Drawing.Point(579, 50);
             this.groupBox22.Name = "groupBox22";
             this.groupBox22.Size = new System.Drawing.Size(160, 67);
             this.groupBox22.TabIndex = 86;
@@ -3031,7 +2996,7 @@ namespace MidoriValveTest
             // lbMKS2
             // 
             this.lbMKS2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMKS2.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lbMKS2.ForeColor = System.Drawing.Color.Blue;
             this.lbMKS2.Location = new System.Drawing.Point(6, 26);
             this.lbMKS2.Name = "lbMKS2";
             this.lbMKS2.Size = new System.Drawing.Size(148, 39);
@@ -3050,6 +3015,12 @@ namespace MidoriValveTest
             // panelConexionMKS
             // 
             this.panelConexionMKS.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelConexionMKS.Controls.Add(this.btnReloadMKS3);
+            this.panelConexionMKS.Controls.Add(this.btnDisconnectMKS3);
+            this.panelConexionMKS.Controls.Add(this.lbStatusMKS3);
+            this.panelConexionMKS.Controls.Add(this.btnConnectMKS3);
+            this.panelConexionMKS.Controls.Add(this.label22);
+            this.panelConexionMKS.Controls.Add(this.comboBox1);
             this.panelConexionMKS.Controls.Add(this.btnReloadMKS2);
             this.panelConexionMKS.Controls.Add(this.btnReloadMKS1);
             this.panelConexionMKS.Controls.Add(this.btnDisconnectMKS2);
@@ -3063,9 +3034,9 @@ namespace MidoriValveTest
             this.panelConexionMKS.Controls.Add(this.cbMKS2);
             this.panelConexionMKS.Controls.Add(this.cbMKS1);
             this.panelConexionMKS.Controls.Add(this.panel11);
-            this.panelConexionMKS.Location = new System.Drawing.Point(558, 405);
+            this.panelConexionMKS.Location = new System.Drawing.Point(592, 481);
             this.panelConexionMKS.Name = "panelConexionMKS";
-            this.panelConexionMKS.Size = new System.Drawing.Size(574, 153);
+            this.panelConexionMKS.Size = new System.Drawing.Size(574, 202);
             this.panelConexionMKS.TabIndex = 87;
             this.panelConexionMKS.Visible = false;
             // 
@@ -3217,7 +3188,7 @@ namespace MidoriValveTest
             this.cbMKS2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbMKS2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMKS2.FormattingEnabled = true;
-            this.cbMKS2.Location = new System.Drawing.Point(84, 109);
+            this.cbMKS2.Location = new System.Drawing.Point(83, 110);
             this.cbMKS2.Name = "cbMKS2";
             this.cbMKS2.Size = new System.Drawing.Size(242, 26);
             this.cbMKS2.TabIndex = 115;
@@ -3230,7 +3201,7 @@ namespace MidoriValveTest
             this.cbMKS1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbMKS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMKS1.FormattingEnabled = true;
-            this.cbMKS1.Location = new System.Drawing.Point(82, 57);
+            this.cbMKS1.Location = new System.Drawing.Point(81, 58);
             this.cbMKS1.Name = "cbMKS1";
             this.cbMKS1.Size = new System.Drawing.Size(242, 26);
             this.cbMKS1.TabIndex = 114;
@@ -3261,6 +3232,146 @@ namespace MidoriValveTest
             this.btnCloseMKSConexion.UseVisualStyleBackColor = true;
             this.btnCloseMKSConexion.Click += new System.EventHandler(this.btnCloseMKSConexion_Click);
             // 
+            // btnReloadMKS3
+            // 
+            this.btnReloadMKS3.BackColor = System.Drawing.Color.Teal;
+            this.btnReloadMKS3.FlatAppearance.BorderSize = 0;
+            this.btnReloadMKS3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReloadMKS3.IconChar = FontAwesome.Sharp.IconChar.Repeat;
+            this.btnReloadMKS3.IconColor = System.Drawing.Color.White;
+            this.btnReloadMKS3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReloadMKS3.IconSize = 20;
+            this.btnReloadMKS3.Location = new System.Drawing.Point(5, 160);
+            this.btnReloadMKS3.Name = "btnReloadMKS3";
+            this.btnReloadMKS3.Size = new System.Drawing.Size(23, 23);
+            this.btnReloadMKS3.TabIndex = 170;
+            this.btnReloadMKS3.UseVisualStyleBackColor = false;
+            // 
+            // btnDisconnectMKS3
+            // 
+            this.btnDisconnectMKS3.BackColor = System.Drawing.Color.Transparent;
+            this.btnDisconnectMKS3.BackgroundImage = global::MidoriValveTest.Properties.Resources.TurnOffEnable;
+            this.btnDisconnectMKS3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDisconnectMKS3.FlatAppearance.BorderSize = 0;
+            this.btnDisconnectMKS3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDisconnectMKS3.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnDisconnectMKS3.IconColor = System.Drawing.Color.Black;
+            this.btnDisconnectMKS3.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnDisconnectMKS3.Location = new System.Drawing.Point(376, 145);
+            this.btnDisconnectMKS3.Name = "btnDisconnectMKS3";
+            this.btnDisconnectMKS3.Size = new System.Drawing.Size(40, 40);
+            this.btnDisconnectMKS3.TabIndex = 169;
+            this.btnDisconnectMKS3.UseVisualStyleBackColor = false;
+            // 
+            // lbStatusMKS3
+            // 
+            this.lbStatusMKS3.AutoSize = true;
+            this.lbStatusMKS3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatusMKS3.Location = new System.Drawing.Point(429, 158);
+            this.lbStatusMKS3.Name = "lbStatusMKS3";
+            this.lbStatusMKS3.Size = new System.Drawing.Size(122, 18);
+            this.lbStatusMKS3.TabIndex = 168;
+            this.lbStatusMKS3.Text = "* Disconnected";
+            // 
+            // btnConnectMKS3
+            // 
+            this.btnConnectMKS3.BackColor = System.Drawing.Color.Transparent;
+            this.btnConnectMKS3.BackgroundImage = global::MidoriValveTest.Properties.Resources.TurnOnEnable;
+            this.btnConnectMKS3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnConnectMKS3.FlatAppearance.BorderSize = 0;
+            this.btnConnectMKS3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConnectMKS3.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnConnectMKS3.IconColor = System.Drawing.Color.Black;
+            this.btnConnectMKS3.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnConnectMKS3.Location = new System.Drawing.Point(330, 145);
+            this.btnConnectMKS3.Name = "btnConnectMKS3";
+            this.btnConnectMKS3.Size = new System.Drawing.Size(40, 40);
+            this.btnConnectMKS3.TabIndex = 167;
+            this.btnConnectMKS3.UseVisualStyleBackColor = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(30, 160);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(47, 18);
+            this.label22.TabIndex = 166;
+            this.label22.Text = "EG-3:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.BackColor = System.Drawing.Color.White;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(83, 156);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(242, 26);
+            this.comboBox1.TabIndex = 165;
+            // 
+            // serialPortMKS3
+            // 
+            this.serialPortMKS3.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPortMKS3_DataReceived);
+            // 
+            // groupBox23
+            // 
+            this.groupBox23.Controls.Add(this.label10);
+            this.groupBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox23.Location = new System.Drawing.Point(1750, 51);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Size = new System.Drawing.Size(168, 80);
+            this.groupBox23.TabIndex = 87;
+            this.groupBox23.TabStop = false;
+            this.groupBox23.Text = "Tank-1 Temp:";
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(6, 30);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(156, 39);
+            this.label10.TabIndex = 57;
+            this.label10.Text = " 0° C";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox24
+            // 
+            this.groupBox24.Controls.Add(this.label23);
+            this.groupBox24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox24.Location = new System.Drawing.Point(413, 118);
+            this.groupBox24.Name = "groupBox24";
+            this.groupBox24.Size = new System.Drawing.Size(160, 67);
+            this.groupBox24.TabIndex = 88;
+            this.groupBox24.TabStop = false;
+            this.groupBox24.Text = "EG-1:";
+            // 
+            // label23
+            // 
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Blue;
+            this.label23.Location = new System.Drawing.Point(6, 26);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(148, 39);
+            this.label23.TabIndex = 34;
+            this.label23.Text = "---";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Calibri", 11.25F);
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(9, 47);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 18);
+            this.label8.TabIndex = 165;
+            this.label8.Text = "State Test:";
+            // 
             // Midori_PV
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -3268,9 +3379,10 @@ namespace MidoriValveTest
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1920, 1061);
             this.Controls.Add(this.panelConexionMKS);
+            this.Controls.Add(this.groupBox24);
+            this.Controls.Add(this.groupBox23);
             this.Controls.Add(this.groupBox22);
             this.Controls.Add(this.groupBox21);
-            this.Controls.Add(this.groupBox20);
             this.Controls.Add(this.groupBox13);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.PanelSideNav);
@@ -3283,7 +3395,6 @@ namespace MidoriValveTest
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.PanelNav);
-            this.Controls.Add(this.groupBox10);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -3318,9 +3429,6 @@ namespace MidoriValveTest
             ((System.ComponentModel.ISupportInitialize)(this.ManVClose2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ManVClose1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ManVOpen1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.red_off)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yellow_off)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.green_off)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.com_led)).EndInit();
@@ -3337,7 +3445,6 @@ namespace MidoriValveTest
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.LateralNav.ResumeLayout(false);
@@ -3361,6 +3468,8 @@ namespace MidoriValveTest
             this.panelConexionMKS.ResumeLayout(false);
             this.panelConexionMKS.PerformLayout();
             this.panel11.ResumeLayout(false);
+            this.groupBox23.ResumeLayout(false);
+            this.groupBox24.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3468,9 +3577,6 @@ namespace MidoriValveTest
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblfecha;
         private System.Windows.Forms.Label lb_CounterTest;
-        public System.Windows.Forms.PictureBox green_off;
-        public System.Windows.Forms.PictureBox red_off;
-        public System.Windows.Forms.PictureBox yellow_off;
         private System.Windows.Forms.Panel PanelNav;
         private FontAwesome.Sharp.IconButton btnMenu;
         private System.Windows.Forms.Panel PanelNavTitle;
@@ -3535,7 +3641,6 @@ namespace MidoriValveTest
         private System.Windows.Forms.GroupBox groupBox15;
         public System.Windows.Forms.PictureBox ManVOpen2;
         public System.Windows.Forms.PictureBox ManVClose2;
-        private System.Windows.Forms.Label label8;
         public System.Windows.Forms.PictureBox ManVClose1;
         public System.Windows.Forms.PictureBox ManVOpen1;
         private System.Windows.Forms.Label label5;
@@ -3587,6 +3692,18 @@ namespace MidoriValveTest
         private FontAwesome.Sharp.IconButton btnDisconnectMKS1;
         private FontAwesome.Sharp.IconButton btnReloadMKS2;
         private FontAwesome.Sharp.IconButton btnReloadMKS1;
+        private FontAwesome.Sharp.IconButton btnReloadMKS3;
+        private FontAwesome.Sharp.IconButton btnDisconnectMKS3;
+        private System.Windows.Forms.Label lbStatusMKS3;
+        private FontAwesome.Sharp.IconButton btnConnectMKS3;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.IO.Ports.SerialPort serialPortMKS3;
+        private System.Windows.Forms.GroupBox groupBox23;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox groupBox24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label8;
     }
 }
 
