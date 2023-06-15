@@ -72,7 +72,7 @@ namespace MidoriValveTest
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
-            this.btnAnalyze = new System.Windows.Forms.Button();
+            this.btnCompareChart = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -393,7 +393,7 @@ namespace MidoriValveTest
             this.groupBox4.Controls.Add(this.panel1);
             this.groupBox4.Controls.Add(this.panel3);
             this.groupBox4.Controls.Add(this.label28);
-            this.groupBox4.Controls.Add(this.btnAnalyze);
+            this.groupBox4.Controls.Add(this.btnCompareChart);
             this.groupBox4.Controls.Add(this.chart1);
             this.groupBox4.Controls.Add(this.menuStrip1);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -635,7 +635,7 @@ namespace MidoriValveTest
             this.btnEMO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEMO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEMO.ForeColor = System.Drawing.Color.Yellow;
-            this.btnEMO.Location = new System.Drawing.Point(1128, 794);
+            this.btnEMO.Location = new System.Drawing.Point(1128, 848);
             this.btnEMO.Name = "btnEMO";
             this.btnEMO.Size = new System.Drawing.Size(116, 51);
             this.btnEMO.TabIndex = 25;
@@ -803,25 +803,24 @@ namespace MidoriValveTest
             this.label28.TabIndex = 28;
             this.label28.Text = "Time [s]";
             // 
-            // btnAnalyze
+            // btnCompareChart
             // 
-            this.btnAnalyze.BackColor = System.Drawing.Color.LightGray;
-            this.btnAnalyze.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAnalyze.BackgroundImage")));
-            this.btnAnalyze.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAnalyze.FlatAppearance.BorderSize = 0;
-            this.btnAnalyze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnalyze.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnalyze.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAnalyze.Location = new System.Drawing.Point(1128, 848);
-            this.btnAnalyze.Name = "btnAnalyze";
-            this.btnAnalyze.Size = new System.Drawing.Size(116, 51);
-            this.btnAnalyze.TabIndex = 26;
-            this.btnAnalyze.Text = "Analyze";
-            this.btnAnalyze.UseVisualStyleBackColor = false;
-            this.btnAnalyze.Visible = false;
-            this.btnAnalyze.Click += new System.EventHandler(this.button5_Click);
-            this.btnAnalyze.MouseEnter += new System.EventHandler(this.button5_MouseEnter);
-            this.btnAnalyze.MouseLeave += new System.EventHandler(this.button5_MouseLeave);
+            this.btnCompareChart.BackColor = System.Drawing.Color.LightGray;
+            this.btnCompareChart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCompareChart.BackgroundImage")));
+            this.btnCompareChart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCompareChart.FlatAppearance.BorderSize = 0;
+            this.btnCompareChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompareChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompareChart.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCompareChart.Location = new System.Drawing.Point(1128, 794);
+            this.btnCompareChart.Name = "btnCompareChart";
+            this.btnCompareChart.Size = new System.Drawing.Size(116, 51);
+            this.btnCompareChart.TabIndex = 26;
+            this.btnCompareChart.Text = "Compare chart";
+            this.btnCompareChart.UseVisualStyleBackColor = false;
+            this.btnCompareChart.Click += new System.EventHandler(this.btnCompareChart_Click);
+            this.btnCompareChart.MouseEnter += new System.EventHandler(this.button5_MouseEnter);
+            this.btnCompareChart.MouseLeave += new System.EventHandler(this.button5_MouseLeave);
             // 
             // chart1
             // 
@@ -1395,6 +1394,7 @@ namespace MidoriValveTest
             // 
             this.lb_CounterTest.AutoSize = true;
             this.lb_CounterTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_CounterTest.ForeColor = System.Drawing.Color.Red;
             this.lb_CounterTest.Location = new System.Drawing.Point(64, 30);
             this.lb_CounterTest.Name = "lb_CounterTest";
             this.lb_CounterTest.Size = new System.Drawing.Size(36, 39);
@@ -2230,7 +2230,7 @@ namespace MidoriValveTest
             this.Current_aperture.AutoSize = true;
             this.Current_aperture.BackColor = System.Drawing.Color.Transparent;
             this.Current_aperture.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Current_aperture.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Current_aperture.ForeColor = System.Drawing.Color.Red;
             this.Current_aperture.Location = new System.Drawing.Point(70, 30);
             this.Current_aperture.Name = "Current_aperture";
             this.Current_aperture.Size = new System.Drawing.Size(59, 39);
@@ -2246,14 +2246,14 @@ namespace MidoriValveTest
             this.groupBox7.Size = new System.Drawing.Size(233, 80);
             this.groupBox7.TabIndex = 26;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Current Temperature:";
+            this.groupBox7.Text = "Motor Temp:";
             // 
             // lb_Temperature
             // 
             this.lb_Temperature.AutoSize = true;
             this.lb_Temperature.BackColor = System.Drawing.Color.Transparent;
             this.lb_Temperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Temperature.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lb_Temperature.ForeColor = System.Drawing.Color.Red;
             this.lb_Temperature.Location = new System.Drawing.Point(60, 28);
             this.lb_Temperature.Name = "lb_Temperature";
             this.lb_Temperature.Size = new System.Drawing.Size(93, 39);
@@ -2277,7 +2277,7 @@ namespace MidoriValveTest
             this.lbl_P_unit_top.AutoSize = true;
             this.lbl_P_unit_top.BackColor = System.Drawing.Color.Transparent;
             this.lbl_P_unit_top.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F);
-            this.lbl_P_unit_top.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_P_unit_top.ForeColor = System.Drawing.Color.Red;
             this.lbl_P_unit_top.Location = new System.Drawing.Point(153, 28);
             this.lbl_P_unit_top.Name = "lbl_P_unit_top";
             this.lbl_P_unit_top.Size = new System.Drawing.Size(72, 39);
@@ -2288,7 +2288,7 @@ namespace MidoriValveTest
             // 
             this.lbl_pressure.BackColor = System.Drawing.Color.Transparent;
             this.lbl_pressure.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_pressure.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_pressure.ForeColor = System.Drawing.Color.Red;
             this.lbl_pressure.Location = new System.Drawing.Point(15, 28);
             this.lbl_pressure.Name = "lbl_pressure";
             this.lbl_pressure.Size = new System.Drawing.Size(143, 39);
@@ -2746,7 +2746,7 @@ namespace MidoriValveTest
             // 
             this.lbSetPointPressure.BackColor = System.Drawing.Color.Transparent;
             this.lbSetPointPressure.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSetPointPressure.ForeColor = System.Drawing.Color.Black;
+            this.lbSetPointPressure.ForeColor = System.Drawing.Color.Red;
             this.lbSetPointPressure.Location = new System.Drawing.Point(6, 28);
             this.lbSetPointPressure.Name = "lbSetPointPressure";
             this.lbSetPointPressure.Size = new System.Drawing.Size(200, 41);
@@ -3009,6 +3009,7 @@ namespace MidoriValveTest
             // lbMKS1
             // 
             this.lbMKS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMKS1.ForeColor = System.Drawing.Color.DarkOrange;
             this.lbMKS1.Location = new System.Drawing.Point(6, 26);
             this.lbMKS1.Name = "lbMKS1";
             this.lbMKS1.Size = new System.Drawing.Size(148, 39);
@@ -3030,6 +3031,7 @@ namespace MidoriValveTest
             // lbMKS2
             // 
             this.lbMKS2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMKS2.ForeColor = System.Drawing.Color.DarkOrange;
             this.lbMKS2.Location = new System.Drawing.Point(6, 26);
             this.lbMKS2.Name = "lbMKS2";
             this.lbMKS2.Size = new System.Drawing.Size(148, 39);
@@ -3421,7 +3423,7 @@ namespace MidoriValveTest
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
-        public System.Windows.Forms.Button btnAnalyze;
+        public System.Windows.Forms.Button btnCompareChart;
         private System.Windows.Forms.Label lbl_record;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         public System.Windows.Forms.Button btnChartArchiveAnalyzer;

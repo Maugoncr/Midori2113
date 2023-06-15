@@ -365,7 +365,7 @@ namespace MidoriValveTest
             DisableBtn(btnStartRecord);
             DisableBtn(btnStopRecord);
             DisableBtn(btnChartArchiveAnalyzer);
-            DisableBtn(btnAnalyze);
+            DisableBtn(btnCompareChart);
             DisableBtn(btnPIDAnalisis);
             DisableBtn(btnAutoCalibrate);
             DisableBtn(btnEMO);
@@ -546,7 +546,7 @@ namespace MidoriValveTest
                     EnableBtn(btn_0);
                     EnableBtn(btnStartRecord);
                     EnableBtn(btnChartArchiveAnalyzer);
-                    EnableBtn(btnAnalyze);
+                    EnableBtn(btnCompareChart);
                     EnableBtn(btnAutoCalibrate);
                     EnableBtn(btnPIDAnalisis);
                     EnableBtnEMO(btnEMO);
@@ -734,7 +734,7 @@ namespace MidoriValveTest
             EnableBtn(btnInfo);
             EnableBtn(btnChartArchiveAnalyzer);
             EnableBtnEMO(btnEMO);
-            EnableBtn(btnAnalyze);
+            EnableBtn(btnCompareChart);
             //stop
             EnableBtn(btnStopRecord);
             // grabar
@@ -2184,21 +2184,6 @@ namespace MidoriValveTest
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-            Chart_Analyzer ca = new Chart_Analyzer();
-            ca.final_time = final;
-            ca.date = n;
-            for (int i = 0; i < chart1.Series["Aperture value"].Points.Count; i++)
-            {
-                ca.chart1.Series["Aperture value"].Points.Add(chart1.Series["Aperture value"].Points[i]);
-                ca.chart1.Series["Pressure"].Points.Add(chart1.Series["Pressure"].Points[i]);
-            }
-            ca.ShowDialog();
-
-        }
-
 
         //Chart Analicer
         private void button7_Click(object sender, EventArgs e)
@@ -3071,12 +3056,12 @@ namespace MidoriValveTest
 
         private void button5_MouseEnter(object sender, EventArgs e)
         {
-            EnterBtn(btnAnalyze);
+            EnterBtn(btnCompareChart);
         }
 
         private void button5_MouseLeave(object sender, EventArgs e)
         {
-            LeftBtn(btnAnalyze);
+            LeftBtn(btnCompareChart);
         }
 
 
@@ -5788,6 +5773,21 @@ namespace MidoriValveTest
 
         }
 
-      
+        private void btnCompareChart_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmChartComparationPhase2);
+
+            if (frm == null)
+            {
+                FrmChartComparationPhase2 nt = new FrmChartComparationPhase2();
+
+                nt.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+                return;
+            }
+        }
     }
 }

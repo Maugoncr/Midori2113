@@ -158,6 +158,12 @@
     <Compile Include="Forms\FrmAskNameReport.Designer.cs">
       <DependentUpon>FrmAskNameReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmChartComparationPhase2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmChartComparationPhase2.Designer.cs">
+      <DependentUpon>FrmChartComparationPhase2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmControlCamaras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAskNameReport.resx">
       <DependentUpon>FrmAskNameReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmChartComparationPhase2.resx">
+      <DependentUpon>FrmChartComparationPhase2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmControlCamaras.resx">
       <DependentUpon>FrmControlCamaras.cs</DependentUpon>
