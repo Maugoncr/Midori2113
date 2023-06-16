@@ -42,6 +42,7 @@ namespace MidoriValveTest
 
         bool PedirMKS1 = false;
         bool PedirMKS2 = false;
+        bool PedirMKS3 = false;
 
         DateTime star_record = new DateTime();
         DateTime end_record = new DateTime();
@@ -126,6 +127,10 @@ namespace MidoriValveTest
                     {
                         ActivarConnectMKS(2);
                     }
+                    else if (selectedComboBox == cbMKS3)
+                    {
+                        ActivarConnectMKS(3);
+                    }
                     else if (selectedComboBox == cbSelectionCOM)
                     {
                         EnableBtn(btnConnect);
@@ -137,7 +142,7 @@ namespace MidoriValveTest
 
         private void InicializarComboboxes() 
         {
-            comboBoxes = new List<ComboBox> { cbMKS1, cbMKS2, cbSelectionCOM };
+            comboBoxes = new List<ComboBox> { cbMKS1, cbMKS2, cbMKS3, cbSelectionCOM };
 
             // Suscribe al evento SelectedIndexChanged para todos los ComboBox
             foreach (ComboBox comboBox in comboBoxes)
@@ -215,6 +220,7 @@ namespace MidoriValveTest
 
             PedirMKS1 = false;
             PedirMKS2 = false;
+            PedirMKS3 = false;
 
             //MarathonTEST
             // Hace que siempre al realizar un reset la variable haga que cualquier secuencia mal detenida se apague por completo!
@@ -352,10 +358,20 @@ namespace MidoriValveTest
             btnDisconnectMKS2.BackgroundImage.Dispose();
             btnDisconnectMKS2.BackgroundImage = Resources.TurnOffDisable;
 
+            btnConnectMKS3.Enabled = false;
+            btnConnectMKS3.BackgroundImage.Dispose();
+            btnConnectMKS3.BackgroundImage = Resources.TurnOnDisable;
+
+            btnDisconnectMKS3.Enabled = false;
+            btnDisconnectMKS3.BackgroundImage.Dispose();
+            btnDisconnectMKS3.BackgroundImage = Resources.TurnOffDisable;
+
             lbStatusMKS1.Text = "* Disconnected";
             lbStatusMKS2.Text = "* Disconnected";
+            lbStatusMKS3.Text = "* Disconnected";
             lbMKS1.Text = "---";
             lbMKS2.Text = "---";
+            lbMKS3.Text = "---";
 
             DisableBtn(btnOpenGate);
             DisableBtn(btnCloseGate);
@@ -467,7 +483,7 @@ namespace MidoriValveTest
             btn.BackgroundImage.Dispose();
             btn.BackgroundImage = Properties.Resources.btnOff;
             btn.Enabled = true;
-            btn.ForeColor = Color.Yellow;
+            btn.ForeColor = Color.Red;
         }
 
 
@@ -3602,6 +3618,12 @@ namespace MidoriValveTest
                 serialPortMKS2.WriteLine("@254PR1?;FF");
             }
 
+            if (serialPortMKS3.IsOpen && PedirMKS3)
+            {
+                serialPortMKS3.DiscardOutBuffer();
+                serialPortMKS3.WriteLine("@254PR1?;FF");
+            }
+
 
             if (serialPort1.IsOpen && i == true && presionChart != null && temperaturaLabel != null)
             {
@@ -5112,11 +5134,11 @@ namespace MidoriValveTest
 
             if (result > 10.0)
             {
-                //lbMKS3.Text = result.ToString("0.0");
+                lbMKS3.Text = result.ToString("0.0");
             }
             else
             {
-                //lbMKS3.Text = result.ToString("0.00");
+                lbMKS3.Text = result.ToString("0.00");
             }
         }
 
@@ -5147,6 +5169,16 @@ namespace MidoriValveTest
                 btnDisconnectMKS2.BackgroundImage.Dispose();
                 btnDisconnectMKS2.BackgroundImage = Resources.TurnOffEnable;
             }
+            else if (wich == 3)
+            {
+                btnConnectMKS3.Enabled = false;
+                btnConnectMKS3.BackgroundImage.Dispose();
+                btnConnectMKS3.BackgroundImage = Resources.TurnOnDisable;
+
+                btnDisconnectMKS3.Enabled = true;
+                btnDisconnectMKS3.BackgroundImage.Dispose();
+                btnDisconnectMKS3.BackgroundImage = Resources.TurnOffEnable;
+            }
         }
 
         private void ActivarConnectMKS(int wich)
@@ -5170,6 +5202,16 @@ namespace MidoriValveTest
                 btnDisconnectMKS2.Enabled = false;
                 btnDisconnectMKS2.BackgroundImage.Dispose();
                 btnDisconnectMKS2.BackgroundImage = Resources.TurnOffDisable;
+            }
+            else if (wich == 3)
+            {
+                btnConnectMKS3.Enabled = true;
+                btnConnectMKS3.BackgroundImage.Dispose();
+                btnConnectMKS3.BackgroundImage = Resources.TurnOnEnable;
+
+                btnDisconnectMKS3.Enabled = false;
+                btnDisconnectMKS3.BackgroundImage.Dispose();
+                btnDisconnectMKS3.BackgroundImage = Resources.TurnOffDisable;
             }
         }
 
@@ -5825,7 +5867,7 @@ namespace MidoriValveTest
                     string DataIn = serialPortMKS3.ReadExisting();
                     if (DataIn != null && DataIn != String.Empty && DataIn.Contains("F"))
                     {
-                        ReadData2(DataIn);
+                        ReadData3(DataIn);
                         serialPortMKS3.DiscardInBuffer();
                     }
                 }
@@ -5835,14 +5877,138 @@ namespace MidoriValveTest
             }
         }
 
-        private void ManVOpen1_Click(object sender, EventArgs e)
+        private void btnReloadMKS3_Click(object sender, EventArgs e)
         {
+            cbMKS3.Enabled = true;
 
+            string[] ports = SerialPort.GetPortNames();
+
+            cbMKS3.Items.Clear();
+
+            cbMKS3.Items.AddRange(ports);
+
+            cbMKS3.SelectedIndex = -1;
+
+            if (serialPortMKS3.IsOpen)
+            {
+                serialPortMKS3.Close();
+            }
+
+            lbStatusMKS3.Text = "* Disconnected";
+            PedirMKS3 = false;
+
+            btnConnectMKS3.Enabled = false;
+            btnDisconnectMKS3.Enabled = false;
+
+            btnConnectMKS3.BackgroundImage.Dispose();
+            btnDisconnectMKS3.BackgroundImage.Dispose();
+
+            btnConnectMKS3.BackgroundImage = Resources.TurnOnDisable;
+            btnDisconnectMKS3.BackgroundImage = Resources.TurnOffDisable;
         }
 
-        private void ManVClose1_Click(object sender, EventArgs e)
+        private void btnConnectMKS3_Click(object sender, EventArgs e)
         {
+            if (cbMKS3.SelectedIndex >= 0 && btnConnectMKS3.Enabled == true)
+            {
+                string port = cbMKS3.SelectedItem.ToString();
 
+                try
+                {
+                    if (serialPortMKS3.IsOpen)
+                    {
+                        serialPortMKS3.Close();
+
+                        cbMKS3.Enabled = true;
+
+                        string[] ports = SerialPort.GetPortNames();
+
+                        cbMKS3.Items.Clear();
+
+                        cbMKS3.Items.AddRange(ports);
+
+                        cbMKS3.SelectedIndex = -1;
+
+                        lbStatusMKS3.Text = "* Disconnected";
+                        PedirMKS3 = false;
+
+                        btnConnectMKS3.Enabled = false;
+                        btnDisconnectMKS3.Enabled = false;
+
+                        btnConnectMKS3.BackgroundImage.Dispose(); btnConnectMKS3.BackgroundImage = Resources.TurnOnDisable;
+                        btnDisconnectMKS3.BackgroundImage.Dispose(); btnDisconnectMKS3.BackgroundImage = Resources.TurnOffDisable;
+
+                        return;
+                    }
+                    else
+                    {
+                        cbMKS3.Enabled = false;
+
+                        serialPortMKS3.PortName = port;
+                        serialPortMKS3.Open();
+                        lbStatusMKS3.Text = "* Connected";
+                        PedirMKS3 = true;
+
+                        DesactivarConnectMKS(3);
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBoxMaugoncr.Show("An error occurred:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    serialPortMKS2.Close();
+
+                    cbMKS2.Enabled = true;
+
+                    string[] ports = SerialPort.GetPortNames();
+
+                    cbMKS2.Items.Clear();
+
+                    cbMKS2.Items.AddRange(ports);
+
+                    cbMKS2.SelectedIndex = -1;
+
+                    lbStatusMKS2.Text = "* Disconnected";
+                    PedirMKS2 = false;
+
+                    btnConnectMKS2.Enabled = false;
+                    btnDisconnectMKS2.Enabled = false;
+
+                    btnConnectMKS2.BackgroundImage.Dispose(); btnConnectMKS2.BackgroundImage = Resources.TurnOnDisable;
+                    btnDisconnectMKS2.BackgroundImage.Dispose(); btnDisconnectMKS2.BackgroundImage = Resources.TurnOffDisable;
+                }
+            }
+        }
+
+        private void btnDisconnectMKS3_Click(object sender, EventArgs e)
+        {
+            cbMKS3.Enabled = true;
+
+            string[] ports = SerialPort.GetPortNames();
+
+            cbMKS3.Items.Clear();
+
+            cbMKS3.Items.AddRange(ports);
+
+            cbMKS3.SelectedIndex = -1;
+
+            if (serialPortMKS3.IsOpen)
+            {
+                serialPortMKS3.Close();
+            }
+
+            lbStatusMKS3.Text = "* Disconnected";
+            PedirMKS3 = false;
+
+            btnConnectMKS3.Enabled = false;
+            btnDisconnectMKS3.Enabled = false;
+
+            btnConnectMKS3.BackgroundImage.Dispose();
+            btnDisconnectMKS3.BackgroundImage.Dispose();
+
+            btnConnectMKS3.BackgroundImage = Resources.TurnOnDisable;
+            btnDisconnectMKS3.BackgroundImage = Resources.TurnOffDisable;
         }
     }
 }

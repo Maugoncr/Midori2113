@@ -503,6 +503,7 @@
     <None Include="Resources\btnOn.png" />
     <None Include="Resources\89.gif" />
     <None Include="Resources\Bigger.gif" />
+    <None Include="Resources\btnEMOYellow.png" />
     <Content Include="Resources\led_off_green.png" />
     <Content Include="Resources\led_off_red.png" />
     <Content Include="Resources\led_off_yellow.png" />
