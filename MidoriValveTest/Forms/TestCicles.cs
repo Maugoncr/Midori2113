@@ -87,10 +87,12 @@ namespace MidoriValveTest
 
         private void MostrarOcultarSetpointPhase2(bool OcultarMostrar)
         {
-            lbOperator.Text = Properties.Settings.Default.Operator;
+            lbOperator.Text = Settings.Default.Operator;
 
             if (OcultarMostrar)
             {
+                this.Size = new Size(500, 333);
+                this.StartPosition = FormStartPosition.CenterScreen;
                 lbNumOfClycles.Location = new Point(193, 182);
                 NumOfCycles.Location = new Point(171, 205);
                 btnSetPoint.Visible = false;
@@ -101,13 +103,28 @@ namespace MidoriValveTest
             }
             else
             {
+                //this.Size = new Size(901, 333);
                 lbNumOfClycles.Location = new Point(94, 183);
                 NumOfCycles.Location = new Point(72, 206);
-                btnSetPoint.Visible = true;
+                //btnSetPoint.Visible = true;
                 txtSetPoint.Visible = true;
                 lbSentSetpoint.Visible = true;
                 btnSetPoint.Enabled = false;
                 txtSetPoint.Clear();
+                checkFunctionCycleCompare.Checked = false;
+                checkFunctionCycleCompare.Enabled = false;
+                txtCycle1.Enabled = false;
+                txtCycle2.Enabled = false;
+                txtCycle3.Enabled = false;
+                txtCycle4.Enabled = false;
+                txtCycle5.Enabled = false;
+                txtCycle6.Enabled = false;
+                txtCycle7.Enabled = false;
+                txtCycle8.Enabled = false;
+                txtCycle9.Enabled = false;
+                txtCycle10.Enabled = false;
+
+
             }
         
         }
@@ -131,7 +148,7 @@ namespace MidoriValveTest
         {
             if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
             {
-                MessageBoxMaugoncr.Show("Only numbers are allowed", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBoxMaugoncr.Show("Only numbers are allowed", "Important", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -145,19 +162,53 @@ namespace MidoriValveTest
 
         private void btnTestStart_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmDontTouch>().Any())
+            if (cbSelectTypeCycle.SelectedIndex == 1)
             {
+                if (NumOfCycles.Value >= 1 && !string.IsNullOrEmpty(txtSetPoint.Text) && Convert.ToInt32(txtSetPoint.Text) >= 1)
+                {
+                    if (Application.OpenForms.OfType<FrmDontTouch>().Any())
+                    {
 
+                    }
+                    else
+                    {
+                        FrmDontTouch miFormulario = new FrmDontTouch();
+                        miFormulario.Show();
+                    }
+
+                    menssager.timerTemporizador.Start();
+                    menssager.NewThreadForTest();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBoxMaugoncr.Show("You must enter valid cycle quantities and setpoint", "Important", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             else
             {
-                FrmDontTouch miFormulario = new FrmDontTouch();
-                miFormulario.Show();
-            }
+                if (NumOfCycles.Value >= 1)
+                {
+                    if (Application.OpenForms.OfType<FrmDontTouch>().Any())
+                    {
 
-            menssager.timerTemporizador.Start();
-            menssager.NewThreadForTest();
-            this.Close();
+                    }
+                    else
+                    {
+                        FrmDontTouch miFormulario = new FrmDontTouch();
+                        miFormulario.Show();
+                    }
+
+                    menssager.timerTemporizador.Start();
+                    menssager.NewThreadForTest();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBoxMaugoncr.Show("You must enter valid cycle quantities", "Important", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            
         }
 
         private void txtSetPoint_KeyPress(object sender, KeyPressEventArgs e)

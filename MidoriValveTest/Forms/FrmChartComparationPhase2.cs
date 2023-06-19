@@ -17,15 +17,17 @@ namespace MidoriValveTest.Forms
         private List<int> whichCycle;
         private Dictionary<int, Color> cycleColors;
         private List<CheckBox> checkBoxesList;
+        private string rutaCompareChartFileFiltered;
 
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        public FrmChartComparationPhase2()
+        public FrmChartComparationPhase2(string rutaCompareChartFileFiltered)
         {
             InitializeComponent();
+            this.rutaCompareChartFileFiltered = rutaCompareChartFileFiltered;
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -55,20 +57,8 @@ namespace MidoriValveTest.Forms
 
         private void ShowOpenFileDialog()
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Filter = "Archivos de texto (*.txt)|*.txt";
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    rutaArchivo = openFileDialog.FileName;
-                    LoadChartData();
-                }
-                else
-                {
-                    Close();
-                }
-            }
+            rutaArchivo = rutaCompareChartFileFiltered;
+            LoadChartData();
         }
 
         private void LoadChartData()
@@ -156,35 +146,16 @@ namespace MidoriValveTest.Forms
                 { 5, Color.Purple },
                 { 6, Color.Cyan },
                 { 7, Color.Orange },
-                { 8, Color.Pink }
+                { 8, Color.Maroon },
+                { 9, Color.Lime},
+                { 10, Color.Magenta}
             };
 
             foreach (int ciclo in ciclosDistintos)
             {
-                //List<double> presionCiclo = new List<double>();
-                //List<double> tiempoCiclo = new List<double>();
-
-                //for (int i = 0; i < whichCycle.Count; i++)
-                //{
-                //    if (whichCycle[i] == ciclo)
-                //    {
-                //        presionCiclo.Add(presion[i]);
-                //        tiempoCiclo.Add(tiempo[i]);
-                //    }
-                //}
-
-                //// Agregar una nueva línea al gráfico para el ciclo actual
-                //chart1.Series.Add("Ciclo " + ciclo);
-                //chart1.Series["Ciclo " + ciclo].ChartType = SeriesChartType.Line;
-                //chart1.Series["Ciclo " + ciclo].Color = cycleColors[ciclo]; // Asignar el color correspondiente al ciclo
-
-                //for (int i = 0; i < presionCiclo.Count; i++)
-                //{
-                //    chart1.Series["Ciclo " + ciclo].Points.AddXY(tiempoCiclo[i], presionCiclo[i]);
-                //}
                 string serieName = "Cycle #" + ciclo;
                 Series serie = chart1.Series.Add(serieName);
-                serie.ChartType = SeriesChartType.Line;
+                serie.ChartType = SeriesChartType.Spline;
                 // Configurar el grosor de la línea de la serie
                 serie.BorderWidth = 2; // Ajusta el grosor según tus necesidades
                 // Configurar el color de la línea de la serie

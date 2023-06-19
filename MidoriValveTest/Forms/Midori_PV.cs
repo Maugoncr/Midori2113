@@ -21,6 +21,7 @@ using AForge.Video;
 using CrystalDecisions.CrystalReports.Engine;
 using MidoriValveTest.Properties;
 using CrystalDecisions.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace MidoriValveTest
 {
@@ -325,16 +326,19 @@ namespace MidoriValveTest
             cbSelectionCOM.Enabled = true;
             cbMKS1.Enabled = true;
             cbMKS2.Enabled = true;
+            cbMKS3.Enabled = true;
 
             string[] ports = SerialPort.GetPortNames();
 
             cbSelectionCOM.Items.Clear();
             cbMKS1.Items.Clear();
             cbMKS2.Items.Clear();
+            cbMKS3.Items.Clear();
 
             cbSelectionCOM.Items.AddRange(ports);
             cbMKS1.Items.AddRange(ports);
             cbMKS2.Items.AddRange(ports);
+            cbMKS3.Items.AddRange(ports);
 
 
             //Enable Buttons
@@ -465,7 +469,7 @@ namespace MidoriValveTest
         {
 
             btn.BackgroundImage.Dispose();
-            btn.BackgroundImage = MidoriValveTest.Properties.Resources.btnDisa2;
+            btn.BackgroundImage = Resources.btnDisa2;
             btn.Enabled = false;
             btn.ForeColor = Color.White;
 
@@ -474,14 +478,14 @@ namespace MidoriValveTest
         private void EnableBtn(Button btn)
         {
             btn.BackgroundImage.Dispose();
-            btn.BackgroundImage = MidoriValveTest.Properties.Resources.btnNor;
+            btn.BackgroundImage = Resources.btnNor;
             btn.Enabled = true;
         }
 
         private void EnableBtnEMO(Button btn)
         {
             btn.BackgroundImage.Dispose();
-            btn.BackgroundImage = Properties.Resources.btnOff;
+            btn.BackgroundImage = Resources.btnEMOYellow;
             btn.Enabled = true;
             btn.ForeColor = Color.Red;
         }
@@ -1291,6 +1295,10 @@ namespace MidoriValveTest
                         lbTemporizadorStepByStep.Text = tiempoSeleccionado.ToString(@"mm\:ss");
                         runTimer = true;
 
+                        timeForChartCompareRecordPhase2 = 0;
+                        tempForChartCompareRecordPhase2 = 0;
+                        grabarPresionPhase2 = true;
+
                         for (int j = 0; j < 300; j++)
                         {
                             Thread.Sleep(1000);
@@ -1310,6 +1318,7 @@ namespace MidoriValveTest
                             }
                         }
 
+                        grabarPresionPhase2 = false;
                         capturarPresionPhase2 = false;
 
                         // #7
@@ -1442,6 +1451,10 @@ namespace MidoriValveTest
 
                     DateEndedTest.Text = DateTime.Now.ToString("MM/dd/yy || hh:mm:ss tt");
                     lbStepForTest.Text = "Phase 2 Finished";
+
+                    // Save CSV File 
+                    GuardarGrabacionPhase2();
+
                 }
                 else if (TestToRun == 3)
                 {
@@ -1697,6 +1710,56 @@ namespace MidoriValveTest
             }
         }
 
+        private void GuardarGrabacionPhase2() 
+        {
+            string rutaCompleta;
+
+            if (Directory.Exists(Settings.Default.PathSaveRecords))
+            {
+                string ruta = Settings.Default.PathSaveRecords;
+                string nameFile = "Report Data Phase 2 Created at " + (DateTime.Now.ToString("MM-dd-yy  HH-mm-ss"));
+                string extension = ".txt";
+                rutaCompleta = Path.Combine(ruta, nameFile + extension);
+            }
+            else
+            {
+                string ruta = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string saveFolderPath = Path.Combine(ruta, "MIDORI II REPORT DATA");
+                Directory.CreateDirectory(saveFolderPath);
+                string nameFile = "Report Data Phase 2 Created at " + (DateTime.Now.ToString("MM-dd-yy  HH-mm-ss"));
+                string extension = ".txt";
+                rutaCompleta = Path.Combine(saveFolderPath, nameFile + extension);
+            }
+
+            try
+            {
+                File.WriteAllText(rutaCompleta, string.Empty);
+                using (StreamWriter writer = new StreamWriter(rutaCompleta))
+                {
+                    writer.WriteLine("# Software Midori II Phase 2");
+                    writer.WriteLine("# Start Test Time " + DateStartedTest.Text);
+                    writer.WriteLine("# End Test Time " + DateEndedTest.Text);
+                    writer.WriteLine("# Operator Test " + Settings.Default.Operator);
+                    writer.WriteLine("Cycle Number , Pressure , TimeChartComparation, Time , DateTime");
+
+                    for (int i = 0; i < timesPressurePhase2L.Count; i++)
+                    {
+                        writer.WriteLine(numberCyclePhase2L[i] + "," + pressuresPhase2L[i] +","+ timesChartComparePressurePhase2L[i] +"," + timesPressurePhase2L[i] + "," + datetimesPhase2L[i]);
+                    }
+                }
+
+                pressuresPhase2L.Clear();
+                timesPressurePhase2L.Clear();
+                timesChartComparePressurePhase2L.Clear();
+                numberCyclePhase2L.Clear();
+                datetimesPhase2L.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void GuardarGrabacionPhase3() 
         {
             string rutaCompleta;
@@ -1723,7 +1786,7 @@ namespace MidoriValveTest
                 File.WriteAllText(rutaCompleta, string.Empty);
                 using (StreamWriter writer = new StreamWriter(rutaCompleta))
                 {
-                    writer.WriteLine("# Software Midori II");
+                    writer.WriteLine("# Software Midori II Phase 3");
                     writer.WriteLine("# Start Test Time " + DateStartedTest.Text);
                     writer.WriteLine("# End Test Time " + DateEndedTest.Text);
                     writer.WriteLine("# Operator Test " + Settings.Default.Operator);
@@ -3384,6 +3447,22 @@ namespace MidoriValveTest
         double pressureDUMax = Double.NaN;
         double pressureDUMin = Double.NaN;
 
+        // Variables Phase 2 Grabaciones
+
+        bool grabarPresionPhase2 = false;
+        double timeForRecordPhase2 = 0;
+        double tempForRecordPhase2 = 0;
+
+        double timeForChartCompareRecordPhase2 = 0;
+        double tempForChartCompareRecordPhase2 = 0;
+       
+
+        private List<string> pressuresPhase2L = new List<string>();
+        private List<string> timesPressurePhase2L = new List<string>();
+        private List<string> timesChartComparePressurePhase2L = new List<string>();
+        private List<string> datetimesPhase2L = new List<string>();
+        private List<string> numberCyclePhase2L = new List<string>();
+
         // Variables Phase 3
         bool capturarPresionMaxMinPhase3 = false;
 
@@ -3572,6 +3651,26 @@ namespace MidoriValveTest
                         pressureDUMin = pressureDinamic;
                     }
                 }
+            }
+
+            if (grabarPresionPhase2)
+            {
+                double pressureDinamicPhase2 = Convert.ToDouble(presionChart);
+                int numCyclePhase2 = Convert.ToInt32(lbCountCycles.Text) + 1;
+
+                timeForRecordPhase2 = timeForRecordPhase2 + 100;
+                tempForRecordPhase2 = timeForRecordPhase2 / 1000;
+
+                timeForChartCompareRecordPhase2 = timeForChartCompareRecordPhase2 + 100;
+                tempForChartCompareRecordPhase2 = timeForChartCompareRecordPhase2 / 1000;
+
+                pressuresPhase2L.Add(pressureDinamicPhase2.ToString());
+
+                timesPressurePhase2L.Add(tempForRecordPhase2.ToString());
+                timesChartComparePressurePhase2L.Add(tempForChartCompareRecordPhase2.ToString());
+
+                numberCyclePhase2L.Add(numCyclePhase2.ToString());
+                datetimesPhase2L.Add(DateTime.Now.ToString("MM/dd/yyyy  HH:mm:ss:ff"));
             }
 
 
@@ -5842,11 +5941,11 @@ namespace MidoriValveTest
 
         private void btnCompareChart_Click(object sender, EventArgs e)
         {
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmChartComparationPhase2);
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmChartSepararDataPhase2);
 
             if (frm == null)
             {
-                FrmChartComparationPhase2 nt = new FrmChartComparationPhase2();
+                FrmChartSepararDataPhase2 nt = new FrmChartSepararDataPhase2();
 
                 nt.Show();
             }
@@ -6010,5 +6109,7 @@ namespace MidoriValveTest
             btnConnectMKS3.BackgroundImage = Resources.TurnOnDisable;
             btnDisconnectMKS3.BackgroundImage = Resources.TurnOffDisable;
         }
+
+      
     }
 }

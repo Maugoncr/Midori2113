@@ -164,6 +164,12 @@
     <Compile Include="Forms\FrmChartComparationPhase2.Designer.cs">
       <DependentUpon>FrmChartComparationPhase2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmChartSepararDataPhase2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmChartSepararDataPhase2.Designer.cs">
+      <DependentUpon>FrmChartSepararDataPhase2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmControlCamaras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmChartComparationPhase2.resx">
       <DependentUpon>FrmChartComparationPhase2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmChartSepararDataPhase2.resx">
+      <DependentUpon>FrmChartSepararDataPhase2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmControlCamaras.resx">
       <DependentUpon>FrmControlCamaras.cs</DependentUpon>
