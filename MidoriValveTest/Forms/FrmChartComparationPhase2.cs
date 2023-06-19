@@ -114,7 +114,7 @@ namespace MidoriValveTest.Forms
 
             // Configurar el aspecto del gráfico
             chart1.BackColor = Color.Teal;
-            chartArea.BackColor = Color.CadetBlue;
+            chartArea.BackColor = Color.LightGray;
             chartArea.AxisY.TitleForeColor = Color.White;
             chartArea.AxisY.TitleFont = new Font(chartArea.AxisY.TitleFont, FontStyle.Bold);
             chartArea.AxisX.TitleFont = new Font(chartArea.AxisY.TitleFont, FontStyle.Bold);
