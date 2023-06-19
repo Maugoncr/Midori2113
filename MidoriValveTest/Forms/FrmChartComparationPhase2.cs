@@ -57,6 +57,16 @@ namespace MidoriValveTest.Forms
 
         private void ShowOpenFileDialog()
         {
+            checkBoxManualAxis.Checked = false;
+
+            txtAxisXMax.Enabled = false;
+            txtAxisXMin.Enabled = false;
+
+            txtAxisYMax.Enabled = false;
+            txtAxisYMin.Enabled = false;
+
+            btnApplyAxis.Enabled = false;
+
             rutaArchivo = rutaCompareChartFileFiltered;
             LoadChartData();
         }
@@ -113,7 +123,7 @@ namespace MidoriValveTest.Forms
             chartArea.AxisX.ScrollBar.Enabled = true;
 
             // Configurar el aspecto del gráfico
-            chart1.BackColor = Color.Teal;
+            chart1.BackColor = Color.DimGray;
             chartArea.BackColor = Color.LightGray;
             chartArea.AxisY.TitleForeColor = Color.White;
             chartArea.AxisY.TitleFont = new Font(chartArea.AxisY.TitleFont, FontStyle.Bold);
@@ -171,7 +181,7 @@ namespace MidoriValveTest.Forms
             }
 
             Legend legend = chart1.Legends[0];
-            legend.BackColor = Color.CadetBlue;
+            legend.BackColor = Color.DimGray;
             legend.ForeColor = Color.White;
             legend.Font = new Font("Microsoft Sans Serif", 8);
             legend.Font = new Font(legend.Font, FontStyle.Bold);
@@ -279,6 +289,89 @@ namespace MidoriValveTest.Forms
         {
             CheckBox checkBox = (CheckBox)sender;
             LogicRadio(checkBox);
+        }
+
+        private void checkBoxManualAxis_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxManualAxis.Checked)
+            {
+                txtAxisXMax.Enabled = true;
+                txtAxisXMin.Enabled = true;
+                txtAxisYMax.Enabled = true;
+                txtAxisYMin.Enabled = true;
+                btnApplyAxis.Enabled = true;
+            }
+            else
+            {
+                // Obtener el máximo valor en el eje X
+                double maxX = chart1.Series.SelectMany(series => series.Points).Max(point => point.XValue);
+
+                //// Obtener el máximo valor en el eje Y
+                double maxY = chart1.Series.SelectMany(series => series.Points).Max(point => point.YValues.Max());
+
+                // Ajustar los rangos de los ejes X e Y
+                chart1.ChartAreas[0].AxisX.Minimum = 0;
+                chart1.ChartAreas[0].AxisY.Minimum = 0;
+
+                chart1.ChartAreas[0].AxisX.Maximum = (int)Math.Ceiling(maxX + 5);
+                chart1.ChartAreas[0].AxisY.Maximum = (int)Math.Ceiling(maxY + 20); 
+
+                txtAxisXMax.Enabled = false; txtAxisXMax.Clear();
+                txtAxisXMin.Enabled = false; txtAxisXMin.Clear();
+                txtAxisYMax.Enabled = false; txtAxisYMax.Clear();
+                txtAxisYMin.Enabled = false; txtAxisYMin.Clear();
+                btnApplyAxis.Enabled = false;
+            }
+        }
+
+        private void btnApplyAxis_Click(object sender, EventArgs e)
+        {
+            double minX = Convert.ToDouble(txtAxisXMin.Text);
+            double maxX = Convert.ToDouble(txtAxisXMax.Text);
+            double minY = Convert.ToDouble(txtAxisYMin.Text);
+            double maxY = Convert.ToDouble(txtAxisYMax.Text);
+
+            // Asignar los valores a los ejes X e Y del Chart
+            chart1.ChartAreas[0].AxisX.Minimum = minX;
+            chart1.ChartAreas[0].AxisX.Maximum = maxX;
+            chart1.ChartAreas[0].AxisY.Minimum = minY;
+            chart1.ChartAreas[0].AxisY.Maximum = maxY;
+        }
+
+        private void txtAxisXMax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '\b')
+            {
+                // Cancelar el evento KeyPress si no es un número, un punto o la tecla de borrar
+                e.Handled = true;
+            }
+        }
+
+        private void txtAxisXMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '\b')
+            {
+                // Cancelar el evento KeyPress si no es un número, un punto o la tecla de borrar
+                e.Handled = true;
+            }
+        }
+
+        private void txtAxisYMax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '\b')
+            {
+                // Cancelar el evento KeyPress si no es un número, un punto o la tecla de borrar
+                e.Handled = true;
+            }
+        }
+
+        private void txtAxisYMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '\b')
+            {
+                // Cancelar el evento KeyPress si no es un número, un punto o la tecla de borrar
+                e.Handled = true;
+            }
         }
     }
 }

@@ -117,7 +117,7 @@ namespace MidoriValveTest.Forms
 
                             }
 
-                            MessageBoxMaugoncr.Show("Successfully created filtered file.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //MessageBoxMaugoncr.Show("Successfully created filtered file.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
