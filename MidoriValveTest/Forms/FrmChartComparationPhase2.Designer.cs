@@ -58,16 +58,16 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.checkBoxManualAxis = new System.Windows.Forms.CheckBox();
-            this.txtAxisXMax = new System.Windows.Forms.TextBox();
-            this.txtAxisYMax = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnApplyAxis = new FontAwesome.Sharp.IconButton();
-            this.txtAxisXMin = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtAxisYMin = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtAxisXMin = new System.Windows.Forms.TextBox();
+            this.btnApplyAxis = new FontAwesome.Sharp.IconButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtAxisYMax = new System.Windows.Forms.TextBox();
+            this.txtAxisXMax = new System.Windows.Forms.TextBox();
+            this.checkBoxManualAxis = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -270,9 +270,9 @@
             this.panel5.Controls.Add(this.checkBox3);
             this.panel5.Controls.Add(this.checkBox5);
             this.panel5.Controls.Add(this.checkBox4);
-            this.panel5.Location = new System.Drawing.Point(1366, 236);
+            this.panel5.Location = new System.Drawing.Point(1464, 334);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(143, 413);
+            this.panel5.Size = new System.Drawing.Size(143, 406);
             this.panel5.TabIndex = 24;
             // 
             // checkBox10
@@ -382,10 +382,100 @@
             this.panel9.Controls.Add(this.txtAxisYMax);
             this.panel9.Controls.Add(this.txtAxisXMax);
             this.panel9.Controls.Add(this.checkBoxManualAxis);
-            this.panel9.Location = new System.Drawing.Point(1545, 295);
+            this.panel9.Location = new System.Drawing.Point(1389, 116);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(143, 300);
+            this.panel9.Size = new System.Drawing.Size(279, 212);
             this.panel9.TabIndex = 32;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(13, 105);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(56, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Axis Y Min";
+            // 
+            // txtAxisYMin
+            // 
+            this.txtAxisYMin.Location = new System.Drawing.Point(16, 123);
+            this.txtAxisYMin.Name = "txtAxisYMin";
+            this.txtAxisYMin.Size = new System.Drawing.Size(116, 20);
+            this.txtAxisYMin.TabIndex = 8;
+            this.txtAxisYMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAxisYMin_KeyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(13, 53);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Axis X Min";
+            // 
+            // txtAxisXMin
+            // 
+            this.txtAxisXMin.Location = new System.Drawing.Point(16, 70);
+            this.txtAxisXMin.Name = "txtAxisXMin";
+            this.txtAxisXMin.Size = new System.Drawing.Size(116, 20);
+            this.txtAxisXMin.TabIndex = 6;
+            this.txtAxisXMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAxisXMin_KeyPress);
+            // 
+            // btnApplyAxis
+            // 
+            this.btnApplyAxis.BackColor = System.Drawing.Color.White;
+            this.btnApplyAxis.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnApplyAxis.FlatAppearance.BorderSize = 0;
+            this.btnApplyAxis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApplyAxis.ForeColor = System.Drawing.Color.DimGray;
+            this.btnApplyAxis.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnApplyAxis.IconColor = System.Drawing.Color.Black;
+            this.btnApplyAxis.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnApplyAxis.Location = new System.Drawing.Point(105, 171);
+            this.btnApplyAxis.Name = "btnApplyAxis";
+            this.btnApplyAxis.Size = new System.Drawing.Size(75, 23);
+            this.btnApplyAxis.TabIndex = 5;
+            this.btnApplyAxis.Text = "Apply";
+            this.btnApplyAxis.UseVisualStyleBackColor = false;
+            this.btnApplyAxis.Click += new System.EventHandler(this.btnApplyAxis_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(148, 105);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Axis Y Max";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(148, 53);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Axis X Max";
+            // 
+            // txtAxisYMax
+            // 
+            this.txtAxisYMax.Location = new System.Drawing.Point(151, 123);
+            this.txtAxisYMax.Name = "txtAxisYMax";
+            this.txtAxisYMax.Size = new System.Drawing.Size(116, 20);
+            this.txtAxisYMax.TabIndex = 2;
+            this.txtAxisYMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAxisYMax_KeyPress);
+            // 
+            // txtAxisXMax
+            // 
+            this.txtAxisXMax.Location = new System.Drawing.Point(151, 70);
+            this.txtAxisXMax.Name = "txtAxisXMax";
+            this.txtAxisXMax.Size = new System.Drawing.Size(116, 20);
+            this.txtAxisXMax.TabIndex = 1;
+            this.txtAxisXMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAxisXMax_KeyPress);
             // 
             // checkBoxManualAxis
             // 
@@ -398,96 +488,6 @@
             this.checkBoxManualAxis.Text = "Active Manual Axis";
             this.checkBoxManualAxis.UseVisualStyleBackColor = true;
             this.checkBoxManualAxis.CheckedChanged += new System.EventHandler(this.checkBoxManualAxis_CheckedChanged);
-            // 
-            // txtAxisXMax
-            // 
-            this.txtAxisXMax.Location = new System.Drawing.Point(16, 72);
-            this.txtAxisXMax.Name = "txtAxisXMax";
-            this.txtAxisXMax.Size = new System.Drawing.Size(116, 20);
-            this.txtAxisXMax.TabIndex = 1;
-            this.txtAxisXMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAxisXMax_KeyPress);
-            // 
-            // txtAxisYMax
-            // 
-            this.txtAxisYMax.Location = new System.Drawing.Point(16, 172);
-            this.txtAxisYMax.Name = "txtAxisYMax";
-            this.txtAxisYMax.Size = new System.Drawing.Size(116, 20);
-            this.txtAxisYMax.TabIndex = 2;
-            this.txtAxisYMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAxisYMax_KeyPress);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(13, 55);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Axis X Max";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(13, 154);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Axis Y Max";
-            // 
-            // btnApplyAxis
-            // 
-            this.btnApplyAxis.BackColor = System.Drawing.Color.White;
-            this.btnApplyAxis.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnApplyAxis.FlatAppearance.BorderSize = 0;
-            this.btnApplyAxis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApplyAxis.ForeColor = System.Drawing.Color.DimGray;
-            this.btnApplyAxis.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnApplyAxis.IconColor = System.Drawing.Color.Black;
-            this.btnApplyAxis.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnApplyAxis.Location = new System.Drawing.Point(34, 263);
-            this.btnApplyAxis.Name = "btnApplyAxis";
-            this.btnApplyAxis.Size = new System.Drawing.Size(75, 23);
-            this.btnApplyAxis.TabIndex = 5;
-            this.btnApplyAxis.Text = "Apply";
-            this.btnApplyAxis.UseVisualStyleBackColor = false;
-            this.btnApplyAxis.Click += new System.EventHandler(this.btnApplyAxis_Click);
-            // 
-            // txtAxisXMin
-            // 
-            this.txtAxisXMin.Location = new System.Drawing.Point(16, 119);
-            this.txtAxisXMin.Name = "txtAxisXMin";
-            this.txtAxisXMin.Size = new System.Drawing.Size(116, 20);
-            this.txtAxisXMin.TabIndex = 6;
-            this.txtAxisXMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAxisXMin_KeyPress);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(13, 102);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 13);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Axis X Min";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(13, 204);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 13);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Axis Y Min";
-            // 
-            // txtAxisYMin
-            // 
-            this.txtAxisYMin.Location = new System.Drawing.Point(16, 222);
-            this.txtAxisYMin.Name = "txtAxisYMin";
-            this.txtAxisYMin.Size = new System.Drawing.Size(116, 20);
-            this.txtAxisYMin.TabIndex = 8;
-            this.txtAxisYMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAxisYMin_KeyPress);
             // 
             // FrmChartComparationPhase2
             // 

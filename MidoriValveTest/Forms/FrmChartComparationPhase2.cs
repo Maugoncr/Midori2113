@@ -326,16 +326,27 @@ namespace MidoriValveTest.Forms
 
         private void btnApplyAxis_Click(object sender, EventArgs e)
         {
-            double minX = Convert.ToDouble(txtAxisXMin.Text);
-            double maxX = Convert.ToDouble(txtAxisXMax.Text);
-            double minY = Convert.ToDouble(txtAxisYMin.Text);
-            double maxY = Convert.ToDouble(txtAxisYMax.Text);
-
             // Asignar los valores a los ejes X e Y del Chart
-            chart1.ChartAreas[0].AxisX.Minimum = minX;
-            chart1.ChartAreas[0].AxisX.Maximum = maxX;
-            chart1.ChartAreas[0].AxisY.Minimum = minY;
-            chart1.ChartAreas[0].AxisY.Maximum = maxY;
+            if (!string.IsNullOrEmpty(txtAxisXMax.Text))
+            {
+                double maxX = Convert.ToDouble(txtAxisXMax.Text);
+                chart1.ChartAreas[0].AxisX.Maximum = maxX;
+            }
+            if (!string.IsNullOrEmpty(txtAxisXMin.Text))
+            {
+                double minX = Convert.ToDouble(txtAxisXMin.Text);
+                chart1.ChartAreas[0].AxisX.Minimum = minX;
+            }
+            if (!string.IsNullOrEmpty(txtAxisYMax.Text))
+            {
+                double maxY = Convert.ToDouble(txtAxisYMax.Text);
+                chart1.ChartAreas[0].AxisY.Maximum = maxY;
+            }
+            if (!string.IsNullOrEmpty(txtAxisYMin.Text))
+            {
+                double minY = Convert.ToDouble(txtAxisYMin.Text);
+                chart1.ChartAreas[0].AxisY.Minimum = minY;
+            }
         }
 
         private void txtAxisXMax_KeyPress(object sender, KeyPressEventArgs e)
