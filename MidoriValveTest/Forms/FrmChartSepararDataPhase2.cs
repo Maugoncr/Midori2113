@@ -416,7 +416,15 @@ namespace MidoriValveTest.Forms
                             }
                             else
                             {
-                                valores.Add(valor);
+                                if (valores.Count == 0 || valor >= valores[valores.Count - 1])
+                                {
+                                    valores.Add(valor);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Cycles should be positioned from smallest to largest.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
                             }
                         }
                         else

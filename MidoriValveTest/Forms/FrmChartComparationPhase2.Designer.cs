@@ -98,7 +98,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1723, 34);
+            this.panel1.Size = new System.Drawing.Size(1584, 34);
             this.panel1.TabIndex = 2;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -111,7 +111,7 @@
             this.btnCloseFrm.IconColor = System.Drawing.Color.White;
             this.btnCloseFrm.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCloseFrm.IconSize = 30;
-            this.btnCloseFrm.Location = new System.Drawing.Point(1688, 0);
+            this.btnCloseFrm.Location = new System.Drawing.Point(1549, 0);
             this.btnCloseFrm.Name = "btnCloseFrm";
             this.btnCloseFrm.Size = new System.Drawing.Size(35, 34);
             this.btnCloseFrm.TabIndex = 42;
@@ -158,7 +158,7 @@
             this.checkBox8.AutoSize = true;
             this.checkBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox8.ForeColor = System.Drawing.Color.White;
-            this.checkBox8.Location = new System.Drawing.Point(17, 295);
+            this.checkBox8.Location = new System.Drawing.Point(47, 295);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(115, 24);
             this.checkBox8.TabIndex = 23;
@@ -171,7 +171,7 @@
             this.checkBox7.AutoSize = true;
             this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox7.ForeColor = System.Drawing.Color.White;
-            this.checkBox7.Location = new System.Drawing.Point(17, 255);
+            this.checkBox7.Location = new System.Drawing.Point(47, 255);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(115, 24);
             this.checkBox7.TabIndex = 22;
@@ -184,7 +184,7 @@
             this.checkBox6.AutoSize = true;
             this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox6.ForeColor = System.Drawing.Color.White;
-            this.checkBox6.Location = new System.Drawing.Point(17, 215);
+            this.checkBox6.Location = new System.Drawing.Point(47, 215);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(115, 24);
             this.checkBox6.TabIndex = 21;
@@ -197,7 +197,7 @@
             this.checkBox5.AutoSize = true;
             this.checkBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox5.ForeColor = System.Drawing.Color.White;
-            this.checkBox5.Location = new System.Drawing.Point(17, 175);
+            this.checkBox5.Location = new System.Drawing.Point(47, 175);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(115, 24);
             this.checkBox5.TabIndex = 19;
@@ -210,7 +210,7 @@
             this.checkBox4.AutoSize = true;
             this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox4.ForeColor = System.Drawing.Color.White;
-            this.checkBox4.Location = new System.Drawing.Point(17, 135);
+            this.checkBox4.Location = new System.Drawing.Point(47, 135);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(115, 24);
             this.checkBox4.TabIndex = 20;
@@ -223,7 +223,7 @@
             this.checkBox3.AutoSize = true;
             this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox3.ForeColor = System.Drawing.Color.White;
-            this.checkBox3.Location = new System.Drawing.Point(17, 95);
+            this.checkBox3.Location = new System.Drawing.Point(47, 95);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(115, 24);
             this.checkBox3.TabIndex = 18;
@@ -236,7 +236,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox2.ForeColor = System.Drawing.Color.White;
-            this.checkBox2.Location = new System.Drawing.Point(17, 55);
+            this.checkBox2.Location = new System.Drawing.Point(47, 55);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(115, 24);
             this.checkBox2.TabIndex = 17;
@@ -249,7 +249,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(17, 15);
+            this.checkBox1.Location = new System.Drawing.Point(47, 15);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(115, 24);
             this.checkBox1.TabIndex = 16;
@@ -270,9 +270,9 @@
             this.panel5.Controls.Add(this.checkBox3);
             this.panel5.Controls.Add(this.checkBox5);
             this.panel5.Controls.Add(this.checkBox4);
-            this.panel5.Location = new System.Drawing.Point(1464, 334);
+            this.panel5.Location = new System.Drawing.Point(1357, 334);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(143, 406);
+            this.panel5.Size = new System.Drawing.Size(207, 406);
             this.panel5.TabIndex = 24;
             // 
             // checkBox10
@@ -280,7 +280,7 @@
             this.checkBox10.AutoSize = true;
             this.checkBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox10.ForeColor = System.Drawing.Color.White;
-            this.checkBox10.Location = new System.Drawing.Point(17, 375);
+            this.checkBox10.Location = new System.Drawing.Point(47, 375);
             this.checkBox10.Name = "checkBox10";
             this.checkBox10.Size = new System.Drawing.Size(125, 24);
             this.checkBox10.TabIndex = 25;
@@ -293,7 +293,7 @@
             this.checkBox9.AutoSize = true;
             this.checkBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox9.ForeColor = System.Drawing.Color.White;
-            this.checkBox9.Location = new System.Drawing.Point(17, 335);
+            this.checkBox9.Location = new System.Drawing.Point(47, 335);
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Size = new System.Drawing.Size(115, 24);
             this.checkBox9.TabIndex = 24;
@@ -382,16 +382,16 @@
             this.panel9.Controls.Add(this.txtAxisYMax);
             this.panel9.Controls.Add(this.txtAxisXMax);
             this.panel9.Controls.Add(this.checkBoxManualAxis);
-            this.panel9.Location = new System.Drawing.Point(1389, 116);
+            this.panel9.Location = new System.Drawing.Point(1357, 116);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(279, 212);
+            this.panel9.Size = new System.Drawing.Size(207, 212);
             this.panel9.TabIndex = 32;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(13, 105);
+            this.label8.Location = new System.Drawing.Point(32, 107);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 13);
             this.label8.TabIndex = 9;
@@ -399,9 +399,9 @@
             // 
             // txtAxisYMin
             // 
-            this.txtAxisYMin.Location = new System.Drawing.Point(16, 123);
+            this.txtAxisYMin.Location = new System.Drawing.Point(21, 125);
             this.txtAxisYMin.Name = "txtAxisYMin";
-            this.txtAxisYMin.Size = new System.Drawing.Size(116, 20);
+            this.txtAxisYMin.Size = new System.Drawing.Size(80, 20);
             this.txtAxisYMin.TabIndex = 8;
             this.txtAxisYMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAxisYMin_KeyPress);
             // 
@@ -409,7 +409,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(13, 53);
+            this.label7.Location = new System.Drawing.Point(32, 56);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 7;
@@ -417,9 +417,9 @@
             // 
             // txtAxisXMin
             // 
-            this.txtAxisXMin.Location = new System.Drawing.Point(16, 70);
+            this.txtAxisXMin.Location = new System.Drawing.Point(21, 72);
             this.txtAxisXMin.Name = "txtAxisXMin";
-            this.txtAxisXMin.Size = new System.Drawing.Size(116, 20);
+            this.txtAxisXMin.Size = new System.Drawing.Size(80, 20);
             this.txtAxisXMin.TabIndex = 6;
             this.txtAxisXMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAxisXMin_KeyPress);
             // 
@@ -433,7 +433,7 @@
             this.btnApplyAxis.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnApplyAxis.IconColor = System.Drawing.Color.Black;
             this.btnApplyAxis.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnApplyAxis.Location = new System.Drawing.Point(105, 171);
+            this.btnApplyAxis.Location = new System.Drawing.Point(70, 167);
             this.btnApplyAxis.Name = "btnApplyAxis";
             this.btnApplyAxis.Size = new System.Drawing.Size(75, 23);
             this.btnApplyAxis.TabIndex = 5;
@@ -445,7 +445,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(148, 105);
+            this.label6.Location = new System.Drawing.Point(117, 107);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 13);
             this.label6.TabIndex = 4;
@@ -455,7 +455,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(148, 53);
+            this.label5.Location = new System.Drawing.Point(117, 56);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 3;
@@ -463,17 +463,17 @@
             // 
             // txtAxisYMax
             // 
-            this.txtAxisYMax.Location = new System.Drawing.Point(151, 123);
+            this.txtAxisYMax.Location = new System.Drawing.Point(110, 125);
             this.txtAxisYMax.Name = "txtAxisYMax";
-            this.txtAxisYMax.Size = new System.Drawing.Size(116, 20);
+            this.txtAxisYMax.Size = new System.Drawing.Size(80, 20);
             this.txtAxisYMax.TabIndex = 2;
             this.txtAxisYMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAxisYMax_KeyPress);
             // 
             // txtAxisXMax
             // 
-            this.txtAxisXMax.Location = new System.Drawing.Point(151, 70);
+            this.txtAxisXMax.Location = new System.Drawing.Point(110, 72);
             this.txtAxisXMax.Name = "txtAxisXMax";
-            this.txtAxisXMax.Size = new System.Drawing.Size(116, 20);
+            this.txtAxisXMax.Size = new System.Drawing.Size(80, 20);
             this.txtAxisXMax.TabIndex = 1;
             this.txtAxisXMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAxisXMax_KeyPress);
             // 
@@ -481,7 +481,7 @@
             // 
             this.checkBoxManualAxis.AutoSize = true;
             this.checkBoxManualAxis.ForeColor = System.Drawing.Color.White;
-            this.checkBoxManualAxis.Location = new System.Drawing.Point(16, 20);
+            this.checkBoxManualAxis.Location = new System.Drawing.Point(47, 16);
             this.checkBoxManualAxis.Name = "checkBoxManualAxis";
             this.checkBoxManualAxis.Size = new System.Drawing.Size(116, 17);
             this.checkBoxManualAxis.TabIndex = 0;
@@ -494,7 +494,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1723, 829);
+            this.ClientSize = new System.Drawing.Size(1584, 829);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel8);

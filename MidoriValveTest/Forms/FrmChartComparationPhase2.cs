@@ -161,6 +161,8 @@ namespace MidoriValveTest.Forms
                 { 10, Color.Magenta}
             };
 
+            int counterColor = 0;
+
             foreach (int ciclo in ciclosDistintos)
             {
                 string serieName = "Cycle #" + ciclo;
@@ -168,8 +170,44 @@ namespace MidoriValveTest.Forms
                 serie.ChartType = SeriesChartType.Spline;
                 // Configurar el grosor de la línea de la serie
                 serie.BorderWidth = 2; // Ajusta el grosor según tus necesidades
-                // Configurar el color de la línea de la serie
-                serie.Color = cycleColors[ciclo];
+                                       // Configurar el color de la línea de la serie
+                                       // serie.Color = cycleColors[ciclo];
+                counterColor++;
+                switch (counterColor)
+                {
+                    case 1:
+                        serie.Color = Color.Red;
+                        break;
+                    case 2:
+                        serie.Color = Color.Blue;
+                        break;
+                    case 3:
+                        serie.Color = Color.Yellow;
+                        break;
+                    case 4:
+                        serie.Color = Color.Green;
+                        break;
+                    case 5:
+                        serie.Color = Color.Purple;
+                        break;
+                    case 6:
+                        serie.Color = Color.Cyan;
+                        break;
+                    case 7:
+                        serie.Color = Color.Orange;
+                        break;
+                    case 8:
+                        serie.Color = Color.Maroon;
+                        break;
+                    case 9:
+                        serie.Color = Color.Lime;
+                        break;
+                    case 10:
+                        serie.Color = Color.Magenta;
+                        break;
+                }
+
+
 
                 for (int i = 0; i < presion.Count; i++)
                 {
